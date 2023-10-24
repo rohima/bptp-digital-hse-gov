@@ -10,8 +10,36 @@
     {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
 
     <h1 class="govuk-heading-xl">
-      {{ serviceName }} test
+      {{ serviceName }} prototype
     </h1>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">APPLICATIONS JOURNEY</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Date</th>
+          <th scope="col" class="govuk-table__header">Link</th>
+          <th scope="col" class="govuk-table__header">Details</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">15/09/23</th>
+          <td class="govuk-table__cell"><a href="building-control/index-latest">Latest</a></td>
+          <td class="govuk-table__cell">Sprint 02 - Go-live</td>
+        </tr>
+        
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">17/07/23</th>
+          <td class="govuk-table__cell"><a href="building-control/index-v1">Version 1</a></td>
+          <td class="govuk-table__cell">Sprint 01 - New prototype build</td>
+        </tr>
+       
+        
+      </tbody>
+    </table>
+
+
 
     {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
   </div>
