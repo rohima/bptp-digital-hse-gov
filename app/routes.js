@@ -10,6 +10,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Specific routes
 
+router.use('/', require('./views/routes'));
 router.use('/crd1', require('./views/crd1/routes'));
 
 // Add your routes here

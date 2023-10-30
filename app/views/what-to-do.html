@@ -1,0 +1,85 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What are you applying to do? – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {# <span class="govuk-caption-l">Building details</span> #}
+      
+
+      <form class="form" method="post">
+        
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {{ govukRadios({
+          name: "typeOfApplication",
+          id: "typeOfApplication",
+          fieldset: {
+            legend: {
+              text: "What are you applying to do?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          error: {
+            text: "Select an option"
+          },
+          items: [
+            {
+              value: "CRD1",
+              text: "Apply for authorisation of a new PPP"
+            },
+            {
+              value: "CRX",
+              text: "Apply to make a change to an existing PPP"
+            },
+            {
+              value: "CRX",
+              text: "Make an administrative change to an existing authorisation"
+            },
+            {
+              value: "CRX",
+              text: "Apply for an extension of authorisation for minor use"
+            },
+            {
+              value: "CRX",
+              text: "Apply for a new inclusion on the Official List of Adjuvants or make a change to an existing inclusion"
+            },
+            {
+              value: "CRX",
+              text: "CRD 8 Tech equiv GB only (needs to be phrased in GDS style)"
+            },
+            {
+              value: "CRX",
+              text: "Apply for an Emergency Authorisation under Article 53"
+            },
+            {
+              value: "CRX",
+              text: "Apply to renew an existing PPP"
+            },
+            {
+              value: "CRX",
+              text: "Apply to change Maximum Residue Levels (MRLs), for new MRLs or for import tolerances"
+            }
+          ]
+        }) }} 
+
+        
+        
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

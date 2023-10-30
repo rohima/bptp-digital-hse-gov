@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Do you have your building control application reference? – Manage building control for a higher-risk building – GOV.UK 
+Do you have your application reference? – {{serviceName}} – GOV.UK 
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,11 +15,11 @@ Do you have your building control application reference? – Manage building con
       <form class="form" method="post">
 
       {{ govukRadios({
-        name: "buildingReference",
-        id: "buildingReference",
+        name: "applicationReference",
+        id: "applicationReference",
         fieldset: {
           legend: {
-            text: "Do you have your building control application reference?",
+            text: "Do you have an application reference?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -35,7 +35,7 @@ Do you have your building control application reference? – Manage building con
           },
           {
             value: "noReference",
-            text: "No - I need to start a new building control application"
+            text: "No - I need to start a new application"
           }
         ]
       }) }} 
