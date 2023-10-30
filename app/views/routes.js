@@ -10,12 +10,20 @@ router.post('/start', function (req, res) {
 
 // application-reference
 
-router.post('/start', function (req, res) {
-    res.redirect('application-reference');
+router.post('/application-reference', function (req, res) {
+    let applicationReference = req.session.data.applicationReference;
+    res.redirect('what-to-do');
   
 })
 
-kjhskuh
+// what-to-do
+
+router.post('/what-to-do', function (req, res) {
+    res.redirect('crd1/latest/applicant-type');
+  
+})
+
+// 
 
 
 module.exports = router

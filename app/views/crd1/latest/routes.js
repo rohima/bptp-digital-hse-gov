@@ -2,78 +2,324 @@ const express = require('express')
 const router = express.Router()
 
 
-// ----------------- XXXXXXXXXXXXXXXXXXXXXXXXXXXXX ----------------- //
+// ----------------- APPLICATION JOURNEY ----------------- //
+
+// applicant-type
+  
+router.post('/applicant-type', function (req, res) {
+  
+  let applicantType = req.session.data.applicantType;
+  res.redirect('application-name-contact');
+
+})
+
+// application-name-contact
+
+router.post('/application-name-contact', function (req, res) {
+  
+  let applicantName = req.session.data.applicantName;
+  let applicantFirstName = req.session.data.applicantFirstName;
+  let applicantLastName = req.session.data.applicantLastName;
+  res.redirect('application-type-of-organisation');
+
+})
+
+// application-type-of-organisation
+
+router.post('/application-type-of-organisation', function (req, res) {
+  
+  let applicantCompanyType = req.session.data.applicantCompanyType;
+  res.redirect('application-company');
+
+})
+
+// application-company
+
+router.post('/application-company', function (req, res) {
+  
+  let applicantCompanyName = req.session.data.applicantCompanyName;
+  res.redirect('application-address-postcode');
+
+})
+
+// application-address-postcode
+
+router.post('/application-address-postcode', function (req, res) {
+  
+  let applicantCompanyPostcode = req.session.data.applicantCompanyPostcode;
+  res.redirect('application-address-list');
+
+})
+
+// application-address-list
+
+router.post('/application-address-list', function (req, res) {
+  
+  let applicantCompanyAddressList = req.session.data.applicantCompanyAddressList;
+  res.redirect('application-address-confirm');
+
+})
+
+// application-address-confirm
+
+router.post('/application-address-confirm', function (req, res) {
+  
+  let applicantCompanyAddressConfirm = req.session.data.applicantCompanyAddressConfirm;
+  res.redirect('application-telephone');
+
+})
+
+// application-telephone
+
+router.post('/application-telephone', function (req, res) {
+  
+  let applicantTelephone = req.session.data.applicantTelephone;
+  res.redirect('application-email');
+
+})
+
+// application-email
+
+router.post('/application-email', function (req, res) {
+  
+  let applicantEmail = req.session.data.applicantEmail;
+  res.redirect('application-check-answers');
+
+})
+
+// application-check-answers
+
+router.post('/application-check-answers', function (req, res) {
+  
+  let applicantCheckAnswers = req.session.data.applicantCheckAnswers;
+  res.redirect('send-verify-code');
+
+})
+
+// ----------------- SECURTY VERIFICATION ----------------- //
+
+// send-verify-code
+
+router.post('/send-verify-code', function (req, res) {
+  
+  let applicantEmail = req.session.data.applicantEmail;
+  res.redirect('receive-verify-code');
+
+})
+
+// receive-verify-code
+
+router.post('/receive-verify-code', function (req, res) {
+  
+  let securityCode = req.session.data.securityCode;
+  res.redirect('task-list');
+
+})
+
+// task-list
+
+router.post('/task-list', function (req, res) {
+  
+  let taskList = req.session.data.taskList;
+  res.redirect('task-list');
+
+})
+
+
+// ----------------- PRODUCT INFORMATION ----------------- //
+
+// application-market-area
+
+router.post('/application-market-area', function (req, res) {
+  
+  let marketArea = req.session.data.marketArea;
+  res.redirect('auth-holder-same');
+
+})
+
+// auth-holder-same
+
+router.post('/auth-holder-same', function (req, res) {
+  
+  let authHolderSame = req.session.data.authHolderSame;
+  res.redirect('auth-holder-check-answers');
+
+})
+
+// auth-holder-check-answers
+
+router.post('/auth-holder-check-answers', function (req, res) {
+  
+  let authHolderCheckAnswers = req.session.data.authHolderCheckAnswers;
+  res.redirect('marketing-co-same');
+
+})
+
+
+// marketing-co-same
+
+router.post('/marketing-co-same', function (req, res) {
+  
+  let marketingCoSame = req.session.data.marketingCoSame;
+  res.redirect('marketing-co-check-answers');
+
+})
+
+// marketing-co-check-answers
+
+router.post('/marketing-co-check-answers', function (req, res) {
+  
+  let marketingCoCheckAnswers = req.session.data.marketingCoCheckAnswers;
+  res.redirect('product-name');
+
+})
+
+// product-name
+
+router.post('/product-name', function (req, res) {
+  
+  let productName = req.session.data.productName;
+  let productCode = req.session.data.productCode;
+  res.redirect('product-use');
+
+})
+
+// product-application-reason - NOT USED
+
+router.post('/product-application-reason', function (req, res) {
+  
+  let productApplicationReason = req.session.data.productApplicationReason;
+  res.redirect('product-use');
+
+})
+
+// product-use
+
+router.post('/product-use', function (req, res) {
+  
+  let productUser = req.session.data.productUser;
+  res.redirect('product-proposed-use');
+
+})
+
+// product-proposed-use
+
+router.post('/product-proposed-use', function (req, res) {
+  
+  let productProposedUse = req.session.data.productProposedUse;
+  res.redirect('product-measurement');
+
+})
+
+// ----------------- PACKAGING ----------------- //
+
+// product-measurement
+
+router.post('/product-measurement', function (req, res) {
+  
+  let productMeasurement = req.session.data.productMeasurement;
+  res.redirect('product-volume-range');
+
+})
+
+// product-volume-range
+
+router.post('/product-volume-range', function (req, res) {
+  
+  let productVolume = req.session.data.productVolume;
+  res.redirect('product-inner-material');
+
+})
+
+// product-inner-material
+
+router.post('/product-inner-material', function (req, res) {
+  
+  let productInnerPackaging = req.session.data.productInnerPackaging;
+  res.redirect('product-outer-material');
+
+})
+
+// product-outer-material
+
+router.post('/product-outer-material', function (req, res) {
+  
+  let productOuterPackaging = req.session.data.productOuterPackaging;
+  res.redirect('product-material-add-another');
+
+})
+
+// product-material-add-another
+
+router.post('/product-material-add-another', function (req, res) {
+  
+  let productPackagingAddAnother = req.session.data.productPackagingAddAnother;
+  res.redirect('product-mrl-needed');
+
+})
+
+// product-mrl-needed
+
+router.post('/product-mrl-needed', function (req, res) {
+  
+  let productMrlNeeded = req.session.data.productMrlNeeded;
+  if (productMrlNeeded == "No") {
+    res.redirect('product-check-answers');
+  } else {
+    res.redirect('product-commodity-code-name');
+  }
+
+})
+
+// product-commodity-code-name
+
+router.post('/product-commodity-code-name', function (req, res) {
+  
+  let productCommodityCodeName = req.session.data.productCommodityCodeName;
+  res.redirect('product-mrl-change');
+
+})
+
+// product-mrl-change
+
+router.post('/product-mrl-change', function (req, res) {
+  
+  let productMrlChange = req.session.data.productMrlChange;
+  let productMrlCurrent = req.session.data.productMrlCurrent;
+  let productMrlProposed = req.session.data.productMrlProposed;
+  res.redirect('product-mrl-currently-in-force');
+
+})
+
+// product-mrl-currently-in-force
+
+router.post('/product-mrl-currently-in-force', function (req, res) {
+  
+  let productMrlInForce = req.session.data.productMrlInForce;
+  res.redirect('product-mrl-change');
+
+})
+
+// product-mrl-currently-in-force-add-another
+
+// product-check-answers
+
+
+
+
+
+// ----------------- LOCATION ----------------- //
+
+// ----------------- DOCUMENTS ----------------- //
+
+// ----------------- DECLARATIONS ----------------- //
 
 // ----------------- XXXXXXXXXXXXXXXXXXXXXXXXXXXXX ----------------- //
 
 // ----------------- COMPLETION CERTIFICATE JOURNEY ----------------- //
 
 
-// start-completion-certificate
 
-router.post('/start-completion-certificate', function (req, res) {
-    res.redirect('building-reference');
-  
-  })
-
-// building-reference
-  
-router.post('/building-reference', function (req, res) {
-  
-    let buildingReference = req.session.data.buildingReference;
-    res.redirect('application-reference');
-  
-  })
-
-  // ----------------- VERIFICATION ----------------- //
-
-  // application-reference
-  
-  router.post('/application-reference', function (req, res) {
-  
-    let applicationReference = req.session.data.applicationReference;
-    res.redirect('confirm-site');
-  
-  })
-
-
-// confirm-site
-  
-  router.post('/confirm-site', function (req, res) {
-    let confirmSiteName = req.session.data.confirmSiteName;
-    if (confirmSiteName == "no") {
-      res.redirect('application-reference');
-    } else {
-      res.redirect('confirm-email-address');
-    }
-  
-  })
-
-  // confirm-email-address
-
-  router.post('/confirm-email-address', function (req, res) {
-  
-    let confirmEmailAddress = req.session.data.confirmEmailAddress;
-    res.redirect('continue-saved-security');
-  
-  })
-
-  // continue-saved-security
-
-  router.post('/continue-saved-security', function (req, res) {
-  
-    let continueSecurityCode = req.session.data.continueSecurityCode;
-    res.redirect('manage-application');
-  
-  })
-
-// manage-application
-
-router.post('/manage-application', function (req, res) {
-    let manageApplication = req.session.data.manageApplication;
-    res.redirect('manage-application-choose');
-  
-  })
 
 //  manage-application-choose
 
@@ -119,330 +365,7 @@ router.post('/task-list', function (req, res) {
   
   })
 
-// ----------------- BUILDING DETAILS ----------------- //
 
-// building-name
-
-router.post('/building-name', function (req, res) {
-    let changeOfBuildingName = req.session.data.changeOfBuildingName;
-    let newBuildingName = req.session.data.newBuildingName;
-    res.redirect('building-address-postcode');
-  
-  })
-
-  // full-address - NOT USED
-
-  router.post('/full-address', function (req, res) {
-    let buildingFullAddress = req.session.data.buildingFullAddress;
-    if (buildingFullAddress == "No") {
-        res.redirect('site-coordinates');
-      } else {
-        res.redirect('building-address-postcode');
-      }
-    
-
-  })
-
-  // site-coordinates - NOT USED
-
-  router.post('/site-coordinates', function (req, res) {
-    let siteEasting = req.session.data.siteEasting;
-    let siteNorthing = req.session.data.siteNorthing;
-    res.redirect('building-name');
-
-  })
-
-
-  // building-address-postcode
-
-  router.post('/building-address-postcode', function (req, res) {
-    let buildingPostcode = req.session.data.buildingPostcode;
-    let buildingNameNumber = req.session.data.buildingNameNumber;
-    res.redirect('building-address-choose');
-
-  })
-
-  // building-address-choose
-
-  router.post('/building-address-choose', function (req, res) {
-    let buildingAddressSelect = req.session.data.buildingAddressSelect;
-    res.redirect('building-confirm-address');
-
-  })
-  
-  // building-confirm-address
-  
-  router.post('/building-confirm-address', function (req, res) {
-    let buildingAddressSelect = req.session.data.buildingAddressSelect;
-    res.redirect('building-details-check-answers');
-
-  })
-
-  // building-details-check-answers
-
-  router.post('/building-details-check-answers', function (req, res) {
-    let buildingAddressSelect = req.session.data.buildingAddressSelect;
-    res.redirect('describe-completed-work');
-
-  })
-
-
-// ----------------- COMPLETED WORK ----------------- //
-
-// new-existing-hrb - NOT USED
-
-router.post('/new-existing-hrb', function (req, res) {
-    let routeHRB = req.session.data.routeHRB;
-    if (routeHRB == "Existing HRB") {
-        res.redirect('is-high-rise-residential');
-      } else {
-        res.redirect('describe-completed-work');
-      }
-
-  })
-
-// ----------------- NEW HRB ----------------- //
-
-// describe-completed-work
-
-router.post('/describe-completed-work', function (req, res) {
-    let describeCompletedWork = req.session.data.describeCompletedWork;
-    res.redirect('completion-date');
-    
-    })
-
-    // completion-date
-
-router.post('/completion-date', function (req, res) {
-  let completionDate = req.session.data.completionDate;
-  let fullOrPartial = req.session.data.fullOrPartial;
-    if (fullOrPartial == "Partial") {
-      res.redirect('describe-remaining-work');
-    } else {
-      res.redirect('number-of-floors');
-    }
-  
-  })
-
-// describe-remaining-work
-
-router.post('/describe-remaining-work', function (req, res) {
-    let describeRemainingWork = req.session.data.describeRemainingWork;
-    res.redirect('upload-partial-occupation-plan');
-    
-    })
-
-// upload-partial-occupation-plan
-
-router.post('/upload-partial-occupation-plan', function (req, res) {
-    let uploadPartialOccupationPlan = req.session.data.uploadPartialOccupationPlan;
-    res.redirect('number-of-floors');
-    
-    })
-
-// upload-partial-occupation-statement - NOT USED
-
-router.post('/upload-partial-occupation-statement', function (req, res) {
-  let uploadPartialOccupationStatement = req.session.data.uploadPartialOccupationStatement;
-  res.redirect('number-of-floors');
-  
-  })
-  
-// number-of-floors
-
-router.post('/number-of-floors', function (req, res) {
-    let completionFloors = req.session.data.completionFloors;
-    res.redirect('height');
-    
-    })
-
-// height
-
-router.post('/height', function (req, res) {
-    let completionHeight = req.session.data.completionHeight;
-    res.redirect('residential-units');
-    
-    })
-
-// residential-units
-
-router.post('/residential-units', function (req, res) {
-    let residentialUnits = req.session.data.residentialUnits;
-    res.redirect('non-residential-units');
-    
-    })
-
-// non-residential-units
-
-router.post('/non-residential-units', function (req, res) {
-    let nonResidentialUnits = req.session.data.nonResidentialUnits;
-    res.redirect('intended-use');
-    
-    })
-
-// intended-use
-
-router.post('/intended-use', function (req, res) {
-    let intendedUse = req.session.data.intendedUse;
-    let intendedUseDescription = req.session.data.intendedUseDescription;
-    res.redirect('completed-work-check-answers');
-    
-    })
-
-// completed-work-check-answers
-
-router.post('/completed-work-check-answers', function (req, res) {
-    let completedCheckAnswers = req.session.data.completedCheckAnswers;
-    res.redirect('constructing-drain');
-    
-    })
-
-
-
-// ----------------- EXISTING HRB ----------------- //
-
-// is-high-rise-residential - NOT USED
-
-router.post('/is-high-rise-residential', function (req, res) {
-    let intendedUse = req.session.data.intendedUse;
-    res.redirect('work-complete-abc');
-    
-    })
-
-// work-complete-abc - NOT USED
-
-router.post('/is-high-rise-residential', function (req, res) {
-    let intendedUse = req.session.data.intendedUse;
-    res.redirect('work-complete-abc');
-    
-    })
-
-
-// ----------------- DRAINS, SEWERS AND LOCAL ENACTMENTS ----------------- //
-
-// constructing-drain
-
-router.post('/constructing-drain', function (req, res) {
-    let completionConstructingDrain = req.session.data.completionConstructingDrain;
-    res.redirect('location-drain');
-  
-  })
-  
-  // location-drain
-  
-  router.post('/location-drain', function (req, res) {
-    let completionLocationDrain = req.session.data.completionLocationDrain;
-    res.redirect('drainage-precaution');
-  
-  })
-  
-  // drainage-precaution
-  
-  router.post('/drainage-precaution', function (req, res) {
-    let drainPrecautionHrb = req.session.data.drainPrecautionHrb;
-    res.redirect('details-building-drainage');
-  
-  })
-  
-  // details-building-drainage
-  
-  router.post('/details-building-drainage', function (req, res) {
-    let drainPrecautionDetailsHrb = req.session.data.drainPrecautionDetailsHrb;
-    res.redirect('details-building-enactment');
-  
-  })
-  
-  // details-building-enactment
-  
-  router.post('/details-building-enactment', function (req, res) {
-    let enactmentDetailsHrb = req.session.data.enactmentDetailsHrb;
-    res.redirect('drains-sewers-enactments-check-answers');
-  
-  })
-  
-  // drains-sewers-enactments-check-answers
-  
-  router.post('/drains-sewers-enactments-check-answers', function (req, res) {
-    let completionDrainsCheckAnswers = req.session.data.completionDrainsCheckAnswers;
-      res.redirect('upload-site-location-plan');
-  
-  })
-
-
-// ----------------- DOCUMENTS ----------------- //
-
-// upload-site-location-plan
-
-router.post('/upload-site-location-plan', function (req, res) {
-    let uploadSiteLocationPlan = req.session.data.uploadSiteLocationPlan;
-    res.redirect('upload-drawings-and-plans');
-  
-})
-
-// upload-drawings-and-plans
-
-router.post('/upload-drawings-and-plans', function (req, res) {
-    let uploadDrawingsPlans = req.session.data.uploadDrawingsPlans;
-    res.redirect('work-a-or-b');
-  
-})
-
-// work-a-or-b
-router.post('/work-a-or-b', function (req, res) {
-  let workAOrB = req.session.data.workAOrB;
-  if (workAOrB == "Category B") {
-      res.redirect('documents-impacted');
-    } else {
-      res.redirect('upload-construction-control-plan');
-    }
-
-})
-
-
-// upload-construction-control-plan
-
-router.post('/upload-construction-control-plan', function (req, res) {
-    let uploadConstructionControlPlan = req.session.data.uploadConstructionControlPlan;
-    res.redirect('upload-mandatory-occurence-plan');
-  
-})
-
-// upload-mandatory-occurence-plan
-
-router.post('/upload-mandatory-occurence-plan', function (req, res) {
-    let uploadMandatoryOccurence = req.session.data.uploadMandatoryOccurence;
-    res.redirect('upload-regulations-compliance-statement');
-  
-})
-
-// upload-regulations-compliance-statement
-
-router.post('/upload-regulations-compliance-statement', function (req, res) {
-    let uploadRegComplianceStatement = req.session.data.uploadRegComplianceStatement;
-    res.redirect('upload-fire-and-emergency');
-  
-})
-
-// upload-fire-and-emergency
-
-router.post('/upload-fire-and-emergency', function (req, res) {
-    let uploadFireAndEmergency = req.session.data.uploadFireAndEmergency;
-    res.redirect('upload-change-control-plan');
-  
-})
-
-// upload-change-control-plan
-
-router.post('/upload-change-control-plan', function (req, res) {
-    let uploadChangeControlPlan = req.session.data.uploadChangeControlPlan;
-    let fullOrPartial = req.session.data.fullOrPartial;
-    if (fullOrPartial == "Partial") {
-      res.redirect('upload-partial-completion-strategy');
-    } else {
-      res.redirect('upload-change-control-log');
-    }
-   
-})
 
 
 // ----------------- MULTI DOCUMENT START ----------------- //

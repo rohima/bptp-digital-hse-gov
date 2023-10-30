@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Is {{data ['clientCompanyName'] or "[Client Company Name]"}} also the principal designer? – Manage building control for a higher-risk building – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     
+      
+ {# <span class="govuk-caption-l">Principal designer</span> #}
+ <h1 class="govuk-heading-l">Are you the authorisation holder?
+   {# {{data ['clientCompanyName'] or "[Client Company Name]"}} #}
+  </h1>
+      <form class="form" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {{ govukRadios({
+          id: "authHolderSame",
+          name: "authHolderSame",
+          fieldset: {
+            legend: {
+            }
+          },
+          items: [
+            {
+              value: "Applicants company ltd",
+              text: "Applicants company ltd",
+              hint: {
+                text: "Applicant"
+              }
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "Someone else",
+              text: "Another organisation"
+            }
+          ]
+        }) }}
+
+
+    
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+ 
+
+{% endblock %}

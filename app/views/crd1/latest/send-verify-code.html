@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Your email address  – Manage building control for a higher-risk building – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {# <span class="govuk-caption-l">Verify email address</span> #}
+<h1 class="govuk-heading-l">Your email address</h1>
+
+      
+
+      <form class="form" method="post">
+
+        <p> To secure your application and allow you to return to it later, we need to verify your email address. </p> 
+        
+        <p> To do this, we'll send you a 6-digit security code. This code will only last for 1 hour.</p>
+
+        
+          
+          {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{{ govukTextarea({
+  name: "your-email",
+  id: "your-email",
+  rows: "1",
+  label: {
+    text: "",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "We'll use this to contact you about this application. You'll need to use this email address to access the whole application."
+  }
+}) }}
+
+
+
+    
+
+        <button class="govuk-button" data-module="govuk-button">Send verification email</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
