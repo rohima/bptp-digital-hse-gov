@@ -296,15 +296,88 @@ router.post('/product-mrl-change', function (req, res) {
 router.post('/product-mrl-currently-in-force', function (req, res) {
   
   let productMrlInForce = req.session.data.productMrlInForce;
-  res.redirect('product-mrl-change');
+  res.redirect('product-mrl-currently-in-force-value');
+
+})
+
+// product-mrl-currently-in-force-value
+
+router.post('/product-mrl-currently-in-force-value', function (req, res) {
+  
+  let productMrlInForceValue = req.session.data.productMrlInForceValue;
+  res.redirect('product-mrl-currently-in-force-add-another');
 
 })
 
 // product-mrl-currently-in-force-add-another
 
+router.post('/product-mrl-currently-in-force-add-another', function (req, res) {
+  
+  let productMrlInForceAddAnother = req.session.data.productMrlInForceAddAnother;
+  res.redirect('product-check-answers');
+
+})
+
 // product-check-answers
 
+router.post('/product-check-answers', function (req, res) {
+  
+  let productCheckAnswers = req.session.data.productCheckAnswers;
+  res.redirect('formula-active-substance-name');
 
+})
+
+// ----------------- FORMULA ----------------- //
+
+// formula-active-substance-name
+
+router.post('/formula-active-substance-name', function (req, res) {
+  
+  let formulaActiveSubstanceName = req.session.data.formulaActiveSubstanceName;
+  res.redirect('formula-active-substance-source');
+
+})
+
+// formula-active-substance-source
+
+router.post('/formula-active-substance-source', function (req, res) {
+  
+  let formulaActiveSubstanceSource = req.session.data.formulaActiveSubstanceSource;
+  res.redirect('formula-active-substance-data-ownership');
+
+})
+
+// formula-active-substance-data-ownership
+
+router.post('/formula-active-substance-data-ownership', function (req, res) {
+  
+  let formulaActiveSubstanceOwnership = req.session.data.formulaActiveSubstanceOwnership;
+  if (formulaActiveSubstanceOwnership == "No") {
+    res.redirect('formula-active-substance-data-owner-new-name');
+  } else {
+    res.redirect('formula-active-substance-add-another');
+  }
+  
+
+})
+
+// formula-active-substance-data-owner-new-name
+
+// formula-active-substance-data-owner-new-specification-upload
+
+// formula-active-substance-data-owner-new-data-upload
+
+
+// formula-active-substance-add-another
+
+router.post('/formula-active-substance-add-another', function (req, res) {
+  
+  let formulaActiveSubstanceAddAnother = req.session.data.formulaActiveSubstanceAddAnother;
+  res.redirect('formula-active-substance-add-another');
+
+})
+
+// upload-technical-equivelance-report - DOCUMENTS SECTIONS (If selected "technical equivelance assessment")
 
 
 

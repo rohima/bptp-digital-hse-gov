@@ -18,15 +18,19 @@ What is the difference in MRL value? – {{serviceName}} – GOV.UK
       <form class="form" method="post">
 
       {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">Is there an MRL in force in the exporting country?</p>
+      <h1 class="govuk-heading-l">Are all data owned by the authorisation holder?</p>
 
+<p>Provide details for [Azoxystrobin] active substance or data owner. You can add more active substanceslater</p>
 
+<p>[Active substance name: 
+  <strong>Azoxystrobin
+  CAS: 131860-33-8</strong>]</p>
 
 
  {% set textHtml %}
 {{ govukInput({
-  id: "applicantType",
-  name: "applicantType",
+  id: "formulaActiveSubstanceOwnershipText",
+  name: "formulaActiveSubstanceOwnershipText",
   type: "tel",
   autocomplete: "tel",
   classes: "govuk-!-width-one-third",
@@ -36,9 +40,23 @@ What is the difference in MRL value? – {{serviceName}} – GOV.UK
 }) }}
 {% endset -%}
 
+{% set emailHtml %}
+{{ govukInput({
+  id: "formulaActiveSubstanceOwnershipText",
+  name: "formulaActiveSubstanceOwnershipText",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Reference evaluation report"
+  },
+  hint: { text: "This could be any or all of the following: COP number, Wisdom reference, HSE reference, product name, product identifier code"}
+}) }}
+{% endset -%}
+
 {{ govukRadios({
-  id: "applicationOrganisationType",
-  name: "applicationOrganisationType",
+  id: "formulaActiveSubstanceOwnership",
+  name: "formulaActiveSubstanceOwnership",
   fieldset: {
     legend: {
       text: "",
@@ -52,19 +70,18 @@ What is the difference in MRL value? – {{serviceName}} – GOV.UK
   items: [
     {
       value: "Yes",
-      text: "Yes",
-      checked: false,
-      conditional: {
-        html: emailHtml
-      }
+      text: "Yes"
+      
     },   
     {
       value: "No",
       text: "No",
+      checked: false,
       conditional: {
-        html: textHtml
+        html: emailHtml
       }
     }
+
   ]
 }) }}
 
