@@ -363,10 +363,39 @@ router.post('/formula-active-substance-data-ownership', function (req, res) {
 
 // formula-active-substance-data-owner-new-name
 
+router.post('/formula-active-substance-data-owner-new-name', function (req, res) {
+  
+  let formulaActiveSubstanceDataOwnerNewName = req.session.data.formulaActiveSubstanceDataOwnerNewName;
+  res.redirect('formula-active-substance-data-owner-new-add-another');
+
+})
+
+// formula-active-substance-data-owner-new-add-another
+
+router.post('/formula-active-substance-data-owner-new-add-another', function (req, res) {
+  
+  let formulaActiveSubstanceDataOwnerNewAddAnother = req.session.data.formulaActiveSubstanceDataOwnerNewAddAnother;
+  res.redirect('formula-active-substance-data-owner-new-specification-upload');
+
+})
+
 // formula-active-substance-data-owner-new-specification-upload
+
+router.post('/formula-active-substance-data-owner-new-specification-upload', function (req, res) {
+  
+  let formulaActiveSubstanceDataOwnerSpecUpload = req.session.data.formulaActiveSubstanceDataOwnerSpecUpload;
+  res.redirect('formula-active-substance-data-owner-new-data-upload');
+
+})
 
 // formula-active-substance-data-owner-new-data-upload
 
+router.post('/formula-active-substance-data-owner-new-data-upload', function (req, res) {
+  
+  let formulaActiveSubstanceDataOwnerNewDataUpload = req.session.data.formulaActiveSubstanceDataOwnerNewDataUpload;
+  res.redirect('formula-active-substance-add-another');
+
+})
 
 // formula-active-substance-add-another
 

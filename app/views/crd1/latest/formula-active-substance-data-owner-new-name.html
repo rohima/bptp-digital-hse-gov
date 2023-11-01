@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Active substances in your formula – {{serviceName}} – GOV.UK
+Name of data owner – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,7 +16,7 @@ Active substances in your formula – {{serviceName}} – GOV.UK
     <div class="govuk-grid-column-two-thirds">
 
       {# <span class="govuk-caption-l">Application</span> #}
-<h1 class="govuk-heading-l">What are the active substances in your formula
+<h1 class="govuk-heading-l">What is the name of the data owner?
    {# {{ data['applicationCompanyName'] or "[Applicant organisation name]" }} #}
   </h1>
 
@@ -44,10 +44,10 @@ Active substances in your formula – {{serviceName}} – GOV.UK
       text: ''
     },
     hint: {
-    text: "Type part of an active substance name, CAS or EC number. If there are multiple, you will be asked if you want to add another."
+    text: ""
   },
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
+    id: "formulaActiveSubstanceDataOwnerNewName",
+    name: "formulaActiveSubstanceDataOwnerNewName",
     autocomplete: "address-line1"
   }) }}
   

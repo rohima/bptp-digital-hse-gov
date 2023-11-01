@@ -27,19 +27,6 @@ What is the difference in MRL value? – {{serviceName}} – GOV.UK
   CAS: 131860-33-8</strong>]</p>
 
 
- {% set textHtml %}
-{{ govukInput({
-  id: "formulaActiveSubstanceOwnershipText",
-  name: "formulaActiveSubstanceOwnershipText",
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "Give details"
-  }
-}) }}
-{% endset -%}
-
 {% set emailHtml %}
 {{ govukInput({
   id: "formulaActiveSubstanceOwnershipText",
@@ -76,10 +63,7 @@ What is the difference in MRL value? – {{serviceName}} – GOV.UK
     {
       value: "No",
       text: "No",
-      checked: false,
-      conditional: {
-        html: emailHtml
-      }
+      checked: false
     }
 
   ]
