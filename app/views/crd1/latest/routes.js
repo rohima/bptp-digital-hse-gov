@@ -346,6 +346,8 @@ router.post('/formula-active-substance-source', function (req, res) {
   res.redirect('formula-active-substance-data-ownership');
 
 })
+// upload-technical-equivelance-report - DOCUMENTS SECTIONS (If selected "technical equivelance assessment")
+
 
 // formula-active-substance-data-ownership
 
@@ -402,19 +404,197 @@ router.post('/formula-active-substance-data-owner-new-data-upload', function (re
 router.post('/formula-active-substance-add-another', function (req, res) {
   
   let formulaActiveSubstanceAddAnother = req.session.data.formulaActiveSubstanceAddAnother;
-  res.redirect('formula-active-substance-add-another');
+  res.redirect('formula-other-substance-code-name');
 
 })
 
-// upload-technical-equivelance-report - DOCUMENTS SECTIONS (If selected "technical equivelance assessment")
+ // formula-other-substance-code-name
+
+ router.post('/formula-other-substance-code-name', function (req, res) {
+  
+  let formulaOtherSubstanceCodeName = req.session.data.formulaOtherSubstanceCodeName;
+  res.redirect('formula-other-substance-type');
+
+})
+
+// formula-other-substance-type 
+
+router.post('/formula-other-substance-type', function (req, res) {
+  
+  let formulaOtherSubstanceType = req.session.data.formulaOtherSubstanceType;
+  res.redirect('formula-risk');
+
+})
+
+// formula-risk
+
+router.post('/formula-risk', function (req, res) {
+  
+  let formulaRisk = req.session.data.formulaRisk;
+  res.redirect('formula-manufacturing-address-postcode');
+
+})
+
+// ----------------- MANUFACTURING LOCATION ----------------- //
+
+// formula-manufacturing-address-postcode
+
+router.post('/formula-manufacturing-address-postcode', function (req, res) {
+  
+  let formulaManufacturingPostcode = req.session.data.formulaManufacturingPostcode;
+  res.redirect('formula-manufacturing-address-list');
+
+})
+
+// formula-manufacturing-address-list
+
+router.post('/formula-manufacturing-address-list', function (req, res) {
+  
+  let formulaManufacturingAddressList = req.session.data.formulaManufacturingAddressList;
+  res.redirect('formula-manufacturing-address-confirm');
+
+})
+
+// formula-manufacturing-address-confirm
+
+router.post('/formula-manufacturing-address-confirm', function (req, res) {
+  
+  let formulaManufacturingAddressConfirm = req.session.data.formulaManufacturingAddressConfirm;
+  res.redirect('formula-manufacturing-site-add-another');
+
+})
+
+// formula-manufacturing-site-add-another
+
+router.post('/formula-manufacturing-site-add-another', function (req, res) {  
+  let formulaManufacturingAddressAddAnother = req.session.data.formulaManufacturingAddressAddAnother;
+  res.redirect('formula-composition');
+
+})
+
+// formula-composition
+
+router.post('/formula-composition', function (req, res) {  
+  let formulaComposition = req.session.data.formulaComposition;
+  res.redirect('formula-check-answers');
+
+})
+
+// formula-check-answers
+
+router.post('/formula-check-answers', function (req, res) {  
+  let formulaCheckAnswers = req.session.data.formulaCheckAnswers;
+  res.redirect('documents-reference-product');
+
+})
 
 
-
-// ----------------- LOCATION ----------------- //
 
 // ----------------- DOCUMENTS ----------------- //
 
+// documents-reference-product
+
+router.post('/documents-reference-product', function (req, res) {  
+  let documentsReferenceProduct = req.session.data.documentsReferenceProduct;
+  res.redirect('documents-reference-product-details');
+
+})
+
+// documents-reference-product-details
+
+router.post('/documents-reference-product-details', function (req, res) {  
+  let documentsReferenceProductDetails = req.session.data.documentsReferenceProductDetails;
+  let documentsReferenceProductName = req.session.data.documentsReferenceProductName;
+  let documentsReferenceProductMapp = req.session.data.documentsReferenceProductMapp;
+  let documentsReferenceProductAuthHolder = req.session.data.documentsReferenceProductAuthHolder;
+  let documentsReferenceProductMarketingCo = req.session.data.documentsReferenceProductMarketingCo;
+  res.redirect('documents-reference-product-risk-areas');
+
+})
+
+// documents-reference-product-risk-areas
+
+router.post('/documents-reference-product-risk-areas', function (req, res) {  
+  let documentsReferenceProductRiskAreas = req.session.data.documentsReferenceProductRiskAreas;
+  res.redirect('documents-upload-admin');
+
+})
+
+// documents-upload-admin
+
+router.post('/documents-upload-admin', function (req, res) {  
+  let documentsAdmin = req.session.data.documentsAdmin;
+  let documentsAdminSelect = req.session.data.documentsAdminSelect;
+  res.redirect('documents-upload-draft-reg-report');
+
+})
+
+// documents-upload-draft-reg-report
+
+router.post('/documents-upload-draft-reg-report', function (req, res) {  
+  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
+  let documentsDraftRegReportSelect = req.session.data.documentsDraftRegReportSelect;
+  res.redirect('documents-upload-supporting');
+
+})
+
+// documents-upload-supporting
+
+router.post('/documents-upload-supporting', function (req, res) {  
+  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
+  let documentsDraftRegReportSelect = req.session.data.documentsDraftRegReportSelect;
+  res.redirect('documents-upload-relevant-correspondence');
+
+})
+
+// documents-upload-relevant-correspondence
+
+router.post('/documents-upload-relevant-correspondence', function (req, res) {  
+  let documentsRelevantCorrespondence = req.session.data.documentsRelevantCorrespondence;
+  res.redirect('documents-check-answers');
+
+})
+
+// documents-check-answers
+
+router.post('/documents-check-answers', function (req, res) {  
+  let documentsCheckAnswers = req.session.data.documentsCheckAnswers;
+  res.redirect('declaration');
+
+})
+
+
 // ----------------- DECLARATIONS ----------------- //
+
+// declaration
+
+router.post('/declaration', function (req, res) {  
+  let declaration = req.session.data.declaration;
+  res.redirect('invoice');
+
+})
+
+// ----------------- PAYMENTS ----------------- //
+
+// invoice
+
+router.post('/invoice', function (req, res) {  
+  let declaration = req.session.data.declaration;
+  res.redirect('confirmation');
+
+})
+
+// ----------------- CONFIRMATION ----------------- //
+
+// confirmation
+
+router.post('/confirmation', function (req, res) {  
+  let declaration = req.session.data.declaration;
+  res.redirect('confirmation');
+
+})
+
+
 
 // ----------------- XXXXXXXXXXXXXXXXXXXXXXXXXXXXX ----------------- //
 
