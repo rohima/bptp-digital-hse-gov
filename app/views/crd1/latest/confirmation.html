@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+Application submitted – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
@@ -10,35 +10,33 @@
     <div class="govuk-grid-column-two-thirds">
 
       {{ govukPanel({
-        titleText: "Your application is complete ",
-        html: "Your application reference is <br><strong>[XXXXXX]</strong>"
+        titleText: "Application submitted ",
+        html: "Your job number
+         <br><strong>[202205392]</strong>"
       }) }}
 
-      <p>
+      {# <p>
         We have sent you a confirmation email. We will also inform the dutyholders for your application that you have applied for a completion certificate. 
-      </p>
+      </p> #}
 
       <h2 class="govuk-heading-m">
         What happens next 
       </h2>
 
       <p>
-        Your application will be assigned your case officer, who will contact you about your application soon. They might ask you for more information.  
+        We’ll contact you by email within nn days to let you know:
       </p>
 
-      <p>
-        If you need to make any changes to your application, you must contact your case officer.  
-      </p>
+      <ul>  
+        <li> 
+          <p>if you need to provide any more information </p> 
+        </li>
+        <li> 
+          <p>when our assessment of your application will begin </p> 
+        </li>
 
-      <p>If your application is approved, your completion certificate will be sent to you by email.  </p>
-
-      <h2 class="govuk-heading-m">
-        High rise residential buildings 
-      </h2>
-
-      <p>You can <a href="https://www.gov.uk/guidance/register-a-high-rise-residential-building">register a high-rise residential building</a> once you have a completion certificate. You must not allow residents to occupy it until it has been registered. </p>
-
-      <p>
+      </ul>
+     <p>
         <a href="#">
           What did you think of this service?
         </a> (takes 30 seconds)

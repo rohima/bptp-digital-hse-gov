@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Declaration – Manage building control for a higher-risk building – GOV.UK
+Declaration – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,7 +13,7 @@ Declaration – Manage building control for a higher-risk building – GOV.UK
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <span class="govuk-caption-l">Client declaration</span>
+      {# <span class="govuk-caption-l">Client declaration</span> #}
 
       <h1 class="govuk-heading-l">
         Declaration 
@@ -21,14 +21,14 @@ Declaration – Manage building control for a higher-risk building – GOV.UK
 
       <form class="form" method="post">
 
-        <p>By submitting this application under regulation 40 of the Building (Higher-Risk Buildings Procedures) (England) Regulations 2023, you agree that the information you have given is complete and correct to the best of your knowledge. </p>
+        <p>By submitting this application you:</p>
 
-        {# <ul>  <li> <p> be prosecuted </p> </li>
+        <ul>  <li> <p>confirm that the information given in this application form is true to the best of my knowledge and belief
+          
+           </p> </li>
 
-        <li> <P> need to pay a financial penalty </P> </li> </ul>  #}
-        <p>If you deliberately give the wrong or incomplete information, or you do not report any changes, you may be prosecuted.  </p>
-
-        <p> You agree that you must get the Building Safety Regulator’s approval if you wish to change your application after submitting it.  </p> 
+        <li> <p> acknowledge that any incomplete information may delay the processing of my application</p> </li> </ul> 
+        
 
 
         <button class="govuk-button" data-module="govuk-button">I agree</button>
