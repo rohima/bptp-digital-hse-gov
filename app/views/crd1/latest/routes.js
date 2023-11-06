@@ -20,11 +20,11 @@ router.post('/application-name-contact', function (req, res) {
   let applicantName = req.session.data.applicantName;
   let applicantFirstName = req.session.data.applicantFirstName;
   let applicantLastName = req.session.data.applicantLastName;
-  res.redirect('application-type-of-organisation');
+  res.redirect('application-company');
 
 })
 
-// application-type-of-organisation
+// application-type-of-organisation - NOT USED
 
 router.post('/application-type-of-organisation', function (req, res) {
   
@@ -74,11 +74,11 @@ router.post('/application-address-confirm', function (req, res) {
 router.post('/application-telephone', function (req, res) {
   
   let applicantTelephone = req.session.data.applicantTelephone;
-  res.redirect('application-email');
+  res.redirect('application-check-answers');
 
 })
 
-// application-email
+// application-email - NOT USED
 
 router.post('/application-email', function (req, res) {
   
@@ -287,11 +287,11 @@ router.post('/product-mrl-change', function (req, res) {
   let productMrlChange = req.session.data.productMrlChange;
   let productMrlCurrent = req.session.data.productMrlCurrent;
   let productMrlProposed = req.session.data.productMrlProposed;
-  res.redirect('product-mrl-currently-in-force');
+  res.redirect('product-check-answers');
 
 })
 
-// product-mrl-currently-in-force
+// product-mrl-currently-in-force - NOT USED
 
 router.post('/product-mrl-currently-in-force', function (req, res) {
   
@@ -300,7 +300,7 @@ router.post('/product-mrl-currently-in-force', function (req, res) {
 
 })
 
-// product-mrl-currently-in-force-value
+// product-mrl-currently-in-force-value NOT USED
 
 router.post('/product-mrl-currently-in-force-value', function (req, res) {
   
@@ -309,7 +309,7 @@ router.post('/product-mrl-currently-in-force-value', function (req, res) {
 
 })
 
-// product-mrl-currently-in-force-add-another
+// product-mrl-currently-in-force-add-another - NOT USED
 
 router.post('/product-mrl-currently-in-force-add-another', function (req, res) {
   
@@ -404,6 +404,15 @@ router.post('/formula-active-substance-data-owner-new-data-upload', function (re
 router.post('/formula-active-substance-add-another', function (req, res) {
   
   let formulaActiveSubstanceAddAnother = req.session.data.formulaActiveSubstanceAddAnother;
+  res.redirect('formula-other-substance');
+
+})
+
+// formula-other-substance
+
+router.post('/formula-other-substance', function (req, res) {
+  
+  let formulaOtherSubstance = req.session.data.formulaOtherSubstance;
   res.redirect('formula-other-substance-code-name');
 
 })
@@ -413,18 +422,66 @@ router.post('/formula-active-substance-add-another', function (req, res) {
  router.post('/formula-other-substance-code-name', function (req, res) {
   
   let formulaOtherSubstanceCodeName = req.session.data.formulaOtherSubstanceCodeName;
+  res.redirect('formula-other-substance-trade-name');
+
+})
+
+// formula-other-substance-trade-name
+
+router.post('/formula-other-substance-trade-name', function (req, res) {
+  
+  let formulaOtherSubstanceTradeName = req.session.data.formulaOtherSubstanceTradeName;
   res.redirect('formula-other-substance-type');
 
 })
+
 
 // formula-other-substance-type 
 
 router.post('/formula-other-substance-type', function (req, res) {
   
   let formulaOtherSubstanceType = req.session.data.formulaOtherSubstanceType;
+  res.redirect('formula-other-substance-code-list');
+
+})
+
+// formula-other-substance-code-list
+
+router.post('/formula-other-substance-code-list', function (req, res) {
+  
+  let formulaOtherSubstanceCodeList = req.session.data.formulaOtherSubstanceCodeList;
+  res.redirect('formula-other-substance-code-details');
+
+})
+
+// formula-other-substance-code-details
+
+router.post('/formula-other-substance-code-details', function (req, res) {
+  
+  let formulaOtherSubstanceCodeDetails = req.session.data.formulaOtherSubstanceCodeDetails;
+  res.redirect('formula-other-substance-content-measurement');
+
+})
+
+// formula-other-substance-content-measurement
+
+router.post('/formula-other-substance-content-measurement', function (req, res) {
+  
+  let formulaOtherSubstanceContentMeasure = req.session.data.formulaOtherSubstanceContentMeasure;
+  res.redirect('formula-other-substance-content-value');
+
+})
+
+
+// formula-other-substance-content-value
+
+router.post('/formula-other-substance-content-value', function (req, res) {
+  
+  let formulaOtherSubstanceContentValue = req.session.data.formulaOtherSubstanceContentValue;
   res.redirect('formula-risk');
 
 })
+
 
 // formula-risk
 
@@ -551,6 +608,14 @@ router.post('/documents-upload-supporting', function (req, res) {
 
 router.post('/documents-upload-relevant-correspondence', function (req, res) {  
   let documentsRelevantCorrespondence = req.session.data.documentsRelevantCorrespondence;
+  res.redirect('documents-upload-safety-data-sheet');
+
+})
+
+// documents-upload-safety-data-sheet
+
+router.post('/documents-upload-safety-data-sheet', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
   res.redirect('documents-check-answers');
 
 })

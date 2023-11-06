@@ -16,7 +16,7 @@ Other substance type – {{serviceName}} – GOV.UK
     <div class="govuk-grid-column-two-thirds">
 
       {# <span class="govuk-caption-l">Application</span> #}
-<h1 class="govuk-heading-l">What type of substance is [Other substance name/code]?
+<h1 class="govuk-heading-l">What type of substance is [Co-formulate name/code]?
    {# {{ data['applicationCompanyName'] or "[Applicant organisation name]" }} #}
   </h1>
 
@@ -25,27 +25,27 @@ Other substance type – {{serviceName}} – GOV.UK
         
         
 
-        {% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
-{% call govukFieldset({
-  legend: {
-    text: "",
-    
-    classes: "govuk-fieldset__legend--l",
-    isPageHeading: true
-  }
-}) %}
-  {{ govukInput({
-    label: {
-      text: ''
-    },
-    hint: {
-    text: "Type part of a substance type."
-  },
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
-  }) }}
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+      {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+      {% call govukFieldset({
+        legend: {
+          text: "",
+          
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+      }) %}
+        {{ govukInput({
+          label: {
+            text: ''
+          },
+          hint: {
+          text: "Type part of a substance type."
+        },
+          id: "formulaActiveSubstanceName",
+          name: "formulaActiveSubstanceName",
+          autocomplete: "address-line1"
+        }) }}
   
 
     

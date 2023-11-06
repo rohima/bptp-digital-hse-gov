@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Other substances in your formula – {{serviceName}} – GOV.UK
+What is the trade name of the co-formulant – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,11 +16,11 @@ Other substances in your formula – {{serviceName}} – GOV.UK
     <div class="govuk-grid-column-two-thirds">
 
       {# <span class="govuk-caption-l">Application</span> #}
-<h1 class="govuk-heading-l">What other co-formulant makes up the product?
+<h1 class="govuk-heading-l">What is the trade name of the co-formulant?
    {# {{ data['applicationCompanyName'] or "[Applicant organisation name]" }} #}
   </h1>
 
-<p>In addition to any active substances, provide details of all other co-formulants that make up the product. You can add more substances later.</p>
+{# <p>In addition to any active substances, provide details of all other co-formulants that make up the product. You can add more substances later.</p> #}
 
 
       <form class="form" method="post">
@@ -37,13 +37,13 @@ Other substances in your formula – {{serviceName}} – GOV.UK
 }) %}
   {{ govukInput({
     label: {
-      text: 'Name of co-formulant'
+      text: 'Trade name of co-formulant'
     },
     hint: {
     text: ""
   },
-    id: "formulaDevelopmentCodeName",
-    name: "formulaDevelopmentCodeName"
+    id: "formulaOtherSubstanceTradeName",
+    name: "formulaOtherSubstanceTradeName"
   }) }}
   
 
