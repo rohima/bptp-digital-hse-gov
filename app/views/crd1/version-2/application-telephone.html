@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Your telephone number  – Manage building control for a higher-risk building – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {# <span class="govuk-caption-l">Applicant details</span> #}
+<h1 class="govuk-heading-l">Your telephone number</h1>
+
+      
+
+      <form class="form" method="post">
+
+        
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% call govukFieldset({
+  legend: {
+    text: "",
+    classes: "govuk-fieldset__legend--l",
+    isPageHeading: true
+  }
+}) %}
+
+<p> We'll use this if we need to contact you about anything you tell us in this application. </p>
+
+
+
+
+  
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{{ govukTextarea({
+  name: "applicationTelephone",
+  id: "applicationTelephone",
+  rows: "1",
+  label: {
+    text: "",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Enter a UK telephone number. For example, '012 3456 7890' or '+447654321098'."
+  }
+}) }}
+
+
+  
+  
+{% endcall %}
+       
+
+    
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

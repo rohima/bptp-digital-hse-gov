@@ -19,7 +19,16 @@ router.post('/application-reference', function (req, res) {
 // what-to-do
 
 router.post('/what-to-do', function (req, res) {
+  let applicationJourney = req.session.data.applicationJourney;
+  if (applicationJourney == "CRD1") {
     res.redirect('crd1/latest/applicant-type');
+  } else if (applicationJourney == "CRD8") {
+    res.redirect('crd8/latest/applicant-type');
+  } else if (applicationJourney == "CRD3") {
+    res.redirect('crd3/latest/applicant-type');
+  } else {
+    res.redirect('crd1/latest/applicant-type');
+  }
   
 })
 

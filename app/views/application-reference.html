@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Do you have your application reference? – {{serviceName}} – GOV.UK 
+Are you starting a new application? – {{serviceName}} – GOV.UK 
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,23 +19,19 @@ Do you have your application reference? – {{serviceName}} – GOV.UK
         id: "applicationReference",
         fieldset: {
           legend: {
-            text: "Do you have an application reference?",
+            text: "Are you starting a new application?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "existingReference",
-            text: "Yes - I have it"
+            value: "Yes",
+            text: "Yes"
           },
           {
-            value: "lostReference",
-            text: "Yes - but I have lost it"
-          },
-          {
-            value: "noReference",
-            text: "No - I need to start a new application"
+            value: "No",
+            text: "No – I want to continue an existing application "
           }
         ]
       }) }} 

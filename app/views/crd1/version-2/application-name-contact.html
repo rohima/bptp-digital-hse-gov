@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Your name  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {# <span class="govuk-caption-l">Applicant details</span> #}
+      <h1 class="govuk-heading-l">Your name</h1>
+
+     
+
+      <form class="form" method="post">
+
+        
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% call govukFieldset({
+  legend: {
+    text: "",
+    classes: "govuk-fieldset__legend--l",
+    isPageHeading: true
+  }
+}) %}
+
+<p> We'll use this if we need to contact you about anything you tell us in this application.</p>
+  
+  {{ govukInput({
+    label: {
+      text: 'First name'
+    },
+    classes: "govuk-input--width-10",
+    id: "applicantFirstName",
+    name: "applicantFirstName",
+    autocomplete: "address-line2"
+  }) }}
+  {{ govukInput({
+    label: {
+      text: "Last name"
+    },
+    classes: "govuk-input--width-10",
+    id: "applicantLastName",
+    name: "applicantLastName",
+    autocomplete: "address-level2"
+  }) }}
+  
+  
+{% endcall %}
+       
+
+
+      
+
+    
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  
+
+{% endblock %}

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Other substances in your formula – {{serviceName}} – GOV.UK
+What is the chemical name of the co-formulant included in the formulation?  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,11 +16,14 @@ Other substances in your formula – {{serviceName}} – GOV.UK
     <div class="govuk-grid-column-two-thirds">
 
       {# <span class="govuk-caption-l">Application</span> #}
-<h1 class="govuk-heading-l">What other co-formulant makes up the product?
+<h1 class="govuk-heading-l">
+  What is the chemical name of the co-formulant included in the formulation? 
    {# {{ data['applicationCompanyName'] or "[Applicant organisation name]" }} #}
   </h1>
 
-<p>In addition to any active substances, provide details of all other co-formulants that make up the product. You can add more substances later.</p>
+<p>Type part of the chemical name and select it from the list. If the full name does not show, enter it manually. 
+ 
+  You will have the option to add another co-formulant later if you need to.  </p>
 
 
       <form class="form" method="post">
@@ -42,8 +45,8 @@ Other substances in your formula – {{serviceName}} – GOV.UK
     hint: {
     text: ""
   },
-    id: "formulaDevelopmentCodeName",
-    name: "formulaDevelopmentCodeName"
+    id: "formulaOtherSubstanceCodeName",
+    name: "formulaOtherSubstanceCodeName"
   }) }}
   
 

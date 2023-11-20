@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Building control application reference – Manage building control for a higher-risk building – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        {# <span class="govuk-caption-l">Application reference</span> #}
+            {{ govukInput({
+              label: {
+                text: "Building control application reference",
+                classes: "govuk-label--l",
+                isPageHeading: true
+              },
+              hint: {
+                text: "This should be an nine digit code, For example, 'BCA123456789'."
+              },
+              classes: "govuk-input--width-10",
+              id: "event-name",
+              name: "event-name"
+            }) }}
+
+            {# <p><a href="#">I don't have an application reference</a>.</p> #}
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

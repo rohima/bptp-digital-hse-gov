@@ -16,7 +16,7 @@ Select registered address for {{ data['clientCompanyName'] or "[Client company n
     <div class="govuk-grid-column-two-thirds">
 
       {# <span class="govuk-caption-l">Client</span> #}
-<h1 class="govuk-heading-l">Select registered address for {{ data['applicantCompanyName'] or "[Company name]" }}</h1>
+<h1 class="govuk-heading-l">Select registered address for {{ data['applicantCompanyName'] or "[Organisation name]" }}</h1>
 
       
 
@@ -32,8 +32,8 @@ Select registered address for {{ data['clientCompanyName'] or "[Client company n
 
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {{ govukRadios({
-  id: "clientAddressList",
-  name: "clientAddressList",
+  id: "applicantCompanyAddressList",
+  name: "applicantCompanyAddressList",
   fieldset: {
     legend: {
       text: "",

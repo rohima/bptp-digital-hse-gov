@@ -24,7 +24,7 @@ What are the content values? – {{serviceName}} – GOV.UK
  {% from "govuk/components/input/macro.njk" import govukInput %}
  {{ govukInput({
   label: {
-    text: "Content value"
+    text: "Density concentration content value"
   },
   suffix: {
     text: "(g/kg)"
@@ -36,14 +36,14 @@ What are the content values? – {{serviceName}} – GOV.UK
 
 {{ govukInput({
   label: {
-    text: "Content value"
+    text: "Weight concentration content value"
   },
   suffix: {
     text: "(% w/w)"
   },
   classes: "govuk-input--width-5",
-  id: "formulaOtherSubstanceContentValue",
-  name: "formulaOtherSubstanceContentValue"
+  id: "formulaOtherSubstanceWeightValue",
+  name: "formulaOtherSubstanceWeightValue"
 }) }}    
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>

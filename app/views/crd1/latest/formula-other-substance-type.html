@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Other substance type – {{serviceName}} – GOV.UK
+What is the function of [Co-formulate name/code]? – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,7 +16,7 @@ Other substance type – {{serviceName}} – GOV.UK
     <div class="govuk-grid-column-two-thirds">
 
       {# <span class="govuk-caption-l">Application</span> #}
-<h1 class="govuk-heading-l">What type of substance is [Co-formulate name/code]?
+<h1 class="govuk-heading-l">What is the function of [Co-formulate name/code]?
    {# {{ data['applicationCompanyName'] or "[Applicant organisation name]" }} #}
   </h1>
 
@@ -37,13 +37,13 @@ Other substance type – {{serviceName}} – GOV.UK
       }) %}
         {{ govukInput({
           label: {
-            text: ''
+            text: 'Function of co-formulant'
           },
           hint: {
-          text: "Type part of a substance type."
+          text: ""
         },
-          id: "formulaActiveSubstanceName",
-          name: "formulaActiveSubstanceName",
+          id: "formulaOtherSubstanceType",
+          name: "formulaOtherSubstanceType",
           autocomplete: "address-line1"
         }) }}
   

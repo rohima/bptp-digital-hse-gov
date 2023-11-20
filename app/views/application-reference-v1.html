@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Do you have your application reference? – {{serviceName}} – GOV.UK 
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">     
+      <form class="form" method="post">
+
+      {{ govukRadios({
+        name: "applicationReference",
+        id: "applicationReference",
+        fieldset: {
+          legend: {
+            text: "Do you have an application reference?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "existingReference",
+            text: "Yes - I have it"
+          },
+          {
+            value: "lostReference",
+            text: "Yes - but I have lost it"
+          },
+          {
+            value: "noReference",
+            text: "No - I need to start a new application"
+          }
+        ]
+      }) }} 
+
+    
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

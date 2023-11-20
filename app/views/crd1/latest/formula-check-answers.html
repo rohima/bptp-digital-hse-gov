@@ -17,194 +17,264 @@
 
         <h1 class="govuk-heading-xl">Check your answers</h1>
 
-        <h2 class="govuk-heading-m">Active substances</h2>
+        <h2 class="govuk-heading-m">Product details</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              XXXXXXXXX
+              Market area
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['XXXXXXXXX'] or '[Organisation type]'}}
+              {{ data['marketArea'] or '[Market area]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="application-market-area">
                 Change
-                <span class="govuk-visually-hidden">XXXXXXXXX</span>
+                <span class="govuk-visually-hidden">Market area</span>
               </a>
             </dd>
           </div>
   
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              XXXXXXXXX 
+              Primary product name  
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['XXXXXXXXX'] or '[Organisation name]'}}
+              {{ data['productName'] or '[Primary product name]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="product-name">
                 Change
-                <span class="govuk-visually-hidden">XXXXXXXXX</span>
+                <span class="govuk-visually-hidden">Primary product name</span>
               </a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              XXXXXXXXX 
+              Company product code 
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['XXXXXXXXX'] or '[Registered address]'}}
+              {{ data['productCode'] or '[Company product code]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="product-name">
                 Change
-                <span class="govuk-visually-hidden"> XXXXXXXXX</span>
+                <span class="govuk-visually-hidden"> Company product code </span>
               </a>
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              XXXXXXXXX
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['XXXXXXXXX'] or '[Company registration number]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">
-                Change
-                <span class="govuk-visually-hidden"> XXXXXXXXX</span>
-              </a>
-            </dd>
-          </div>
+          
         </dl>
-
-        <h2 class="govuk-heading-m">Other substances</h2>
-
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              XXXXXXXXX
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['XXXXXXXXX'] or '[Organisation type]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">
-                Change
-                <span class="govuk-visually-hidden">XXXXXXXXX</span>
-              </a>
-            </dd>
-          </div>
-  
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              XXXXXXXXX 
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['XXXXXXXXX'] or '[Organisation name]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">
-                Change
-                <span class="govuk-visually-hidden">XXXXXXXXX</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              XXXXXXXXX 
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['XXXXXXXXX'] or '[Registered address]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">
-                Change
-                <span class="govuk-visually-hidden"> XXXXXXXXX</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              XXXXXXXXX
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['XXXXXXXXX'] or '[Company registration number]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">
-                Change
-                <span class="govuk-visually-hidden"> XXXXXXXXX</span>
-              </a>
-            </dd>
-          </div>
-        </dl>
-
 
         <h2 class="govuk-heading-m">Formula composition</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              XXXXXXXXX
+              Active substance name
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['XXXXXXXXX'] or '[Organisation type]'}}
+              {{ data['formulaActiveSubstanceName'] or '[Active substance name]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="formula-active-substance-name">
+                Change
+                <span class="govuk-visually-hidden">Active substance name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Nature of the source for active substance
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaActiveSubstanceSource'] or '[Nature of source]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-active-substance-source">
+                Change
+                <span class="govuk-visually-hidden">Nature of the source for active substance</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Is all the data owned by the authorisation holder
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaActiveSubstanceOwnership'] or '[Data ownership of active substance]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-active-substance-data-ownership">
                 Change
                 <span class="govuk-visually-hidden">XXXXXXXXX</span>
               </a>
             </dd>
           </div>
-  
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              XXXXXXXXX 
+              Name of the data owner
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['XXXXXXXXX'] or '[Organisation name]'}}
+              {{ data['formulaActiveSubstanceDataOwnerNewName'] or '[Data owner new name]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="formula-active-substance-data-owner-new-name">
                 Change
-                <span class="govuk-visually-hidden">XXXXXXXXX</span>
+                <span class="govuk-visually-hidden">Name of the data owner</span>
               </a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              XXXXXXXXX 
+              Specification/5 batch analysis data upload
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['XXXXXXXXX'] or '[Registered address]'}}
+              {{ data['formulaActiveSubstanceDataOwnerSpecUpload'] or '[Specification/5 batch analysis data file]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="formula-active-substance-data-owner-new-specification-upload">
                 Change
-                <span class="govuk-visually-hidden"> XXXXXXXXX</span>
+                <span class="govuk-visually-hidden">Specification/5 batch analysis data upload</span>
               </a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              XXXXXXXXX
+              Active substance data upload
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['XXXXXXXXX'] or '[Company registration number]'}}
+              {{ data['formulaActiveSubstanceDataOwnerNewDataUpload'] or '[Active substance data file]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="formula-active-substance-data-owner-new-data-upload">
                 Change
-                <span class="govuk-visually-hidden"> XXXXXXXXX</span>
+                <span class="govuk-visually-hidden">Active substance data upload</span>
+              </a>
+            </dd>
+          </div>
+          </dl>
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Co-formulant name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaOtherSubstanceCodeName'] or '[Co-formulant name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-other-substance-code-name">
+                Change
+                <span class="govuk-visually-hidden">Co-formulant name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Trade name of the co-formulant 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaOtherSubstanceTradeName'] or '[Co-formulant trade name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-other-substance-trade-name">
+                Change
+                <span class="govuk-visually-hidden">Trade name of the co-formulant </span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Function of co-formulant
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaOtherSubstanceType'] or '[Function]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-other-substance-type">
+                Change
+                <span class="govuk-visually-hidden">Function of co-formulant</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              {{ data['formulaOtherSubstanceCodeList'] or '[Ref number type]'}}
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaOtherSubstanceCodeDetails'] or '[Number]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-other-substance-code-list">
+                Change
+                <span class="govuk-visually-hidden">CAS number</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              State of the co-formulant
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaOtherSubstanceContentMeasure'] or '[Solid or liquid]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-other-substance-content-measurement">
+                Change
+                <span class="govuk-visually-hidden"> State of the co-formulant</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Density concentration content value
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaOtherSubstanceContentValue'] or '[Content value]'}} g/kg
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-other-substance-content-value">
+                Change
+                <span class="govuk-visually-hidden"> Density concentration content value</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Weight concentration content value
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaOtherSubstanceWeightValue'] or '[Content value]'}} % w/w
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-other-substance-content-value">
+                Change
+                <span class="govuk-visually-hidden"> Weight concentration content value</span>
               </a>
             </dd>
           </div>
         </dl>
 
-        <h2 class="govuk-heading-m">XXXXXXXXXXXXXXXX</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Are all substances considered to be low risk
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaRisk'] or '[All substance risk]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-risk">
+                Change
+                <span class="govuk-visually-hidden">Are all substances considered to be low risk</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+
+        {# <h2 class="govuk-heading-m">Formula composition</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
@@ -264,7 +334,7 @@
               </a>
             </dd>
           </div>
-        </dl>
+        </dl> #}
 
         
 

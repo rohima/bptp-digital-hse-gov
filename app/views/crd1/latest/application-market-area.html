@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Who is doing the application? – {{serviceName}} – GOV.UK
+What is the market area for your product?  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -25,7 +25,7 @@ Who is doing the application? – {{serviceName}} – GOV.UK
       {# <span class="govuk-caption-l">Application</span> #}
 
       <h1 class="govuk-heading-l">
-        What is the market area for your product?
+        What is the market area for your product? 
       </h1>
 
 
@@ -45,8 +45,8 @@ Who is doing the application? – {{serviceName}} – GOV.UK
 {% endset -%}
 
 {{ govukRadios({
-  id: "applicantType",
-  name: "applicantType",
+  id: "marketArea",
+  name: "marketArea",
   fieldset: {
     legend: {
       text: "",
@@ -60,7 +60,7 @@ Who is doing the application? – {{serviceName}} – GOV.UK
   items: [
     {
       value: "Great Britain",
-      text: "Great Britain"
+      text: "Great Britain (England, Scotland and Wales)"
       
     },   
     {

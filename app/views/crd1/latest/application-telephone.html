@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Your telephone number  – Manage building control for a higher-risk building – GOV.UK
+What is your telephone number?  – Manage building control for a higher-risk building – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,7 +16,7 @@ Your telephone number  – Manage building control for a higher-risk building �
     <div class="govuk-grid-column-two-thirds">
 
       {# <span class="govuk-caption-l">Applicant details</span> #}
-<h1 class="govuk-heading-l">Your telephone number</h1>
+<h1 class="govuk-heading-l">What is your telephone number?</h1>
 
       
 
@@ -42,16 +42,16 @@ Your telephone number  – Manage building control for a higher-risk building �
   
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 {{ govukTextarea({
-  name: "applicationTelephone",
-  id: "applicationTelephone",
+  name: "applicantTelephone",
+  id: "applicantTelephone",
   rows: "1",
   label: {
-    text: "",
-    classes: "govuk-label--l",
+    text: "Telephone number",
+    classes: "",
     isPageHeading: true
   },
   hint: {
-    text: "Enter a UK telephone number. For example, '012 3456 7890' or '+447654321098'."
+    text: "For international numbers include the country code."
   }
 }) }}
 

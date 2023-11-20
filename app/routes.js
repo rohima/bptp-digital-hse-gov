@@ -12,5 +12,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 router.use('/', require('./views/routes'));
 router.use('/crd1', require('./views/crd1/routes'));
+router.use('/crd3', require('./views/crd3/routes'));
+router.use('/crd8', require('./views/crd8/routes'));
 
 // Add your routes here

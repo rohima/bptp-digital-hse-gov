@@ -25,36 +25,21 @@
             <dt class="govuk-summary-list__key">
               Name
             </dt>
-            <dd class="govuk-summary-list__value">
+            {# <dd class="govuk-summary-list__value">
              {{ data ['applicantFirstName'] or '[Applicant  first name]'}} 
-             {{ data ['applicantLastName'] or '[last name]'}} 
-             {# {{ data['nameFirstHrb'] or 'Fleet Street Gardens'}} #}
+             {{ data ['applicantLastName'] or '[last name]'}}  #}
+             {{ data['applicantFullName'] or 'Applicant name'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="name-contact">
+              <a href="application-name-contact">
                 Change
-                <span class="govuk-visually-hidden">Type of client organisation</span>
+                <span class="govuk-visually-hidden">Name</span>
               </a>
             </dd>
           </div>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Phone number
-            </dt>
-            <dd class="govuk-summary-list__value">
-             {{ data['applicationTelephone'] or '[Applicant number]'}} 
-             
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="start-telephone">
-                Change
-                <span class="govuk-visually-hidden">Phone number</span>
-              </a>
-            </dd>
-          </div>
 
-          <div class="govuk-summary-list__row">
+          {# <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Organisation type
             </dt>
@@ -67,7 +52,7 @@
                 <span class="govuk-visually-hidden">Type of client organisation</span>
               </a>
             </dd>
-          </div>
+          </div> #}
   
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -79,7 +64,7 @@
             <dd class="govuk-summary-list__actions">
               <a href="application-company">
                 Change
-                <span class="govuk-visually-hidden">Name of client organisation</span>
+                <span class="govuk-visually-hidden">Organisation name</span>
               </a>
             </dd>
           </div>
@@ -88,12 +73,28 @@
               Organisation address
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['applicantAddress'] or '[Organisation address]'}}
+              {{ data['applicantCompanyAddressList'] or '[Organisation address]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="building-confirm-address-copy">
+              <a href="application-address-postcode">
                 Change
-                <span class="govuk-visually-hidden"> Client registered address</span>
+                <span class="govuk-visually-hidden">Organisation address</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+             {{ data['applicantTelephone'] or '[Applicant number]'}} 
+             
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="application-telephone">
+                Change
+                <span class="govuk-visually-hidden">Phone number</span>
               </a>
             </dd>
           </div>

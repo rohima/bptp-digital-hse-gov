@@ -21,8 +21,8 @@ What are you applying to do? – {{serviceName}} – GOV.UK
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {{ govukRadios({
-          name: "typeOfApplication",
-          id: "typeOfApplication",
+          name: "applicationJourney",
+          id: "applicationJourney",
           fieldset: {
             legend: {
               text: "What are you applying to do?",
@@ -36,39 +36,39 @@ What are you applying to do? – {{serviceName}} – GOV.UK
           items: [
             {
               value: "CRD1",
-              text: "Apply for authorisation of a new PPP"
+              text: "Authorisation of a new plant protection product "
             },
             {
               value: "CRX",
-              text: "Apply to make a change to an existing PPP"
+              text: "A change to an existing plant protection product "
             },
             {
               value: "CRX",
-              text: "Make an administrative change to an existing authorisation"
+              text: "Renewal of an existing plant protection product "
             },
             {
               value: "CRX",
-              text: "Apply for an extension of authorisation for minor use"
+              text: "A change to an existing authorisation "
+            },
+            {
+              value: "CRD3",
+              text: "Extension of authorisation for minor use "
             },
             {
               value: "CRX",
-              text: "Apply for a new inclusion on the Official List of Adjuvants or make a change to an existing inclusion"
+              text: "A new, or change to an existing, inclusion on the ‘Official List’ of adjuvants "
+            },
+            {
+              value: "CRD8",
+              text: "Standalone technical equivalence "
             },
             {
               value: "CRX",
-              text: "CRD 8 Tech equiv GB only (needs to be phrased in GDS style)"
+              text: "Emergency authorisation under Article 53 "
             },
             {
               value: "CRX",
-              text: "Apply for an Emergency Authorisation under Article 53"
-            },
-            {
-              value: "CRX",
-              text: "Apply to renew an existing PPP"
-            },
-            {
-              value: "CRX",
-              text: "Apply to change Maximum Residue Levels (MRLs), for new MRLs or for import tolerances"
+              text: "A change to Maximum Residue Levels (MRLs) for new MRLs or import tolerances "
             }
           ]
         }) }} 
