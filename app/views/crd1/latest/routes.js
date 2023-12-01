@@ -2,6 +2,91 @@ const express = require('express')
 const router = express.Router()
 
 
+// ----------------- TEST ----------------- //
+
+router.post('/test-csv-1', function (req, res) {
+  res.redirect('test-csv-2');
+})
+
+router.post('/test-csv-2', function (req, res) {
+  res.redirect('test-csv-3');
+})
+
+router.post('/test-csv-3', function (req, res) {
+  res.redirect('test-csv-3');
+})
+
+
+
+
+
+router.post('/test-formula-type-add', function (req, res) {
+  res.redirect('test-formula-type-add-substance-content');
+})
+
+router.post('/test-formula-type-add-substance-content', function (req, res) {
+  res.redirect('test-formula-substance-trade-name');
+})
+
+router.post('/test-formula-substance-trade-name', function (req, res) {
+  res.redirect('test-formula-substance-components');
+})
+
+router.post('/test-formula-substance-components', function (req, res) {
+  res.redirect('test-formula-type-add-component');
+})
+
+router.post('/test-formula-type-add-component', function (req, res) {
+  res.redirect('test-formula-active-substance-data-ownership');
+})
+
+router.post('/test-formula-active-substance-data-ownership', function (req, res) {
+  res.redirect('test-formula-active-substance-manufacturing-source');
+})
+
+router.post('/test-formula-active-substance-manufacturing-source', function (req, res) {
+  res.redirect('test-formula-active-substance-manufacturing-source-howmany');
+})
+
+router.post('/test-formula-active-substance-manufacturing-source-howmany', function (req, res) {
+  res.redirect('test-formula-active-substance-manufacturing-source-company');
+})
+
+router.post('/test-formula-active-substance-manufacturing-source-company', function (req, res) {
+  res.redirect('test-formula-active-substance-manufacturing-source-address-postcode');
+})
+
+router.post('/test-formula-active-substance-manufacturing-source-address-postcode', function (req, res) {
+  res.redirect('test-formula-active-substance-manufacturing-source-address-list');
+})
+
+router.post('/test-formula-active-substance-manufacturing-source-address-postcode', function (req, res) {
+  res.redirect('test-formula-active-substance-manufacturing-source-address-list');
+})
+
+router.post('/test-formula-active-substance-manufacturing-source-address-list', function (req, res) {
+  res.redirect('test-formula-active-substance-manufacturing-source-address-confirm');
+})
+
+router.post('/test-formula-active-substance-manufacturing-source-address-confirm', function (req, res) {
+  res.redirect('test-formula-active-substance-five-batch-source-company');
+})
+
+router.post('/test-formula-active-substance-five-batch-source-company', function (req, res) {
+  res.redirect('test-formula-active-substance-five-batch-source-upload');
+})
+
+router.post('/test-formula-active-substance-five-batch-source-upload', function (req, res) {
+  res.redirect('test-formula-composition-add-another');
+})
+
+router.post('/test-formula-composition-add-another', function (req, res) {
+  res.redirect('formula-risk');
+})
+
+
+
+
 // ----------------- APPLICATION JOURNEY ----------------- //
 
 // applicant-type
@@ -188,7 +273,7 @@ router.post('/product-name', function (req, res) {
   
   let productName = req.session.data.productName;
   let productCode = req.session.data.productCode;
-  res.redirect('formula-active-substance-name');
+  res.redirect('test-formula-type-add');
 
 })
 

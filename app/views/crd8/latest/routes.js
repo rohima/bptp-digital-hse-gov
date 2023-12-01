@@ -17,9 +17,9 @@ router.post('/applicant-type', function (req, res) {
 
 router.post('/application-name-contact', function (req, res) {
   
-  let applicantName = req.session.data.applicantName;
-  let applicantFirstName = req.session.data.applicantFirstName;
-  let applicantLastName = req.session.data.applicantLastName;
+  let applicantFullName = req.session.data.applicantFullName;
+  // let applicantFirstName = req.session.data.applicantFirstName;
+  // let applicantLastName = req.session.data.applicantLastName;
   res.redirect('application-company');
 
 })
@@ -135,9 +135,32 @@ router.post('/auth-holder-same', function (req, res) {
 router.post('/auth-holder-check-answers', function (req, res) {
   
   let authHolderCheckAnswers = req.session.data.authHolderCheckAnswers;
-  res.redirect('marketing-co-same');
+  res.redirect('type-of-assessment');
 
 })
+
+// type-of-assessment
+
+router.post('/type-of-assessment', function (req, res) {
+  
+  let authHolderCheckAnswers = req.session.data.authHolderCheckAnswers;
+  res.redirect('type-of-assessment');
+
+})
+
+// evaluation-mode
+
+
+// production-scale
+
+
+
+
+
+
+
+
+
 
 
 // marketing-co-same
