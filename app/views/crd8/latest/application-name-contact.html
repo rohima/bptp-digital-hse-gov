@@ -36,7 +36,17 @@ Your name  – {{serviceName}} – GOV.UK
 
 <p> We'll use this if we need to contact you about anything you tell us in this application.</p>
   
-  {{ govukInput({
+{{ govukInput({
+  label: {
+    text: "Full name"
+  },
+  id: "applicantFullName",
+  name: "applicantFullName",
+  autocomplete: "name",
+  spellcheck: false
+}) }}
+  
+  {# {{ govukInput({
     label: {
       text: 'First name'
     },
@@ -53,7 +63,7 @@ Your name  – {{serviceName}} – GOV.UK
     id: "applicantLastName",
     name: "applicantLastName",
     autocomplete: "address-level2"
-  }) }}
+  }) }} #}
   
   
 {% endcall %}

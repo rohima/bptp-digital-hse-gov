@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Find registered address for {{ data['clientCompanyName'] or "[Client company name]" }} – Manage building control for a higher-risk building – GOV.UK
+Find manufacturing site address – Manage building control for a higher-risk building – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,9 +16,9 @@ Find registered address for {{ data['clientCompanyName'] or "[Client company nam
     <div class="govuk-grid-column-two-thirds">
 
       {# <span class="govuk-caption-l">Application</span> #}
-<h1 class="govuk-heading-l">Find registered address for {{ data['applicantCompanyName'] or "[Organisation name]" }} </h1>
+<h1 class="govuk-heading-l">What is the manufacturing site address?</h1>
 
-      
+      <p>You can add another formulation manufacturing address later if you need to.  </p>
 
       <form class="form" method="post">
 
@@ -51,9 +51,9 @@ Find registered address for {{ data['clientCompanyName'] or "[Client company nam
         name: "clientAddressPostcode"
         }) }}
 
-        
-
         <p><a href="#">Enter an international address</a></p>
+
+    
 
         <button class="govuk-button" data-module="govuk-button">Find address</button>
 

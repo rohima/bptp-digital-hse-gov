@@ -20,13 +20,13 @@ Name of your product – {{serviceName}} – GOV.UK
       {# <span class="govuk-caption-l">Application details</span> #}
       <h1 class="govuk-heading-l">What is the name of the new product?</h1>
 
-      <p> Enter a new primary product name. You can also add your own internal code number. This is what we will call your application within this service.</p>
+      <p> Enter the product name. You can also add your own internal code number. This is what we will call your application within this service.</p>
 
 
  {% from "govuk/components/input/macro.njk" import govukInput %}
 {{ govukInput({
   label: {
-    text: "Primary product name",
+    text: "Product name",
     classes: "govuk-label?--l",
     isPageHeading: true
   },
