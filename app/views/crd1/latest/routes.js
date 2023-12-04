@@ -13,7 +13,7 @@ router.post('/test-csv-2', function (req, res) {
 })
 
 router.post('/test-csv-3', function (req, res) {
-  res.redirect('test-csv-3');
+  res.redirect('formula-csv-check-answers');
 })
 
 
@@ -481,6 +481,15 @@ router.post('/formula-composition-add-another-2', function (req, res) {
 router.post('/formula-risk', function (req, res) {
   
   let formulaRisk = req.session.data.formulaRisk;
+  res.redirect('formula-risk-co-formulant');
+
+})
+
+// formula-risk-co-formulant
+
+router.post('/formula-risk-co-formulant', function (req, res) {
+  
+  let formulaRiskCoFormulant = req.session.data.formulaRiskCoFormulant;
   res.redirect('formula-check-answers');
 
 })
@@ -488,6 +497,14 @@ router.post('/formula-risk', function (req, res) {
 // formula-check-answers
 
 router.post('/formula-check-answers', function (req, res) {  
+  let formulaCheckAnswers = req.session.data.formulaCheckAnswers;
+  res.redirect('test-csv-1');
+
+})
+
+// formula-csv-check-answers
+
+router.post('/formula-csv-check-answers', function (req, res) {  
   let formulaCheckAnswers = req.session.data.formulaCheckAnswers;
   res.redirect('product-use');
 
@@ -509,7 +526,7 @@ router.post('/product-use', function (req, res) {
 router.post('/product-proposed-use', function (req, res) {
   
   let productProposedUse = req.session.data.productProposedUse;
-  res.redirect('proposed-authorised-use-crop');
+  res.redirect('proposed-authorised-use-check-answers');
 
 })
 
