@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Product use – {{serviceName}} – GOV.UK
+What is the production scale of the 5 batch to be submitted? – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,14 +21,14 @@ Product use – {{serviceName}} – GOV.UK
       {# <span class="govuk-caption-l">Application</span> #}
 
       <h1 class="govuk-heading-l">
-       Application requiring technical assessment:
+        What is the production scale of the 5 batch to be submitted?
       </h1>
 
       {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
       {{ govukCheckboxes({
-        name: "proposedUseCropSituation",
-        id: "proposedUseCropSituation",
+        name: "productionScale",
+        id: "productionScale",
         fieldset: {
           legend: {
             text: "",
@@ -41,19 +41,14 @@ Product use – {{serviceName}} – GOV.UK
         },
         items: [
           {
-            value: "New active substance manufacturing site",
-            text: "New active substance manufacturing site",
+            value: "Full-scale commercial production",
+            text: "Full-scale commercial production",
             hint: {text: ""}
           },
           {
-            value: "SoChange to the technical specification of an existing source of technical materialil",
-            text: "Change to the technical specification of an existing source of technical material",
-            hint: {text:""}
-          },
-          {
-            value: "Change to existing manufacturing process / going from pilot plant to full scale production",
-            text: "Change to existing manufacturing process / going from pilot plant to full scale production",
-            hint: {text:""}
+            value: "Pilot plan production",
+            text: "Pilot plan production",
+            hint: {text:"If your production moves to full-scale, a new application will be required for asessment and full-scale batches cannot be used until that assessment has been finalised."}
           }
         ]
       }) }}
