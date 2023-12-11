@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Upload supporting evidence –{{serviceName}} – GOV.UK
+Upload supporting data dossier –{{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -22,9 +22,10 @@ Upload supporting evidence –{{serviceName}} – GOV.UK
       {# <span class="govuk-caption-l">Documents</span> #}
 
       <h1 class="govuk-heading-l">
-        Upload supporting evidence
+        Upload your supporting data dossier 
       </h1>
 
+        <p>Your supporting data should include any relevant data studies, risk assessments and modelling.  </p>
      
         <form class="form" method="post">
 
@@ -35,68 +36,10 @@ Upload supporting evidence –{{serviceName}} – GOV.UK
         </style>
 
         
-             
-
- {# {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-
-{{ govukCheckboxes({
-  id: "documentsDraftRegReportSelect",
-  name: "documentsDraftRegReportSelect",
-  fieldset: {
-    legend: {
-      text: ""
-    }
-  },
-  hint: {
-    text: "Select which documents you are uploading"
-  },
-  items: [
-    {
-      value: "Summary of Evaluation",
-      text: "Summary of Evaluation"
-    },
-    {
-      value: "Section 1, 2 and 4 - Identity, Physical and chemical properties and Further information",
-      text: "Section 1, 2 and 4 - Identity, Physical and chemical properties and Further information"
-    },
-    {
-      value: "Section 3 - Efficacy Data and Information",
-      text: "Section 3 - Efficacy Data and Information"
-    },
-    {
-      value: "Section 5 - Analytical methods",
-      text: "Section 5 - Analytical methods "
-    },
-    {
-      value: "Section 6 - Mammalian Toxicology ",
-      text: "Section 6 - Mammalian Toxicology "
-    },
-    {
-      value: "Section 7 - Metabolism and Residues",
-      text: "Section 7 - Metabolism and Residues"
-    },
-    {
-      value: "Section 8 - Environmental Fate",
-      text: "Section 8 - Environmental Fate "
-    },
-    {
-      value: "Section 9 - Ecotoxicology ",
-      text: "Section 9 - Ecotoxicology "
-    },
-    {
-      value: "Section 10 - Assessment of the relevance of metabolites in groundwater",
-      text: "Section 10 - Assessment of the relevance of metabolites in groundwater"
-    },
-    {
-      value: "Confidential information",
-      text: "Confidential information"
-    }
-  ]
-}) }} #}
 
         
             <div id="file-upload-1-hint" class="govuk-hint">
-              You can upload more than one file. Each file must be a maximum of 4GB.
+              You can upload more than one file. Each file must be a maximum of 4GB. 
 
             </div>
         

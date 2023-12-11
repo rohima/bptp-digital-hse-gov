@@ -1,0 +1,270 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Product dosage  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      {# <span class="govuk-caption-l">Formulation composition</span> #}
+      <h1 class="govuk-heading-l">Product dosage  </p>
+
+{# <p></p> #}
+
+
+  <h2 class="govuk-heading-m">Individual dose  </h2>
+  {# <h3 class="govuk-heading-s"> Maximum individual dose of active substance   </h3> #}
+ 
+  
+  {{ govukInput({
+    label: {
+      text: ' Maximum individual dose of active substance '
+    },
+    hint: {
+    text: "  "
+  },
+  classes: "govuk-input--width-20",
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }}
+
+  {{ govukRadios({
+    id: "formulaTypeAdd",
+    name: "formulaTypeAdd",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "Select a unit: "
+    },
+    items: [
+      {
+        value: "kilograms (kg) ",
+        text: "kilograms (kg) "
+        
+      },   
+      {
+        value: "litres/hectare (l/ha) ",
+        text: "litres/hectare (l/ha) ",
+        checked: false
+      }
+  
+    ]
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: ' Maximum individual dose of product '
+    },
+    hint: {
+    text: "  "
+  },
+  classes: "govuk-input--width-20",
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }}
+
+  {{ govukRadios({
+    id: "formulaTypeAdd",
+    name: "formulaTypeAdd",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "Select a unit: "
+    },
+    items: [
+      {
+        value: "kilograms (kg) ",
+        text: "kilograms (kg) "
+        
+      },   
+      {
+        value: "litres/hectare (l/ha) ",
+        text: "litres/hectare (l/ha) ",
+        checked: false
+      }
+  
+    ]
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: ' Maximum total dose of active substance '
+    },
+    hint: {
+    text: "  "
+  },
+  classes: "govuk-input--width-20",
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }}
+
+  {{ govukRadios({
+    id: "formulaTypeAdd",
+    name: "formulaTypeAdd",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "Select a unit: "
+    },
+    items: [
+      {
+        value: "kilograms (kg) ",
+        text: "kilograms (kg) "
+        
+      },   
+      {
+        value: "litres/hectare (l/ha) ",
+        text: "litres/hectare (l/ha) ",
+        checked: false
+      }
+  
+    ]
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: ' Maximum total dose of product '
+    },
+    hint: {
+    text: "  "
+  },
+  classes: "govuk-input--width-20",
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }}
+
+  {{ govukRadios({
+    id: "formulaTypeAdd",
+    name: "formulaTypeAdd",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "Select a unit: "
+    },
+    items: [
+      {
+        value: "kilograms (kg) ",
+        text: "kilograms (kg) "
+        
+      },   
+      {
+        value: "litres/hectare (l/ha) ",
+        text: "litres/hectare (l/ha) ",
+        checked: false
+      }
+  
+    ]
+  }) }}
+
+  <h2 class="govuk-heading-m">Water volume </h2>
+  
+  {{ govukInput({
+    classes:"govuk-input--width-10",
+    label: {
+      text: "Minimun water volume",
+      classes: "govuk-label?--l",
+      isPageHeading: true
+    },
+    suffix: {text: "L/ha"},
+    hint: {
+      text: "litres/hectare"
+    },
+    id: "proposedUseWaterMin",
+    name: "proposedUseWaterMin"
+  }) }}
+  
+  {{ govukInput({
+    classes:"govuk-input--width-10",
+    label: {
+      text: "Maximum water volume",
+      classes: "govuk-label?--l",
+      isPageHeading: true
+    },
+    suffix: {text: "L/ha"},
+    hint: {
+      text: "litres/hectare"
+    },
+    id: "proposedUseWaterMax",
+    name: "proposedUseWaterMax"
+  }) }}
+
+  <h2 class="govuk-heading-m">In-use concentration  </h2>
+  
+  {{ govukInput({
+    classes:"govuk-input--width-10",
+    label: {
+      text: "Minimun in-use concentration",
+      classes: "govuk-label?--l",
+      isPageHeading: true
+    },
+    suffix: {text: "g/hL "},
+    hint: {
+      text: "gram/hectolitre"
+    },
+    id: "proposedUseWaterMin",
+    name: "proposedUseWaterMin"
+  }) }}
+  
+  {{ govukInput({
+    classes:"govuk-input--width-10",
+    label: {
+      text: "Maximum in-use concentration",
+      classes: "govuk-label?--l",
+      isPageHeading: true
+    },
+    suffix: {text: "g/hL "},
+    hint: {
+      text: "gram/hectolitre"
+    },
+    id: "proposedUseWaterMax",
+    name: "proposedUseWaterMax"
+  }) }}
+
+
+
+
+
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

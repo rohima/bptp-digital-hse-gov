@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Product use – {{serviceName}} – GOV.UK
+Do you want to upload your proposed use information? – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -25,10 +25,11 @@ Product use – {{serviceName}} – GOV.UK
       {# <span class="govuk-caption-l">Application</span> #}
 
       <h1 class="govuk-heading-l">
-        Who is the intended product user? 
-      </h1>
+        Do you want to upload your proposed use information? </h1>
 
-
+<p>You can use the <a href="">CRD proposed use template</a> (opens in a new tab) to enter this information (also known as ‘GAP table’) and upload it.  </p>
+ 
+<p> If you do not want to upload a file, you can enter the information manually.  </p>
       
 
 
@@ -48,14 +49,15 @@ Product use – {{serviceName}} – GOV.UK
   },
   items: [
     {
-      value: "Professional",
-      text: "Professional",
+      value: "Yes – upload a file ",
+      text: "Yes – upload a file ",
+      hint: {text:"You must enter the information into the CRD proposed use template before you upload it "},
       checked: false
       
     },   
     {
-      value: "Amateur",
-      text: "Amateur"
+      value: "No – enter it manually ",
+      text: "No – enter it manually "
       
     }
   ]

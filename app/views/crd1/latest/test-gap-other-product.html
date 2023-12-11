@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Are all active substances considered low risk?  – {{serviceName}} – GOV.UK
+Do you have any other relevant product details to add?   – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,19 +18,23 @@ Are all active substances considered low risk?  – {{serviceName}} – GOV.UK
       <form class="form" method="post">
 
       {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">Are all active substances considered low risk?</p>
+      <h1 class="govuk-heading-l">Do you have any other relevant product details to add? </p>
 
-<p>A plant protection product is generally considered low risk if it does not have any harmful effects on: </p>
 
-<ul class="govuk-list govuk-list--bullet">
-  <li>human health</li>
-  <li>animal health</li>
-  <li>groundwater</li>
-  <li>the environment</li>
-</ul>
-
-<p><a href="https://www.hse.gov.uk/pesticides/pesticides-registration/active-substances/low-risk.html">Find out more about low-risk active substances on the HSE website</a> (opens in a new tab).  </p>
-
+{% set emailHtml %}
+{{ govukInput({
+  id: "contact-by-email",
+  name: "contactByEmail",
+  type: "email",
+  autocomplete: "email",
+  spellcheck: false,
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter relevant product details  "
+  }, 
+  hint: {text:""}
+}) }}
+{% endset -%}
 
 {{ govukRadios({
   id: "formulaRisk",
@@ -49,7 +53,9 @@ Are all active substances considered low risk?  – {{serviceName}} – GOV.UK
     {
       value: "Yes",
       text: "Yes",
-      checked: false
+      conditional: {
+        html: emailHtml
+      }
     },   
     {
       value: "No",

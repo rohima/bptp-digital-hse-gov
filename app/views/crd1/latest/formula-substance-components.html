@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Are all co-formulants including active substance(s) considered to be low risk? â€“ {{serviceName}} â€“ GOV.UK
+Substance components  â€“ {{serviceName}} â€“ GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,23 +18,35 @@ Are all co-formulants including active substance(s) considered to be low risk? â
       <form class="form" method="post">
 
       {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">Are all co-formulants considered to be low risk?</p>
+      <h1 class="govuk-heading-l">Is [Substance name] a mixture? </p>
 
-<p>A plant protection product is generally considered low risk if it does not have any harmful effects on: </p>
+{# <p>Enter the details of the substance in your formulation. You can add another substance later if you need to.  </p> #}
 
-<ul class="govuk-list govuk-list--bullet">
-  <li>human health</li>
-  <li>animal health</li>
-  <li>groundwater</li>
-  <li>the environment</li>
-</ul>
+{# <p>[Active substance name: 
+  <strong>Azoxystrobin
+  CAS: 131860-33-8</strong>]</p> #}
 
-{# <p>Find out more about <a href="https://www.hse.gov.uk/pesticides/pesticides-registration/active-substances/low-risk.htm">low-risk active substances on the HSE website</a> (opens in a new tab).  </p> #}
+ 
+  
+
+
+{# <h2 class="govuk-heading-m">Reference number </h2> #}
+
+{% set Yes %}
+{{ govukInput({
+  id: "formulaSubstanceNumberComponents",
+  name: "formulaSubstanceNumberComponents",
+  label: {text: "Number of components in the mixture ", classes: "govuk-label--s"},
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third"
+}) }}
+{% endset -%}
 
 
 {{ govukRadios({
-  id: "formulaRisk",
-  name: "formulaRisk",
+  id: "formulaSubstanceMixture",
+  name: "formulaSubstanceMixture",
   fieldset: {
     legend: {
       text: "",
@@ -49,7 +61,7 @@ Are all co-formulants including active substance(s) considered to be low risk? â
     {
       value: "Yes",
       text: "Yes",
-      checked: false
+      conditional: { html: Yes }
     },   
     {
       value: "No",
@@ -58,6 +70,12 @@ Are all co-formulants including active substance(s) considered to be low risk? â
 
   ]
 }) }}
+
+
+
+
+
+
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 

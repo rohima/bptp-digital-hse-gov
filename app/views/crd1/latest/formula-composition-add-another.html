@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Check your answers authorisation holder – {{serviceName}} – GOV.UK
+Formulation composition – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -17,103 +17,53 @@
 
         <h1 class="govuk-heading-l">Formulation composition</h1>
 
-        <p>This is your product formulation composition, from the data you have provided. If this does not look right you can go back and add more substances.</p>
+        <p>This is your formulation composition, based on the data you have provided. Add as many substances as you need to until your formulation is complete.</p>
 
-        {% from "govuk/components/table/macro.njk" import govukTable %}
+       
 
-{{ govukTable({
-  caption: "",
-  captionClasses: "govuk-table__caption--m",
-  firstCellIsHeader: true,
-  head: [
-    {
-      text: "Substance name",
-      classes: "app-custom-class"
-    },
-    {
-      text: "CAS/EC number(s)",
-      classes: "app-custom-class"
-    },
-    {
-      text: "Content",
-      classes: "app-custom-class"
-    }
-  ],
-  rows: [
-    [
-      {
-        text: "Azoxystrobin"
-      },
-      {
-        text: "131860-33-8"
-      },
-      {
-        text: "1.1g/kg"
-      }
-    ],
-    [
-      {
-        text: "Prohexadione"
-      },
-      {
-        text: "127277-53-6"
-      },
-      {
-        text: "0.1ml/l"
-      }
-    ],
-    [
-      {
-        text: "Zinc"
-      },
-      {
-        text: "7440-66-6"
-      },
-      {
-        text: "0.9g/kg"
-      }
-    ],
-    [
-      {
-        text: "Dihydrogen monoxide"
-      },
-      {
-        text: "7789-20-0"
-      },
-      {
-        text: "60ml/l"
-      }
-    ],
-    [
-      {
-        text: "Copper sulfate"
-      },
-      {
-        text: "7758-98-7"
-      },
-      {
-        text: "3.5g/kg"
-      }
-    ]
-  ]
-}) }}
 
-<div class="govuk-form-group">
+{# <div class="govuk-form-group">
 
   <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
-       {{ data['formulaActiveSubstance'] or '[Active substance]'}}
+       {{ data['formulaActiveSubstance'] or '[Active substance]'}} </dt>
+       <dd class="govuk-summary-list__actions hmrc-summary-list__actions">XXXX</dd>
+       <dd class="govuk-summary-list__actions hmrc-summary-list__actions">XXXX</dd>
       <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
         <ul class="govuk-summary-list__actions-list">
-          {# <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="name-your-first-hrb"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change building detials</span></a></li> #}
+          <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="name-your-first-hrb"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change building detials</span></a></li>
           <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove building</span></a></li>
         </ul>
       </dd>
+     
     </div>
     
   </dl>
-</div>
+</div> #}
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header app-custom-class">Substance name</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Reference</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Content</th>
+      <th scope="col" class="govuk-table__header app-custom-class"></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Azoxystrobin</th>
+      <td class="govuk-table__cell">131860-33-8</td>
+      <td class="govuk-table__cell">	1.1g/kg</td>
+      <td class="govuk-table__cell">
+        <a class="govuk-link" href="#"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove</span></a>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
 
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" aria-describedby="add-another-hint">

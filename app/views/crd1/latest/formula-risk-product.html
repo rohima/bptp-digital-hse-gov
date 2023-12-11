@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Substance components  – {{serviceName}} – GOV.UK
+Is the product considered low risk? – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,35 +18,23 @@ Substance components  – {{serviceName}} – GOV.UK
       <form class="form" method="post">
 
       {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">Is [Substance name] a mixture? </p>
+      <h1 class="govuk-heading-l">Is the product considered low risk? </p>
 
-{# <p>Enter the details of the substance in your formulation. You can add another substance later if you need to.  </p> #}
+<p>A plant protection product is generally considered low risk if it does not have any harmful effects on: </p>
 
-{# <p>[Active substance name: 
-  <strong>Azoxystrobin
-  CAS: 131860-33-8</strong>]</p> #}
+<ul class="govuk-list govuk-list--bullet">
+  <li>human health</li>
+  <li>animal health</li>
+  <li>groundwater</li>
+  <li>the environment</li>
+</ul>
 
- 
-  
-
-
-{# <h2 class="govuk-heading-m">Reference number </h2> #}
-
-{% set Yes %}
-{{ govukInput({
-  id: "formulaTypeAddReference",
-  name: "formulaTypeAddReference",
-  label: {text: "Number of components in the mixture ", classes: "govuk-label--s"},
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third"
-}) }}
-{% endset -%}
+{# <p>Find out more about <a href="https://www.hse.gov.uk/pesticides/pesticides-registration/active-substances/low-risk.htm">low-risk active substances on the HSE website</a> (opens in a new tab).  </p> #}
 
 
 {{ govukRadios({
-  id: "formulaTypeAddReference",
-  name: "formulaTypeAddReference",
+  id: "formulaRisk",
+  name: "formulaRisk",
   fieldset: {
     legend: {
       text: "",
@@ -61,7 +49,7 @@ Substance components  – {{serviceName}} – GOV.UK
     {
       value: "Yes",
       text: "Yes",
-      conditional: { html: Yes }
+      checked: false
     },   
     {
       value: "No",
@@ -70,12 +58,6 @@ Substance components  – {{serviceName}} – GOV.UK
 
   ]
 }) }}
-
-
-
-
-
-
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 

@@ -1,0 +1,247 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Seed sowing and growth   – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      {# <span class="govuk-caption-l">Formulation composition</span> #}
+      <h1 class="govuk-heading-l">Seed sowing and growth </p>
+
+  <h2 class="govuk-heading-m">Seed sowing  </h2>
+  <h3 class="govuk-heading-s"> Seed sowing density    </h3>
+  <p>Seeds per hectare </p>
+  
+  {{ govukInput({
+    label: {
+      text: 'Enter value '
+    },
+    hint: {
+    text: " "
+  },
+  classes: "govuk-input--width-20",
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }}
+
+
+
+
+  {% set emailHtml %}
+  {{ govukInput({
+    id: "contact-by-email",
+    name: "contactByEmail",
+    type: "email",
+    autocomplete: "email",
+    spellcheck: false,
+    classes: "govuk-!-width-one-third",
+    label: {
+      text: "Thousand seed weight:   "
+    }, 
+    hint: {text:""}
+  }) }}
+  {% endset -%}
+
+  {{ govukRadios({
+    id: "formulaTypeAdd",
+    name: "formulaTypeAdd",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "Select a unit: "
+    },
+    items: [
+      {
+        value: "kilograms (kg)  ",
+        text: "kilograms (kg)  ",
+        conditional: {
+          html: emailHtml
+        }
+      },   
+      {
+        value: "litres (l)  ",
+        text: "litres (l)  "
+      }
+  
+    ]
+  }) }}
+
+  <h2 class="govuk-heading-m">Depth of seed sowing  </h2>
+  
+  {{ govukInput({
+    classes:"govuk-input--width-10",
+    label: {
+      text: "Enter depth   ",
+      classes: "govuk-label?--l"
+    },
+    
+    hint: {
+      text: ""
+    },
+    id: "proposedUseWaterMin",
+    name: "proposedUseWaterMin"
+  }) }}
+
+  <h2 class="govuk-heading-m">Number of crops on the same land within a given year  </h2>
+  
+  {{ govukInput({
+    classes:"govuk-input--width-20",
+    label: {
+      text: "Enter value ",
+      classes: "govuk-label?--l"
+    },
+    
+    hint: {
+      text: ""
+    },
+    id: "proposedUseWaterMin",
+    name: "proposedUseWaterMin"
+  }) }}
+
+  {{ govukInput({
+    classes:"govuk-input--width-",
+    label: {
+      text: "Enter additional information (optional) ",
+      classes: "govuk-label?--l"
+    },
+    hint: {
+      text: "For example, where combinations of crops or repeat sowing failure may occur "
+    },
+    id: "proposedUseWaterMin",
+    name: "proposedUseWaterMin"
+  }) }}
+
+
+
+
+  <h2 class="govuk-heading-m">Treated seed  </h2>
+  <h3 class="govuk-heading-s"> Is the treated seed precision-drilled?  </h3>
+
+  {{ govukRadios({
+    id: "formulaTypeAdd",
+    name: "formulaTypeAdd",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: " "
+    },
+    items: [
+      {
+        value: "Yes",
+        text: "Yes"
+        
+      },   
+      {
+        value: "No",
+        text: "No"
+      }
+  
+    ]
+  }) }}
+
+  <h3 class="govuk-heading-s"> Are the treated seeds sown under protection?  </h3>
+
+  {% set textHtml %}
+  {{ govukInput({
+    id: "contact-by-xx",
+    name: "xx",
+    type: "text",
+    autocomplete: "text",
+    spellcheck: false,
+    classes: "govuk-!-width-one-third",
+    label: {
+      text: "Temporary structure type if applicable (optional)  "
+    }, 
+    hint: {text:""}
+  }) }}
+  {% endset -%}
+
+  {{ govukRadios({
+    id: "formulaTypeAdd",
+    name: "formulaTypeAdd",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "For example, permanent protection with full enclosure, permanent protection or temporary protection such as crop covers.  "
+    },
+    items: [
+      {
+        value: "Yes",
+        text: "Yes",
+        conditional: {
+          html: textHtml
+        }
+      },   
+      {
+        value: "No",
+        text: "No"
+      }
+  
+    ]
+  }) }}
+
+
+
+  <h2 class="govuk-heading-m">At what growth stage is the protection removed or the seedlings transported outside?  </h2>
+  
+  {{ govukInput({
+    classes:"govuk-input--width-10",
+    label: {
+      text: "Enter growth stage ",
+      classes: "govuk-label?--l"
+    },
+    suffix: {text: ""},
+    hint: {
+      text: ""
+    },
+    id: "proposedUseWaterMin",
+    name: "proposedUseWaterMin"
+  }) }}
+
+
+  
+
+
+
+
+
+
+
+
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

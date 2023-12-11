@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Are all active substances considered low risk?  – {{serviceName}} – GOV.UK
+Do you want to upload your formulation composition?   – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,23 +18,18 @@ Are all active substances considered low risk?  – {{serviceName}} – GOV.UK
       <form class="form" method="post">
 
       {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">Are all active substances considered low risk?</p>
+      <h1 class="govuk-heading-l">Do you want to upload your formulation composition? </p>
 
-<p>A plant protection product is generally considered low risk if it does not have any harmful effects on: </p>
+<p>You can use the <a href="#">CRD formulation composition template</a> (opens in a new tab) to enter this information and upload it.  </p>
 
-<ul class="govuk-list govuk-list--bullet">
-  <li>human health</li>
-  <li>animal health</li>
-  <li>groundwater</li>
-  <li>the environment</li>
-</ul>
 
-<p><a href="https://www.hse.gov.uk/pesticides/pesticides-registration/active-substances/low-risk.html">Find out more about low-risk active substances on the HSE website</a> (opens in a new tab).  </p>
+
+<p>If you do not want to upload a file, you can enter the information manually. </p>
 
 
 {{ govukRadios({
-  id: "formulaRisk",
-  name: "formulaRisk",
+  id: "isCsvUpload",
+  name: "isCsvUpload",
   fieldset: {
     legend: {
       text: "",

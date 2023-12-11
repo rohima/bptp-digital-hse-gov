@@ -1,0 +1,189 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Crop and product use  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      {# <span class="govuk-caption-l">Formulation composition</span> #}
+      <h1 class="govuk-heading-l">Crop and product use </p>
+
+{# <p>Enter the details of the substance in your formulation. You can add another substance later if you need to.  </p> #}
+
+{# <p>[Active substance name: 
+  <strong>Azoxystrobin
+  CAS: 131860-33-8</strong>]</p> #}
+
+  <h2 class="govuk-heading-m">Which crop will the product be used for? </h2>
+  
+  {{ govukInput({
+    label: {
+      text: 'Enter crop'
+    },
+    hint: {
+    text: "Type part of the crop name and select it from the list. If the full name does not show, enter it manually. "
+  },
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }}
+
+
+  <h2 class="govuk-heading-m">Crop qualifier  </h2>
+  
+  {{ govukInput({
+    label: {
+      text: 'Enter qualifier '
+    },
+    hint: {
+    text: " "
+  },
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }}
+
+  <h2 class="govuk-heading-m">Which pest, or group of pests, does the product control? </h2>
+  
+  {{ govukInput({
+    label: {
+      text: 'Enter the EPPO code or specific species name. '
+    },
+    hint: {
+    text: " "
+  },
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }}
+
+<h2 class="govuk-heading-m">Crop location  </h2>
+  
+
+{% set emailHtml %}
+{{ govukInput({
+  id: "contact-by-email",
+  name: "contactByEmail",
+  type: "email",
+  autocomplete: "email",
+  spellcheck: false,
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Give details "
+  }, 
+  hint: {text:"If temporary cover, give details of the structure, the growth stages the protection is used for, and whether application will be while crop is under protection."}
+}) }}
+{% endset -%}
+
+{{ govukCheckboxes({
+  id: "waste",
+  name: "waste",
+  fieldset: {
+    legend: {
+      text: ""
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "Indoor ",
+      text: "Indoor ",
+      hint: {text:"Non crop production "}
+    },
+    {
+      value: "Outdoor ",
+      text: "Outdoor "
+    },
+    {
+      value: "Protected ",
+      text: "Protected ",
+      hint: {text:"Permanent or temporary cover "},
+      conditional: {
+        html: emailHtml
+      }
+    },
+    {
+      value: "Permanent protection with full enclosures (PPFE)  ",
+      text: "Permanent protection with full enclosures (PPFE)  "
+    }
+  ]
+}) }}
+
+
+
+
+  <h2 class="govuk-heading-m">Height of crop at time of application   </h2>
+  <p>For indoor crops, enter the height of application. </p>
+
+
+{{ govukRadios({
+  id: "formulaTypeAdd",
+  name: "formulaTypeAdd",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "centimetres (cm) ",
+      text: "centimetres (cm) "
+      
+    },   
+    {
+      value: "metres (m) ",
+      text: "metres (m) "
+    }
+
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Number of crops per year   </h2>
+<p>Per field, site or structure </p>
+  
+  {{ govukInput({
+    label: {
+      text: 'Enter number '
+    },
+    hint: {
+    text: " "
+  },
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }}
+
+
+
+
+
+
+
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

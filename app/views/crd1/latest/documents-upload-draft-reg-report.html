@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Upload admin documents –{{serviceName}} – GOV.UK
+Upload your draft registration report documents (dRR)  –{{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -22,9 +22,10 @@ Upload admin documents –{{serviceName}} – GOV.UK
       {# <span class="govuk-caption-l">Documents</span> #}
 
       <h1 class="govuk-heading-l">
-        Upload your draft registration report documents (dRR)
+        Upload your draft registration report documents (dRR) 
       </h1>
 
+      <p>Select the documents you are uploading as part of your dRR.</p>
      
         <form class="form" method="post">
 
@@ -35,9 +36,27 @@ Upload admin documents –{{serviceName}} – GOV.UK
         </style>
 
         
-            
+<h2 class="govuk-heading-s">Part A</h2>   
+{{ govukCheckboxes({
+  id: "documentsDraftRegReportSelect",
+  name: "documentsDraftRegReportSelect",
+  fieldset: {
+    legend: {
+      text: ""
+    }
+  },
+  hint: {
+    text: " "
+  },
+  items: [
+    {
+      value: "Summary of evaluation",
+      text: "Summary of evaluation"
+    }
 
- {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+    ]
+  }) }}
+<h2 class="govuk-heading-s">Part B</h2>          
 
 {{ govukCheckboxes({
   id: "documentsDraftRegReportSelect",
@@ -48,7 +67,7 @@ Upload admin documents –{{serviceName}} – GOV.UK
     }
   },
   hint: {
-    text: "Select which documents you are uploading"
+    text: " "
   },
   items: [
     {
@@ -56,40 +75,49 @@ Upload admin documents –{{serviceName}} – GOV.UK
       text: "Summary of Evaluation"
     },
     {
-      value: "Section 1, 2 and 4 - Identity, Physical and chemical properties and Further information",
-      text: "Section 1, 2 and 4 - Identity, Physical and chemical properties and Further information"
+      value: "Section 1, 2 and 4 ",
+      text: "Section 1, 2 and 4 ",
+      hint: {text: "Identity, physical and chemical properties and further information "}
     },
     {
-      value: "Section 3 - Efficacy Data and Information",
-      text: "Section 3 - Efficacy Data and Information"
+      value: "Section 3",
+      text: "Section 3",
+      hint:{text:"Efficacy data and information "}
     },
     {
-      value: "Section 5 - Analytical methods",
-      text: "Section 5 - Analytical methods "
+      value: "Section 5",
+      text: "Section 5 ",
+      hint:{text:"Analytical methods "}
     },
     {
-      value: "Section 6 - Mammalian Toxicology ",
-      text: "Section 6 - Mammalian Toxicology "
+      value: "Section 6",
+      text: "Section 6",
+      hint:{text:"Mammalian toxicology "}
     },
     {
-      value: "Section 7 - Metabolism and Residues",
-      text: "Section 7 - Metabolism and Residues"
+      value: "Section 7",
+      text: "Section 7",
+      hint:{text:"Metabolism and residues "}
     },
     {
-      value: "Section 8 - Environmental Fate",
-      text: "Section 8 - Environmental Fate "
+      value: "Section 8",
+      text: "Section 8",
+      hint:{text:"Environmental fate"}
     },
     {
-      value: "Section 9 - Ecotoxicology ",
-      text: "Section 9 - Ecotoxicology "
+      value: "Section 9 ",
+      text: "Section 9 ",
+      hint:{text:"Ecotoxicology"}
     },
     {
-      value: "Section 10 - Assessment of the relevance of metabolites in groundwater",
-      text: "Section 10 - Assessment of the relevance of metabolites in groundwater"
+      value: "Section 10 ",
+      text: "Section 10 ",
+      hint:{text:"Assessment of the relevance of metabolites in groundwater"}
     },
     {
       value: "Confidential information",
-      text: "Confidential information"
+      text: "Confidential information",
+      hint:{text:""}
     }
   ]
 }) }}

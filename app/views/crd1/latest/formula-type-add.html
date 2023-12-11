@@ -17,29 +17,46 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
 
       <form class="form" method="post">
 
-      {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">Type of substance</p>
+      <span class="govuk-caption-l">Formulation composition</span>
+      <h1 class="govuk-heading-l">Add a substance </p>
 
-<p>You can add more substances later.</p>
+<p>Enter the details of the substance in your formulation. You can add another substance later if you need to.  </p>
 
 {# <p>[Active substance name: 
   <strong>Azoxystrobin
   CAS: 131860-33-8</strong>]</p> #}
 
-
-{% set emailHtml %}
-{{ govukInput({
-  id: "formulaTypeAdd",
-  name: "formulaTypeAdd",
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "Reference evaluation report"
+  <h2 class="govuk-heading-m">Chemical name </h2>
+  
+  {{ govukInput({
+    label: {
+      text: 'Substance name'
+    },
+    hint: {
+    text: "  "
   },
-  hint: { text: "This could be any or all of the following: COP number, Wisdom reference, HSE reference, product name, product identifier code"}
-}) }}
-{% endset -%}
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }}
+
+
+  <h2 class="govuk-heading-m">Function </h2>
+  
+  {{ govukInput({
+    label: {
+      text: 'Enter function '
+    },
+    hint: {
+    text: "Type part of the substance name and select it from the list. If the full name does not show, enter it manually.  "
+  },
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }}
+
+  <h2 class="govuk-heading-m">Substance type  </h2>
+
 
 {{ govukRadios({
   id: "formulaTypeAdd",
@@ -57,17 +74,103 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
   items: [
     {
       value: "Active Substance",
-      text: "Add an active substance"
+      text: "Active substance"
       
     },   
     {
       value: "Co Formulant",
-      text: "Add a co-formulant",
+      text: "Co-formulant",
       checked: false
     }
 
   ]
 }) }}
+
+
+<h2 class="govuk-heading-m">Reference number </h2>
+
+{% set CAS %}
+{{ govukInput({
+  id: "formulaTypeAddReference",
+  name: "formulaTypeAddReference",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third"
+}) }}
+{% endset -%}
+{% set EC %}
+{{ govukInput({
+  id: "formulaTypeAddReference",
+  name: "formulaTypeAddReference",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third"
+}) }}
+{% endset -%}
+{% set ELINCS %}
+{{ govukInput({
+  id: "formulaTypeAddReference",
+  name: "formulaTypeAddReference",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third"
+}) }}
+{% endset -%}
+{% set EINECS  %}
+{{ govukInput({
+  id: "formulaTypeAddReference",
+  name: "formulaTypeAddReference",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third"
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  id: "formulaTypeAddReference",
+  name: "formulaTypeAddReference",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "CAS",
+      text: "CAS number",
+      conditional: { html: CAS }
+    },   
+    {
+      value: "EC",
+      text: "EC number",
+      conditional: { html: EC }
+    }
+    ,   
+    {
+      value: "ELINCS",
+      text: "ELINCS number",
+      conditional: { html: ELINCS }
+    }
+    ,   
+    {
+      value: "EINECS",
+      text: "EINECS number",
+      conditional: { html: EINECS }
+    }
+
+  ]
+}) }}
+
+
+
+
+
+
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 

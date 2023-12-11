@@ -1,0 +1,180 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Product dosage  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      {# <span class="govuk-caption-l">Formulation composition</span> #}
+      <h1 class="govuk-heading-l">Seed treatment application  </p>
+
+{# <p></p> #}
+
+
+  <h2 class="govuk-heading-m">Describe the application method for treating seeds    </h2>
+  {# <h3 class="govuk-heading-s"> Maximum individual dose of active substance   </h3> #}
+ 
+  
+  {{ govukInput({
+    label: {
+      text: ' Enter description  '
+    },
+    hint: {
+    text: " "
+  },
+  classes: "govuk-input--width-20",
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }}
+
+  <h2 class="govuk-heading-m">Amount of product per hectare    </h2>
+  {# <h3 class="govuk-heading-s"> Maximum individual dose of active substance   </h3> #}
+ 
+  
+  {{ govukInput({
+    label: {
+      text: ' Enter value   '
+    },
+    hint: {
+    text: " "
+  },
+  classes: "govuk-input--width-20",
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }}
+
+
+
+  {{ govukRadios({
+    id: "formulaTypeAdd",
+    name: "formulaTypeAdd",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "Select a unit: "
+    },
+    items: [
+      {
+        value: "kilograms (kg)  ",
+        text: "kilograms (kg)  "
+        
+      },   
+      {
+        value: "litres (l)  ",
+        text: "litres (l)  "
+      }
+  
+    ]
+  }) }}
+
+  <h2 class="govuk-heading-m">Amount of product per 100,000 seeds  </h2>
+  
+  {{ govukInput({
+    classes:"govuk-input--width-10",
+    label: {
+      text: "Enter value  ",
+      classes: "govuk-label?--l"
+    },
+    
+    hint: {
+      text: ""
+    },
+    id: "proposedUseWaterMin",
+    name: "proposedUseWaterMin"
+  }) }}
+
+  {{ govukRadios({
+    id: "formulaTypeAdd",
+    name: "formulaTypeAdd",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "Select a unit: "
+    },
+    items: [
+      {
+        value: "kilograms (kg)  ",
+        text: "kilograms (kg)  "
+        
+      },   
+      {
+        value: "litres (l)  ",
+        text: "litres (l)  "
+      }
+  
+    ]
+  }) }}
+
+  <h2 class="govuk-heading-m">Application rate to seeds   </h2>
+  
+  {{ govukInput({
+    classes:"govuk-input--width-10",
+    label: {
+      text: "Enter value ",
+      classes: "govuk-label?--l"
+    },
+    suffix: {text: "g"},
+    hint: {
+      text: "Grams of active substance per 100,000 seeds "
+    },
+    id: "proposedUseWaterMin",
+    name: "proposedUseWaterMin"
+  }) }}
+
+
+  <h2 class="govuk-heading-m">Concentration on seeds   </h2>
+  
+  {{ govukInput({
+    classes:"govuk-input--width-10",
+    label: {
+      text: "Enter value ",
+      classes: "govuk-label?--l"
+    },
+    suffix: {text: "mg"},
+    hint: {
+      text: "Milligrams of active substance per 100,000 seeds  "
+    },
+    id: "proposedUseWaterMin",
+    name: "proposedUseWaterMin"
+  }) }}
+
+
+
+
+
+
+
+
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
