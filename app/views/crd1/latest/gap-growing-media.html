@@ -18,12 +18,12 @@ Growing media for protected uses – {{serviceName}} – GOV.UK
       <form class="form" method="post">
 
       {# <span class="govuk-caption-l">Formulation composition</span> #}
-      <h1 class="govuk-heading-l">What type of growing media are used for the protected uses? </p>
+      <h1 class="govuk-heading-l">Protected crops </p>
 
-<p>Only select the methods that most growers would typically use for the crop. </p>
+{# <p> </p> #}
 
-<h2 class="govuk-heading-m">Crop location  </h2>
-  
+<h2 class="govuk-heading-m">What type of growing media are used for the protected uses?  </h2>
+  <p>Only select the methods that most growers would typically use for the crop. </p>
 
 {# {% set emailHtml %}
 {{ govukInput({
@@ -71,8 +71,53 @@ Growing media for protected uses – {{serviceName}} – GOV.UK
 }) }}
 
 
+<h2 class="govuk-heading-m">Describe the type of cover  </h2>
+  <p></p>
 
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  label: {
+    text: "Enter description "
+  },
+  hint: {
+    text: ""
+  }
+}) }}
+
+<h2 class="govuk-heading-m">Describe the growth stages the protection is used for, and whether application will be while crop is under protection  </h2>
+  <p></p>
+
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  label: {
+    text: "Enter description "
+  },
+  hint: {
+    text: ""
+  }
+}) }}
+
+<h2 class="govuk-heading-m">If cover is removed during growth, at which growth stage does this happen? (Optional)  </h2>
+  <p></p>
+
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  label: {
+    text: "Enter description "
+  },
+  hint: {
+    text: ""
+  }
+}) }}
   
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>

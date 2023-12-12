@@ -434,8 +434,12 @@ router.post('/gap-csv-1', function (req, res) {
 // gap-crop-product
 
 router.post('/gap-crop-product', function (req, res) {
-  let gapCropProduct = req.session.data.gapCropProduct;
-  res.redirect('gap-growing-media');
+  let gapCropLocation = req.session.data.gapCropLocation;
+  if (gapCropLocation == "Protected" || gapCropLocation == "PPFE") {
+    res.redirect('gap-growing-media');
+  } else {
+    res.redirect('gap-dosage');
+  }
 
 })
 

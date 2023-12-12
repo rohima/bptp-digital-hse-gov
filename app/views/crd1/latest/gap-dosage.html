@@ -55,13 +55,13 @@ Product dosage  – {{serviceName}} – GOV.UK
     },
     items: [
       {
-        value: "kilograms (kg) ",
-        text: "kilograms (kg) "
+        value: "kilograms per hectare (kg/ha) ",
+        text: "kilograms per hectare (kg/ha) "
         
       },   
       {
-        value: "litres/hectare (l/ha) ",
-        text: "litres/hectare (l/ha) ",
+        value: "litres per hectare (l/ha) ",
+        text: "litres per hectare (l/ha) ",
         checked: false
       }
   
@@ -96,13 +96,13 @@ Product dosage  – {{serviceName}} – GOV.UK
     },
     items: [
       {
-        value: "kilograms (kg) ",
-        text: "kilograms (kg) "
+        value: "kilograms per hectare (kg/ha) ",
+        text: "kilograms per hectare (kg/ha) "
         
       },   
       {
-        value: "litres/hectare (l/ha) ",
-        text: "litres/hectare (l/ha) ",
+        value: "litres per hectare (l/ha) ",
+        text: "litres per hectare (l/ha) ",
         checked: false
       }
   
@@ -139,13 +139,13 @@ Product dosage  – {{serviceName}} – GOV.UK
     },
     items: [
       {
-        value: "kilograms (kg) ",
-        text: "kilograms (kg) "
+        value: "kilograms per hectare (kg/ha) ",
+        text: "kilograms per hectare (kg/ha) "
         
       },   
       {
-        value: "litres/hectare (l/ha) ",
-        text: "litres/hectare (l/ha) ",
+        value: "litres per hectare (l/ha) ",
+        text: "litres per hectare (l/ha) ",
         checked: false
       }
   
@@ -180,13 +180,13 @@ Product dosage  – {{serviceName}} – GOV.UK
     },
     items: [
       {
-        value: "kilograms (kg) ",
-        text: "kilograms (kg) "
+        value: "kilograms per hectare (kg/ha) ",
+        text: "kilograms per hectare (kg/ha) "
         
       },   
       {
-        value: "litres/hectare (l/ha) ",
-        text: "litres/hectare (l/ha) ",
+        value: "litres per hectare (l/ha) ",
+        text: "litres per hectare (l/ha) ",
         checked: false
       }
   
@@ -198,13 +198,13 @@ Product dosage  – {{serviceName}} – GOV.UK
   {{ govukInput({
     classes:"govuk-input--width-10",
     label: {
-      text: "Minimun water volume",
+      text: "Minimum water volume",
       classes: "govuk-label?--l",
       isPageHeading: true
     },
-    suffix: {text: "L/ha"},
+    suffix: {text: "l/ha"},
     hint: {
-      text: "litres/hectare"
+      text: "litres per hectare"
     },
     id: "proposedUseWaterMin",
     name: "proposedUseWaterMin"
@@ -217,9 +217,9 @@ Product dosage  – {{serviceName}} – GOV.UK
       classes: "govuk-label?--l",
       isPageHeading: true
     },
-    suffix: {text: "L/ha"},
+    suffix: {text: "l/ha"},
     hint: {
-      text: "litres/hectare"
+      text: "litres per hectare"
     },
     id: "proposedUseWaterMax",
     name: "proposedUseWaterMax"
@@ -230,16 +230,43 @@ Product dosage  – {{serviceName}} – GOV.UK
   {{ govukInput({
     classes:"govuk-input--width-10",
     label: {
-      text: "Minimun in-use concentration",
+      text: "Minimum in-use concentration",
       classes: "govuk-label?--l",
       isPageHeading: true
     },
-    suffix: {text: "g/hL "},
+    
     hint: {
-      text: "gram/hectolitre"
+      text: ""
     },
     id: "proposedUseWaterMin",
     name: "proposedUseWaterMin"
+  }) }}
+  {{ govukRadios({
+    id: "formulaTypeAddx",
+    name: "formulaTypeAddx",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "Select a unit: "
+    },
+    items: [
+      {
+        value: "grams per hectare (g/ha) ",
+        text: "grams per hectare (g/ha) "
+        
+      },   
+      {
+        value: "litres per hectare (l/ha) ",
+        text: "litres per hectare (l/ha) ",
+        checked: false
+      }
+  
+    ]
   }) }}
   
   {{ govukInput({
@@ -249,14 +276,41 @@ Product dosage  – {{serviceName}} – GOV.UK
       classes: "govuk-label?--l",
       isPageHeading: true
     },
-    suffix: {text: "g/hL "},
+    
     hint: {
-      text: "gram/hectolitre"
+      text: ""
     },
     id: "proposedUseWaterMax",
     name: "proposedUseWaterMax"
   }) }}
 
+  {{ govukRadios({
+    id: "formulaTypeAddc",
+    name: "formulaTypeAddc",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "Select a unit: "
+    },
+    items: [
+      {
+        value: "grams per hectare (g/ha) ",
+        text: "grams per hectare (g/ha) "
+        
+      },   
+      {
+        value: "litres per hectare (l/ha) ",
+        text: "litres per hectare (l/ha) ",
+        checked: false
+      }
+  
+    ]
+  }) }}
 
 
 

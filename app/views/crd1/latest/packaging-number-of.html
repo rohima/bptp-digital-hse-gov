@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-How many pack sizes does the product have?  – {{serviceName}} – GOV.UK
+How many different types of container does the product have?   – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,7 +18,7 @@ How many pack sizes does the product have?  – {{serviceName}} – GOV.UK
       <form class="form" method="post">
 
       {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">How many pack sizes does the product have? </h1>
+      <h1 class="govuk-heading-l">How many different types of container does the product have? </h1>
 
       {# <p>You can add other package sizes after.</p> #}
 
@@ -26,7 +26,7 @@ How many pack sizes does the product have?  – {{serviceName}} – GOV.UK
  {% from "govuk/components/input/macro.njk" import govukInput %}
  {{ govukInput({
   label: {
-    text: "Number of sizes "
+    text: "Number of containers  "
   },
   suffix: {
     text: ""

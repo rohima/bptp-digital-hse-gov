@@ -41,7 +41,7 @@ Crop and product use  – {{serviceName}} – GOV.UK
   }) }}
 
 
-  <h2 class="govuk-heading-m">Crop qualifier  </h2>
+  <h2 class="govuk-heading-m">Crop qualifier (optional) </h2>
   
   {{ govukInput({
     label: {
@@ -55,7 +55,7 @@ Crop and product use  – {{serviceName}} – GOV.UK
     autocomplete: "address-line1"
   }) }}
 
-  <h2 class="govuk-heading-m">Which pest, or group of pests, does the product control? </h2>
+  <h2 class="govuk-heading-m">Which pest, disease or weed does the product control?  </h2>
   
   {{ govukInput({
     label: {
@@ -88,8 +88,8 @@ Crop and product use  – {{serviceName}} – GOV.UK
 {% endset -%}
 
 {{ govukCheckboxes({
-  id: "waste",
-  name: "waste",
+  id: "gapCropLocation",
+  name: "gapCropLocation",
   fieldset: {
     legend: {
       text: ""
@@ -117,7 +117,7 @@ Crop and product use  – {{serviceName}} – GOV.UK
       }
     },
     {
-      value: "Permanent protection with full enclosures (PPFE)  ",
+      value: "PPFE",
       text: "Permanent protection with full enclosures (PPFE)  "
     }
   ]
@@ -126,9 +126,20 @@ Crop and product use  – {{serviceName}} – GOV.UK
 
 
 
-  <h2 class="govuk-heading-m">Height of crop at time of application   </h2>
+  <h2 class="govuk-heading-m">Height of application (indoor crops only)   </h2>
   <p>For indoor crops, enter the height of application. </p>
-
+  {{ govukInput({
+    id: "contact-by-email",
+    name: "contactByEmail",
+    type: "email",
+    autocomplete: "email",
+    spellcheck: false,
+    classes: "govuk-!-width-one-third",
+    label: {
+      text: "Enter value "
+    }, 
+    hint: {text:""}
+  }) }}
 
 {{ govukRadios({
   id: "formulaTypeAdd",

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Pack [X] details – {{serviceName}} – GOV.UK
+Container [X] details – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,7 +18,7 @@ Pack [X] details – {{serviceName}} – GOV.UK
       <form class="form" method="post">
 
       {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">Pack [X] details  </p>
+      <h1 class="govuk-heading-l">Container [X] details  </p>
 
 {# <p>Enter the details of the substance in your formulation. You can add another substance later if you need to.  </p> #}
 
@@ -30,12 +30,12 @@ Pack [X] details – {{serviceName}} – GOV.UK
   
 
 
-<h2 class="govuk-heading-s">Pack size  </h2>
+<h2 class="govuk-heading-s">Volume range for container type   </h2>
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {{ govukInput({
  label: {
-   text: "Value"
+   text: "From:"
  },
  suffix: {
    text: ""
@@ -56,7 +56,7 @@ Pack [X] details – {{serviceName}} – GOV.UK
     }
   },
   hint: {
-    text: "Select the unit for this package size "
+    text: "Select the unit for this container type  "
   },
   items: [
     {
@@ -82,6 +82,70 @@ Pack [X] details – {{serviceName}} – GOV.UK
   ]
 }) }}
 
+{{ govukInput({
+  label: {
+    text: "To:"
+  },
+  suffix: {
+    text: ""
+  },
+  classes: "govuk-input--width-5",
+  id: "productVolume",
+  name: "productVolume"
+ }) }}
+
+{{ govukRadios({
+  id: "productMeasurementx",
+  name: "productMeasurementx",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select the unit for this container type  "
+  },
+  items: [
+    {
+      value: "g",
+      text: "gram (g)"
+      
+    },   
+    {
+      value: "kg",
+      text: "kilogram (kg)"
+      
+    },   
+    {
+      value: "ml",
+      text: "millilitre (ml)"
+      
+    },   
+    {
+      value: "l",
+      text: "litre (l)"
+      
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-s">Product container type </h2>
+
+{{ govukInput({
+  label: {
+    text: "Container type ",
+    classes: "govuk-label?--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Type part of the name and select it from the list. If the full name does not show, enter it manually. "
+  },
+  id: "productInnerPackaging",
+  name: "productInnerPackaging"
+}) }}
+
 <h2 class="govuk-heading-s">Packaging material  </h2>
 
 <p>Enter the material closest to the product </p>
@@ -93,13 +157,13 @@ Pack [X] details – {{serviceName}} – GOV.UK
     isPageHeading: true
   },
   hint: {
-    text: "Start typing to see a list"
+    text: "Type part of the name and select it from the list. If the full name does not show, enter it manually. "
   },
   id: "productInnerPackaging",
   name: "productInnerPackaging"
 }) }}
 
-<h3 class="govuk-heading-s">Enter other pack material (optional) </h3>
+<h3 class="govuk-heading-s">Other pack material (optional) </h3>
 
 {{ govukInput({
   label: {
