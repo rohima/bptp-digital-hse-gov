@@ -1,28 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-
-// documents-upload-proof-of-authorisation
-
-// product-use-seed-treatment
-
-// test-gap-seed-treatment
-
-// 
-
-// test-gap-growing-media
-
-// test-gap-timings
-
-
-
-
-
 // ----------------- TEST ----------------- //
-
-
-
-
 
 
 
@@ -197,16 +176,37 @@ router.post('/marketing-co-check-answers', function (req, res) {
 
 })
 
-// ----------------- PRODUCT DETAILS ----------------- //
+// ----------------- MARKET AREA ----------------- //
 
 // application-market-area
 
 router.post('/application-market-area', function (req, res) {
   
   let marketArea = req.session.data.marketArea;
+  res.redirect('application-eu-reference');
+
+})
+
+// application-eu-reference
+
+router.post('/application-eu-reference', function (req, res) {
+  
+  let marketArea = req.session.data.marketArea;
+  res.redirect('application-eu-tech');
+
+})
+
+// application-eu-tech
+
+router.post('/application-eu-tech', function (req, res) {
+  
+  let marketArea = req.session.data.marketArea;
   res.redirect('product-name');
 
 })
+
+
+// ----------------- PRODUCT DETAILS ----------------- //
 
 // product-name
 
@@ -217,9 +217,6 @@ router.post('/product-name', function (req, res) {
   res.redirect('formula-is-csv-upload');
 
 })
-
-
-
 
 
 
@@ -250,10 +247,10 @@ router.post('/formula-is-csv-upload', function (req, res) {
 // formula-csv-1
 
 router.post('/formula-csv-1', function (req, res) {
-  res.redirect('formula-csv-2');
+  res.redirect('formula-csv-3');
 })
 
-// formula-csv-2
+// formula-csv-2 - NOT USED
 
 router.post('/formula-csv-2', function (req, res) {
   res.redirect('formula-csv-3');
@@ -363,7 +360,7 @@ router.post('/formula-risk-product', function (req, res) {
 
 router.post('/formula-check-answers', function (req, res) {  
   let formulaCheckAnswers = req.session.data.formulaCheckAnswers;
-  res.redirect('gap-is-csv-upload');
+  res.redirect('product-use');
 
 })
 
@@ -371,45 +368,15 @@ router.post('/formula-check-answers', function (req, res) {
 
 router.post('/formula-csv-check-answers', function (req, res) {  
   let formulaCheckAnswers = req.session.data.formulaCheckAnswers;
-  res.redirect('gap-is-csv-upload');
+  res.redirect('product-use');
 
 })
 
 
-
-
-
-
-
-
-
-
-
-
-//-----------------------------------------------------------//
-
-
-
-
-
-
-
-
+// ----------------- FORMULATION COMPOSITION  END----------------- //
 
 
 // ----------------- PRODUCT USE ----------------- //
-
-// gap-is-csv-upload
-
-router.post('/gap-is-csv-upload', function (req, res) {
-  
-  let productUser = req.session.data.productUser;
-  res.redirect('product-proposed-use');
-
-})
-
-
-
 
 
 // product-use
@@ -417,361 +384,173 @@ router.post('/gap-is-csv-upload', function (req, res) {
 router.post('/product-use', function (req, res) {
   
   let productUser = req.session.data.productUser;
+  res.redirect('product-use-seed-treatment');
+
+})
+
+// product-use-seed-treatment
+
+router.post('/product-use-seed-treatment', function (req, res) {
+  
+  let isProductSeedTreatment = req.session.data.isProductSeedTreatment;
+  // if (formulaSubstanceMixture == "Yes") {
+  //   res.redirect('formula-type-add-component');
+  // } else {
+  //   res.redirect('formula-type-add-component');
+  // }
   res.redirect('product-proposed-use');
 
 })
 
+
 // product-proposed-use
 
 router.post('/product-proposed-use', function (req, res) {
-  
   let productProposedUse = req.session.data.productProposedUse;
-  res.redirect('proposed-authorised-use-check-answers');
+  res.redirect('gap-is-csv-upload');
+
+})
+
+// gap-is-csv-upload
+
+router.post('/gap-is-csv-upload', function (req, res) {
+  let isGapCsvUpload = req.session.data.isGapCsvUpload;
+  if (isGapCsvUpload == "Yes") {
+      res.redirect('gap-csv-1');
+    } else {
+      res.redirect('gap-crop-product');
+    }
+  // res.redirect('gap-csv-1');
+
+})
+
+// gap-csv-1
+
+router.post('/gap-csv-1', function (req, res) {
+  let gapCsv = req.session.data.gapCsv;
+  res.redirect('gap-seed-treatment');
 
 })
 
 
+// gap-crop-product
 
-// ----------------- PROPOSED AND AUTHORISED USE - GAP TABLE ----------------- //
-
-// proposed-authorised-use - NOT USED
-
-router.post('/proposed-authorised-use', function (req, res) {
-  
-  let productProposedUse = req.session.data.productProposedUse;
-  res.redirect('proposed-authorised-use-crop');
+router.post('/gap-crop-product', function (req, res) {
+  let gapCropProduct = req.session.data.gapCropProduct;
+  res.redirect('gap-growing-media');
 
 })
 
-// proposed-authorised-use-crop
+// gap-growing-media
 
-router.post('/proposed-authorised-use-crop', function (req, res) {
-  
-  let proposedUseCrop = req.session.data.proposedUseCrop;
-  res.redirect('proposed-authorised-use-active-content');
-
-})
-
-// proposed-authorised-use-active-content
-
-router.post('/proposed-authorised-use-active-content', function (req, res) {
-  
-  let proposedUseActiveContent = req.session.data.proposedUseActiveContent;
-  res.redirect('proposed-authorised-use-formulation-type');
+router.post('/gap-growing-media', function (req, res) {
+  let gapGrowingMedia = req.session.data.gapGrowingMedia;
+  res.redirect('gap-dosage');
 
 })
 
-// proposed-authorised-use-formulation-type
+// gap-dosage
 
-router.post('/proposed-authorised-use-formulation-type', function (req, res) {
-  
-  let proposedUseFormulationType = req.session.data.proposedUseFormulationType;
-  res.redirect('proposed-authorised-use-crop-situation');
-
-})
-
-// proposed-authorised-use-crop-situation
-
-router.post('/proposed-authorised-use-crop-situation', function (req, res) {
-  
-  let proposedUseCropSituation = req.session.data.proposedUseCropSituation;
-  res.redirect('proposed-authorised-use-media-protected');
+router.post('/gap-dosage', function (req, res) {
+  let gapDosage = req.session.data.gapDosage;
+  res.redirect('gap-timings');
 
 })
 
-// proposed-authorised-use-media-protected
+// gap-timings
 
-router.post('/proposed-authorised-use-media-protected', function (req, res) {
-  let proposedUseMediaProtected = req.session.data.proposedUseMediaProtected;
-  res.redirect('proposed-authorised-use-crop-height');
-
-})
-
-// proposed-authorised-use-crop-height
-
-router.post('/proposed-authorised-use-crop-height', function (req, res) {
-  let proposedUseCropHeight = req.session.data.proposedUseCropHeight;
-  res.redirect('proposed-authorised-use-crop-number');
+router.post('/gap-timings', function (req, res) {
+  let gapTimings = req.session.data.gapTimings;
+  res.redirect('gap-application-method');
 
 })
 
-// proposed-authorised-use-crop-number
+// gap-application-method
 
-router.post('/proposed-authorised-use-crop-number', function (req, res) {
-  let proposedUseCropNumber = req.session.data.proposedUseCropNumber;
-  res.redirect('proposed-authorised-use-target-pests');
-
-})
-
-// proposed-authorised-use-target-pests
-
-router.post('/proposed-authorised-use-target-pests', function (req, res) {
-  let proposedUseTargetPests = req.session.data.proposedUseTargetPests;
-  res.redirect('proposed-authorised-use-active-max-individual-dose');
+router.post('/gap-application-method', function (req, res) {
+  let gapApplicationMethod = req.session.data.gapApplicationMethod;
+  res.redirect('gap-other-product');
 
 })
 
-// proposed-authorised-use-active-max-individual-dose
+// gap-other-product
 
-router.post('/proposed-authorised-use-active-max-individual-dose', function (req, res) {
-  let proposedUseActiveMaxIndividualDose = req.session.data.proposedUseActiveMaxIndividualDose;
-  res.redirect('proposed-authorised-use-active-max-total-dose');
-
-})
-
-// proposed-authorised-use-active-max-total-dose
-
-router.post('/proposed-authorised-use-active-max-total-dose', function (req, res) {
-  let proposedUseActiveMaxTotalDose = req.session.data.proposedUseActiveMaxTotalDose;
-  res.redirect('proposed-authorised-use-product-max-individual-dose');
+router.post('/gap-other-product', function (req, res) {
+  let gapOtherProduct = req.session.data.gapOtherProduct;
+  res.redirect('gap-seed-treatment');
 
 })
 
-// proposed-authorised-use-product-max-individual-dose
+// gap-seed-treatment
 
-router.post('/proposed-authorised-use-product-max-individual-dose', function (req, res) {
-  let proposedUseProductMaxIndividualDose = req.session.data.proposedUseProductMaxIndividualDose;
-  res.redirect('proposed-authorised-use-product-max-total-dose');
-
-})
-
-// proposed-authorised-use-product-max-total-dose
-
-router.post('/proposed-authorised-use-product-max-total-dose', function (req, res) {
-  let proposedUseProductMaxTotalDose = req.session.data.proposedUseProductMaxTotalDose;
-  res.redirect('proposed-authorised-use-min-max-water');
+router.post('/gap-seed-treatment', function (req, res) {
+  let gapSeedTreatment = req.session.data.gapSeedTreatment;
+  res.redirect('gap-seed-treatment-application');
 
 })
 
-// proposed-authorised-use-min-max-water
+// gap-seed-treatment-application
 
-router.post('/proposed-authorised-use-min-max-water', function (req, res) {
-  let proposedUseWaterMin = req.session.data.proposedUseWaterMin;
-  let proposedUseWaterMax = req.session.data.proposedUseWaterMax;
-  res.redirect('proposed-authorised-use-min-max-concentration');
-
-})
-
-// proposed-authorised-use-min-max-concentration
-
-router.post('/proposed-authorised-use-min-max-concentration', function (req, res) {
-  let proposedUseConcentrationMin = req.session.data.proposedUseConcentrationMin;
-  let proposedUseConcentrationMax = req.session.data.proposedUseConcentrationMax;
-  res.redirect('proposed-authorised-use-max-treatments');
+router.post('/gap-seed-treatment-application', function (req, res) {
+  let gapSeedApplication = req.session.data.gapSeedApplication;
+  res.redirect('gap-seed-treatment-growth');
 
 })
 
-// proposed-authorised-use-max-treatments
+// gap-seed-treatment-growth
 
-router.post('/proposed-authorised-use-max-treatments', function (req, res) {
-  let proposedUseMaxTreatments = req.session.data.proposedUseMaxTreatments;
-  res.redirect('proposed-authorised-use-application-intervals');
-
-})
-
-// proposed-authorised-use-application-intervals
-
-router.post('/proposed-authorised-use-application-intervals', function (req, res) {
-  let proposedUseIntervals = req.session.data.proposedUseIntervals;
-  res.redirect('proposed-authorised-use-application-earliest-latest');
+router.post('/gap-seed-treatment-growth', function (req, res) {
+  let gapSeedGrowth = req.session.data.gapSeedGrowth;
+  res.redirect('gap-check-answers');
 
 })
 
-// proposed-authorised-use-application-earliest-latest
+// gap-csv-check-answers
 
-router.post('/proposed-authorised-use-application-earliest-latest', function (req, res) {
-  let proposedUseEarliestLatest= req.session.data.proposedUseEarliestLatest;
-  res.redirect('proposed-authorised-use-application-period-use');
-
-})
-
-// proposed-authorised-use-application-period-use
-
-router.post('/proposed-authorised-use-application-period-use', function (req, res) {
-  let proposedUsePeriod= req.session.data.proposedUsePeriod;
-  res.redirect('proposed-authorised-use-application-methods-protected');
+router.post('/gap-csv-check-answers', function (req, res) {
+  let gapCsvCheckAnswers = req.session.data.gapCsvCheckAnswers;
+  res.redirect('packaging-number-of');
 
 })
 
-// proposed-authorised-use-application-methods - NOT USED
+// gap-check-answers
 
-// router.post('/proposed-authorised-use-application-methods', function (req, res) {
-//   let proposedUsePeriod= req.session.data.proposedUsePeriod;
-//   res.redirect('proposed-authorised-use-application-period-use');
-
-// })
-
-// proposed-authorised-use-application-methods-protected
-
-router.post('/proposed-authorised-use-application-methods-protected', function (req, res) {
-  let proposedUsePeriod= req.session.data.proposedUsePeriod;
-  res.redirect('proposed-authorised-use-application-methods-outdoor');
+router.post('/gap-check-answers', function (req, res) {
+  let gapCheckAnswers = req.session.data.gapCheckAnswers;
+  res.redirect('packaging-number-of');
 
 })
 
-// proposed-authorised-use-application-methods-outdoor
 
-router.post('/proposed-authorised-use-application-methods-outdoor', function (req, res) {
-  let proposedUsePeriod= req.session.data.proposedUsePeriod;
-  res.redirect('proposed-authorised-use-check-answers');
+// ----------------- PRODUCT USE END ----------------- //
 
-})
-
-// proposed-authorised-use-check-answers
-
-router.post('/proposed-authorised-use-check-answers', function (req, res) {
-  let proposedUseCheckAnswers= req.session.data.proposedUseCheckAnswers;
-  res.redirect('product-measurement');
-
-})
 
 
 
 
 // ----------------- PACKAGING ----------------- //
 
-// product-measurement
+// packaging-number-of
 
-router.post('/product-measurement', function (req, res) {
-  
-  let productMeasurement = req.session.data.productMeasurement;
-  res.redirect('product-volume-range');
-
-})
-
-// product-volume-range
-
-router.post('/product-volume-range', function (req, res) {
-  
-  let productVolume = req.session.data.productVolume;
-  res.redirect('product-inner-material');
+router.post('/packaging-number-of', function (req, res) {
+  let packagingNumberof = req.session.data.packagingNumberof;
+  res.redirect('packaging-x-details');
 
 })
 
-// product-inner-material
+// packaging-x-details
 
-router.post('/product-inner-material', function (req, res) {
-  
-  let productInnerPackaging = req.session.data.productInnerPackaging;
-  res.redirect('product-material-add-another');
-
-})
-
-// product-outer-material - NOT USED
-
-router.post('/product-outer-material', function (req, res) {
-  
-  let productOuterPackaging = req.session.data.productOuterPackaging;
-  res.redirect('product-material-add-another');
+router.post('/packaging-x-details', function (req, res) {
+  let packagingXDetails = req.session.data.packagingXDetails;
+  res.redirect('packaging-check-answers');
 
 })
 
-// product-material-add-another
+// packaging-check-answers
 
-router.post('/product-material-add-another', function (req, res) {
-  
-  let productPackagingAddAnother = req.session.data.productPackagingAddAnother;
-  res.redirect('product-volume');
-
-})
-
-// product-volume
-
-router.post('/product-volume', function (req, res) {
-  
-  let productVolume = req.session.data.productVolume;
-  res.redirect('product-packaging-add-another');
-
-})
-
-// product-packaging-add-another
-
-router.post('/product-packaging-add-another', function (req, res) {
-  
-  let productPackagingAddAnother = req.session.data.productPackagingAddAnother;
-  res.redirect('product-packaging-check-answers');
-
-})
-
-// product-packaging-check-answers
-
-router.post('/product-packaging-check-answers', function (req, res) {
-  
-  let productPackagingAddAnother = req.session.data.productPackagingAddAnother;
-  res.redirect('formula-manufacturing-address-postcode');
-
-})
-
-
-
-// ----------------- MRL - NOT USED ----------------- //
-
-// product-mrl-needed - NOT USED
-
-router.post('/product-mrl-needed', function (req, res) {
-  
-  let productMrlNeeded = req.session.data.productMrlNeeded;
-  if (productMrlNeeded == "No") {
-    res.redirect('product-check-answers');
-  } else {
-    res.redirect('product-commodity-code-name');
-  }
-
-})
-
-// product-commodity-code-name - NOT USED
-
-router.post('/product-commodity-code-name', function (req, res) {
-  
-  let productCommodityCodeName = req.session.data.productCommodityCodeName;
-  res.redirect('product-mrl-change');
-
-})
-
-// product-mrl-change - NOT USED
-
-router.post('/product-mrl-change', function (req, res) {
-  
-  let productMrlChange = req.session.data.productMrlChange;
-  let productMrlCurrent = req.session.data.productMrlCurrent;
-  let productMrlProposed = req.session.data.productMrlProposed;
-  res.redirect('product-check-answers');
-
-})
-
-// product-mrl-currently-in-force - NOT USED
-
-router.post('/product-mrl-currently-in-force', function (req, res) {
-  
-  let productMrlInForce = req.session.data.productMrlInForce;
-  res.redirect('product-mrl-currently-in-force-value');
-
-})
-
-// product-mrl-currently-in-force-value - NOT USED
-
-router.post('/product-mrl-currently-in-force-value', function (req, res) {
-  
-  let productMrlInForceValue = req.session.data.productMrlInForceValue;
-  res.redirect('product-mrl-currently-in-force-add-another');
-
-})
-
-// product-mrl-currently-in-force-add-another - NOT USED
-
-router.post('/product-mrl-currently-in-force-add-another', function (req, res) {
-  
-  let productMrlInForceAddAnother = req.session.data.productMrlInForceAddAnother;
-  res.redirect('product-check-answers');
-
-})
-
-// product-check-answers - NOT USED
-
-router.post('/product-check-answers', function (req, res) {
-  
-  let productCheckAnswers = req.session.data.productCheckAnswers;
-  res.redirect('formula-active-substance-name');
+router.post('/packaging-check-answers', function (req, res) {
+  let packagingCheckAnswers = req.session.data.packagingCheckAnswers;
+  res.redirect('manufacturing-address-postcode');
 
 })
 
@@ -779,53 +558,45 @@ router.post('/product-check-answers', function (req, res) {
 
 // ----------------- MANUFACTURING LOCATION ----------------- //
 
-// formula-manufacturing-address-postcode
+// manufacturing-address-postcode
 
-router.post('/formula-manufacturing-address-postcode', function (req, res) {
+router.post('/manufacturing-address-postcode', function (req, res) {
   
-  let formulaManufacturingPostcode = req.session.data.formulaManufacturingPostcode;
-  res.redirect('formula-manufacturing-address-list');
+  let manufacturingPostcode = req.session.data.manufacturingPostcode;
+  res.redirect('manufacturing-address-list');
 
 })
 
-// formula-manufacturing-address-list
+// manufacturing-address-list
 
-router.post('/formula-manufacturing-address-list', function (req, res) {
+router.post('/manufacturing-address-list', function (req, res) {
   
-  let formulaManufacturingAddressList = req.session.data.formulaManufacturingAddressList;
-  res.redirect('formula-manufacturing-address-confirm');
+  let manufacturingAddressList = req.session.data.manufacturingAddressList;
+  res.redirect('manufacturing-address-confirm');
 
 })
 
-// formula-manufacturing-address-confirm
+// manufacturing-address-confirm
 
-router.post('/formula-manufacturing-address-confirm', function (req, res) {
+router.post('/manufacturing-address-confirm', function (req, res) {
   
-  let formulaManufacturingAddressConfirm = req.session.data.formulaManufacturingAddressConfirm;
-  res.redirect('formula-manufacturing-site-add-another');
+  let manufacturingAddressConfirm = req.session.data.manufacturingAddressConfirm;
+  res.redirect('manufacturing-site-add-another');
 
 })
 
-// formula-manufacturing-site-add-another
+// manufacturing-site-add-another
 
-router.post('/formula-manufacturing-site-add-another', function (req, res) {  
-  let formulaManufacturingAddressAddAnother = req.session.data.formulaManufacturingAddressAddAnother;
-  res.redirect('formula-manufacturing-check-answers');
-
-})
-
-// formula-composition - NOT USED
-
-router.post('/formula-composition', function (req, res) {  
-  let formulaComposition = req.session.data.formulaComposition;
-  res.redirect('formula-check-answers');
+router.post('/manufacturing-site-add-another', function (req, res) {  
+  let manufacturingAddressAddAnother = req.session.data.manufacturingAddressAddAnother;
+  res.redirect('manufacturing-check-answers');
 
 })
 
-// formula-manufacturing-check-answers
+// manufacturing-check-answers
 
-router.post('/formula-manufacturing-check-answers', function (req, res) {  
-  let formulaCheckAnswers = req.session.data.formulaCheckAnswers;
+router.post('/manufacturing-check-answers', function (req, res) {  
+  let manufacturingCheckAnswers = req.session.data.manufacturingCheckAnswers;
   res.redirect('documents-reference-product');
 
 })
@@ -901,9 +672,18 @@ router.post('/documents-upload-relevant-correspondence', function (req, res) {
 
 router.post('/documents-upload-safety-data-sheet', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-upload-proof-of-authorisation');
+
+})
+
+// documents-upload-proof-of-authorisation
+
+router.post('/documents-upload-proof-of-authorisation', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
   res.redirect('documents-check-answers');
 
 })
+
 
 // documents-check-answers
 
