@@ -1,0 +1,203 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Container [X] details – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      {# <span class="govuk-caption-l">Application details</span> #}
+      <h1 class="govuk-heading-l">Container [X] details  </p>
+
+{# <p>Enter the details of the substance in your formulation. You can add another substance later if you need to.  </p> #}
+
+{# <p>[Active substance name: 
+  <strong>Azoxystrobin
+  CAS: 131860-33-8</strong>]</p> #}
+
+ 
+  
+
+
+<h2 class="govuk-heading-s">Volume range for container type   </h2>
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{{ govukInput({
+ label: {
+   text: "From:"
+ },
+ suffix: {
+   text: ""
+ },
+ classes: "govuk-input--width-5",
+ id: "productVolume",
+ name: "productVolume"
+}) }}
+
+{{ govukRadios({
+  id: "productMeasurement",
+  name: "productMeasurement",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select the unit for this container type  "
+  },
+  items: [
+    {
+      value: "g",
+      text: "gram (g)"
+      
+    },   
+    {
+      value: "kg",
+      text: "kilogram (kg)"
+      
+    },   
+    {
+      value: "ml",
+      text: "millilitre (ml)"
+      
+    },   
+    {
+      value: "l",
+      text: "litre (l)"
+      
+    }
+  ]
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "To:"
+  },
+  suffix: {
+    text: ""
+  },
+  classes: "govuk-input--width-5",
+  id: "productVolume",
+  name: "productVolume"
+ }) }}
+
+{{ govukRadios({
+  id: "productMeasurementx",
+  name: "productMeasurementx",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select the unit for this container type  "
+  },
+  items: [
+    {
+      value: "g",
+      text: "gram (g)"
+      
+    },   
+    {
+      value: "kg",
+      text: "kilogram (kg)"
+      
+    },   
+    {
+      value: "ml",
+      text: "millilitre (ml)"
+      
+    },   
+    {
+      value: "l",
+      text: "litre (l)"
+      
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-s">Product container type </h2>
+
+{{ govukInput({
+  label: {
+    text: "Container type ",
+    classes: "govuk-label?--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Type part of the name and select it from the list. If the full name does not show, enter it manually. "
+  },
+  id: "productInnerPackaging",
+  name: "productInnerPackaging"
+}) }}
+
+<h2 class="govuk-heading-s">Packaging material  </h2>
+
+<p>Enter the material closest to the product </p>
+
+{{ govukInput({
+  label: {
+    text: "Pack material ",
+    classes: "govuk-label?--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Type part of the name and select it from the list. If the full name does not show, enter it manually. "
+  },
+  id: "productInnerPackaging",
+  name: "productInnerPackaging"
+}) }}
+
+<h3 class="govuk-heading-s">Other pack material (optional) </h3>
+
+{{ govukInput({
+  label: {
+    text: "Pack material ",
+    classes: "govuk-label?--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "If you have a multiwalled container, start with the layer closest to the product. "
+  },
+  id: "productInnerPackaging",
+  name: "productInnerPackaging"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Pack material ",
+    classes: "govuk-label?--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: " "
+  },
+  id: "productInnerPackaging",
+  name: "productInnerPackaging"
+}) }}
+
+
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

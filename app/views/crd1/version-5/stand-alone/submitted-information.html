@@ -1,0 +1,31 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Application complete – Manage building control for a higher-risk building – GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Information submitted</h1>
+        <div class="govuk-panel__body">
+          Your request number is <br><strong>[request number]</strong>
+          {# <br><strong>BCA123456789</strong> #}
+        </div>
+      </div>
+
+      <p>
+        Your additional information has been submitted for [application reference]. We have sent you a confirmation email.  </p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>We will assess the information you have provided, and will be in touch if we need anything else.</p>
+      {# <p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did you think of this service?</a> (takes 30 seconds)</p> #}
+     
+
+    </div>
+  </div>
+
+{% endblock %}

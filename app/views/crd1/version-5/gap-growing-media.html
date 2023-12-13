@@ -1,0 +1,130 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Growing media for protected uses – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      {# <span class="govuk-caption-l">Formulation composition</span> #}
+      <h1 class="govuk-heading-l">Protected crops </p>
+
+{# <p> </p> #}
+
+<h2 class="govuk-heading-m">What type of growing media are used for the protected uses?  </h2>
+  <p>Only select the methods that most growers would typically use for the crop. </p>
+
+{# {% set emailHtml %}
+{{ govukInput({
+  id: "contact-by-email",
+  name: "contactByEmail",
+  type: "email",
+  autocomplete: "email",
+  spellcheck: false,
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Give details "
+  }, 
+  hint: {text:"If temporary cover, give details of the structure, the growth stages the protection is used for, and whether application will be while crop is under protection."}
+}) }}
+{% endset -%} #}
+
+{{ govukCheckboxes({
+  id: "waste",
+  name: "waste",
+  fieldset: {
+    legend: {
+      text: ""
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "Organic media  ",
+      text: "Organic media  ",
+      hint: {text:"For example, soil or compost, either in containers or on impervious surfaces  "}
+    },
+    {
+      value: "Soil ",
+      text: "Soil ",
+      hint: {text:"Crop planted directly into the ground "}
+    },
+    {
+      value: "Synthetic rooting media  ",
+      text: "Synthetic rooting media  ",
+      hint: {text:"For example, rockwool or perlite "}
+    }
+  ]
+}) }}
+
+
+<h2 class="govuk-heading-m">Describe the type of cover  </h2>
+  <p></p>
+
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  label: {
+    text: "Enter description "
+  },
+  hint: {
+    text: ""
+  }
+}) }}
+
+<h2 class="govuk-heading-m">Describe the growth stages the protection is used for, and whether application will be while crop is under protection  </h2>
+  <p></p>
+
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  label: {
+    text: "Enter description "
+  },
+  hint: {
+    text: ""
+  }
+}) }}
+
+<h2 class="govuk-heading-m">If cover is removed during growth, at which growth stage does this happen? (Optional)  </h2>
+  <p></p>
+
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  label: {
+    text: "Enter description "
+  },
+  hint: {
+    text: ""
+  }
+}) }}
+  
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Which risk assessment areas are you using the reference product for? – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {# <span class="govuk-caption-l">Documents</span> #}
+      <h1 class="govuk-heading-l">Which risk assessment areas are you using the reference product for?</h1>
+
+      
+
+      <form class="form" method="post">
+
+    {# <p>Choose the documents you uploaded as part of your initial building control application.  </p> #}
+
+<p>Select all that apply. </p>
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "productProposedUse",
+  id: "productProposedUse",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+    {
+      value: "Chemistry",
+      text: "Chemistry"
+    },
+    {
+      value: "Mammalian toxicology",
+      text: "Mammalian toxicology"
+    },
+    {
+      value: "Non-dietary Human Exposure",
+      text: "Non-dietary Human Exposure"
+    },
+    {
+      value: "Residues/consumer exposure",
+      text: "Residues/consumer exposure"
+    },
+    {
+      value: "Environmental fate & behaviour",
+      text: "Environmental fate & behaviour"
+    },
+    {
+      value: "Ecotoxicology",
+      text: "Ecotoxicology"
+    },
+    {
+      value: "Efficacy",
+      text: "Efficacy"
+    }
+    
+  ]
+}) }}
+
+    
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+
+{% endblock %}

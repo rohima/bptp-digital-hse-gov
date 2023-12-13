@@ -1,0 +1,152 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Submit information – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+      
+<h1 class="govuk-heading-l">Submit information</h1>
+        <p>  The Chemicals Regulation Division has requested additional information to support an application.
+           </p>
+           
+           <h2 class="govuk-heading-m">Requested information</h2>
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Job number
+              </dt>
+              <dd class="govuk-summary-list__value">
+               {# {{ data['app-name'] or 'Fleet Street Gardens'}}  #}
+               {{ data['buildingReference'] or '[Job number]'}}
+              </dd>
+              {# <dd class="govuk-summary-list__actions">
+                <a href="name-your-first-hrb">
+                  Change
+                  <span class="govuk-visually-hidden"> Building name</span>
+                </a>
+              </dd> #}
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Application type
+              </dt>
+              <dd class="govuk-summary-list__value">
+               {# {{ data['app-name'] or 'Fleet Street Gardens'}}  #}
+               {{ data['applicationName'] or '[Application type]'}}
+              </dd>
+              {# <dd class="govuk-summary-list__actions">
+                <a href="name-your-first-hrb">
+                  Change
+                  <span class="govuk-visually-hidden"> Building name</span>
+                </a>
+              </dd> #}
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Request number
+              </dt>
+              <dd class="govuk-summary-list__value">
+               {# {{ data['app-name'] or 'Fleet Street Gardens'}}  #}
+               [Request number]
+              </dd>
+              {# <dd class="govuk-summary-list__actions">
+                <a href="name-your-first-hrb">
+                  Change
+                  <span class="govuk-visually-hidden"> Building name</span>
+                </a>
+              </dd> #}
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Information requested
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {# <p>1 Wellborough Street<br> Leeds<br> LS1 7CD</p> #}
+                {# {{ data['addressChooseFirstHrb'] or '[building location]'}} #}
+                [Information requested]
+              </dd>
+              {# <dd class="govuk-summary-list__actions">
+                <a href="building-address-choose">
+                  Change
+                  <span class="govuk-visually-hidden"> contact information</span>
+                </a>
+              </dd> #}
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Due date
+              </dt>
+              <dd class="govuk-summary-list__value">
+               {# {{ data['app-name'] or 'Fleet Street Gardens'}}  #}
+               [Due date]
+              </dd>
+              {# <dd class="govuk-summary-list__actions">
+                <a href="name-your-first-hrb">
+                  Change
+                  <span class="govuk-visually-hidden"> Building name</span>
+                </a>
+              </dd> #}
+            </div>
+            
+            </dl>
+
+
+          <h2 class="govuk-heading-m">Upload documents</h2>
+
+          {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+          {{ govukFileUpload({
+            id: "constructionControlHrb",
+            name: "constructionControlHrb",
+            label: {
+              text: ""
+            },
+            hint: {
+              text: "You can upload more than one file. Each file must be a maximum of 4GB."
+            }
+          }) }}
+
+          <h2 class="govuk-heading-m">Enter requested information</h2>
+
+          {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+          {{ govukTextarea({
+            name: "applicationStagedWorkStatementDescription",
+            id: "applicationStagedWorkStatementDescription",
+            label: {
+              text: "",
+              classes: "govuk-label--l",
+              isPageHeading: true
+            },
+            hint: {
+              text: "
+              If you have been asked for more information to support your application, enter it here:"
+            }
+          }) }}
+          
+
+    
+
+        <a href="submitted-information" class="govuk-button">Submit</a>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
