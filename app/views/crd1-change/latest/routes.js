@@ -1,9 +1,40 @@
 const express = require('express')
 const router = express.Router()
 
-// ----------------- TEST ----------------- //
 
 
+// what-change-to-do
+router.post('/what-change-to-do', function (req, res) {
+  
+  let crd1ChangeType = req.session.data.crd1ChangeType;
+  res.redirect('existing-job-number');
+
+})
+
+// existing-job-number
+
+router.post('/existing-job-number', function (req, res) {
+  let crd1ChangeType = req.session.data.crd1ChangeType;
+  let existingJobNumber = req.session.data.existingJobNumber;
+
+  if (crd1ChangeType == "Label") {
+    res.redirect('label-change');
+  } else {
+    res.redirect('formula-type-add');
+  }
+
+  res.redirect('existing-job-number');
+
+})
+
+// label-change
+
+router.post('/label-change', function (req, res) {
+  
+  let crd1ChangeType = req.session.data.crd1ChangeType;
+  res.redirect('existing-job-number');
+
+})
 
 
 

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What are you applying to do? – {{serviceName}} – GOV.UK
+What changes are you applying for? – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -25,7 +25,7 @@ What are you applying to do? – {{serviceName}} – GOV.UK
           id: "applicationJourney",
           fieldset: {
             legend: {
-              text: "What are you applying to do?",
+              text: "What changes are you applying for?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -35,33 +35,29 @@ What are you applying to do? – {{serviceName}} – GOV.UK
           },
           items: [
             {
-              value: "CRD1",
-              text: "Authorisation of a new plant protection product "
+              value: "Label",
+              text: "Addition of a new use or claim to an existing product label "
             },
             {
-              value: "CRD1-CHANGE",
-              text: "A change to an existing plant protection product authorisation"
+              value: "Formula",
+              text: "Change to existing formulation"
             },
             
             {
-              value: "CRX",
-              text: "Renewal of an existing plant protection product "
+              value: "Packaging",
+              text: "Addition of new packaging/change to existing packaging "
             },
             {
-              value: "CRD3",
-              text: "Extension of authorisation for minor use "
+              value: "Data",
+              text: "Meeting a data requirement for continuing authorisation "
             },
             {
-              value: "CRD8",
-              text: "Standalone technical equivalence "
+              value: "New",
+              text: "New active substance source (see Part F) "
             },
             {
-              value: "CRX",
-              text: "Emergency 120 day authorisation "
-            },
-            {
-              value: "CRX",
-              text: "A change to Maxiumum Residue Levels or import tolerances "
+              value: "Active",
+              text: "Change to active substance source (see Part F) "
             }
           ]
         }) }} 

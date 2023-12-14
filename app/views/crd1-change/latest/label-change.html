@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What are you applying to do? – {{serviceName}} – GOV.UK
+Has the label changed? – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,11 +21,11 @@ What are you applying to do? – {{serviceName}} – GOV.UK
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {{ govukRadios({
-          name: "applicationJourney",
-          id: "applicationJourney",
+          name: "labelChange",
+          id: "labelChange",
           fieldset: {
             legend: {
-              text: "What are you applying to do?",
+              text: "Has the label changed?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -35,33 +35,12 @@ What are you applying to do? – {{serviceName}} – GOV.UK
           },
           items: [
             {
-              value: "CRD1",
-              text: "Authorisation of a new plant protection product "
+              value: "Yes",
+              text: "Yes "
             },
             {
-              value: "CRD1-CHANGE",
-              text: "A change to an existing plant protection product authorisation"
-            },
-            
-            {
-              value: "CRX",
-              text: "Renewal of an existing plant protection product "
-            },
-            {
-              value: "CRD3",
-              text: "Extension of authorisation for minor use "
-            },
-            {
-              value: "CRD8",
-              text: "Standalone technical equivalence "
-            },
-            {
-              value: "CRX",
-              text: "Emergency 120 day authorisation "
-            },
-            {
-              value: "CRX",
-              text: "A change to Maxiumum Residue Levels or import tolerances "
+              value: "No",
+              text: "No"
             }
           ]
         }) }} 
