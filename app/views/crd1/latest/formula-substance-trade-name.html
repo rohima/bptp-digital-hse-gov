@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Trade name for [Substance name]  – {{serviceName}} – GOV.UK
+Trade name for {{ data['formulaActiveSubstanceName'] or 'Substance123'}} – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -9,46 +9,34 @@ Trade name for [Substance name]  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">What is the trade name for {{ data['formulaActiveSubstanceName'] or 'Substance123'}}?</h1>
 
-      {# <span class="govuk-caption-l">Application</span> #}
-<h1 class="govuk-heading-l">What is the trade name for [Substance name]?
-   {# {{ data['applicationCompanyName'] or "[Applicant organisation name]" }} #}
-  </h1>
-
-{# <p class="hint">Enter at least one trade name. If you have more than one, separate each one with a comma. For example ‘Apples 10’, ‘Pears 50’.  </p> #}
-
+      {# <p class="hint">Enter at least one trade name. If you have more than one, separate each one with a comma. For example ‘Apples 10’, ‘Pears 50’.  </p> #}
 
       <form class="form" method="post">
 
-{% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
-{% call govukFieldset({
-  legend: {
-    text: "",
-    
-    classes: "govuk-fieldset__legend--l",
-    isPageHeading: true
-  }
-}) %}
-  {{ govukInput({
-    label: {
-      text: 'Trade name'
-    },
-    hint: {
-    text: "Enter at least one trade name. If you have more than one, separate each one with a comma. For example ‘Apples 10’, ‘Pears 50’. "
-  },
-    id: "formulaOtherSubstanceTradeName",
-    name: "formulaOtherSubstanceTradeName"
-  }) }}
-  
+        {% call govukFieldset({
+          legend: {
+            text: "",
 
-    
-{% endcall %}
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+          {{ govukInput({
+            label: {
+              text: 'Trade name'
+            },
+            hint: {
+            text: "Enter at least one trade name. If you have more than one, separate each one with a comma. For example ‘Apples 10’, ‘Pears 50’. "
+          },
+            id: "formulaOtherSubstanceTradeName",
+            name: "formulaOtherSubstanceTradeName"
+          }) }}
+
+        {% endcall %}
        
 
     
@@ -59,7 +47,5 @@ Trade name for [Substance name]  – {{serviceName}} – GOV.UK
 
     </div>
   </div>
-
-  
 
 {% endblock %}
