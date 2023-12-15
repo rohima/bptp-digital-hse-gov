@@ -74,6 +74,40 @@ Which risk assessment areas are you using the reference product for? – {{servi
   ]
 }) }}
 
+{{ govukCheckboxes({
+  name: "productProposedUse",
+  id: "productProposedUse",
+  fieldset: {
+    legend: {
+      text: "Chemistry",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+    {
+      value: "Data",
+      text: "Data"
+    },
+    {
+      value: "Modelling",
+      text: "Modelling"
+    },
+    {
+      value: "Case",
+      text: "Case"
+    },
+    {
+      value: "Data protection expired",
+      text: "Data protection expired"
+    }
+    
+  ]
+}) }}
+
     
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>

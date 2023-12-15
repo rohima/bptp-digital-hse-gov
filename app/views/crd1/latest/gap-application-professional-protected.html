@@ -21,19 +21,8 @@ Product application methods  – {{serviceName}} – GOV.UK
       {# <span class="govuk-caption-l">Application</span> #}
 
       <h1 class="govuk-heading-l">
-        Product application methods 
+        Product application methods [for protected crops]
       </h1>
-      {# If indoor crop 
-
-        Product application methods [for indoor crops] 
-
-        If outdoor crop 
-
-        Product application methods [for outdoor crops] 
-
-        If protected crop (‘Protected’ or ‘Permanent protection’) 
-
-        Product application methods [for protected crops]  #}
 
       <p class="govuk-hint">Select all that apply. </p>
 
@@ -41,8 +30,8 @@ Product application methods  – {{serviceName}} – GOV.UK
 
       {% set emailHtml %}
 {{ govukInput({
-  id: "gapApplicationProIndoorOther",
-  name: "gapApplicationProIndoorOther",
+  id: "gapApplicationProProtectedOther",
+  name: "gapApplicationProProtectedOther",
   type: "email",
   autocomplete: "email",
   spellcheck: false,
@@ -55,8 +44,8 @@ Product application methods  – {{serviceName}} – GOV.UK
 {% endset -%}
 
       {{ govukCheckboxes({
-        name: "gapApplicationProIndoor",
-        id: "gapApplicationProIndoor",
+        name: "gapApplicationProProtected",
+        id: "gapApplicationProProtected",
         fieldset: {
           legend: {
             text: "",
