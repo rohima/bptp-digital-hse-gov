@@ -1,0 +1,124 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Active substance source data owner details – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      <span class="govuk-caption-l">Data ownership: Active substance source data </span>
+      <h1 class="govuk-heading-l">Active substance source data owner details  </p>
+
+<p>[Active substance name]  </p>
+
+{# <p>[Active substance name: 
+  <strong>Azoxystrobin
+  CAS: 131860-33-8</strong>]</p> #}
+
+  <h2 class="govuk-heading-m">Name of data owner </h2>
+  
+  {{ govukInput({
+    label: {
+      text: 'Enter name'
+    },
+    hint: {
+    text: "  "
+  },
+    id: "formulaActiveSubstanceSourceName",
+    name: "formulaActiveSubstanceSourceName",
+    autocomplete: "address-line1"
+  }) }}
+
+
+  <h2 class="govuk-heading-m">Reference to ongoing or existing application (optional)  </h2>
+  
+  {{ govukInput({
+    label: {
+      text: 'Enter reference'
+    },
+    hint: {
+    text: "For example, job number, product name or MAPP number  "
+  },
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }}
+
+
+  <h2 class="govuk-heading-m">Manufacturing site address </h2>
+
+  {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  label: {
+    text: "XXXXXXX "
+  },
+  hint: {
+    text: "xxxxxxxxx"
+  }
+}) }}
+
+  <h2 class="govuk-heading-m">How will you demonstrate access to the active substance source data in this application? </h2>
+
+  <p>Letters of access must be valid and relevant to this application.  </p>
+
+{{ govukCheckboxes({
+  id: "formulaTypeAdd",
+  name: "formulaTypeAdd",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      value: "Letter of access to be provided in this application ",
+      text: "Letter of access to be provided in this application "
+      
+    },   
+    {
+      value: "Letter of access provided previously",
+      text: "Letter of access provided previously "
+    },   
+    {
+      value: "Letter of access provided by a third party ",
+      text: "Letter of access provided by a third party  "
+    }
+
+  ]
+}) }}
+
+
+
+
+
+
+
+
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

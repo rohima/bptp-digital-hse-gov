@@ -25,8 +25,7 @@ Which risk assessment areas are you using the reference product for? – {{servi
 
 <p>Select all that apply. </p>
 
-{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-
+{# 
 {{ govukCheckboxes({
   name: "productProposedUse",
   id: "productProposedUse",
@@ -72,7 +71,7 @@ Which risk assessment areas are you using the reference product for? – {{servi
     }
     
   ]
-}) }}
+}) }} #}
 
 {{ govukCheckboxes({
   name: "productProposedUse",
@@ -93,8 +92,199 @@ Which risk assessment areas are you using the reference product for? – {{servi
       text: "Data"
     },
     {
+      value: "Case",
+      text: "Case"
+    },
+    {
+      value: "Data protection expired",
+      text: "Data protection expired"
+    }
+    
+  ]
+}) }}
+
+{{ govukCheckboxes({
+  name: "productProposedUse",
+  id: "productProposedUse",
+  fieldset: {
+    legend: {
+      text: "Mammalian toxicology",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+    {
+      value: "Data",
+      text: "Data"
+    },
+    {
+      value: "Case",
+      text: "Case"
+    },
+    {
+      value: "Data protection expired",
+      text: "Data protection expired"
+    }
+    
+  ]
+}) }}
+
+{{ govukCheckboxes({
+  name: "productProposedUse",
+  id: "productProposedUse",
+  fieldset: {
+    legend: {
+      text: "Non-dietary human exposure",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+    {
+      value: "Data",
+      text: "Data"
+    },
+    {
       value: "Modelling",
       text: "Modelling"
+    },
+    {
+      value: "Case",
+      text: "Case"
+    },
+    {
+      value: "Data protection expired",
+      text: "Data protection expired"
+    }
+    
+  ]
+}) }}
+
+
+{{ govukCheckboxes({
+  name: "productProposedUse",
+  id: "productProposedUse",
+  fieldset: {
+    legend: {
+      text: "Residues/consumer exposure",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+    {
+      value: "Data",
+      text: "Data"
+    },
+    {
+      value: "Modelling",
+      text: "Modelling"
+    },
+    {
+      value: "Case",
+      text: "Case"
+    },
+    {
+      value: "Data protection expired",
+      text: "Data protection expired"
+    }
+    
+  ]
+}) }}
+
+{{ govukCheckboxes({
+  name: "productProposedUse",
+  id: "productProposedUse",
+  fieldset: {
+    legend: {
+      text: "Environtmental fate and behaviour",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+    {
+      value: "Data",
+      text: "Data"
+    },
+    {
+      value: "Modelling",
+      text: "Modelling"
+    },
+    {
+      value: "Case",
+      text: "Case"
+    },
+    {
+      value: "Data protection expired",
+      text: "Data protection expired"
+    }
+    
+  ]
+}) }}
+
+
+{{ govukCheckboxes({
+  name: "productProposedUse",
+  id: "productProposedUse",
+  fieldset: {
+    legend: {
+      text: "Ecotoxicology",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+    {
+      value: "Data",
+      text: "Data"
+    },
+    {
+      value: "Case",
+      text: "Case"
+    },
+    {
+      value: "Data protection expired",
+      text: "Data protection expired"
+    }
+    
+  ]
+}) }}
+
+
+{{ govukCheckboxes({
+  name: "productProposedUse",
+  id: "productProposedUse",
+  fieldset: {
+    legend: {
+      text: "Efficacy",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+    {
+      value: "Data",
+      text: "Data"
     },
     {
       value: "Case",
