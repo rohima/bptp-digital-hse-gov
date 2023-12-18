@@ -3,35 +3,9 @@ const router = express.Router()
 
 // ----------------- TEST ----------------- //
 
-// test-formula-active-substance-data-ownership
-router.post('/test-formula-active-substance-data-ownership', function (req, res) {
-  res.redirect('test-formula-active-substance-data-ownership-details');
-})
 
-// test-formula-active-substance-data-ownership-details
-router.post('/test-formula-active-substance-data-ownership-details', function (req, res) {
-  res.redirect('test-formula-active-substance-data-ownership-letter');
-})
 
-// test-formula-active-substance-data-ownership-letter
-router.post('/test-formula-active-substance-data-ownership-letter', function (req, res) {
-  res.redirect('test-formula-active-substance-data-ownership-previous');
-}) 
 
-// test-formula-active-substance-data-ownership-previous
-router.post('/test-formula-active-substance-data-ownership-previous', function (req, res) {
-  res.redirect('test-formula-product-data-ownership');
-}) 
-
-// test-formula-product-data-ownership
-router.post('/test-formula-product-data-ownership', function (req, res) {
-  res.redirect('test-formula-product-data-ownership-details');
-})
-
-// test-formula-product-data-ownership-details
-router.post('/test-formula-product-data-ownership-details', function (req, res) {
-  res.redirect('test-formula-product-data-ownership-details');
-})
 
 // test-active-substance-source-is-csv-upload
 router.post('/test-active-substance-source-is-csv-upload', function (req, res) {
@@ -409,9 +383,41 @@ router.post('/formula-risk-product', function (req, res) {
 
 router.post('/formula-check-answers', function (req, res) {  
   let formulaCheckAnswers = req.session.data.formulaCheckAnswers;
-  res.redirect('product-use');
+  res.redirect('test-formula-active-substance-data-ownership-details');
 
 })
+
+/// ROHIMA TO LOOK AT XXXXXXX
+// test-formula-active-substance-data-ownership - NOT USED
+router.post('/test-formula-active-substance-data-ownership', function (req, res) {
+  res.redirect('test-formula-active-substance-data-ownership-details');
+})
+
+// test-formula-active-substance-data-ownership-details
+router.post('/test-formula-active-substance-data-ownership-details', function (req, res) {
+  res.redirect('test-formula-product-data-ownership');
+})
+
+// test-formula-active-substance-data-ownership-letter - NOT USED
+router.post('/test-formula-active-substance-data-ownership-letter', function (req, res) {
+  res.redirect('test-formula-active-substance-data-ownership-previous');
+}) 
+
+// test-formula-active-substance-data-ownership-previous - NOT USED
+router.post('/test-formula-active-substance-data-ownership-previous', function (req, res) {
+  res.redirect('test-formula-product-data-ownership');
+}) 
+
+// test-formula-product-data-ownership
+router.post('/test-formula-product-data-ownership', function (req, res) {
+  res.redirect('test-formula-product-data-ownership-details');
+})
+
+// test-formula-product-data-ownership-details
+router.post('/test-formula-product-data-ownership-details', function (req, res) {
+  res.redirect('test-formula-product-data-ownership-details');
+})
+
 
 // formula-csv-check-answers
 

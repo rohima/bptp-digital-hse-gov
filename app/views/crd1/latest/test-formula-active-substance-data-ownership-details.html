@@ -41,33 +41,6 @@ Active substance data owner details – {{serviceName}} – GOV.UK
   }) }}
 
 
-  <h2 class="govuk-heading-m">Describe the data ownership  </h2>
-  
-  {# {{ govukInput({
-    label: {
-      text: 'Enter description  '
-    },
-    hint: {
-    text: "For example, explain if data matched or renewal data is out of protection, reference to Regulatory Authority consideration and date.  "
-  },
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
-  }) }} #}
-
-  {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-
-{{ govukTextarea({
-  name: "moreDetail",
-  id: "more-detail",
-  label: {
-    text: "Enter description "
-  },
-  hint: {
-    text: "For example, explain if data matched or renewal data is out of protection, reference to Regulatory Authority consideration and date."
-  }
-}) }}
-
   <h2 class="govuk-heading-m">How will you demonstrate access to the data in this application?  </h2>
 
 
@@ -112,6 +85,33 @@ Active substance data owner details – {{serviceName}} – GOV.UK
     }
 
   ]
+}) }}
+
+<h2 class="govuk-heading-m">Describe the data ownership  </h2>
+  
+  {# {{ govukInput({
+    label: {
+      text: 'Enter description  '
+    },
+    hint: {
+    text: "For example, explain if data matched or renewal data is out of protection, reference to Regulatory Authority consideration and date.  "
+  },
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }} #}
+
+  {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  label: {
+    text: "Enter description "
+  },
+  hint: {
+    text: "For example, explain if data matched or renewal data is out of protection, reference to Regulatory Authority consideration and date."
+  }
 }) }}
 
 
