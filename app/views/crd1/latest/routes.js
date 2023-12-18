@@ -214,8 +214,12 @@ router.post('/product-name', function (req, res) {
   
   let productName = req.session.data.productName;
   let productCode = req.session.data.productCode;
-  res.redirect('formula-is-csv-upload');
+  res.redirect('product-check-answers');
 
+})
+
+router.post('/product-check-answers', function (req, res) {
+  res.redirect('formula-is-csv-upload');
 })
 
 

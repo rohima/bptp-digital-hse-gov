@@ -40,7 +40,7 @@
              Organisation name
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['applicationCompanyName'] or 'ABC Limited'}}
+              {{ data['authCompanyName'] or 'Auth XYZ Ltd'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="#">
@@ -54,7 +54,7 @@
               Registered address
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['applicantCompanyAddressList'] or '17 Wellborough Street, London, W11 7PP'}}
+              {{ data['authCompanyAddressList'] or '17 Wellborough Street, London, W11 7PP'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="#">
@@ -68,7 +68,7 @@
               Company registration number
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['XXXXXXXXX'] or '[Company registration number]'}}
+              {{ data['authCompanyRegistration'] or '0123456789'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="#">
