@@ -3,8 +3,55 @@ const router = express.Router()
 
 // ----------------- TEST ----------------- //
 
+// test-formula-active-substance-data-ownership
+router.post('/test-formula-active-substance-data-ownership', function (req, res) {
+  res.redirect('test-formula-active-substance-data-ownership-details');
+})
+
+// test-formula-active-substance-data-ownership-details
+router.post('/test-formula-active-substance-data-ownership-details', function (req, res) {
+  res.redirect('test-formula-active-substance-data-ownership-letter');
+})
+
+// test-formula-active-substance-data-ownership-letter
+router.post('/test-formula-active-substance-data-ownership-letter', function (req, res) {
+  res.redirect('test-formula-active-substance-data-ownership-previous');
+}) 
+
+// test-formula-active-substance-data-ownership-previous
+router.post('/test-formula-active-substance-data-ownership-previous', function (req, res) {
+  res.redirect('test-formula-product-data-ownership');
+}) 
+
+// test-formula-product-data-ownership
+router.post('/test-formula-product-data-ownership', function (req, res) {
+  res.redirect('test-formula-product-data-ownership-details');
+})
+
+// test-formula-product-data-ownership-details
+router.post('/test-formula-product-data-ownership-details', function (req, res) {
+  res.redirect('test-formula-product-data-ownership-details');
+})
+
+// test-active-substance-source-is-csv-upload
+router.post('/test-active-substance-source-is-csv-upload', function (req, res) {
+  res.redirect('test-active-substance-source-csv-1');
+})
+
+// test-active-substance-source-csv-1
+router.post('/test-active-substance-source-csv-1', function (req, res) {
+  res.redirect('test-active-substance-source-csv-1');
+})
+
+// test-active-substance-source-how-many
+router.post('/test-active-substance-source-how-many', function (req, res) {
+  res.redirect('test-active-substance-source-how-many');
+})
+
+// test-active-substance-source-previous-tech-equiv
 
 
+//
 
 
 // ----------------- APPLICATION JOURNEY ----------------- //
@@ -541,14 +588,6 @@ router.post('/gap-check-answers', function (req, res) {
 router.post('/packaging-number-of', function (req, res) {
   let packagingNumberof = req.session.data.packagingNumberof;
   res.redirect('packaging-x-details');
-
-})
-
-// packaging-x-details
-
-router.post('/packaging-x-details', function (req, res) {
-  let packagingXDetails = req.session.data.packagingXDetails;
-  res.redirect('packaging-check-answers');
 
 })
 

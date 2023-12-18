@@ -16,6 +16,16 @@ router.post('/application-reference', function (req, res) {
   
 })
 
+// existing-job-number
+
+router.post('/application-reference', function (req, res) {
+  let applicationReference = req.session.data.applicationReference;
+  res.redirect('what-to-do');
+
+})
+// from here user goes to verify securoty code from here
+
+
 // what-to-do
 
 router.post('/what-to-do', function (req, res) {
