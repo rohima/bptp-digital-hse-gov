@@ -9,104 +9,79 @@ Type of organisation – Manage building control for a higher-risk building – 
 {% endblock %}
 
 {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post">
+      <h1 class="govuk-heading-l">What is your organisation type?</h1>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+      {% set textHtml %}
+        {{ govukInput({
+          id: "applicationOrganisationTypeDetail",
+          name: "applicationOrganisationTypeDetail",
+          type: "tel",
+          autocomplete: "tel",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Give details"
+          }
+        }) }}
+      {% endset -%}
 
-     
-      
-
-      <form class="form" method="post">
+      {{ govukRadios({
+        id: "applicationOrganisationType",
+        name: "applicationOrganisationType",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Company",
+            text: "Company",
+            checked: false,
+            conditional: {
+              html: emailHtml
+            }
+          },
+          {
+            value: "Charity",
+            text: "Charity",
+            checked: false,
+            conditional: {
+              html: emailHtml
+            }
+          },
+          {
+            value: "Local authority",
+            text: "Local authority",
+            checked: false,
+            conditional: {
+              html: emailHtml
+            }
+          },{
+            value: "Housing association",
+            text: "Housing association",
+            checked: false,
+            conditional: {
+              html: emailHtml
+            }
+          },
+          {
+            value: "Other",
+            text: "Other",
+            conditional: {
+              html: textHtml
+            }
+          }
+        ]
+      }) }}
         
-        
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
 
-      {# <span class="govuk-caption-l">Application</span> #}
-
-      <h1 class="govuk-heading-l">
-        What is your organisation type?
-      </h1>
-
-
-      
-
-{% set textHtml %}
-{{ govukInput({
-  id: "applicationOrganisationTypeDetail",
-  name: "applicationOrganisationTypeDetail",
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "Give details"
-  }
-}) }}
-{% endset -%}
-
-{{ govukRadios({
-  id: "applicationOrganisationType",
-  name: "applicationOrganisationType",
-  fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "Company",
-      text: "Company",
-      checked: false,
-      conditional: {
-        html: emailHtml
-      }
-    },
-    {
-      value: "Charity",
-      text: "Charity       ",
-      checked: false,
-      conditional: {
-        html: emailHtml
-      }
-    },
-    {
-      value: "Local authority",
-      text: "Local authority",
-      checked: false,
-      conditional: {
-        html: emailHtml
-      }
-    },{
-      value: "Housing association",
-      text: "Housing association",
-      checked: false,
-      conditional: {
-        html: emailHtml
-      }
-    },
-    
-    {
-      value: "Other",
-      text: "Other",
-      conditional: {
-        html: textHtml
-      }
-    }
-  ]
-}) }}
-
-    
-        
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
-
-      </form>
-
-    </div>
+    </form>
   </div>
-
+</div>
 {% endblock %}

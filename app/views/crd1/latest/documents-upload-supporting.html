@@ -16,66 +16,42 @@ Upload supporting data dossier –{{serviceName}} – GOV.UK
   }
 </style>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Upload your supporting data dossier</h1>
+    <p>Your supporting data should include any relevant data studies, risk assessments and modelling.</p> 
+    <form class="form" method="post">
 
-      {# <span class="govuk-caption-l">Documents</span> #}
-
-      <h1 class="govuk-heading-l">
-        Upload your supporting data dossier 
-      </h1>
-
-        <p>Your supporting data should include any relevant data studies, risk assessments and modelling.  </p>
-     
-        <form class="form" method="post">
-
-         <style>
-          .govuk-summary-list__key {
-            width:60%
-          }
-        </style>
-
-        
-
-        
-            <div id="file-upload-1-hint" class="govuk-hint">
-              You can upload more than one file. Each file must be a maximum of 4GB. 
-
-            </div>
-        
-            <p id="upload-update" class="govuk-body govuk-!-display-none" aria-live="assertive" aria-relevant="all">1 of 2 files uploaded</p>
-        
+      <div id="file-upload-1-hint" class="govuk-hint">
+        You can upload more than one file. Each file must be a maximum of 4GB. 
+      </div>
+  
+      <p id="upload-update" class="govuk-body govuk-!-display-none" aria-live="assertive" aria-relevant="all">1 of 2 files uploaded</p>
+  
+      <button id="upload-more" style="display:none" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Add more files
+      </button>
             
-            <button id="upload-more" style="display:none" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-              Add more files
-            </button>
-            
-            <div id="upload-wrapper" class="govuk-form-group">
-              <label class="govuk-label" for="upload-button">
-                Upload a file
-              </label>
-              <input class="govuk-file-upload" id="upload-button" name="upload-button" type="file" multiple="multiple">
-            </div>
+      <div id="upload-wrapper" class="govuk-form-group">
+        <label class="govuk-label" for="upload-button">
+          Upload a file
+        </label>
+        <input class="govuk-file-upload" id="upload-button" name="upload-button" type="file" multiple="multiple">
+      </div>
+  
+      <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
+  
+      <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key"></dl>
         
-            <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
-        
-            <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key">
-        
-            </dl>
-        
-                {{ govukButton({
-                  text: "Save and continue"
-                }) }}
-        
-                
-        
-              </form>
-        
-            </div>
-          </div>
-        
-        {% endblock %}
-        
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+{% endblock %}
+      
         {% block pageScripts %}
         
         <script>

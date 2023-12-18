@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Are you using a reference product to support your application?  – {{serviceName}} – GOV.UK
+Are you using a reference product to support your application? – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -9,16 +9,12 @@ Are you using a reference product to support your application?  – {{serviceNam
 {% endblock %}
 
 {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post">
+      <h1 class="govuk-heading-l">Are you using a reference product to support your application?</p>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-      <form class="form" method="post">
-
-      {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">Are you using a reference product to support your application? </p>
-
-      <p>You may only use: </p>
+      <p>You may only use:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>a reference product for which protection has expired </li>
         <li>one reference product to support this application </li>
@@ -34,9 +30,6 @@ Are you using a reference product to support your application?  – {{serviceNam
             classes: "govuk-fieldset__legend--l"
           }
         },
-        hint: {
-          text: ""
-        },
         items: [
           {
             value: "Yes",
@@ -47,15 +40,12 @@ Are you using a reference product to support your application?  – {{serviceNam
             value: "No",
             text: "No"
           }
-
         ]
       }) }}
 
-        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-      </form>
-
-    </div>
+    </form>
   </div>
-
+</div>
 {% endblock %}

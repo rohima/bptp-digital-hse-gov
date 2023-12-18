@@ -9,79 +9,57 @@ What is the market area for your product?  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-     
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post">        
+      <h1 class="govuk-heading-l">What is the extent of authorisation? </h1>
+      <p>Where your application will apply</p>
       
+      {% set textHtml %}
+      {{ govukInput({
+        id: "applicantType",
+        name: "applicantType",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "Give details"
+        }
+      }) }}
+      {% endset -%}
 
-      <form class="form" method="post">
+      {{ govukRadios({
+        id: "marketArea",
+        name: "marketArea",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: ""
+        },
+        items: [
+          {
+            value: "Great Britain",
+            text: "Great Britain (England, Scotland and Wales)"
+          },   
+          {
+            value: "Northern Ireland",
+            text: "Northern Ireland"
+          },   
+          {
+            value: "Great Britain and Northern Ireland",
+            text: "Great Britain and Northern Ireland"
+          }
+        ]
+      }) }}
         
-        
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
+      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-      {# <span class="govuk-caption-l">Application</span> #}
-
-      <h1 class="govuk-heading-l">
-        What is the extent of authorisation? 
-      </h1>
-
-<p>Where your application will apply</p>
-      
-
-{% set textHtml %}
-{{ govukInput({
-  id: "applicantType",
-  name: "applicantType",
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "Give details"
-  }
-}) }}
-{% endset -%}
-
-{{ govukRadios({
-  id: "marketArea",
-  name: "marketArea",
-  fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "Great Britain",
-      text: "Great Britain (England, Scotland and Wales)"
-      
-    },   
-    {
-      value: "Northern Ireland",
-      text: "Northern Ireland"
-     
-    },   
-    {
-      value: "Great Britain and Northern Ireland",
-      text: "Great Britain and Northern Ireland"
-     
-    }
-    
-  ]
-}) }}
-        
-        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
-
-      </form>
-
-    </div>
+    </form>
   </div>
-
+</div>
 {% endblock %}

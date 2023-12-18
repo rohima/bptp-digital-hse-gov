@@ -16,79 +16,50 @@ Upload your formulation composition –{{serviceName}} – GOV.UK
   }
 </style>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Upload your formulation composition file</h1>
+    <form class="form" method="post">
+      <p>Use the <a href="#">CRD formulation composition template</a> (opens in a new tab) to enter your formulation details. Save the completed file in CSV format.</p>
 
-      {# <span class="govuk-caption-l">Documents</span> #}
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Help with errors in your file
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          When you upload your file, the service will check the data and highlight any errors for you to fix. <br><br>If you need to fix errors, you must make the changes to your spreadsheet (.xlsx or .ods) file, save it in CSV format, and upload it again. 
+        </div>
+      </details>
 
-      <h1 class="govuk-heading-l">
-        Upload your formulation composition file 
-      </h1>
+      <p id="upload-update" class="govuk-body govuk-!-display-none" aria-live="assertive" aria-relevant="all">1 of 2 files uploaded</p>
+        
+      <button id="upload-more" style="display:none" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Add more files
+      </button>
+            
+      <div id="upload-wrapper" class="govuk-form-group">
+        <label class="govuk-label" for="upload-button">
+          Upload a file
+        </label>
+        <input class="govuk-file-upload" id="upload-button" name="upload-button" type="file" multiple="multiple">
+      </div>
 
-     
-        <form class="form" method="post">
-
-         <style>
-          .govuk-summary-list__key {
-            width:60%
-          }
-        </style>
-
-        <p>Use the <a href="#">CRD formulation composition template</a> (opens in a new tab) to enter your formulation details. Save the completed file in CSV format. </p>
-
-        {% from "govuk/components/details/macro.njk" import govukDetails %}
-
-
-<details class="govuk-details" data-module="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Help with errors in your file
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    When you upload your file, the service will check the data and highlight any errors for you to fix. <br><br>If you need to fix errors, you must make the changes to your spreadsheet (.xlsx or .ods) file, save it in CSV format, and upload it again. 
+      <p><a href="test-formula-type-add">Enter formulation manually</a></p>
+        
+      <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
+        
+      <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key"></dl>
+        
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+        
+     </form>  
   </div>
-</details>
-
-            {# <div id="file-upload-1-hint" class="govuk-hint">
-              Save your file as a CSV, TSV, ODS, or Microsoft Excel spreadsheet. Each file must be a maximum of XGB.
-
-            </div> #}
-        
-            <p id="upload-update" class="govuk-body govuk-!-display-none" aria-live="assertive" aria-relevant="all">1 of 2 files uploaded</p>
-        
-            
-            <button id="upload-more" style="display:none" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-              Add more files
-            </button>
-            
-            <div id="upload-wrapper" class="govuk-form-group">
-              <label class="govuk-label" for="upload-button">
-                Upload a file
-              </label>
-              <input class="govuk-file-upload" id="upload-button" name="upload-button" type="file" multiple="multiple">
-            </div>
-
-           <p><a href="test-formula-type-add">Enter formulation manually</a></p>
-        
-            <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
-        
-            <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key">
-        
-            </dl>
-        
-                {{ govukButton({
-                  text: "Save and continue"
-                }) }}
-        
-                
-        
-              </form>
-        
-            </div>
-          </div>
-        
-        {% endblock %}
+</div>
+{% endblock %}
         
         {% block pageScripts %}
         

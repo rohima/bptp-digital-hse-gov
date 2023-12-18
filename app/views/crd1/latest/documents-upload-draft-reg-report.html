@@ -16,149 +16,124 @@ Upload your draft registration report documents (dRR)  –{{serviceName}} – GO
   }
 </style>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      {# <span class="govuk-caption-l">Documents</span> #}
-
-      <h1 class="govuk-heading-l">
-        Upload your draft registration report documents (dRR) 
-      </h1>
-
-      <p>Select the documents you are uploading as part of your dRR.</p>
+    <h1 class="govuk-heading-l">Upload your draft registration report documents (dRR)</h1>
+    <p>Select the documents you are uploading as part of your dRR.</p>
      
-        <form class="form" method="post">
-
-         <style>
-          .govuk-summary-list__key {
-            width:60%
+    <form class="form" method="post">        
+      <h2 class="govuk-heading-s">Part A</h2>   
+      {{ govukCheckboxes({
+        id: "documentsDraftRegReportSelect",
+        name: "documentsDraftRegReportSelect",
+        fieldset: {
+          legend: {
+            text: ""
           }
-        </style>
+        },
+        items: [
+          {
+            value: "Summary of evaluation",
+            text: "Summary of evaluation"
+          }
+          ]
+      }) }}
+      
+      <h2 class="govuk-heading-s">Part B</h2>          
 
-        
-<h2 class="govuk-heading-s">Part A</h2>   
-{{ govukCheckboxes({
-  id: "documentsDraftRegReportSelect",
-  name: "documentsDraftRegReportSelect",
-  fieldset: {
-    legend: {
-      text: ""
-    }
-  },
-  hint: {
-    text: " "
-  },
-  items: [
-    {
-      value: "Summary of evaluation",
-      text: "Summary of evaluation"
-    }
+      {{ govukCheckboxes({
+        id: "documentsDraftRegReportSelect",
+        name: "documentsDraftRegReportSelect",
+        fieldset: {
+          legend: {
+            text: ""
+          }
+        },
+        items: [
+          {
+            value: "Summary of Evaluation",
+            text: "Summary of Evaluation"
+          },
+          {
+            value: "Section 1, 2 and 4 ",
+            text: "Section 1, 2 and 4 ",
+            hint: {text: "Identity, physical and chemical properties and further information "}
+          },
+          {
+            value: "Section 3",
+            text: "Section 3",
+            hint:{text:"Efficacy data and information "}
+          },
+          {
+            value: "Section 5",
+            text: "Section 5 ",
+            hint:{text:"Analytical methods "}
+          },
+          {
+            value: "Section 6",
+            text: "Section 6",
+            hint:{text:"Mammalian toxicology "}
+          },
+          {
+            value: "Section 7",
+            text: "Section 7",
+            hint:{text:"Metabolism and residues "}
+          },
+          {
+            value: "Section 8",
+            text: "Section 8",
+            hint:{text:"Environmental fate"}
+          },
+          {
+            value: "Section 9 ",
+            text: "Section 9 ",
+            hint:{text:"Ecotoxicology"}
+          },
+          {
+            value: "Section 10 ",
+            text: "Section 10 ",
+            hint:{text:"Assessment of the relevance of metabolites in groundwater"}
+          },
+          {
+            value: "Confidential information",
+            text: "Confidential information",
+            hint:{text:""}
+          }
+        ]
+      }) }}
 
-    ]
-  }) }}
-<h2 class="govuk-heading-s">Part B</h2>          
-
-{{ govukCheckboxes({
-  id: "documentsDraftRegReportSelect",
-  name: "documentsDraftRegReportSelect",
-  fieldset: {
-    legend: {
-      text: ""
-    }
-  },
-  hint: {
-    text: " "
-  },
-  items: [
-    {
-      value: "Summary of Evaluation",
-      text: "Summary of Evaluation"
-    },
-    {
-      value: "Section 1, 2 and 4 ",
-      text: "Section 1, 2 and 4 ",
-      hint: {text: "Identity, physical and chemical properties and further information "}
-    },
-    {
-      value: "Section 3",
-      text: "Section 3",
-      hint:{text:"Efficacy data and information "}
-    },
-    {
-      value: "Section 5",
-      text: "Section 5 ",
-      hint:{text:"Analytical methods "}
-    },
-    {
-      value: "Section 6",
-      text: "Section 6",
-      hint:{text:"Mammalian toxicology "}
-    },
-    {
-      value: "Section 7",
-      text: "Section 7",
-      hint:{text:"Metabolism and residues "}
-    },
-    {
-      value: "Section 8",
-      text: "Section 8",
-      hint:{text:"Environmental fate"}
-    },
-    {
-      value: "Section 9 ",
-      text: "Section 9 ",
-      hint:{text:"Ecotoxicology"}
-    },
-    {
-      value: "Section 10 ",
-      text: "Section 10 ",
-      hint:{text:"Assessment of the relevance of metabolites in groundwater"}
-    },
-    {
-      value: "Confidential information",
-      text: "Confidential information",
-      hint:{text:""}
-    }
-  ]
-}) }}
-
+      <div id="file-upload-1-hint" class="govuk-hint">
+        You can upload more than one file. Each file must be a maximum of 4GB.  
+      </div>
+  
+      <p id="upload-update" class="govuk-body govuk-!-display-none" aria-live="assertive" aria-relevant="all">1 of 2 files uploaded</p>
+  
+      
+      <button id="upload-more" style="display:none" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Add more files
+      </button>
+      
+      <div id="upload-wrapper" class="govuk-form-group">
+        <label class="govuk-label" for="upload-button">
+          Upload a file
+        </label>
+        <input class="govuk-file-upload" id="upload-button" name="upload-button" type="file" multiple="multiple">
+      </div>
         
-            <div id="file-upload-1-hint" class="govuk-hint">
-              You can upload more than one file. Each file must be a maximum of 4GB.  
-            </div>
+      <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
         
-            <p id="upload-update" class="govuk-body govuk-!-display-none" aria-live="assertive" aria-relevant="all">1 of 2 files uploaded</p>
+      <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key"></dl>
         
-            
-            <button id="upload-more" style="display:none" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-              Add more files
-            </button>
-            
-            <div id="upload-wrapper" class="govuk-form-group">
-              <label class="govuk-label" for="upload-button">
-                Upload a file
-              </label>
-              <input class="govuk-file-upload" id="upload-button" name="upload-button" type="file" multiple="multiple">
-            </div>
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
         
-            <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
-        
-            <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key">
-        
-            </dl>
-        
-                {{ govukButton({
-                  text: "Save and continue"
-                }) }}
-        
-                
-        
-              </form>
-        
-            </div>
-          </div>
-        
-        {% endblock %}
+    </form>  
+  </div>
+</div>
+      
+{% endblock %}
         
         {% block pageScripts %}
         

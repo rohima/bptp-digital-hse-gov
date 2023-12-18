@@ -10,45 +10,39 @@ Find registered address for {{ data['applicationCompanyName'] or "ABC Limited" }
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      {# <span class="govuk-caption-l">Application</span> #}
-      <h1 class="govuk-heading-l">Find registered address for {{ data['applicationCompanyName'] or "ABC Limited" }} </h1>
-
-      <form class="form" method="post">
-        <div class="govuk-width-container">
-        {# <h1 class="govuk-heading-l">Find an address</h1> #}
-          {{ govukInput({
-            label: {
-            text: "Postcode"
-          },
-            classes: "govuk-!-width-two-thirds",
-            hint: {
-            text: "For example, AA3 1AB."
-          },
-            id: "postcode",
-            name: "postcode"
-          }) }}
-        
-          {{ govukInput({
-            label: {
-            text: "Building number or name (optional)"
-          },
-            classes: "govuk-!-width-two-thirds",
-            hint: {
-            text: "For example, 15 or Prospect Cottage."
-          },
-            id: "clientAddressPostcode",
-            name: "clientAddressPostcode"
-          }) }}
-
-        <p><a href="#">Enter an international address</a></p>
-
-        <button class="govuk-button" data-module="govuk-button">Find address</button>
-
-      </form>
-    </div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Find registered address for {{ data['applicationCompanyName'] or "ABC Limited" }} </h1>
+    <form class="form" method="post">
+      <div class="govuk-width-container">
+        {{ govukInput({
+          label: {
+          text: "Postcode"
+        },
+          classes: "govuk-!-width-two-thirds",
+          hint: {
+          text: "For example, AA3 1AB."
+        },
+          id: "postcode",
+          name: "postcode"
+        }) }}
+      
+        {{ govukInput({
+          label: {
+          text: "Building number or name (optional)"
+        },
+          classes: "govuk-!-width-two-thirds",
+          hint: {
+          text: "For example, 15 or Prospect Cottage."
+        },
+          id: "clientAddressPostcode",
+          name: "clientAddressPostcode"
+        }) }}
+      <p><a href="#">Enter an international address</a></p>
+      <button class="govuk-button" data-module="govuk-button">Find address</button>
+    </form>
   </div>
+</div>
 
   
 {% endblock %}

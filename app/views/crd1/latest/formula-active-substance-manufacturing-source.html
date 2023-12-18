@@ -9,102 +9,75 @@ What is the manufacturing source for {{ data['formulaActiveSubstanceName'] or 'A
 {% endblock %}
 
 {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post">
+      <h1 class="govuk-heading-l">What is the manufacturing source for {{ data['formulaActiveSubstanceName'] or 'Azoxystrobin' }}?</p>
 
+      <div class="govuk-inset-text">
+        Active substance name: <strong>{{ data['formulaActiveSubstanceName'] or 'Azoxystrobin' }} {{ data['formulaTypeAddReference'] or 'CAS' }}: {{ data['formulaTypeAdd' + data['formulaTypeAddReference'] or 'CAS' + 'Reference'] or '131860-33-8' }}</strong>
+      </div>
 
+      {% set textHtml %}
+        {{ govukInput({
+          id: "formulaActiveSubstanceSourceText",
+          name: "formulaActiveSubstanceSourceText",
+          type: "tel",
+          autocomplete: "tel",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Give details"
+          }
+        }) }}
+      {% endset -%}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+      {% set emailHtml %}
+        {{ govukInput({
+          id: "formulaActiveSubstanceSourceText",
+          name: "formulaActiveSubstanceSourceText",
+          type: "tel",
+          autocomplete: "tel",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Technical evaluation report"
+          },
+          hint: { text: "This could be any or all of the following: COP number, Wisdom reference, HSE reference, product name, product identifier code"}
+        }) }}
+      {% endset -%}
 
-      <form class="form" method="post">
+      {{ govukRadios({
+        id: "formulaActiveSubstanceSource",
+        name: "formulaActiveSubstanceSource",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "New source already evaluated in Great Britain",
+            text: "New source already evaluated in Great Britain",
+            checked: false,
+            conditional: {
+              html: emailHtml
+            }
+          },   
+          {
+            value: "New source needing a technical equivalence assessment in Great Britain",
+            text: "New source needing a technical equivalence assessment in Great Britain"
+          },   
+          {
+            value: "New source already evaluated by EU member state ",
+            text: "New source already evaluated by EU member state [If GB + NI journey, show Radio 3 ]"
+          }
+        ]
+      }) }}
 
-      {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">What is the manufacturing source for {{ data['formulaActiveSubstanceName'] or 'Azoxystrobin' }}?  </p>
+      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-{# <p>Explain the nature of the active substance sources. If you told us about additional active substances, they will appear on the following pages.</p> #}
-  <div class="govuk-inset-text">
-    Active substance name: <strong>{{ data['formulaActiveSubstanceName'] or 'Azoxystrobin' }} {{ data['formulaTypeAddReference'] or 'CAS' }}: {{ data['formulaTypeAdd' + data['formulaTypeAddReference'] or 'CAS' + 'Reference'] or '131860-33-8' }}</strong>
+    </form>
   </div>
-{# <p>[Active substance name: 
-  <strong>Azoxystrobin
-  CAS: 131860-33-8</strong>]</p> #}
-
-
- {% set textHtml %}
-{{ govukInput({
-  id: "formulaActiveSubstanceSourceText",
-  name: "formulaActiveSubstanceSourceText",
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "Give details"
-  }
-}) }}
-{% endset -%}
-
-{% set emailHtml %}
-{{ govukInput({
-  id: "formulaActiveSubstanceSourceText",
-  name: "formulaActiveSubstanceSourceText",
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "Technical evaluation report"
-  },
-  hint: { text: "This could be any or all of the following: COP number, Wisdom reference, HSE reference, product name, product identifier code"}
-}) }}
-{% endset -%}
-
-{{ govukRadios({
-  id: "formulaActiveSubstanceSource",
-  name: "formulaActiveSubstanceSource",
-  fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "New source already evaluated in Great Britain",
-      text: "New source already evaluated in Great Britain",
-      checked: false,
-      conditional: {
-        html: emailHtml
-      }
-    },   
-    {
-      value: "New source needing a technical equivalence assessment in Great Britain",
-      text: "New source needing a technical equivalence assessment in Great Britain"
-    }
-
-    ,   
-    {
-      value: "New source already evaluated by EU member state ",
-      text: "New source already evaluated by EU member state [If GB + NI journey, show Radio 3 ]"
-    }
-
-  ]
-}) }}
-
-
-
-
-
-        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
-
-      </form>
-
-    </div>
-  </div>
-
+</div>
 {% endblock %}
-
-
-
-

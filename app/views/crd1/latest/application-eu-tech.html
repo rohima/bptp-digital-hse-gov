@@ -9,51 +9,39 @@ EU Member State finalised technical equivalence report – {{serviceName}} – G
 {% endblock %}
 
 {% block content %}
-
-
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-      <form class="form" method="post">
-
-      {# <span class="govuk-caption-l">Application details</span> #}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post">
       <h1 class="govuk-heading-l">EU Member State finalised technical equivalence report</h1>
 
-      {# <p> Enter the product name. You can also add your own internal code number. This is what we will call your application within this service.</p> #}
+      {{ govukInput({
+        label: {
+          text: "Member State"
+        },
+        classes: "govuk-input--width-20",
+        hint: {
+          text: ""
+        },
+        id: "memberStateTech",
+        name: "memberStateTech"
+      }) }}
 
+      {{ govukDateInput({
+        id: "dateTechnicalReport",
+        namePrefix: "dateTechnicalReport",
+        fieldset: {
+          legend: {
+            text: "Date of finalised technical equivalence report"
+          }
+        },
+        hint: {
+          text: "For example, 27 3 2023"
+        }
+      }) }}
 
- {% from "govuk/components/input/macro.njk" import govukInput %}
-{{ govukInput({
-  label: {
-    text: "Member State"
-  },
-  classes: "govuk-input--width-20",
-  hint: {
-    text: ""
-  },
-  id: "memberStateTech",
-  name: "memberStateTech"
-}) }}
+      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-{{ govukDateInput({
-  id: "dateTechnicalReport",
-  namePrefix: "dateTechnicalReport",
-  fieldset: {
-    legend: {
-      text: "Date of finalised technical equivalence report"
-    }
-  },
-  hint: {
-    text: "For example, 27 3 2023"
-  }
-}) }}
-
-        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
-
-      </form>
-
-    </div>
+    </form>
   </div>
-
+</div>
 {% endblock %}

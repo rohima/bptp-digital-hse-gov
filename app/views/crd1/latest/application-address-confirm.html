@@ -9,24 +9,11 @@ Confirm registered address for {{ data['applicationCompanyName'] or "ABC Limited
 {% endblock %}
 
 {% block content %}
-
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      {# <span class="govuk-caption-l">Client</span> #}
-<h1 class="govuk-heading-l">Confirm registered address for {{ data['applicationCompanyName'] or "ABC Limited" }}</h1>
-
-      
+      <h1 class="govuk-heading-l">Confirm registered address for {{ data['applicationCompanyName'] or "ABC Limited" }}</h1>
 
       <form class="form" method="post">
-
-        {# {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
-        {{ govukInsetText({
-          text: " 1 Tully Road, London, SE1 1SS "
-          
-        }) }} #}
 
         <div class="govuk-inset-text">
           <p>1 Wellborough Street<br> Leeds<br> LS1 7CD</p>
@@ -43,5 +30,4 @@ Confirm registered address for {{ data['applicationCompanyName'] or "ABC Limited
 
   <p> <a href="#">Enter address manually</a> </p>
 
-  
 {% endblock %}
