@@ -9,67 +9,42 @@ Do you want to upload your proposed use information? – {{serviceName}} – GOV
 {% endblock %}
 
 {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post">
+      <h1 class="govuk-heading-l">Do you want to upload your proposed use information?</h1>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-     
-      
-
-      <form class="form" method="post">
-        
-        
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
-
-      {# <span class="govuk-caption-l">Application</span> #}
-
-      <h1 class="govuk-heading-l">
-        Do you want to upload your proposed use information? </h1>
-
-<p>You can use the <a href="">CRD proposed use template</a> (opens in a new tab) to enter this information (also known as ‘GAP table’) and upload it.  </p>
+      <p>You can use the <a href="">CRD proposed use template</a> (opens in a new tab) to enter this information (also known as ‘GAP table’) and upload it.</p>
  
-<p> If you do not want to upload a file, you can enter the information manually.  </p>
-      
+      <p>If you do not want to upload a file, you can enter the information manually.</p>
 
+      {{ govukRadios({
+        id: "isGapCsvUpload",
+        name: "isGapCsvUpload",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes – upload a file ",
+            hint: {text:"You must enter the information into the CRD proposed use template before you upload it "},
+            checked: false
+          },   
+          {
+            value: "No",
+            text: "No – enter it manually "
+          }
+        ]
+      }) }}
 
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
 
-{{ govukRadios({
-  id: "isGapCsvUpload",
-  name: "isGapCsvUpload",
-  fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "Yes",
-      text: "Yes – upload a file ",
-      hint: {text:"You must enter the information into the CRD proposed use template before you upload it "},
-      checked: false
-      
-    },   
-    {
-      value: "No",
-      text: "No – enter it manually "
-      
-    }
-  ]
-}) }}
-
-    
-        
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
-
-      </form>
-
-    </div>
+    </form>
   </div>
-
+</div>
 {% endblock %}

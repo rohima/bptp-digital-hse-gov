@@ -9,174 +9,131 @@ Product application timings   – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-
-
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-      <form class="form" method="post">
-
-      {# <span class="govuk-caption-l">Formulation composition</span> #}
-      <h1 class="govuk-heading-l">Product application timings  </p>
-
-{# <p></p> #}
-
-
-  <h2 class="govuk-heading-m">Maximum number of treatments  </h2>
-  {# <h3 class="govuk-heading-s"> Maximum individual dose of active substance   </h3> #}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post">
+      <h1 class="govuk-heading-l">Product application timings</p>
+      <h2 class="govuk-heading-m">Maximum number of treatments</h2>
  
+      {{ govukInput({
+        label: {
+          text: ' Enter maximum number of treatments'
+        },
+        classes: "govuk-input--width-20",
+        id: "formulaActiveSubstanceName",
+        name: "formulaActiveSubstanceName",
+        autocomplete: "address-line1"
+      }) }}
+
+      <h2 class="govuk-heading-m">Time between applications</h2>
+
+      {{ govukInput({
+        label: {
+          text: 'Enter number of days '
+        },
+        hint: {
+          text: "If the product is applied once per year, leave this field blank.  "
+        },
+        suffix: {text: "days"},
+        classes: "govuk-input--width-10",
+        id: "formulaActiveSubstanceName",
+        name: "formulaActiveSubstanceName",
+        autocomplete: "address-line1"
+      }) }}
+
+      <h2 class="govuk-heading-m">Period of use</h2>
+      <p class="govuk-hint">In months. For example, from June to December.</p>
   
-  {{ govukInput({
-    label: {
-      text: ' Enter maximum number of treatments  '
-    },
-    hint: {
-    text: "  "
-  },
-  classes: "govuk-input--width-20",
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
-  }) }}
+      {{ govukInput({
+        classes:"govuk-input--width-10",
+        label: {
+          text: "From:",
+          classes: "govuk-label?--l",
+          isPageHeading: true
+        },
+        id: "proposedUseActiveMaxTotalDose",
+        name: "proposedUseActiveMaxTotalDose"
+      }) }}
 
-  <h2 class="govuk-heading-m">Time between applications </h2>
+      {{ govukInput({
+        classes:"govuk-input--width-10",
+        label: {
+          text: "To:",
+          classes: "govuk-label?--l",
+          isPageHeading: true
+        },
+        id: "proposedUseActiveMaxTotalDose",
+        name: "proposedUseActiveMaxTotalDose"
+      }) }}
 
-  {{ govukInput({
-    label: {
-      text: 'Enter number of days '
-    },
-    hint: {
-    text: "If the product is applied once per year, leave this field blank.  "
-  },
+      <h2 class="govuk-heading-m">Earliest time of application</h2>
 
-  suffix: {text: "days"},
-  classes: "govuk-input--width-10",
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
-  }) }}
+      {{ govukInput({
+        classes:"govuk-input--width-20",
+        label: {
+          text: "Month",
+          classes: "govuk-label?--l",
+          isPageHeading: true
+        },
+        id: "proposedUseActiveMaxTotalDose",
+        name: "proposedUseActiveMaxTotalDose"
+      }) }}
 
-  
-
-  <h2 class="govuk-heading-m">Period of use </h2>
-  <p class="govuk-hint">In months. For example, from June to December. </p>
-  
-  {{ govukInput({
-    classes:"govuk-input--width-10",
-    label: {
-      text: "From:",
-      classes: "govuk-label?--l",
-      isPageHeading: true
-    },
-    hint: {
-      text: ""
-    },
-    id: "proposedUseActiveMaxTotalDose",
-    name: "proposedUseActiveMaxTotalDose"
-  }) }}
-
-  {{ govukInput({
-    classes:"govuk-input--width-10",
-    label: {
-      text: "To:",
-      classes: "govuk-label?--l",
-      isPageHeading: true
-    },
-    hint: {
-      text: ""
-    },
-    id: "proposedUseActiveMaxTotalDose",
-    name: "proposedUseActiveMaxTotalDose"
-  }) }}
-
-  <h2 class="govuk-heading-m">Earliest time of application</h2>
-
-  {{ govukInput({
-    classes:"govuk-input--width-20",
-    label: {
-      text: "Month",
-      classes: "govuk-label?--l",
-      isPageHeading: true
-    },
-    hint: {
-      text: ""
-    },
-    id: "proposedUseActiveMaxTotalDose",
-    name: "proposedUseActiveMaxTotalDose"
-  }) }}
-
-  {{ govukInput({
-    classes:"govuk-input--width-10",
-    label: {
-      text: "Earliest BBCH code",
-      classes: "govuk-label?--l",
-      isPageHeading: true
-    },
-    hint: {
-      text: ""
-    },
-    id: "proposedUseActiveMaxTotalDose",
-    name: "proposedUseActiveMaxTotalDose"
-  }) }}
+      {{ govukInput({
+        classes:"govuk-input--width-10",
+        label: {
+          text: "Earliest BBCH code",
+          classes: "govuk-label?--l",
+          isPageHeading: true
+        },
+        id: "proposedUseActiveMaxTotalDose",
+        name: "proposedUseActiveMaxTotalDose"
+      }) }}
 
 
-  <h2 class="govuk-heading-m">Latest time of application</h2>
+      <h2 class="govuk-heading-m">Latest time of application</h2>
 
-  {{ govukInput({
-    classes:"govuk-input--width-20",
-    label: {
-      text: "Month",
-      classes: "govuk-label?--l",
-      isPageHeading: true
-    },
-    hint: {
-      text: ""
-    },
-    id: "proposedUseActiveMaxTotalDose",
-    name: "proposedUseActiveMaxTotalDose"
-  }) }}
+      {{ govukInput({
+        classes:"govuk-input--width-20",
+        label: {
+          text: "Month",
+          classes: "govuk-label?--l",
+          isPageHeading: true
+        },
+        id: "proposedUseActiveMaxTotalDose",
+        name: "proposedUseActiveMaxTotalDose"
+      }) }}
 
-  
-  {{ govukInput({
-    classes:"govuk-input--width-10",
-    label: {
-      text: "Latest BBCH code",
-      classes: "govuk-label?--l",
-      isPageHeading: true
-    },
-    hint: {
-      text: ""
-    },
-    id: "proposedUseActiveMaxTotalDose",
-    name: "proposedUseActiveMaxTotalDose"
-  }) }}
+      {{ govukInput({
+        classes:"govuk-input--width-10",
+        label: {
+          text: "Latest BBCH code",
+          classes: "govuk-label?--l",
+          isPageHeading: true
+        },
+        id: "proposedUseActiveMaxTotalDose",
+        name: "proposedUseActiveMaxTotalDose"
+      }) }}
 
-  <h2 class="govuk-heading-m">Pre-harvest interval or witholding period </h2>
+      <h2 class="govuk-heading-m">Pre-harvest interval or witholding period</h2>
 
-  {{ govukInput({
-    label: {
-      text: 'Enter number of days '
-    },
-    hint: {
-    text: "The number of days required between application and returning to the crop, or allowing people or livestock access to the area of the crop. "
-  },
+      {{ govukInput({
+        label: {
+          text: 'Enter number of days '
+        },
+        hint: {
+          text: "The number of days required between application and returning to the crop, or allowing people or livestock access to the area of the crop. "
+        },
+        suffix: {text: "days"},
+        classes: "govuk-input--width-10",
+        id: "formulaActiveSubstanceName",
+        name: "formulaActiveSubstanceName",
+        autocomplete: "address-line1"
+      }) }}
 
-  suffix: {text: "days"},
-  classes: "govuk-input--width-10",
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
-  }) }}
+      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-
-
-
-        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
-
-      </form>
-
-    </div>
+    </form>
   </div>
-
+</div>
 {% endblock %}

@@ -9,57 +9,33 @@ Upload your low risk statement – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-
-
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-      <form class="form" method="post">
-
-      {# <span class="govuk-caption-l">Application details</span> #}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post">
       <h1 class="govuk-heading-l">Upload your low risk statement</p>
 
-{# <p>A plant protection product is generally considered low risk if it does not have any harmful effects on: </p>
-
-<ul class="govuk-list govuk-list--bullet">
-  <li>human health</li>
-  <li>animal health</li>
-  <li>groundwater</li>
-  <li>the environment</li>
-</ul> #}
-
-{# <p>Find out more about <a href="https://www.hse.gov.uk/pesticides/pesticides-registration/active-substances/low-risk.htm">low-risk active substances on the HSE website</a> (opens in a new tab).  </p> #}
-
-
-
-<p id="upload-update" class="govuk-body govuk-!-display-none" aria-live="assertive" aria-relevant="all">1 of 2 files uploaded</p>
-        
+      <p id="upload-update" class="govuk-body govuk-!-display-none" aria-live="assertive" aria-relevant="all">1 of 2 files uploaded</p>
             
-            <button id="upload-more" style="display:none" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-              Add more files
-            </button>
+      <button id="upload-more" style="display:none" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Add more files
+      </button>
             
-            <div id="upload-wrapper" class="govuk-form-group">
-              <label class="govuk-label" for="upload-button">
-                Upload a file
-              </label>
-              <input class="govuk-file-upload" id="upload-button" name="upload-button" type="file" multiple="multiple">
-            </div>
+      <div id="upload-wrapper" class="govuk-form-group">
+        <label class="govuk-label" for="upload-button">
+          Upload a file
+        </label>
+        <input class="govuk-file-upload" id="upload-button" name="upload-button" type="file" multiple="multiple">
+      </div>
         
-            <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
+      <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
         
-            <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key">
-        
-            </dl>
+      <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key"></dl>
 
-        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-      </form>
-
-    </div>
+    </form>
   </div>
-
+</div>
 {% endblock %}
 
 {% block pageScripts %}
