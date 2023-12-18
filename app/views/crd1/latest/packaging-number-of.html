@@ -23,23 +23,17 @@ How many different types of container does the product have?   – {{serviceName
       {# <p>You can add other package sizes after.</p> #}
 
 
- {% from "govuk/components/input/macro.njk" import govukInput %}
- {{ govukInput({
-  label: {
-    text: "Number of containers  "
-  },
-  suffix: {
-    text: ""
-  },
-  classes: "govuk-input--width-5",
-  id: "productVolume",
-  name: "productVolume"
-}) }}
+     {% from "govuk/components/input/macro.njk" import govukInput %}
+      {{ govukInput({
+        label: {
+          text: "Number of containers"
+        },
+        classes: "govuk-input--width-5",
+        id: "numContainers",
+        name: "numContainers"
+      }) }}
 
-
-    
-
-        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>
 

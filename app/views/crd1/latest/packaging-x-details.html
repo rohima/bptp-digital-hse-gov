@@ -41,13 +41,13 @@ Container [X] details – {{serviceName}} – GOV.UK
    text: ""
  },
  classes: "govuk-input--width-5",
- id: "productVolume",
- name: "productVolume"
+ id: "containerVolumeFrom",
+ name: "containerVolumeFrom"
 }) }}
 
 {{ govukRadios({
-  id: "productMeasurement",
-  name: "productMeasurement",
+  id: "containerVolumeFromUnit",
+  name: "containerVolumeFromUnit",
   fieldset: {
     legend: {
       text: "",
@@ -90,13 +90,13 @@ Container [X] details – {{serviceName}} – GOV.UK
     text: ""
   },
   classes: "govuk-input--width-5",
-  id: "productVolume",
-  name: "productVolume"
+  id: "containerVolumeTo",
+  name: "containerVolumeTo"
  }) }}
 
 {{ govukRadios({
-  id: "productMeasurementx",
-  name: "productMeasurementx",
+  id: "containerVolumeToUnit",
+  name: "containerVolumeToUnit",
   fieldset: {
     legend: {
       text: "",
@@ -131,7 +131,7 @@ Container [X] details – {{serviceName}} – GOV.UK
   ]
 }) }}
 
-<h2 class="govuk-heading-s">Product container type </h2>
+<h2 class="govuk-heading-s">Product container type</h2>
 
 {{ govukInput({
   label: {
@@ -142,13 +142,13 @@ Container [X] details – {{serviceName}} – GOV.UK
   hint: {
     text: "Type part of the name and select it from the list. If the full name does not show, enter it manually. "
   },
-  id: "productInnerPackaging",
-  name: "productInnerPackaging"
+  id: "productContainerType",
+  name: "productContainerType"
 }) }}
 
-<h2 class="govuk-heading-s">Packaging material  </h2>
+<h2 class="govuk-heading-s">Packaging material</h2>
 
-<p>Enter the material closest to the product </p>
+<p>Enter the material closest to the product</p>
 
 {{ govukInput({
   label: {
@@ -159,8 +159,8 @@ Container [X] details – {{serviceName}} – GOV.UK
   hint: {
     text: "Type part of the name and select it from the list. If the full name does not show, enter it manually. "
   },
-  id: "productInnerPackaging",
-  name: "productInnerPackaging"
+  id: "productPackagingMaterial",
+  name: "productPackagingMaterial"
 }) }}
 
 <h3 class="govuk-heading-s">Other pack material (optional) </h3>
@@ -174,8 +174,8 @@ Container [X] details – {{serviceName}} – GOV.UK
   hint: {
     text: "If you have a multiwalled container, start with the layer closest to the product. "
   },
-  id: "productInnerPackaging",
-  name: "productInnerPackaging"
+  id: "productPackagingMaterialOther",
+  name: "productPackagingMaterialOther"
 }) }}
 
 {{ govukInput({
@@ -187,8 +187,8 @@ Container [X] details – {{serviceName}} – GOV.UK
   hint: {
     text: " "
   },
-  id: "productInnerPackaging",
-  name: "productInnerPackaging"
+  id: "productPackagingMaterialOther",
+  name: "productPackagingMaterialOther"
 }) }}
 
 
