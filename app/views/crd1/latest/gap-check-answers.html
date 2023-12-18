@@ -25,8 +25,8 @@
               Product name and code
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['productName'] or '[Product name]'}}
-              {{ data['productCode'] or '[Product code]'}}
+              {{ data['productName'] or 'PROD'}}
+              {{ data['productCode'] or '123456'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="product-name">
@@ -41,7 +41,7 @@
              Who will use the product
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['productUser'] or '[Product User]'}}
+              {{ data['intendedProductUser '] or 'Professional'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="product-use">
@@ -55,7 +55,7 @@
               Proposed field of use
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['productProposedUse'] or '[Product proposed use]'}}
+              {{ data['productProposedUse'] or 'Acaricide'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="product-proposed-use">
@@ -64,90 +64,231 @@
               </a>
             </dd>
           </div>
-          {# <div class="govuk-summary-list__row">
+        </dl>
+
+        <h2 class="govuk-heading-m">Crop and product use</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Packaging unit of measurement
+              Crop used
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['productMeasurement'] or '[Product unit of measurement]'}}
+              {{ data['cropUsed'] or 'Corn'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="product-measurement">
+              <a href="gap-crop-product">
                 Change
-                <span class="govuk-visually-hidden">Packaging unit of measurement </span>
+                <span class="govuk-visually-hidden">Crop used</span>
               </a>
             </dd>
           </div>
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Product volume range
+              Crop qualifier
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['productVolume'] or '[Product volume range]'}}
+              {{ data['cropQualifier'] or 'Protected'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="product-volume-range">
+              <a href="gap-crop-product">
                 Change
-                <span class="govuk-visually-hidden"> Product volume range</span>
+                <span class="govuk-visually-hidden">Crop qualifier</span>
               </a>
             </dd>
           </div>
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Company registration number
+              Type of pest, disease or week control
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['XXXXXXXXX'] or '[Company registration number]'}}
+              {{ data['cropControl'] or 'Bindweed'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="gap-crop-product">
                 Change
-                <span class="govuk-visually-hidden"> Client registered address</span>
+                <span class="govuk-visually-hidden">Crop qualifier</span>
               </a>
             </dd>
           </div>
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Material used for inner packaging
+              Crop location
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['productInnerPackaging'] or '[Product inner packaging]'}}
+              {{ data['gapCropLocation'] or 'Indoor'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="product-inner-material">
+              <a href="gap-crop-product">
                 Change
-                <span class="govuk-visually-hidden"> Material used for inner packaging</span>
+                <span class="govuk-visually-hidden">Crop location</span>
               </a>
             </dd>
           </div>
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Material used for outer packaging
+              Height of application
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['productOuterPackaging'] or '[Product outer packaging]'}}
+              {{ data['gapCropApplicationHeight'] or '1.2'}}{{ data['gapCropApplicationUnit'] or 'm' }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="product-outer-material">
+              <a href="gap-crop-product">
                 Change
-                <span class="govuk-visually-hidden"> Material used for outer packaging</span>
+                <span class="govuk-visually-hidden">Height of application</span>
               </a>
             </dd>
           </div>
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Material used for additional layer of packaging
+              Number of crops per year
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['productPackagingAddAnother'] or '[Product additional layer packaging]'}}
+              {{ data['gapCropNumberPerYear'] or '2000'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="product-material-add-another">
+              <a href="gap-crop-product">
                 Change
-                <span class="govuk-visually-hidden"> MMaterial used for additional layer of packaging</span>
+                <span class="govuk-visually-hidden">Number of crops per year</span>
               </a>
             </dd>
-          </div> #}
+          </div>
+        </dl>
+
+
+        <h2 class="govuk-heading-m">Product dosage</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Maximum individual dose of active substance
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapDosageMaxActiveSubstance'] or '50'}} {{ data['gapDosageMaxActiveSubstanceUnit'] or 'kilograms per hectare (kg/ha)'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+                Change
+                <span class="govuk-visually-hidden">Individual dose of active substance</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Maximum individual dose of product
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapDosageMaxProduct'] or '10'}} {{ data['gapDosageMaxProduct'] or 'kilograms per hectare (kg/ha)'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+                Change
+                <span class="govuk-visually-hidden">Maximum individual dose of product</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Maximum total dose of active substance
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapDosageMaxTotalActiveSubstance'] or '500'}} {{ data['gapDosageMaxTotalActiveSubstanceUnit'] or 'kilograms per hectare (kg/ha)'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+                Change
+                <span class="govuk-visually-hidden">Maximum total dose of active substance</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Maximum total dose of product
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapDosageMaxTotalProduct'] or '100'}} {{ data['gapDosageMaxTotalProductUnit'] or 'kilograms per hectare (kg/ha)'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+                Change
+                <span class="govuk-visually-hidden">Maximum total dose of product</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Minimum water volume
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['proposedUseWaterMin'] or '25'}} litres per hectare (l/ha)
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+                Change
+                <span class="govuk-visually-hidden">Minimum water volume</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Maximum water volume
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['proposedUseWaterMax'] or '75'}} litres per hectare (l/ha)
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+                Change
+                <span class="govuk-visually-hidden">Maximum water volume</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Minimum in-use concentration
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['proposedUseConcentrationMin'] or '10'}} {{ data['proposedUseConcentrationMinUnit'] or 'litres per hectare (l/ha)' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+                Change
+                <span class="govuk-visually-hidden">Minimum in-use concentration</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Product application timings</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Maximum individual dose of active substance
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapDosageMaxActiveSubstance'] or '50'}} {{ data['gapDosageMaxActiveSubstanceUnit'] or 'kilograms per hectare (kg/ha)'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+                Change
+                <span class="govuk-visually-hidden">Individual dose of active substance</span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
           {# <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Does product need a new Maximum Residue Level (MRL)

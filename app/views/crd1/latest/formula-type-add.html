@@ -20,7 +20,7 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
       <span class="govuk-caption-l">Formulation composition</span>
       <h1 class="govuk-heading-l">Add a substance </p>
 
-<p>Enter the details of the substance in your formulation. You can add another substance later if you need to.  </p>
+      <p>Enter the details of the substance in your formulation. You can add another substance later if you need to.  </p>
 
 {# <p>[Active substance name: 
   <strong>Azoxystrobin
@@ -37,11 +37,11 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
   },
     id: "formulaActiveSubstanceName",
     name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
+    autocomplete: "formulaActiveSubstanceName"
   }) }}
 
 
-  <h2 class="govuk-heading-m">Function </h2>
+  <h2 class="govuk-heading-m">Function</h2>
   
   {{ govukInput({
     label: {
@@ -50,12 +50,12 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
     hint: {
     text: "Type part of the substance name and select it from the list. If the full name does not show, enter it manually.  "
   },
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
+    id: "formulaActiveSubstanceFunction",
+    name: "formulaActiveSubstanceFunction",
+    autocomplete: "formulaActiveSubstanceFunction"
   }) }}
 
-  <h2 class="govuk-heading-m">Substance type  </h2>
+  <h2 class="govuk-heading-m">Substance type</h2>
 
 
 {{ govukRadios({
@@ -87,7 +87,7 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
 }) }}
 
 
-<h2 class="govuk-heading-m">Reference number </h2>
+<h2 class="govuk-heading-m">Reference number</h2>
 
 {% set CAS %}
 {{ govukInput({
@@ -165,11 +165,6 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
 
   ]
 }) }}
-
-
-
-
-
 
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>

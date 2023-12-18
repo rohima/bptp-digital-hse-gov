@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Confirm registered address for {{ data['clientCompanyName'] or "[Client company name]" }} – Manage building control for a higher-risk building – GOV.UK
+Confirm registered address for {{ data['applicationCompanyName'] or "ABC Limited" }} – Manage building control for a higher-risk building – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,7 +16,7 @@ Confirm registered address for {{ data['clientCompanyName'] or "[Client company 
     <div class="govuk-grid-column-two-thirds">
 
       {# <span class="govuk-caption-l">Client</span> #}
-<h1 class="govuk-heading-l">Confirm registered address for {{ data['applicantCompanyName'] or "[Organisation name]" }}</h1>
+<h1 class="govuk-heading-l">Confirm registered address for {{ data['applicationCompanyName'] or "ABC Limited" }}</h1>
 
       
 

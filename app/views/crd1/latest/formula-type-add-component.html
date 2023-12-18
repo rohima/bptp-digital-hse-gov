@@ -37,7 +37,7 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
   },
     id: "formulaActiveSubstanceName",
     name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
+    autocomplete: "formulaActiveSubstanceName"
   }) }}
 
   <h2 class="govuk-heading-m">Chemical name </h2>
@@ -49,9 +49,9 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
     hint: {
     text: "Type part of the substance name and select it from the list. If the full name does not show, enter it manually.  "
   },
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
+    id: "formulaActiveSubstanceChemicalName",
+    name: "formulaActiveSubstanceChemicalName",
+    autocomplete: "formulaActiveSubstanceChemicalName"
   }) }}
 
 
@@ -60,8 +60,8 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
 
 {% set CAS %}
 {{ govukInput({
-  id: "formulaTypeAddReference",
-  name: "formulaTypeAddReference",
+  id: "formulaTypeAddCASReference",
+  name: "formulaTypeAddCASReference",
   type: "tel",
   autocomplete: "tel",
   classes: "govuk-!-width-one-third"
@@ -69,8 +69,8 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
 {% endset -%}
 {% set EC %}
 {{ govukInput({
-  id: "formulaTypeAddReference",
-  name: "formulaTypeAddReference",
+  id: "formulaTypeAddECReference",
+  name: "formulaTypeAddECReference",
   type: "tel",
   autocomplete: "tel",
   classes: "govuk-!-width-one-third"
@@ -78,8 +78,8 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
 {% endset -%}
 {% set ELINCS %}
 {{ govukInput({
-  id: "formulaTypeAddReference",
-  name: "formulaTypeAddReference",
+  id: "formulaTypeAddELINCSReference",
+  name: "formulaTypeAddELINCSReference",
   type: "tel",
   autocomplete: "tel",
   classes: "govuk-!-width-one-third"
@@ -87,8 +87,8 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
 {% endset -%}
 {% set EINECS  %}
 {{ govukInput({
-  id: "formulaTypeAddReference",
-  name: "formulaTypeAddReference",
+  id: "formulaTypeAddEINECSReference",
+  name: "formulaTypeAddEINECSReference",
   type: "tel",
   autocomplete: "tel",
   classes: "govuk-!-width-one-third"

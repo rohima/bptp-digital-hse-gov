@@ -9,9 +9,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <span class="govuk-caption-l">Apply for authorisation of a new plant protection product</span>
-      <h1 class="govuk-heading-l">
-        [Job Number] and [Product name/code (when applicable)]
-      </h1>
+      <h1 class="govuk-heading-l">[Job Number] and [Product name/code (when applicable)]</h1>
 
       {# <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Constructing a new higher-risk building (HRB)</h2> #}
       {# - Constructing a new higher-risk building  OR
@@ -21,15 +19,19 @@
          <p></p>
 
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of X sections.</p>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 4 sections.</p>
 
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Returning to this application</h2>
       <p class="">We will save the information you give to us on each page.</p>
-      <p class="govuk-body govuk-!-margin-bottom-7">Your job number and instructions on how to return later have been sent to <strong>Rohima.begum@paconsulting.com</strong>.</p>
+      <p class="govuk-body govuk-!-margin-bottom-7">Your job number and instructions on how to return later have been sent to <strong>{{ data['your-email'] or 'charlotte.tilbury@barracks.com' }}</strong>.</p>
 
       <h2 class="app-task-list__section">
-        <span class="app-task-list__section-number"></span> Applicant information
+        <span class="app-task-list__section-number">1.</span> Applicant information
       </h2>
+
+
+
+      
       <ul class="app-task-list__items">
         
     
@@ -45,7 +47,7 @@
         
         
       <h2 class="app-task-list__section">
-        <span class="app-task-list__section-number"></span> Product information
+        <span class="app-task-list__section-number">2.</span> Product information
       </h2>
       <ul class="app-task-list__items">
         
@@ -113,7 +115,7 @@
       </ul>
 
       <h2 class="app-task-list__section">
-        <span class="app-task-list__section-number"></span> Documents
+        <span class="app-task-list__section-number">3.</span> Documents
       </h2>
       <ul class="app-task-list__items">
         
@@ -163,7 +165,7 @@
 
            
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number"></span> Declaration, payment details and submit
+            <span class="app-task-list__section-number">4.</span> Declaration, payment details and submit
           </h2>
           <ul class="app-task-list__items">
           <li class="app-task-list__item">

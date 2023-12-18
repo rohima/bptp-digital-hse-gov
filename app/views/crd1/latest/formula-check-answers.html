@@ -10,14 +10,9 @@
 
 {% block content %}
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
-
-      
-<form method="post">
-
-        <h1 class="govuk-heading-xl">Check your answers</h1>
-
-        {# <h2 class="govuk-heading-m">Formulation composition</h2> #}
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <form method="post">
+      <h1 class="govuk-heading-xl">Check your answers</h1>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
@@ -25,10 +20,14 @@
               Formulation composition 
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['marketArea'] or '[Substance 1]'}} <br>
+              50% {{ data['formulaActiveSubstanceName'] or 'Azoxystrobin' }} {{ data['formulaTypeAdd' + data['formulaTypeAddReference'] or 'CAS' + 'Reference'] or '131860-33-8' }}</br>
+              25% Substance 2<br>
+              25% Substance 3<br>
+              {#{{
+                 data['marketArea'] or '50% Azoxystrobin CAS: 131860-33-8'}} <br>
               {{ data['marketArea'] or '[Substance 2]'}} <br>
               {{ data['marketArea'] or '[Substance 3]'}} <br>
-              {{ data['marketArea'] or '[Substance 4]'}} <br>
+              {{ data['marketArea'] or '[Substance 4]'}} <br>#}
 
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -44,7 +43,7 @@
               Are all active substances low risk?   
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['productName'] or '[Value]'}}
+              {{ data['formulaRisk'] or 'Yes'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="formula-risk">
@@ -58,7 +57,7 @@
               Are all co-formulants low risk? 
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['productCode'] or '[Value]'}}
+              {{ data['productRisk'] or 'Yes'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="formula-risk-co-formulant">
@@ -73,7 +72,7 @@
               5-batch data 
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['formulaActiveSubstanceDataOwnerSpecUpload'] or '[File name]'}}
+              {{ data['formulaActiveSubstanceDataOwnerSpecUpload'] or 'azoxystrobin-131860-33-8.csv'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="test-formula-active-substance-five-batch-source-upload">

@@ -35,14 +35,14 @@ Product dosage  – {{serviceName}} – GOV.UK
     text: "  "
   },
   classes: "govuk-input--width-20",
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
+    id: "gapDosageMaxActiveSubstance",
+    name: "gapDosageMaxActiveSubstance",
+    autocomplete: "gapDosageMaxActiveSubstance"
   }) }}
 
   {{ govukRadios({
-    id: "formulaTypeAdd",
-    name: "formulaTypeAdd",
+    id: "gapDosageMaxActiveSubstanceUnit",
+    name: "gapDosageMaxActiveSubstanceUnit",
     fieldset: {
       legend: {
         text: "",
@@ -76,14 +76,14 @@ Product dosage  – {{serviceName}} – GOV.UK
     text: "  "
   },
   classes: "govuk-input--width-20",
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
+    id: "gapDosageMaxProduct",
+    name: "gapDosageMaxProduct",
+    autocomplete: "gapDosageMaxProduct"
   }) }}
 
   {{ govukRadios({
-    id: "formulaTypeAdd",
-    name: "formulaTypeAdd",
+    id: "gapDosageMaxProductUnit",
+    name: "gapDosageMaxProductUnit",
     fieldset: {
       legend: {
         text: "",
@@ -109,7 +109,7 @@ Product dosage  – {{serviceName}} – GOV.UK
     ]
   }) }}
 
-  <h2 class="govuk-heading-m">Total dose  </h2>
+  <h2 class="govuk-heading-m">Total dose</h2>
 
   {{ govukInput({
     label: {
@@ -119,14 +119,14 @@ Product dosage  – {{serviceName}} – GOV.UK
     text: "  "
   },
   classes: "govuk-input--width-20",
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
+    id: "gapDosageMaxTotalActiveSubstance",
+    name: "gapDosageMaxTotalActiveSubstance",
+    autocomplete: "gapDosageMaxTotalActiveSubstance"
   }) }}
 
   {{ govukRadios({
-    id: "formulaTypeAdd",
-    name: "formulaTypeAdd",
+    id: "gapDosageMaxTotalActiveSubstanceUnit",
+    name: "gapDosageMaxTotalActiveSubstanceUnit",
     fieldset: {
       legend: {
         text: "",
@@ -154,20 +154,20 @@ Product dosage  – {{serviceName}} – GOV.UK
 
   {{ govukInput({
     label: {
-      text: ' Maximum total dose of product '
+      text: 'Maximum total dose of product'
     },
     hint: {
     text: "  "
   },
   classes: "govuk-input--width-20",
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
+    id: "gapDosageMaxTotalProduct",
+    name: "gapDosageMaxTotalProduct",
+    autocomplete: "gapDosageMaxTotalProduct"
   }) }}
 
   {{ govukRadios({
-    id: "formulaTypeAdd",
-    name: "formulaTypeAdd",
+    id: "gapDosageMaxTotalProductUnit",
+    name: "gapDosageMaxTotalProductUnit",
     fieldset: {
       legend: {
         text: "",
@@ -238,12 +238,12 @@ Product dosage  – {{serviceName}} – GOV.UK
     hint: {
       text: ""
     },
-    id: "proposedUseWaterMin",
-    name: "proposedUseWaterMin"
+    id: "proposedUseConcentrationMin",
+    name: "proposedUseConcentrationMin"
   }) }}
   {{ govukRadios({
-    id: "formulaTypeAddx",
-    name: "formulaTypeAddx",
+    id: "proposedUseConcentrationMinUnit",
+    name: "proposedUseConcentrationMinUnit",
     fieldset: {
       legend: {
         text: "",

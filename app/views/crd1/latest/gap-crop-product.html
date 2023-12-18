@@ -35,9 +35,9 @@ Crop and product use  – {{serviceName}} – GOV.UK
     hint: {
     text: "Type part of the crop name and select it from the list. If the full name does not show, enter it manually. "
   },
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
+    id: "cropUsed",
+    name: "cropUsed",
+    autocomplete: "cropUsed"
   }) }}
 
 
@@ -50,9 +50,9 @@ Crop and product use  – {{serviceName}} – GOV.UK
     hint: {
     text: " "
   },
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
+    id: "cropQualifier",
+    name: "cropQualifier",
+    autocomplete: "cropQualifier"
   }) }}
 
   <h2 class="govuk-heading-m">Which pest, disease or weed does the product control?  </h2>
@@ -64,9 +64,9 @@ Crop and product use  – {{serviceName}} – GOV.UK
     hint: {
     text: " "
   },
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
+    id: "cropControl",
+    name: "cropControl",
+    autocomplete: "cropControl"
   }) }}
 
 <h2 class="govuk-heading-m">Crop location  </h2>
@@ -129,21 +129,17 @@ Crop and product use  – {{serviceName}} – GOV.UK
   <h2 class="govuk-heading-m">Height of application (indoor crops only)   </h2>
   <p>For indoor crops, enter the height of application. </p>
   {{ govukInput({
-    id: "contact-by-email",
-    name: "contactByEmail",
-    type: "email",
-    autocomplete: "email",
-    spellcheck: false,
+    id: "gapCropApplicationHeight",
+    name: "gapCropApplicationHeight",
     classes: "govuk-!-width-one-third",
     label: {
-      text: "Enter value "
-    }, 
-    hint: {text:""}
+      text: "Enter value"
+    }
   }) }}
 
 {{ govukRadios({
-  id: "formulaTypeAdd",
-  name: "formulaTypeAdd",
+  id: "gapCropApplicationUnit",
+  name: "gapCropApplicationUnit",
   fieldset: {
     legend: {
       text: "",
@@ -178,9 +174,9 @@ Crop and product use  – {{serviceName}} – GOV.UK
     hint: {
     text: " "
   },
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
+    id: "gapCropNumberPerYear",
+    name: "gapCropNumberPerYear",
+    autocomplete: "gapCropNumberPerYear"
   }) }}
 
 

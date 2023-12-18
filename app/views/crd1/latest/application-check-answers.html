@@ -59,7 +59,7 @@
              Organisation name
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['applicationCompanyName'] or '[Organisation name]'}}
+              {{ data['applicationCompanyName'] or 'ABC Limited'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="application-company">
@@ -73,7 +73,7 @@
               Organisation address
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['applicantCompanyAddressList'] or '[Organisation address]'}}
+              {{ data['applicantCompanyAddressList'] or '17 Wellborough Street, London, W11 7PP'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="application-address-postcode">
@@ -88,7 +88,7 @@
               Phone number
             </dt>
             <dd class="govuk-summary-list__value">
-             {{ data['applicantTelephone'] or '[Applicant number]'}} 
+             {{ data['applicantTelephone'] or '0123456789'}} 
              
             </dd>
             <dd class="govuk-summary-list__actions">
