@@ -18,9 +18,9 @@ Container [X] details – {{serviceName}} – GOV.UK
       <form class="form" method="post">
 
       <span class="govuk-caption-l">Packaging and labels</span>
-      <h1 class="govuk-heading-l">Container [X] details  </p>
+      <h1 class="govuk-heading-l">Container details  </p>
 
-{# <p>Enter the details of the substance in your formulation. You can add another substance later if you need to.  </p> #}
+<p>Enter details of the container type for this product. You can add more container types later if you need to.  </p>
 
 {# <p>[Active substance name: 
   <strong>Azoxystrobin
@@ -30,7 +30,7 @@ Container [X] details – {{serviceName}} – GOV.UK
   
 
 
-<h2 class="govuk-heading-s">Volume range for container type   </h2>
+<h2 class="govuk-heading-s">Capacity range for container type   </h2>
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {{ govukInput({
@@ -174,8 +174,8 @@ Container [X] details – {{serviceName}} – GOV.UK
   hint: {
     text: "If you have a multiwalled container, start with the layer closest to the product. "
   },
-  id: "productPackagingMaterialOther",
-  name: "productPackagingMaterialOther"
+  id: "productPackagingMaterialOther1",
+  name: "productPackagingMaterialOther1"
 }) }}
 
 {{ govukInput({
@@ -187,8 +187,34 @@ Container [X] details – {{serviceName}} – GOV.UK
   hint: {
     text: " "
   },
-  id: "productPackagingMaterialOther",
-  name: "productPackagingMaterialOther"
+  id: "productPackagingMaterialOther2",
+  name: "productPackagingMaterialOther2"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Pack material ",
+    classes: "govuk-label?--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: " "
+  },
+  id: "productPackagingMaterialOther3",
+  name: "productPackagingMaterialOther3"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Pack material ",
+    classes: "govuk-label?--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: " "
+  },
+  id: "productPackagingMaterialOther4",
+  name: "productPackagingMaterialOther4"
 }) }}
 
 

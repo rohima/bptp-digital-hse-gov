@@ -29,7 +29,7 @@ Are you the authorisation holder?  – {{serviceName}} – GOV.UK
       </h1>
 
 
-      
+      {# data-required data-error="Select the type of procedure you want to use" aria-required="true" #}
 
 {% set textHtml %}
 {{ govukInput({
@@ -46,14 +46,15 @@ Are you the authorisation holder?  – {{serviceName}} – GOV.UK
 {% endset -%}
 
 {{ govukRadios({
-  id: "applicationOrganisationType",
-  name: "applicationOrganisationType",
+  id: "applicantType",
+  name: "applicantType",
   fieldset: {
     hint:  {text: "For example, ‘Authorised agent of authorisation holder’"},
     legend: {
       text: "",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
+      
     }
   },
   hint: {
