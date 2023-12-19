@@ -10,71 +10,33 @@ What is the existing job number for this product?  – {{serviceName}} – GOV.U
 
 {% block content %}
 
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       {# <span class="govuk-caption-l">Applicant details</span> #}
       <h1 class="govuk-heading-l">What is the job number for the application </h1>
 
-     
-
       <form class="form" method="post">
 
-        
+        {% call govukFieldset({
+          legend: {
+            text: "",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
 
-        {% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
-{% call govukFieldset({
-  legend: {
-    text: "",
-    classes: "govuk-fieldset__legend--l",
-    isPageHeading: true
-  }
-}) %}
+        {{ govukInput({
+          label: {
+            text: "Enter job number "
+          },
+          id: "existingJobNumber",
+          name: "existingJobNumber",
+          autocomplete: "name",
+          spellcheck: false
+        }) }}
 
-{# <p> We'll use this if we need to contact you about anything you tell us in this application.</p> #}
-
-{% from "govuk/components/input/macro.njk" import govukInput %}
-
-{{ govukInput({
-  label: {
-    text: "Enter job number "
-  },
-  id: "existingJobNumber",
-  name: "existingJobNumber",
-  autocomplete: "name",
-  spellcheck: false
-}) }}
-  
-  {# {{ govukInput({
-    label: {
-      text: 'First name'
-    },
-    classes: "govuk-input--width-10",
-    id: "applicantFirstName",
-    name: "applicantFirstName",
-    autocomplete: "address-line2"
-  }) }}
-  {{ govukInput({
-    label: {
-      text: "Last name"
-    },
-    classes: "govuk-input--width-10",
-    id: "applicantLastName",
-    name: "applicantLastName",
-    autocomplete: "address-level2"
-  }) }} #}
-  
-  
-{% endcall %}
-       
-
-
-      
-
-    
+        {% endcall %}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
@@ -82,7 +44,5 @@ What is the existing job number for this product?  – {{serviceName}} – GOV.U
 
     </div>
   </div>
-
-  
 
 {% endblock %}

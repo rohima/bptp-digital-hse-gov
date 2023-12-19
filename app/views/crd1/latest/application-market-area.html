@@ -12,8 +12,6 @@ What is the market area for your product?  – {{serviceName}} – GOV.UK
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form class="form" method="post">
-        <h1 class="govuk-heading-l">What is the extent of authorisation? </h1>
-        <p>Where your application will apply</p>
 
         {% set textHtml %}
         {{ govukInput({
@@ -28,62 +26,57 @@ What is the market area for your product?  – {{serviceName}} – GOV.UK
         }) }}
         {% endset -%}
 
-      <h1 class="govuk-heading-l">
-        Where do you want the authorisation for this product to apply? 
-      </h1>
+        <h1 class="govuk-heading-l">Where do you want the authorisation for this product to apply? </h1>
 
-{# <p>Where your application will apply</p> #}
-      
+        {% set textHtml %}
+        {{ govukInput({
+          id: "applicantType",
+          name: "applicantType",
+          type: "tel",
+          autocomplete: "tel",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Give details"
+          }
+        }) }}
+        {% endset -%}
 
-{% set textHtml %}
-{{ govukInput({
-  id: "applicantType",
-  name: "applicantType",
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "Give details"
-  }
-}) }}
-{% endset -%}
+        {{ govukRadios({
+          id: "marketArea",
+          name: "marketArea",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: ""
+          },
+          items: [
+            {
+              value: "Great Britain",
+              text: "Great Britain (England, Scotland and Wales)",
+              hint: {text:"All active substance sources must have a technical equivalence assessment from Great Britain "}
+              
+            },   
+            {
+              value: "Northern Ireland",
+              text: "Northern Ireland",
+              hint: {text:"All active substance sources must have a technical equivalence assessment from an EU member state  "}
+             
+            },   
+            {
+              value: "Great Britain and Northern Ireland",
+              text: "Great Britain and Northern Ireland",
+              hint: {text:"All active substance sources must have a technical equivalence assessment from Great Britain and an EU member state  "}
+             
+            }
+            
+          ]
+        }) }}
 
-{{ govukRadios({
-  id: "marketArea",
-  name: "marketArea",
-  fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "Great Britain",
-      text: "Great Britain (England, Scotland and Wales)",
-      hint: {text:"All active substance sources must have a technical equivalence assessment from Great Britain "}
-      
-    },   
-    {
-      value: "Northern Ireland",
-      text: "Northern Ireland",
-      hint: {text:"All active substance sources must have a technical equivalence assessment from an EU member state  "}
-     
-    },   
-    {
-      value: "Great Britain and Northern Ireland",
-      text: "Great Britain and Northern Ireland",
-      hint: {text:"All active substance sources must have a technical equivalence assessment from Great Britain and an EU member state  "}
-     
-    }
-    
-  ]
-}) }}
-        
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>

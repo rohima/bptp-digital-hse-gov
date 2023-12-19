@@ -61,56 +61,6 @@ Are you the authorisation holder?  – {{serviceName}} – GOV.UK
           ]
         }) }}
 
-
-      {# data-required data-error="Select the type of procedure you want to use" aria-required="true" #}
-
-{% set textHtml %}
-{{ govukInput({
-  id: "applicantType",
-  name: "applicantType",
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third",
-  hint:  {text: "For example, ‘Authorised agent of authorisation holder’"},
-  label: {
-    text: "Enter your role "
-  }
-}) }}
-{% endset -%}
-
-{{ govukRadios({
-  id: "applicantType",
-  name: "applicantType",
-  fieldset: {
-    hint:  {text: "For example, ‘Authorised agent of authorisation holder’"},
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-      
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "Yes",
-      text: "Yes",
-      checked: false,
-      conditional: {
-        html: emailHtml
-      }
-    },   
-    {
-      value: "No",
-      text: "No - but I'm authorised to act on their behalf"
-    }
-  ]
-}) }}
-
-    
-        
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
       </form>
