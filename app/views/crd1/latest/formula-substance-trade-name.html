@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Trade name for {{ data['formulaActiveSubstanceName'] or 'Substance123'}} – {{serviceName}} – GOV.UK
+Trade name for {{ data['formulaActiveSubstanceName'] or '[substance name]'}} – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -11,7 +11,7 @@ Trade name for {{ data['formulaActiveSubstanceName'] or 'Substance123'}} – {{s
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">What is the trade name for {{ data['formulaActiveSubstanceName'] or 'Substance123'}}?</h1>
+      <h1 class="govuk-heading-l">What is the trade name for {{ data['formulaActiveSubstanceName'] or '[substance name]'}}?</h1>
       <form class="form" method="post">
 
         {% call govukFieldset({

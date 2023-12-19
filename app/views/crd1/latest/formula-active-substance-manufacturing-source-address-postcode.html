@@ -15,38 +15,34 @@ Find manufacturing site address – Manage building control for a higher-risk bu
       <p>You can add another formulation manufacturing address later if you need to.</p>
 
       <form class="form" method="post">
-        <div class="govuk-width-container">
-          {{ govukInput({
-          label: {
-          text: "Postcode"
-          },
-          classes: "govuk-!-width-two-thirds",
-          hint: {
-            text: "For example, AA3 1AB."
-          },
-          id: "postcode",
-          name: "postcode"
-          }) }}
+        {{ govukInput({
+        label: {
+        text: "Postcode"
+        },
+        classes: "govuk-!-width-two-thirds",
+        hint: {
+          text: "For example, AA3 1AB."
+        },
+        id: "postcode",
+        name: "postcode"
+        }) }}
+        {{ govukInput({
+        label: {
+          text: "Building number or name (optional)"
+        },
+        classes: "govuk-!-width-two-thirds",
+        hint: {
+          text: "For example, 15 or Prospect Cottage."
+        },
+        id: "clientAddressPostcode",
+        name: "clientAddressPostcode"
+        }) }}
+        <p>
+          <a href="#">Enter an international address</a>
+        </p>
+        <button class="govuk-button" data-module="govuk-button">Find address</button>
 
-          {{ govukInput({
-          label: {
-            text: "Building number or name (optional)"
-          },
-          classes: "govuk-!-width-two-thirds",
-          hint: {
-            text: "For example, 15 or Prospect Cottage."
-          },
-          id: "clientAddressPostcode",
-          name: "clientAddressPostcode"
-          }) }}
-
-          <p>
-            <a href="#">Enter an international address</a>
-          </p>
-
-          <button class="govuk-button" data-module="govuk-button">Find address</button>
-
-        </form>
-      </div>
+      </form>
     </div>
-  {% endblock %}
+  </div>
+{% endblock %}

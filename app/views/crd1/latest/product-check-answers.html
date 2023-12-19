@@ -36,7 +36,7 @@
             EU Member State (product details)
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['memberState'] or 'Sweden' }}
+              {{ data['memberState'] or '[EU member state]' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="application-eu-reference">
@@ -51,7 +51,7 @@
             Product name (or Code) 
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['productCode'] or 'PROD-1234-12' }}
+              {{ data['productCode'] or '[product code]' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="application-eu-reference">
@@ -66,7 +66,7 @@
             Authorisation holder
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['authHolder'] or 'ABC Ltd' }}
+              {{ data['authHolder'] or '[auth company name]' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="application-eu-reference">
@@ -81,7 +81,7 @@
             Marketing company
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['marketingCompany'] or 'Marketing 123 Ltd' }}
+              {{ data['marketingCompany'] or '[marketing company name]' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="application-eu-reference">
@@ -96,7 +96,7 @@
             Authorisation number
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['authNumber'] or 'AUTH-123456' }}
+              {{ data['authNumber'] or '[auth number]' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="application-eu-reference">
@@ -111,7 +111,7 @@
             EU Member State (technical equivalence report)
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['memberStateTech'] or 'Norway' }}
+              {{ data['memberStateTech'] or '[EU member state technical]' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="application-eu-tech">
@@ -143,7 +143,7 @@
             Product name
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['productName'] or 'Product 123' }}
+              {{ data['productName'] or '[product name]' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="product-name">
@@ -158,7 +158,7 @@
             Product code
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['productCode'] or 'PROD-123456' }}
+              {{ data['productCode'] or '[product code]' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="product-name">

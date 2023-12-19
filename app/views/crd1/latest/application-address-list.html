@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Select registered address for {{ data['applicationCompanyName'] or "ABC Limited" }} – Manage building control for a higher-risk building – GOV.UK
+Select registered address for {{ data['applicationCompanyName'] or "[company name]" }} – Manage building control for a higher-risk building – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,7 +13,7 @@ Select registered address for {{ data['applicationCompanyName'] or "ABC Limited"
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Select registered address for {{ data['applicationCompanyName'] or "ABC Limited" }}</h1>
+      <h1 class="govuk-heading-l">Select registered address for {{ data['applicationCompanyName'] or "[company name]" }}</h1>
 
       <form class="form" method="post">
 
