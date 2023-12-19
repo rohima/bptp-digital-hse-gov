@@ -10,220 +10,124 @@ Verify your email address – Manage building control for a higher-risk building
 
 {% block content %}
 
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form class="form" method="post">
-      {# <span class="govuk-caption-l">Verify email address</span> #}
-      {# <caption class="govuk-table__caption govuk-table__caption--l">BCA123456789</caption> #}
-<h1 class="govuk-heading-l">Confirm you are the contact for [organisation]</h1>
+
+        <h1 class="govuk-heading-l">Confirm you are the contact for [organisation]</h1>
         <p>  You have been named as the main contact for [organisation], a dutyholder for the following application for building control approval for a higher-risk building.
            </p>
-           <p>[Organisation] has been named as the principal designer for this application.</p>
-           
-           {# <table class="govuk-table">
-            <caption class="govuk-table__caption govuk-table__caption--l">BCA123456789</caption>
-            <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Month you apply</th>
-                <th scope="col" class="govuk-table__header">Rate for vehicles</th>
-              </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Application name:</th>
-                <td class="govuk-table__cell">{{ data['applicationName'] or '[Applicantion name]'}}</td>
-              </tr>
-            </tbody>
-          </table> #}
-          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-         
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
+        <p>[Organisation] has been named as the principal designer for this application.</p>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
                 Application name
               </dt>
-              <dd class="govuk-summary-list__value">
-               {# {{ data['app-name'] or 'Fleet Street Gardens'}}  #}
-               {{ data['applicationName'] or '[Application name]'}}
-              </dd>
-              {# <dd class="govuk-summary-list__actions">
-                <a href="name-your-first-hrb">
-                  Change
-                  <span class="govuk-visually-hidden"> Building name</span>
-                </a>
-              </dd> #}
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
+            <dd class="govuk-summary-list__value">
+              {{ data['applicationName'] or '[Application name]'}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
                 Application reference
               </dt>
-              <dd class="govuk-summary-list__value">
-               {# {{ data['app-name'] or 'Fleet Street Gardens'}}  #}
-               {{ data['buildingReference'] or '[Application reference]'}}
-              </dd>
-              {# <dd class="govuk-summary-list__actions">
-                <a href="name-your-first-hrb">
-                  Change
-                  <span class="govuk-visually-hidden"> Building name</span>
-                </a>
-              </dd> #}
-            </div>
-            </dl>
+            <dd class="govuk-summary-list__value">
+              {{ data['buildingReference'] or '[Application reference]'}}
+            </dd>
+          </div>
+        </dl>
 
-          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-         
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
                 Building name
               </dt>
-              <dd class="govuk-summary-list__value">
-               {# {{ data['app-name'] or 'Fleet Street Gardens'}}  #}
-               {{ data['nameFirstHrb'] or '[building name]'}}
-              </dd>
-              {# <dd class="govuk-summary-list__actions">
-                <a href="name-your-first-hrb">
-                  Change
-                  <span class="govuk-visually-hidden"> Building name</span>
-                </a>
-              </dd> #}
-            </div>
-    
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
+            <dd class="govuk-summary-list__value">
+              {{ data['nameFirstHrb'] or '[building name]'}}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
                 Building location
               </dt>
-              <dd class="govuk-summary-list__value">
-                {# <p>1 Wellborough Street<br> Leeds<br> LS1 7CD</p> #}
-                {{ data['addressChooseFirstHrb'] or '[building location]'}}
-              </dd>
-              {# <dd class="govuk-summary-list__actions">
-                <a href="building-address-choose">
-                  Change
-                  <span class="govuk-visually-hidden"> contact information</span>
-                </a>
-              </dd> #}
-            </div>
-           
-            
-          </dl>
+            <dd class="govuk-summary-list__value">
+              {{ data['addressChooseFirstHrb'] or '[building location]'}}
+            </dd>
+          </div>
 
-          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-         
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
+        </dl>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
                 Organisation type
               </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['clientOrganisationType'] or '[Organisation type]'}}
-              </dd>
-              {# <dd class="govuk-summary-list__actions">
-                <a href="type-of-organisation">
-                  Change
-                  <span class="govuk-visually-hidden">Type of client organisation</span>
-                </a>
-              </dd> #}
-            </div>
-    
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
+            <dd class="govuk-summary-list__value">
+              {{ data['clientOrganisationType'] or '[Organisation type]'}}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
                Organisation name
               </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['clientCompanyName'] or '[Organisation name]'}}
-              </dd>
-              {# <dd class="govuk-summary-list__actions">
-                <a href="client-company">
-                  Change
-                  <span class="govuk-visually-hidden">Name of client organisation</span>
-                </a>
-              </dd> #}
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
+            <dd class="govuk-summary-list__value">
+              {{ data['clientCompanyName'] or '[Organisation name]'}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
                 Registered address
               </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['clientAddressList'] or '[Registered address]'}}
-              </dd>
-              {# <dd class="govuk-summary-list__actions">
-                <a href="client-address-confirm">
-                  Change
-                  <span class="govuk-visually-hidden"> Client registered address</span>
-                </a>
-              </dd> #}
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
+            <dd class="govuk-summary-list__value">
+              {{ data['clientAddressList'] or '[Registered address]'}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
                 Named contact
               </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['clientNamedContactFirstName'] or '[Firstname]'}}
-                {{ data['clientNamedContactLastName'] or '[Lastname]'}}
-              
-              </dd>
-              {# <dd class="govuk-summary-list__actions">
-                <a href="named-contact-client-name">
-                  Change
-                  <span class="govuk-visually-hidden">Named contact</span>
-                </a>
-              </dd> #}
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
+            <dd class="govuk-summary-list__value">
+              {{ data['clientNamedContactFirstName'] or '[Firstname]'}}
+              {{ data['clientNamedContactLastName'] or '[Lastname]'}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
                 Phone number
               </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['clientNamedPhone'] or '[Phone number]'}}
-               
-              </dd>
-              {# <dd class="govuk-summary-list__actions">
-                <a href="named-contact-client-phone">
-                  Change
-                  <span class="govuk-visually-hidden">Phone number</span>
-                </a>
-              </dd> #}
-            </div>
-  
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
+            <dd class="govuk-summary-list__value">
+              {{ data['clientNamedPhone'] or '[Phone number]'}}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
                 Email address
               </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['clientNamedEmail'] or '[Email address]'}}
-               
-              </dd>
-              {# <dd class="govuk-summary-list__actions">
-                <a href="named-contact-client-email-original">
-                  Change
-                  <span class="govuk-visually-hidden">Email address</span>
-                </a>
-              </dd> #}
-            </div>
-  
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
+            <dd class="govuk-summary-list__value">
+              {{ data['clientNamedEmail'] or '[Email address]'}}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
                 Correspondence address
               </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['clientCorrespondenceAddressSame'] or '[Correspondence address]'}}
-               
-              </dd>
-              {# <dd class="govuk-summary-list__actions">
-                <a href="building-confirm-address-named-client">
-                  Change
-                  <span class="govuk-visually-hidden">Correspondence address</span>
-                </a>
-              </dd> #}
-            </div>
-            
-          </dl>
+            <dd class="govuk-summary-list__value">
+              {{ data['clientCorrespondenceAddressSame'] or '[Correspondence address]'}}
+            </dd>
+          </div>
+        </dl>
 
-          <h2 class="govuk-heading-m">Confirm this information is correct</h2>
+        <h2 class="govuk-heading-m">Confirm this information is correct</h2>
 
-          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-
-            {{ govukCheckboxes({
+        {{ govukCheckboxes({
               name: "confirmPrincipalDesigner",
               fieldset: {
                 legend: {
@@ -247,18 +151,11 @@ Verify your email address – Manage building control for a higher-risk building
               ]
             }) }}
 
-           <p> If any of this information is incorrect, please [contact the Building Safety Regulator] and quote the application reference.</p>
-
-          
-          
-
-    
+        <p> If any of this information is incorrect, please [contact the Building Safety Regulator] and quote the application reference.</p>
 
         <button class="govuk-button" data-module="govuk-button">Confirm</button>
 
       </form>
-
     </div>
   </div>
-
 {% endblock %}

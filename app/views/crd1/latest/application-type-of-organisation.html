@@ -9,12 +9,12 @@ Type of organisation – Manage building control for a higher-risk building – 
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post">
-      <h1 class="govuk-heading-l">What is your organisation type?</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">What is your organisation type?</h1>
 
-      {% set textHtml %}
+        {% set textHtml %}
         {{ govukInput({
           id: "applicationOrganisationTypeDetail",
           name: "applicationOrganisationTypeDetail",
@@ -25,9 +25,9 @@ Type of organisation – Manage building control for a higher-risk building – 
             text: "Give details"
           }
         }) }}
-      {% endset -%}
+        {% endset -%}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "applicationOrganisationType",
         name: "applicationOrganisationType",
         fieldset: {
@@ -77,11 +77,11 @@ Type of organisation – Manage building control for a higher-risk building – 
             }
           }
         ]
-      }) }}
-        
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
+        }) }}
 
-    </form>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

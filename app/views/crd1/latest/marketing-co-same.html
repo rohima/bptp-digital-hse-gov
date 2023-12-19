@@ -9,61 +9,46 @@ Who is the marketing company for this product? – Manage building control for a
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-     
-      
- {# <span class="govuk-caption-l">Principal designer</span> #}
- <h1 class="govuk-heading-l">Who is the marketing company for this product?
-   {# {{data ['clientCompanyName'] or "[Client Company Name]"}} #}
-  </h1>
+      <h1 class="govuk-heading-l">Who is the marketing company for this product?</h1>
       <form class="form" method="post">
 
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {{ govukRadios({
-          id: "authHolderSame",
-          name: "authHolderSame",
-          fieldset: {
-            legend: {
+        id: "authHolderSame",
+        name: "authHolderSame",
+        fieldset: {
+          legend: {
+          }
+        },
+        items: [
+          {
+            value: "ABC Limited",
+            text: "ABC Limited",
+            hint: {
+              text: "Applicant"
             }
           },
-          items: [
-            {
-              value: "ABC Limited",
-              text: "ABC Limited",
-              hint: {
-                text: "Applicant"
-              }
-            },
-            {
-              value: "Authorisation holder company ltd",
-              text: "Authorisation holder company ltd",
-              hint: {
-                text: "Authorisation holder"
-              }
-            },
-            {
-              divider: "or"
-            },
-            {
-              value: "Someone else",
-              text: "Another organisation"
+          {
+            value: "Authorisation holder company ltd",
+            text: "Authorisation holder company ltd",
+            hint: {
+              text: "Authorisation holder"
             }
-          ]
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "Someone else",
+            text: "Another organisation"
+          }
+        ]
         }) }}
-
-
-    
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>
-
     </div>
   </div>
-
- 
-
 {% endblock %}

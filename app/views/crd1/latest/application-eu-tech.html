@@ -9,12 +9,12 @@ EU Member State finalised technical equivalence report – {{serviceName}} – G
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post">
-      <h1 class="govuk-heading-l">EU Member State finalised technical equivalence report</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">EU Member State finalised technical equivalence report</h1>
 
-      {{ govukInput({
+        {{ govukInput({
         label: {
           text: "Member State"
         },
@@ -24,9 +24,9 @@ EU Member State finalised technical equivalence report – {{serviceName}} – G
         },
         id: "memberStateTech",
         name: "memberStateTech"
-      }) }}
+        }) }}
 
-      {{ govukDateInput({
+        {{ govukDateInput({
         id: "dateTechnicalReport",
         namePrefix: "dateTechnicalReport",
         fieldset: {
@@ -37,11 +37,11 @@ EU Member State finalised technical equivalence report – {{serviceName}} – G
         hint: {
           text: "For example, 27 3 2023"
         }
-      }) }}
+        }) }}
 
-      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

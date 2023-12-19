@@ -9,14 +9,14 @@ Find manufacturing site address – Manage building control for a higher-risk bu
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">What is the manufacturing site address?</h1>
-    <p>You can add another formulation manufacturing address later if you need to.</p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">What is the manufacturing site address?</h1>
+      <p>You can add another formulation manufacturing address later if you need to.</p>
 
-    <form class="form" method="post">
-      <div class="govuk-width-container">
-        {{ govukInput({
+      <form class="form" method="post">
+        <div class="govuk-width-container">
+          {{ govukInput({
           label: {
           text: "Postcode"
           },
@@ -26,9 +26,9 @@ Find manufacturing site address – Manage building control for a higher-risk bu
           },
           id: "postcode",
           name: "postcode"
-        }) }}
-        
-        {{ govukInput({
+          }) }}
+
+          {{ govukInput({
           label: {
             text: "Building number or name (optional)"
           },
@@ -38,13 +38,15 @@ Find manufacturing site address – Manage building control for a higher-risk bu
           },
           id: "clientAddressPostcode",
           name: "clientAddressPostcode"
-        }) }}
+          }) }}
 
-        <p><a href="#">Enter an international address</a></p>
+          <p>
+            <a href="#">Enter an international address</a>
+          </p>
 
-        <button class="govuk-button" data-module="govuk-button">Find address</button>
+          <button class="govuk-button" data-module="govuk-button">Find address</button>
 
-      </form>
+        </form>
+      </div>
     </div>
-  </div>  
-{% endblock %}
+  {% endblock %}

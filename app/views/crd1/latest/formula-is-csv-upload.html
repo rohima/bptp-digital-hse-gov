@@ -9,16 +9,16 @@ Do you want to upload your formulation composition?   – {{serviceName}} – GO
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post">
-      <h1 class="govuk-heading-l">Do you want to upload your formulation composition?</p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">Do you want to upload your formulation composition?</p>
 
-      <p>You can use the <a href="#">CRD formulation composition template</a> (opens in a new tab) to enter this information and upload it.</p>
+        <p>You can use the <a href="#">CRD formulation composition template</a> (opens in a new tab) to enter this information and upload it.</p>
 
-      <p>If you do not want to upload a file, you can enter the information manually.</p>
+        <p>If you do not want to upload a file, you can enter the information manually.</p>
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "isCsvUpload",
         name: "isCsvUpload",
         fieldset: {
@@ -40,11 +40,11 @@ Do you want to upload your formulation composition?   – {{serviceName}} – GO
           }
 
         ]
-      }) }}
+        }) }}
 
-      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

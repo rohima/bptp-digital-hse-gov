@@ -9,16 +9,16 @@ Do you want to upload your proposed use information? – {{serviceName}} – GOV
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post">
-      <h1 class="govuk-heading-l">Do you want to upload your proposed use information?</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">Do you want to upload your proposed use information?</h1>
 
-      <p>You can use the <a href="">CRD proposed use template</a> (opens in a new tab) to enter this information (also known as ‘GAP table’) and upload it.</p>
- 
-      <p>If you do not want to upload a file, you can enter the information manually.</p>
+        <p>You can use the <a href="">CRD proposed use template</a> (opens in a new tab) to enter this information (also known as ‘GAP table’) and upload it.</p>
 
-      {{ govukRadios({
+        <p>If you do not want to upload a file, you can enter the information manually.</p>
+
+        {{ govukRadios({
         id: "isGapCsvUpload",
         name: "isGapCsvUpload",
         fieldset: {
@@ -40,11 +40,11 @@ Do you want to upload your proposed use information? – {{serviceName}} – GOV
             text: "No – enter it manually "
           }
         ]
-      }) }}
+        }) }}
 
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
 
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

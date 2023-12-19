@@ -9,15 +9,15 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post">
-      <h1 class="govuk-heading-l">Seed sowing and growth</p>
-      <h2 class="govuk-heading-m">Seed sowing</h2>
-      <h3 class="govuk-heading-s"> Seed sowing density</h3>
-      <p>Seeds per hectare</p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">Seed sowing and growth</p>
+        <h2 class="govuk-heading-m">Seed sowing</h2>
+        <h3 class="govuk-heading-s"> Seed sowing density</h3>
+        <p>Seeds per hectare</p>
 
-      {{ govukInput({
+        {{ govukInput({
         label: {
           text: 'Enter value '
         },
@@ -25,9 +25,9 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
         id: "formulaActiveSubstanceName",
         name: "formulaActiveSubstanceName",
         autocomplete: "address-line1"
-      }) }}
+        }) }}
 
-      {% set emailHtml %}
+        {% set emailHtml %}
         {{ govukInput({
           id: "contact-by-email",
           name: "contactByEmail",
@@ -39,9 +39,9 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
             text: "Thousand seed weight:   "
           }
         }) }}
-      {% endset -%}
+        {% endset -%}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "formulaTypeAdd",
         name: "formulaTypeAdd",
         fieldset: {
@@ -67,11 +67,11 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
             text: "litres (l)  "
           }
         ]
-      }) }}
+        }) }}
 
-      <h2 class="govuk-heading-m">Depth of seed sowing</h2>
-  
-      {{ govukInput({
+        <h2 class="govuk-heading-m">Depth of seed sowing</h2>
+
+        {{ govukInput({
         classes:"govuk-input--width-10",
         label: {
           text: "Enter depth   ",
@@ -79,11 +79,11 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
         },
         id: "proposedUseWaterMin",
         name: "proposedUseWaterMin"
-      }) }}
+        }) }}
 
-      <h2 class="govuk-heading-m">Number of crops on the same land within a given year</h2>
-  
-      {{ govukInput({
+        <h2 class="govuk-heading-m">Number of crops on the same land within a given year</h2>
+
+        {{ govukInput({
         classes:"govuk-input--width-20",
         label: {
           text: "Enter value ",
@@ -91,9 +91,9 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
         },
         id: "proposedUseWaterMin",
         name: "proposedUseWaterMin"
-      }) }}
+        }) }}
 
-      {{ govukInput({
+        {{ govukInput({
         classes:"govuk-input--width-",
         label: {
           text: "Enter additional information (optional) ",
@@ -104,12 +104,12 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
         },
         id: "proposedUseWaterMin",
         name: "proposedUseWaterMin"
-      }) }}
+        }) }}
 
-      <h2 class="govuk-heading-m">Treated seed</h2>
-      <h3 class="govuk-heading-s"> Is the treated seed precision-drilled?</h3>
+        <h2 class="govuk-heading-m">Treated seed</h2>
+        <h3 class="govuk-heading-s"> Is the treated seed precision-drilled?</h3>
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "formulaTypeAdd",
         name: "formulaTypeAdd",
         fieldset: {
@@ -129,11 +129,11 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
             text: "No"
           }
         ]
-      }) }}
+        }) }}
 
-      <h3 class="govuk-heading-s"> Are the treated seeds sown under protection?</h3>
+        <h3 class="govuk-heading-s"> Are the treated seeds sown under protection?</h3>
 
-      {% set textHtml %}
+        {% set textHtml %}
         {{ govukInput({
           id: "contact-by-xx",
           name: "xx",
@@ -145,9 +145,9 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
             text: "Temporary structure type if applicable (optional)  "
           }
         }) }}
-      {% endset -%}
+        {% endset -%}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "formulaTypeAdd",
         name: "formulaTypeAdd",
         fieldset: {
@@ -173,13 +173,11 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
             text: "No"
           }
         ]
-      }) }}
+        }) }}
 
+        <h2 class="govuk-heading-m">At what growth stage is the protection removed or the seedlings transported outside?</h2>
 
-
-      <h2 class="govuk-heading-m">At what growth stage is the protection removed or the seedlings transported outside?</h2>
-  
-      {{ govukInput({
+        {{ govukInput({
         classes:"govuk-input--width-10",
         label: {
           text: "Enter growth stage ",
@@ -188,11 +186,11 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
         suffix: {text: ""},
         id: "proposedUseWaterMin",
         name: "proposedUseWaterMin"
-      }) }}
+        }) }}
 
-      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

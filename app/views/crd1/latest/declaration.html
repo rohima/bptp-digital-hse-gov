@@ -9,22 +9,26 @@ Declaration – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Declaration </h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Declaration </h1>
 
-    <form class="form" method="post">
-      <p>By submitting this application you:</p>
+      <form class="form" method="post">
+        <p>By submitting this application you:</p>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li><p>confirm that the information given in this application form is true to the best of my knowledge and belief</p></li>
-        <li><p>acknowledge that any incomplete information may delay the processing of my application</p></li>
-      </ul> 
-               
-      <button class="govuk-button" data-module="govuk-button">I agree</button>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <p>confirm that the information given in this application form is true to the best of my knowledge and belief</p>
+          </li>
+          <li>
+            <p>acknowledge that any incomplete information may delay the processing of my application</p>
+          </li>
+        </ul>
 
-    </form>
+        <button class="govuk-button" data-module="govuk-button">I agree</button>
 
+      </form>
+
+    </div>
   </div>
-</div>
 {% endblock %}

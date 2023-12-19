@@ -9,14 +9,14 @@ Select registered address for {{ data['clientCompanyName'] or "[Client company n
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Select the manufacturing site address</h1>
-    <form class="form" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Select the manufacturing site address</h1>
+      <form class="form" method="post">
 
-      <p>13 addresses found for <strong>SE1 1SS</strong></p>
+        <p>13 addresses found for <strong>SE1 1SS</strong></p>
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "formulaManufacturingAddressList",
         name: "formulaManufacturingAddressList",
         fieldset: {
@@ -102,13 +102,17 @@ Select registered address for {{ data['clientCompanyName'] or "[Client company n
         ]
       }) }}
 
-      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-      <p><a href="#">Search again</a></p>
+        <p>
+          <a href="#">Search again</a>
+        </p>
 
-      <p><a href="#">Enter address manually</a></p>
+        <p>
+          <a href="#">Enter address manually</a>
+        </p>
 
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

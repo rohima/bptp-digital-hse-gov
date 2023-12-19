@@ -9,83 +9,89 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds-from-desktop">
-    <form method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <form method="post">
 
-      <h1 class="govuk-heading-xl">Check your answers</h1>
-      <h2 class="govuk-heading-m">Product details</h2>
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+        <h2 class="govuk-heading-m">Product details</h2>
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
             Formulation composition 
           </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['marketArea'] or '[Substance 1]'}} <br>
-            {{ data['marketArea'] or '[Substance 2]'}} <br>
-            {{ data['marketArea'] or '[Substance 3]'}} <br>
-            {{ data['marketArea'] or '[Substance 4]'}} <br> 
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="test-formula-composition-add-another">
+            <dd class="govuk-summary-list__value">
+              {{ data['marketArea'] or '[Substance 1]'}}
+              <br>
+              {{ data['marketArea'] or '[Substance 2]'}}
+              <br>
+              {{ data['marketArea'] or '[Substance 3]'}}
+              <br>
+              {{ data['marketArea'] or '[Substance 4]'}}
+              <br>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="test-formula-composition-add-another">
               Change
               <span class="govuk-visually-hidden">Formulation composition</span>
-            </a>
-          </dd>
-        </div>
+              </a>
+            </dd>
+          </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
             Are all active substances low risk?   
           </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['productName'] or '[Value]'}}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="formula-risk">
+            <dd class="govuk-summary-list__value">
+              {{ data['productName'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-risk">
               Change
               <span class="govuk-visually-hidden">Are all active substances low risk? </span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
             Are all co-formulants low risk? 
           </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['productCode'] or '[Value]'}}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="formula-risk-co-formulant">
+            <dd class="govuk-summary-list__value">
+              {{ data['productCode'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-risk-co-formulant">
               Change
               <span class="govuk-visually-hidden"> Are all co-formulants low risk? </span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
             5-batch data 
           </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['formulaActiveSubstanceDataOwnerSpecUpload'] or '[File name]'}}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="test-formula-active-substance-five-batch-source-upload">
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaActiveSubstanceDataOwnerSpecUpload'] or '[File name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="test-formula-active-substance-five-batch-source-upload">
               Change
               <span class="govuk-visually-hidden">Specification/5 batch analysis data upload</span>
-            </a>
-          </dd>
-        </div>
-      </dl>
+              </a>
+            </dd>
+          </div>
+        </dl>
 
-      <input type="hidden" name="answers-checked" value="true">
+        <input type="hidden" name="answers-checked" value="true">
 
-      <button type="submit" class="govuk-button" data-module="govuk-button">Save and continue</button>
+        <button type="submit" class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-      <p><a href="#">View application progress</a></p>
+        <p>
+          <a href="#">View application progress</a>
+        </p>
 
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

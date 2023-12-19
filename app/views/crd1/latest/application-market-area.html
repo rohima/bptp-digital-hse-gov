@@ -9,14 +9,14 @@ What is the market area for your product?  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post">        
-      <h1 class="govuk-heading-l">What is the extent of authorisation? </h1>
-      <p>Where your application will apply</p>
-      
-      {% set textHtml %}
-      {{ govukInput({
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">What is the extent of authorisation? </h1>
+        <p>Where your application will apply</p>
+
+        {% set textHtml %}
+        {{ govukInput({
         id: "applicantType",
         name: "applicantType",
         type: "tel",
@@ -25,10 +25,10 @@ What is the market area for your product?  – {{serviceName}} – GOV.UK
         label: {
           text: "Give details"
         }
-      }) }}
-      {% endset -%}
+        }) }}
+        {% endset -%}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "marketArea",
         name: "marketArea",
         fieldset: {
@@ -55,11 +55,11 @@ What is the market area for your product?  – {{serviceName}} – GOV.UK
             text: "Great Britain and Northern Ireland"
           }
         ]
-      }) }}
-        
-      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+        }) }}
 
-    </form>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

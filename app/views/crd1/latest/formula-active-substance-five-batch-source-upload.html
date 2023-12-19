@@ -9,27 +9,28 @@ Upload the specification/5 batch analysis data – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Upload your specification and 5 batch analysis data</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Upload your specification and 5 batch analysis data</h1>
 
-    <div class="govuk-inset-text">
-      Active substance name: <strong>{{ data['formulaActiveSubstanceName'] or 'Azoxystrobin' }} {{ data['formulaTypeAddReference'] or 'CAS' }}: {{ data['formulaTypeAdd' + data['formulaTypeAddReference'] or 'CAS' + 'Reference'] or '131860-33-8' }}</strong>
-    </div>
-    
-    <form class="form" method="post">
+      <div class="govuk-inset-text">
+      Active substance name: <strong>{{ data['formulaActiveSubstanceName'] or 'Azoxystrobin' }}
+          {{ data['formulaTypeAddReference'] or 'CAS' }}: {{ data['formulaTypeAdd' + data['formulaTypeAddReference'] or 'CAS' + 'Reference'] or '131860-33-8' }}</strong>
+      </div>
 
-      {{ govukFileUpload({
+      <form class="form" method="post">
+
+        {{ govukFileUpload({
         id: "formulaActiveSubstanceDataOwnerSpecUpload",
         name: "formulaActiveSubstanceDataOwnerSpecUpload",
         label: {
           text: "Upload file"
         }
-      }) }}
-    
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
+        }) }}
 
-    </form>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

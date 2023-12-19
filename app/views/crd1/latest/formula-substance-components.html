@@ -9,12 +9,12 @@ Is {{ data['formulaActiveSubstanceName'] or 'Substance123'}} a mixture? – {{se
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post">
-      <h1 class="govuk-heading-l">Is {{ data['formulaActiveSubstanceName'] or 'Substance123'}} a mixture?</p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">Is {{ data['formulaActiveSubstanceName'] or 'Substance123'}} a mixture?</p>
 
-      {% set Yes %}
+        {% set Yes %}
         {{ govukInput({
           id: "formulaSubstanceNumberComponents",
           name: "formulaSubstanceNumberComponents",
@@ -23,9 +23,9 @@ Is {{ data['formulaActiveSubstanceName'] or 'Substance123'}} a mixture? – {{se
           autocomplete: "tel",
           classes: "govuk-!-width-one-third"
         }) }}
-      {% endset -%}
+        {% endset -%}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "formulaSubstanceMixture",
         name: "formulaSubstanceMixture",
         fieldset: {
@@ -46,12 +46,12 @@ Is {{ data['formulaActiveSubstanceName'] or 'Substance123'}} a mixture? – {{se
             text: "No"
           }
         ]
-      }) }}
+        }) }}
 
-      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-    </form>
+      </form>
 
+    </div>
   </div>
-</div>
 {% endblock %}

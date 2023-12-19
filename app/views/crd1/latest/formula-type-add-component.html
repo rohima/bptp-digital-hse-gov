@@ -9,15 +9,15 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post">
-      <h1 class="govuk-heading-l">Component [X] details</p>
-      <p>Enter the details of the component in your mixture.</p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">Component [X] details</p>
+        <p>Enter the details of the component in your mixture.</p>
 
-      <h2 class="govuk-heading-m">Trade name</h2>
-  
-      {{ govukInput({
+        <h2 class="govuk-heading-m">Trade name</h2>
+
+        {{ govukInput({
         label: {
           text: 'Enter trade name'
         },
@@ -29,9 +29,9 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
         autocomplete: "formulaActiveSubstanceName"
       }) }}
 
-      <h2 class="govuk-heading-m">Chemical name</h2>
-  
-      {{ govukInput({
+        <h2 class="govuk-heading-m">Chemical name</h2>
+
+        {{ govukInput({
         label: {
           text: 'Enter chemical name'
         },
@@ -41,51 +41,51 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
         id: "formulaActiveSubstanceChemicalName",
         name: "formulaActiveSubstanceChemicalName",
         autocomplete: "formulaActiveSubstanceChemicalName"
-      }) }}
+        }) }}
 
-      <h2 class="govuk-heading-m">Reference number</h2>
+        <h2 class="govuk-heading-m">Reference number</h2>
 
-      {% set CAS %}
-      {{ govukInput({
+        {% set CAS %}
+        {{ govukInput({
         id: "formulaTypeAddCASReference",
         name: "formulaTypeAddCASReference",
         type: "tel",
         autocomplete: "tel",
         classes: "govuk-!-width-one-third"
-      }) }}
-      {% endset -%}
+        }) }}
+        {% endset -%}
 
-      {% set EC %}
-      {{ govukInput({
+        {% set EC %}
+        {{ govukInput({
         id: "formulaTypeAddECReference",
         name: "formulaTypeAddECReference",
         type: "tel",
         autocomplete: "tel",
         classes: "govuk-!-width-one-third"
-      }) }}
-      {% endset -%}
+        }) }}
+        {% endset -%}
 
-      {% set ELINCS %}
-      {{ govukInput({
+        {% set ELINCS %}
+        {{ govukInput({
         id: "formulaTypeAddELINCSReference",
         name: "formulaTypeAddELINCSReference",
         type: "tel",
         autocomplete: "tel",
         classes: "govuk-!-width-one-third"
-      }) }}
-      {% endset -%}
+        }) }}
+        {% endset -%}
 
-      {% set EINECS  %}
-      {{ govukInput({
+        {% set EINECS %}
+        {{ govukInput({
         id: "formulaTypeAddEINECSReference",
         name: "formulaTypeAddEINECSReference",
         type: "tel",
         autocomplete: "tel",
         classes: "govuk-!-width-one-third"
-      }) }}
-      {% endset -%}
+        }) }}
+        {% endset -%}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "formulaTypeAddReference",
         name: "formulaTypeAddReference",
         fieldset: {
@@ -117,11 +117,11 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
             conditional: { html: EINECS }
           }
         ]
-      }) }}
+        }) }}
 
-      <h2 class="govuk-heading-m">Content composition in mixture</h2>
+        <h2 class="govuk-heading-m">Content composition in mixture</h2>
 
-      {{ govukInput({
+        {{ govukInput({
         label: {
           text: "Enter content "
         },
@@ -132,11 +132,11 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
           text: "%"
         },
         spellcheck: false
-      }) }}
+        }) }}
 
-      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

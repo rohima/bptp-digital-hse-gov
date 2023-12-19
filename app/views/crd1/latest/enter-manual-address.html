@@ -9,19 +9,19 @@ Are all active substances considered low risk?  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post">
-      <h1 class="govuk-heading-l">Enter address</p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">Enter address</p>
 
-      {% call govukFieldset({
+        {% call govukFieldset({
         legend: {
           text: "",
           classes: "govuk-fieldset__legend--l",
           isPageHeading: true
         }
-      }) %}
-      
+        }) %}
+
         {{ govukInput({
           label: {
             text: "Address line 1"
@@ -30,7 +30,7 @@ Are all active substances considered low risk?  – {{serviceName}} – GOV.UK
           name: "addressLine1",
           autocomplete: "address-line1"
         }) }}
-      
+
         {{ govukInput({
           label: {
             text: "Address line 2 (optional)"
@@ -39,7 +39,7 @@ Are all active substances considered low risk?  – {{serviceName}} – GOV.UK
           name: "addressLine2",
           autocomplete: "address-line2"
         }) }}
-      
+
         {{ govukInput({
           label: {
             text: "Town or city"
@@ -49,7 +49,7 @@ Are all active substances considered low risk?  – {{serviceName}} – GOV.UK
           name: "addressTown",
           autocomplete: "address-level2"
         }) }}
-      
+
         {{ govukInput({
           label: {
             text: "County (optional)"
@@ -58,7 +58,7 @@ Are all active substances considered low risk?  – {{serviceName}} – GOV.UK
           id: "address-county",
           name: "addressCounty"
         }) }}
-      
+
         {{ govukInput({
           label: {
             text: "Postcode"
@@ -68,12 +68,12 @@ Are all active substances considered low risk?  – {{serviceName}} – GOV.UK
           name: "addressPostcode",
           autocomplete: "postal-code"
         }) }}
-      
-      {% endcall %}
 
-      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+        {% endcall %}
 
-    </form>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

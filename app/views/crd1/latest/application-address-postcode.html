@@ -10,12 +10,13 @@ Find registered address for {{ data['applicationCompanyName'] or "ABC Limited" }
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Find registered address for {{ data['applicationCompanyName'] or "ABC Limited" }} </h1>
-    <form class="form" method="post">
-      <div class="govuk-width-container">
-        {{ govukInput({
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Find registered address for {{ data['applicationCompanyName'] or "ABC Limited" }}
+      </h1>
+      <form class="form" method="post">
+        <div class="govuk-width-container">
+          {{ govukInput({
           label: {
           text: "Postcode"
         },
@@ -26,8 +27,8 @@ Find registered address for {{ data['applicationCompanyName'] or "ABC Limited" }
           id: "postcode",
           name: "postcode"
         }) }}
-      
-        {{ govukInput({
+
+          {{ govukInput({
           label: {
           text: "Building number or name (optional)"
         },
@@ -38,11 +39,12 @@ Find registered address for {{ data['applicationCompanyName'] or "ABC Limited" }
           id: "clientAddressPostcode",
           name: "clientAddressPostcode"
         }) }}
-      <p><a href="#">Enter an international address</a></p>
-      <button class="govuk-button" data-module="govuk-button">Find address</button>
-    </form>
-  </div>
-</div>
+          <p>
+            <a href="#">Enter an international address</a>
+          </p>
+          <button class="govuk-button" data-module="govuk-button">Find address</button>
+        </form>
+      </div>
+    </div>
 
-  
-{% endblock %}
+  {% endblock %}

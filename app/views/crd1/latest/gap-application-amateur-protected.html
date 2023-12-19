@@ -9,16 +9,14 @@ Product application methods  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
 
-      <h1 class="govuk-heading-l">Product application methods [for protected crops]</h1>
-      <p class="govuk-hint">Select all that apply.</p>
+        <h1 class="govuk-heading-l">Product application methods [for protected crops]</h1>
+        <p class="govuk-hint">Select all that apply.</p>
 
-
-
-      {% set emailHtml %}
+        {% set emailHtml %}
         {{ govukInput({
           id: "gapApplicationAmateurProtectedOther",
           name: "gapApplicationAmateurProtectedOther",
@@ -30,9 +28,9 @@ Product application methods  – {{serviceName}} – GOV.UK
             text: "Provide details"
           }
         }) }}
-      {% endset -%}
+        {% endset -%}
 
-      {{ govukCheckboxes({
+        {{ govukCheckboxes({
         name: "gapApplicationAmateurProtected",
         id: "gapApplicationAmateurProtected",
         fieldset: {
@@ -102,13 +100,11 @@ Product application methods  – {{serviceName}} – GOV.UK
             }
           }
         ]
-      }) }}
+        }) }}
 
-    
-        
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
 
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

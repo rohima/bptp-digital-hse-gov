@@ -9,24 +9,24 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post">
-      <span class="govuk-caption-l">Formulation composition</span>
-      <h1 class="govuk-heading-l">Substance content for {{ data['formulaActiveSubstanceName'] or 'Substance123'}}</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <span class="govuk-caption-l">Formulation composition</span>
+        <h1 class="govuk-heading-l">Substance content for {{ data['formulaActiveSubstanceName'] or 'Substance123'}}</h1>
 
-      <h2 class="govuk-heading-m">Weight concentration </h2>
+        <h2 class="govuk-heading-m">Weight concentration </h2>
 
-      {{ govukInput({
+        {{ govukInput({
         label: {
           text: 'Unit value'
         },
         id: "formulaActiveSubstanceWeightUnitValue",
         name: "formulaActiveSubstanceWeightUnitValue",
         autocomplete: "formulaActiveSubstanceWeightUnitValue"
-      }) }}
+        }) }}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "formulaTypeAdd",
         name: "formulaTypeAdd",
         fieldset: {
@@ -48,20 +48,20 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
             checked: false
           }
         ]
-      }) }}
+        }) }}
 
-      <h2 class="govuk-heading-m">Volume concentration</h2>
+        <h2 class="govuk-heading-m">Volume concentration</h2>
 
-      {{ govukInput({
+        {{ govukInput({
         label: {
           text: 'Unit value'
         },
         id: "formulaActiveSubstanceConcentrationUnitValue",
         name: "formulaActiveSubstanceConcentrationUnitValue",
         autocomplete: "formulaActiveSubstanceConcentrationUnitValue"
-      }) }}
+        }) }}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "formulaTypeAddReference",
         name: "formulaTypeAddReference",
         fieldset: {
@@ -81,11 +81,11 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
             text: "%w/v "
           }
         ]
-      }) }}
+        }) }}
 
-      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

@@ -9,22 +9,22 @@ What is your telephone number?  – Manage building control for a higher-risk bu
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">What is your telephone number?</h1>
-    <form class="form" method="post">
-   
-      {% call govukFieldset({
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">What is your telephone number?</h1>
+      <form class="form" method="post">
+
+        {% call govukFieldset({
         legend: {
           text: "",
           classes: "govuk-fieldset__legend--l",
           isPageHeading: true
         }
-      }) %}
+        }) %}
 
-      <p>We'll use this if we need to contact you about anything you tell us in this application.</p>
-  
-      {{ govukTextarea({
+        <p>We'll use this if we need to contact you about anything you tell us in this application.</p>
+
+        {{ govukTextarea({
         name: "applicantTelephone",
         id: "applicantTelephone",
         rows: "1",
@@ -36,13 +36,13 @@ What is your telephone number?  – Manage building control for a higher-risk bu
         hint: {
           text: "For international numbers include the country code."
         }
-      }) }}
+        }) }}
 
-      {% endcall %}
+        {% endcall %}
 
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
 
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

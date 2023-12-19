@@ -9,18 +9,18 @@ Trade name for {{ data['formulaActiveSubstanceName'] or 'Substance123'}} – {{s
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">What is the trade name for {{ data['formulaActiveSubstanceName'] or 'Substance123'}}?</h1>
-    <form class="form" method="post">
-      
-      {% call govukFieldset({
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">What is the trade name for {{ data['formulaActiveSubstanceName'] or 'Substance123'}}?</h1>
+      <form class="form" method="post">
+
+        {% call govukFieldset({
         legend: {
           text: "",
           classes: "govuk-fieldset__legend--l",
           isPageHeading: true
         }
-      }) %}
+        }) %}
         {{ govukInput({
           label: {
             text: 'Trade name'
@@ -31,11 +31,11 @@ Trade name for {{ data['formulaActiveSubstanceName'] or 'Substance123'}} – {{s
           id: "formulaOtherSubstanceTradeName",
           name: "formulaOtherSubstanceTradeName"
         }) }}
-      {% endcall %}
-     
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
-      
-    </form>
+        {% endcall %}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

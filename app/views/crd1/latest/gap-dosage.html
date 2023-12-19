@@ -9,13 +9,13 @@ Product dosage  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post">
-      <h1 class="govuk-heading-l">Product dosage</p>
-      <h2 class="govuk-heading-m">Individual dose</h2>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">Product dosage</p>
+        <h2 class="govuk-heading-m">Individual dose</h2>
 
-      {{ govukInput({
+        {{ govukInput({
         label: {
           text: ' Maximum individual dose of active substance '
         },
@@ -23,9 +23,9 @@ Product dosage  – {{serviceName}} – GOV.UK
         id: "gapDosageMaxActiveSubstance",
         name: "gapDosageMaxActiveSubstance",
         autocomplete: "gapDosageMaxActiveSubstance"
-      }) }}
+        }) }}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "gapDosageMaxActiveSubstanceUnit",
         name: "gapDosageMaxActiveSubstanceUnit",
         fieldset: {
@@ -50,9 +50,9 @@ Product dosage  – {{serviceName}} – GOV.UK
             checked: false
           }
         ]
-      }) }}
+        }) }}
 
-      {{ govukInput({
+        {{ govukInput({
         label: {
           text: ' Maximum individual dose of product '
         },
@@ -62,7 +62,7 @@ Product dosage  – {{serviceName}} – GOV.UK
         autocomplete: "gapDosageMaxProduct"
       }) }}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "gapDosageMaxProductUnit",
         name: "gapDosageMaxProductUnit",
         fieldset: {
@@ -87,11 +87,11 @@ Product dosage  – {{serviceName}} – GOV.UK
             checked: false
           }
         ]
-      }) }}
+        }) }}
 
-      <h2 class="govuk-heading-m">Total dose</h2>
+        <h2 class="govuk-heading-m">Total dose</h2>
 
-      {{ govukInput({
+        {{ govukInput({
         label: {
           text: ' Maximum total dose of active substance '
         },
@@ -99,9 +99,9 @@ Product dosage  – {{serviceName}} – GOV.UK
         id: "gapDosageMaxTotalActiveSubstance",
         name: "gapDosageMaxTotalActiveSubstance",
         autocomplete: "gapDosageMaxTotalActiveSubstance"
-      }) }}
+        }) }}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "gapDosageMaxTotalActiveSubstanceUnit",
         name: "gapDosageMaxTotalActiveSubstanceUnit",
         fieldset: {
@@ -126,9 +126,9 @@ Product dosage  – {{serviceName}} – GOV.UK
             checked: false
           }
         ]
-      }) }}
+        }) }}
 
-      {{ govukInput({
+        {{ govukInput({
         label: {
           text: 'Maximum total dose of product'
         },
@@ -136,9 +136,9 @@ Product dosage  – {{serviceName}} – GOV.UK
         id: "gapDosageMaxTotalProduct",
         name: "gapDosageMaxTotalProduct",
         autocomplete: "gapDosageMaxTotalProduct"
-      }) }}
+        }) }}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "gapDosageMaxTotalProductUnit",
         name: "gapDosageMaxTotalProductUnit",
         fieldset: {
@@ -163,11 +163,11 @@ Product dosage  – {{serviceName}} – GOV.UK
             checked: false
           }
         ]
-      }) }}
+        }) }}
 
-      <h2 class="govuk-heading-m">Water volume</h2>
-  
-      {{ govukInput({
+        <h2 class="govuk-heading-m">Water volume</h2>
+
+        {{ govukInput({
         classes:"govuk-input--width-10",
         label: {
           text: "Minimum water volume",
@@ -180,9 +180,9 @@ Product dosage  – {{serviceName}} – GOV.UK
         },
         id: "proposedUseWaterMin",
         name: "proposedUseWaterMin"
-      }) }}
-  
-      {{ govukInput({
+        }) }}
+
+        {{ govukInput({
         classes:"govuk-input--width-10",
         label: {
           text: "Maximum water volume",
@@ -195,11 +195,11 @@ Product dosage  – {{serviceName}} – GOV.UK
         },
         id: "proposedUseWaterMax",
         name: "proposedUseWaterMax"
-      }) }}
+        }) }}
 
-      <h2 class="govuk-heading-m">In-use concentration</h2>
-  
-      {{ govukInput({
+        <h2 class="govuk-heading-m">In-use concentration</h2>
+
+        {{ govukInput({
         classes:"govuk-input--width-10",
         label: {
           text: "Minimum in-use concentration",
@@ -208,9 +208,9 @@ Product dosage  – {{serviceName}} – GOV.UK
         },
         id: "proposedUseConcentrationMin",
         name: "proposedUseConcentrationMin"
-      }) }}
+        }) }}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "proposedUseConcentrationMinUnit",
         name: "proposedUseConcentrationMinUnit",
         fieldset: {
@@ -235,9 +235,9 @@ Product dosage  – {{serviceName}} – GOV.UK
             checked: false
           }
         ]
-      }) }}
-  
-      {{ govukInput({
+        }) }}
+
+        {{ govukInput({
         classes:"govuk-input--width-10",
         label: {
           text: "Maximum in-use concentration",
@@ -246,9 +246,9 @@ Product dosage  – {{serviceName}} – GOV.UK
         },
         id: "proposedUseWaterMax",
         name: "proposedUseWaterMax"
-      }) }}
+        }) }}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "formulaTypeAddc",
         name: "formulaTypeAddc",
         fieldset: {
@@ -273,11 +273,11 @@ Product dosage  – {{serviceName}} – GOV.UK
             checked: false
           }
         ]
-      }) }}
+        }) }}
 
-      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

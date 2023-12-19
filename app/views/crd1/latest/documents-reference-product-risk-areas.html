@@ -9,13 +9,13 @@ Which risk assessment areas are you using the reference product for? – {{servi
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Which risk assessment areas are you using the reference product for?</h1>
-    <form class="form" method="post">
-      <p>Select all that apply.</p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Which risk assessment areas are you using the reference product for?</h1>
+      <form class="form" method="post">
+        <p>Select all that apply.</p>
 
-      {{ govukCheckboxes({
+        {{ govukCheckboxes({
         name: "refProductProposedUse",
         id: "refProductProposedUse",
         fieldset: {
@@ -58,9 +58,9 @@ Which risk assessment areas are you using the reference product for? – {{servi
             text: "Efficacy"
           }
         ]
-      }) }}
+        }) }}
 
-      {{ govukCheckboxes({
+        {{ govukCheckboxes({
         name: "productProposedUse",
         id: "productProposedUse",
         fieldset: {
@@ -87,10 +87,10 @@ Which risk assessment areas are you using the reference product for? – {{servi
             text: "Data protection expired"
           }
         ]
-      }) }}
+        }) }}
 
-      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
-    </form>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

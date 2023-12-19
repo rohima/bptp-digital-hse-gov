@@ -9,14 +9,14 @@ Product dosage  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post">
-      <h1 class="govuk-heading-l">Seed treatment application</p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">Seed treatment application</p>
 
-      <h2 class="govuk-heading-m">Describe the application method for treating seeds</h2>
- 
-      {{ govukInput({
+        <h2 class="govuk-heading-m">Describe the application method for treating seeds</h2>
+
+        {{ govukInput({
         label: {
           text: ' Enter description'
         },
@@ -24,11 +24,11 @@ Product dosage  – {{serviceName}} – GOV.UK
         id: "formulaActiveSubstanceName",
         name: "formulaActiveSubstanceName",
         autocomplete: "address-line1"
-      }) }}
+        }) }}
 
-      <h2 class="govuk-heading-m">Amount of product per hectare</h2>
- 
-      {{ govukInput({
+        <h2 class="govuk-heading-m">Amount of product per hectare</h2>
+
+        {{ govukInput({
         label: {
           text: ' Enter value'
         },
@@ -36,9 +36,9 @@ Product dosage  – {{serviceName}} – GOV.UK
         id: "formulaActiveSubstanceName",
         name: "formulaActiveSubstanceName",
         autocomplete: "address-line1"
-      }) }}
+        }) }}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "formulaTypeAdd",
         name: "formulaTypeAdd",
         fieldset: {
@@ -62,11 +62,11 @@ Product dosage  – {{serviceName}} – GOV.UK
             text: "litres (l)  "
           }
         ]
-      }) }}
+        }) }}
 
-      <h2 class="govuk-heading-m">Amount of product per 100,000 seeds</h2>
-  
-      {{ govukInput({
+        <h2 class="govuk-heading-m">Amount of product per 100,000 seeds</h2>
+
+        {{ govukInput({
         classes:"govuk-input--width-10",
         label: {
           text: "Enter value  ",
@@ -74,9 +74,9 @@ Product dosage  – {{serviceName}} – GOV.UK
         },
         id: "proposedUseWaterMin",
         name: "proposedUseWaterMin"
-      }) }}
+        }) }}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "formulaTypeAdd",
         name: "formulaTypeAdd",
         fieldset: {
@@ -100,11 +100,11 @@ Product dosage  – {{serviceName}} – GOV.UK
             text: "litres (l)  "
           }
         ]
-      }) }}
+        }) }}
 
-      <h2 class="govuk-heading-m">Application rate to seeds</h2>
-  
-      {{ govukInput({
+        <h2 class="govuk-heading-m">Application rate to seeds</h2>
+
+        {{ govukInput({
         classes:"govuk-input--width-10",
         label: {
           text: "Enter value ",
@@ -116,12 +116,11 @@ Product dosage  – {{serviceName}} – GOV.UK
         },
         id: "proposedUseWaterMin",
         name: "proposedUseWaterMin"
-      }) }}
+        }) }}
 
+        <h2 class="govuk-heading-m">Concentration on seeds</h2>
 
-      <h2 class="govuk-heading-m">Concentration on seeds</h2>
-  
-      {{ govukInput({
+        {{ govukInput({
         classes:"govuk-input--width-10",
         label: {
           text: "Enter value ",
@@ -133,11 +132,11 @@ Product dosage  – {{serviceName}} – GOV.UK
         },
         id: "proposedUseWaterMin",
         name: "proposedUseWaterMin"
-      }) }}
+        }) }}
 
-      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

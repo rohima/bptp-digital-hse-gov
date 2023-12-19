@@ -9,27 +9,27 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post">
-      <span class="govuk-caption-l">Formulation composition</span>
-      <h1 class="govuk-heading-l">Add a substance</p>
-      <p>Enter the details of the substance in your formulation. You can add another substance later if you need to.</p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <span class="govuk-caption-l">Formulation composition</span>
+        <h1 class="govuk-heading-l">Add a substance</p>
+        <p>Enter the details of the substance in your formulation. You can add another substance later if you need to.</p>
 
-      <h2 class="govuk-heading-m">Chemical name</h2>
-  
-      {{ govukInput({
+        <h2 class="govuk-heading-m">Chemical name</h2>
+
+        {{ govukInput({
         label: {
           text: 'Substance name'
         },
         id: "formulaActiveSubstanceName",
         name: "formulaActiveSubstanceName",
         autocomplete: "formulaActiveSubstanceName"
-      }) }}
+        }) }}
 
-      <h2 class="govuk-heading-m">Function</h2>
-  
-      {{ govukInput({
+        <h2 class="govuk-heading-m">Function</h2>
+
+        {{ govukInput({
         label: {
           text: 'Enter function '
         },
@@ -39,11 +39,11 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
         id: "formulaActiveSubstanceFunction",
         name: "formulaActiveSubstanceFunction",
         autocomplete: "formulaActiveSubstanceFunction"
-      }) }}
+        }) }}
 
-      <h2 class="govuk-heading-m">Substance type</h2>
+        <h2 class="govuk-heading-m">Substance type</h2>
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "formulaTypeAdd",
         name: "formulaTypeAdd",
         fieldset: {
@@ -64,51 +64,51 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
             checked: false
           }
         ]
-      }) }}
+        }) }}
 
-      <h2 class="govuk-heading-m">Reference number</h2>
+        <h2 class="govuk-heading-m">Reference number</h2>
 
-      {% set CAS %}
-      {{ govukInput({
+        {% set CAS %}
+        {{ govukInput({
         id: "formulaTypeAddReference",
         name: "formulaTypeAddReference",
         type: "tel",
         autocomplete: "tel",
         classes: "govuk-!-width-one-third"
-      }) }}
-      {% endset -%}
+        }) }}
+        {% endset -%}
 
-      {% set EC %}
-      {{ govukInput({
+        {% set EC %}
+        {{ govukInput({
         id: "formulaTypeAddReference",
         name: "formulaTypeAddReference",
         type: "tel",
         autocomplete: "tel",
         classes: "govuk-!-width-one-third"
-      }) }}
-      {% endset -%}
+        }) }}
+        {% endset -%}
 
-      {% set ELINCS %}
-      {{ govukInput({
+        {% set ELINCS %}
+        {{ govukInput({
         id: "formulaTypeAddReference",
         name: "formulaTypeAddReference",
         type: "tel",
         autocomplete: "tel",
         classes: "govuk-!-width-one-third"
-      }) }}
-      {% endset -%}
+        }) }}
+        {% endset -%}
 
-      {% set EINECS  %}
-      {{ govukInput({
+        {% set EINECS %}
+        {{ govukInput({
         id: "formulaTypeAddReference",
         name: "formulaTypeAddReference",
         type: "tel",
         autocomplete: "tel",
         classes: "govuk-!-width-one-third"
-      }) }}
-      {% endset -%}
+        }) }}
+        {% endset -%}
 
-      {{ govukRadios({
+        {{ govukRadios({
         id: "formulaTypeAddReference",
         name: "formulaTypeAddReference",
         fieldset: {
@@ -140,12 +140,12 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
             conditional: { html: EINECS }
           }
         ]
-      }) }}
+        }) }}
 
-      <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-    </form>
+      </form>
 
+    </div>
   </div>
-</div>
 {% endblock %}

@@ -9,13 +9,13 @@ Name your application – Manage building control for a higher-risk building –
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post">
-      <h1 class="govuk-heading-l">Name your application</h1>
-      <p>To help keep track of your application, choose a name that identifies it clearly to you.</p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">Name your application</h1>
+        <p>To help keep track of your application, choose a name that identifies it clearly to you.</p>
 
-      {{ govukInput({
+        {{ govukInput({
         label: {
           text: "",
           classes: "govuk-label?--l",
@@ -26,11 +26,11 @@ Name your application – Manage building control for a higher-risk building –
         },
         id: "applicationName",
         name: "applicationName"
-      }) }}
+        }) }}
 
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
 
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

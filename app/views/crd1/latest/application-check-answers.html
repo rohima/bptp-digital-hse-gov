@@ -9,79 +9,79 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds-from-desktop">   
-    <form class="form" method="post">
-      <h1 class="govuk-heading-xl">Check your answers</h1>
-      <h2 class="govuk-heading-m">Your details</h2>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+        <h2 class="govuk-heading-m">Your details</h2>
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9"> 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
             Name
           </dt>
-          <dd class="govuk-summary-list__value">
-           {{ data['applicantFullName'] or 'Applicant name'}}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="application-name-contact">
+            <dd class="govuk-summary-list__value">
+              {{ data['applicantFullName'] or 'Applicant name'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="application-name-contact">
               Change
               <span class="govuk-visually-hidden">Name</span>
-            </a>
-          </dd>
-        </div>
-  
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
            Organisation name
           </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['applicationCompanyName'] or 'ABC Limited'}}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="application-company">
+            <dd class="govuk-summary-list__value">
+              {{ data['applicationCompanyName'] or 'ABC Limited'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="application-company">
               Change
               <span class="govuk-visually-hidden">Organisation name</span>
-            </a>
-          </dd>
-        </div>
+              </a>
+            </dd>
+          </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
             Organisation address
           </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['applicantCompanyAddressList'] or '17 Wellborough Street, London, W11 7PP'}}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="application-address-postcode">
+            <dd class="govuk-summary-list__value">
+              {{ data['applicantCompanyAddressList'] or '17 Wellborough Street, London, W11 7PP'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="application-address-postcode">
               Change
               <span class="govuk-visually-hidden">Organisation address</span>
-            </a>
-          </dd>
-        </div>
+              </a>
+            </dd>
+          </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
             Phone number
           </dt>
-          <dd class="govuk-summary-list__value">
-           {{ data['applicantTelephone'] or '0123456789'}} 
-           
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="application-telephone">
+            <dd class="govuk-summary-list__value">
+              {{ data['applicantTelephone'] or '0123456789'}}
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="application-telephone">
               Change
               <span class="govuk-visually-hidden">Phone number</span>
-            </a>
-          </dd>
-        </div>          
-      </dl>
+              </a>
+            </dd>
+          </div>
+        </dl>
 
-      <input type="hidden" name="answers-checked" value="true">
+        <input type="hidden" name="answers-checked" value="true">
 
-      <button type="submit" class="govuk-button" data-module="govuk-button">Save and continue</button> 
-    </form>
+        <button type="submit" class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </form>
+    </div>
   </div>
-</div>
 {% endblock %}

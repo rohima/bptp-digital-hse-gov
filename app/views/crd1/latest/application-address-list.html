@@ -17,9 +17,10 @@ Select registered address for {{ data['applicationCompanyName'] or "ABC Limited"
 
       <form class="form" method="post">
 
-        <p>13 addresses found for <strong>SE1 1SS</strong> </p>
+        <p>13 addresses found for <strong>SE1 1SS</strong>
+        </p>
 
-          {{ govukRadios({
+        {{ govukRadios({
             id: "applicantCompanyAddressList",
             name: "applicantCompanyAddressList",
             fieldset: {
@@ -105,17 +106,19 @@ Select registered address for {{ data['applicationCompanyName'] or "ABC Limited"
             ]
           }) }}
 
-
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-        <p><a href="#">Search again</a></p>
-        
-        <p><a href="#">Enter address manually</a></p>
+        <p>
+          <a href="#">Search again</a>
+        </p>
+
+        <p>
+          <a href="#">Enter address manually</a>
+        </p>
 
       </form>
 
     </div>
   </div>
-
 
 {% endblock %}
