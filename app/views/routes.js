@@ -12,16 +12,30 @@ router.post('/start', function (req, res) {
 
 router.post('/application-reference', function (req, res) {
     let applicationReference = req.session.data.applicationReference;
-    res.redirect('what-to-do');
+    if (applicationReference == "No") {
+      res.redirect('crd1/latest/existing-job-number');
+    } else {
+      res.redirect('what-to-do');
+    }
   
 })
+
+// existing-job-number
+
+router.post('/application-reference', function (req, res) {
+  let applicationReference = req.session.data.applicationReference;
+  res.redirect('what-to-do');
+
+})
+// from here user goes to verify securoty code from here
+
 
 // what-to-do
 
 router.post('/what-to-do', function (req, res) {
   let applicationJourney = req.session.data.applicationJourney;
   if (applicationJourney == "CRD1") {
-    res.redirect('crd1/latest/applicant-type');
+    res.redirect('crd1/latest/application-name-contact');
   } else if (applicationJourney == "CRD1-CHANGE") {
     res.redirect('crd1-change/latest/what-change-to-do');
   }else if (applicationJourney == "CRD8") {

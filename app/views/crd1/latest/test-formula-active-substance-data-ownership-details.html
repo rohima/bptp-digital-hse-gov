@@ -1,0 +1,136 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Active substance data owner details – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      <span class="govuk-caption-l">Data ownership: Active substance data</span>
+      <h1 class="govuk-heading-l">Data ownership for [Active substance name]   </p>
+
+{# <p>Enter the details of the substance in your formulation. You can add another substance later if you need to.  </p> #}
+
+{# <p>[Active substance name: 
+  <strong>Azoxystrobin
+  CAS: 131860-33-8</strong>]</p> #}
+
+  <h2 class="govuk-heading-m">Describe the data ownership  </h2>
+  
+  {{ govukInput({
+    label: {
+      text: 'Enter description '
+    },
+    hint: {
+    text: "For example, explain if data is owned by authorisation holder or others, or if data is out of protection "
+  },
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }}
+
+
+  <h2 class="govuk-heading-m">How will you demonstrate access to the data in this application?  </h2>
+
+
+{{ govukCheckboxes({
+  id: "formulaTypeAdd",
+  name: "formulaTypeAdd",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      value: "Authorisation holder owns all data ",
+      text: "Authorisation holder owns all data "
+    },
+    {
+      value: "Letter of access to be provided in this application ",
+      text: "Letter of access to be provided in this application "
+      
+    },   
+    {
+      value: "Letter of access provided previously",
+      text: "Letter of access provided previously "
+    },   
+    {
+      value: "Letter of access sent by third party ",
+      text: "Letter of access sent by third party  "
+    },   
+    {
+      value: "Data match: data to be provided in this application",
+      text: "Data match: data to be provided in this application  "
+    },   
+    {
+      value: "Data match: data provided previously  ",
+      text: "Data match: data provided previously  "
+    },   
+    {
+      value: "Access not required or data protection expired  ",
+      text: "Access not required or data protection expired  "
+    }
+
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">If letter of access or data match provided previously, enter reference details </h2>
+  
+  {# {{ govukInput({
+    label: {
+      text: 'Enter description  '
+    },
+    hint: {
+    text: "For example, explain if data matched or renewal data is out of protection, reference to Regulatory Authority consideration and date.  "
+  },
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }} #}
+
+  {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  label: {
+    text: "Enter details"
+  },
+  hint: {
+    text: "Enter as much relevant information as possible. Letters of access must be valid and relevant to this application. For example, product name, job number, date of previous letter and MAPP number. "
+  }
+}) }}
+
+
+
+
+
+
+
+
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

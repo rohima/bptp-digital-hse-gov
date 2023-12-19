@@ -7,16 +7,28 @@ const router = express.Router()
 
 
 
-// ----------------- APPLICATION JOURNEY ----------------- //
-
-// applicant-type
-  
-router.post('/applicant-type', function (req, res) {
-  
-  let applicantType = req.session.data.applicantType;
-  res.redirect('application-name-contact');
-
+// test-active-substance-source-is-csv-upload
+router.post('/test-active-substance-source-is-csv-upload', function (req, res) {
+  res.redirect('test-active-substance-source-csv-1');
 })
+
+// test-active-substance-source-csv-1
+router.post('/test-active-substance-source-csv-1', function (req, res) {
+  res.redirect('test-active-substance-source-csv-1');
+})
+
+// test-active-substance-source-how-many
+router.post('/test-active-substance-source-how-many', function (req, res) {
+  res.redirect('test-active-substance-source-how-many');
+})
+
+// test-active-substance-source-previous-tech-equiv
+
+
+//
+
+
+// ----------------- APPLICATION JOURNEY ----------------- //
 
 // application-name-contact
 
@@ -137,15 +149,33 @@ router.post('/task-list', function (req, res) {
 
 // ----------------- AUTHORISED HOLDER ----------------- //
 
+// applicant-type
+  
+router.post('/applicant-type', function (req, res) {
+  let applicantType = req.session.data.applicantType;
+  if (applicantType == "Yes") {
+    res.redirect('auth-holder-check-answers');
+  } else {
+    res.redirect('auth-holder-same');
+  }
+
+})
+
 // auth-holder-same
 
 router.post('/auth-holder-same', function (req, res) {
   
   let authHolderSame = req.session.data.authHolderSame;
-  res.redirect('auth-holder-check-answers');
+  res.redirect('documents-upload-proof-of-authorisation');
 
 })
 
+// documents-upload-proof-of-authorisation
+router.post('/documents-upload-proof-of-authorisation', function (req, res) {
+  let authHolderAuthorisation = req.session.data.authHolderAuthorisation;
+  res.redirect('auth-holder-check-answers');
+
+})
 
 // auth-holder-check-answers
 
@@ -362,9 +392,41 @@ router.post('/formula-risk-product', function (req, res) {
 
 router.post('/formula-check-answers', function (req, res) {  
   let formulaCheckAnswers = req.session.data.formulaCheckAnswers;
-  res.redirect('product-use');
+  res.redirect('test-formula-active-substance-data-ownership-details');
 
 })
+
+/// ROHIMA TO LOOK AT XXXXXXX
+// test-formula-active-substance-data-ownership - NOT USED
+router.post('/test-formula-active-substance-data-ownership', function (req, res) {
+  res.redirect('test-formula-active-substance-data-ownership-details');
+})
+
+// test-formula-active-substance-data-ownership-details
+router.post('/test-formula-active-substance-data-ownership-details', function (req, res) {
+  res.redirect('test-formula-product-data-ownership');
+})
+
+// test-formula-active-substance-data-ownership-letter - NOT USED
+router.post('/test-formula-active-substance-data-ownership-letter', function (req, res) {
+  res.redirect('test-formula-active-substance-data-ownership-previous');
+}) 
+
+// test-formula-active-substance-data-ownership-previous - NOT USED
+router.post('/test-formula-active-substance-data-ownership-previous', function (req, res) {
+  res.redirect('test-formula-product-data-ownership');
+}) 
+
+// test-formula-product-data-ownership
+router.post('/test-formula-product-data-ownership', function (req, res) {
+  res.redirect('test-formula-product-data-ownership-details');
+})
+
+// test-formula-product-data-ownership-details
+router.post('/test-formula-product-data-ownership-details', function (req, res) {
+  res.redirect('test-formula-product-data-ownership-details');
+})
+
 
 // formula-csv-check-answers
 
@@ -545,14 +607,6 @@ router.post('/gap-check-answers', function (req, res) {
 router.post('/packaging-number-of', function (req, res) {
   let packagingNumberof = req.session.data.packagingNumberof;
   res.redirect('packaging-x-details');
-
-})
-
-// packaging-x-details
-
-router.post('/packaging-x-details', function (req, res) {
-  let packagingXDetails = req.session.data.packagingXDetails;
-  res.redirect('packaging-check-answers');
 
 })
 

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Name of your product – {{serviceName}} – GOV.UK
+Product name – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,25 +15,40 @@ Name of your product – {{serviceName}} – GOV.UK
         <h1 class="govuk-heading-l">What is the name of the new product?</h1>
         <p> Enter the product name. You can also add your own internal code number. This is what we will call your application within this service.</p>
 
-        {{ govukInput({
-        label: {
-          text: "Product name",
-          classes: "govuk-label?--l",
-          isPageHeading: true
-        },
-        id: "productName",
-        name: "productName"
-        }) }}
+      {# <span class="govuk-caption-l">Application details</span> #}
+      <h1 class="govuk-heading-l">What is the product name? </h1>
 
-        {{ govukInput({
-        label: {
-          text: "Company product code",
-          classes: "govuk-label?--l",
-          isPageHeading: true
-        },
-        id: "productCode",
-        name: "productCode"
-        }) }}
+      <p> Enter the primary product name or code number. This will become the name of your application in this service.  </p>
+
+
+ {% from "govuk/components/input/macro.njk" import govukInput %}
+{{ govukInput({
+  label: {
+    text: "Primary product name ",
+    classes: "govuk-label?--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: ""
+  },
+  id: "productName",
+  name: "productName"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Code number ",
+    classes: "govuk-label?--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: ""
+  },
+  id: "productCode",
+  name: "productCode"
+}) }}
+
+    
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 

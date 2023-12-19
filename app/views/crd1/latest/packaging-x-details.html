@@ -16,50 +16,10 @@ Container [X] details – {{serviceName}} – GOV.UK
         <h1 class="govuk-heading-l">Container [X] details</p>
         <h2 class="govuk-heading-s">Volume range for container type</h2>
 
-        {{ govukInput({
-        label: {
-          text: "From:"
-        },
-        suffix: {
-          text: ""
-        },
-        classes: "govuk-input--width-5",
-        id: "containerVolumeFrom",
-        name: "containerVolumeFrom"
-        }) }}
+      <span class="govuk-caption-l">Packaging and labels</span>
+      <h1 class="govuk-heading-l">Container details  </p>
 
-        {{ govukRadios({
-        id: "containerVolumeFromUnit",
-        name: "containerVolumeFromUnit",
-        fieldset: {
-          legend: {
-            text: "",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        hint: {
-          text: "Select the unit for this container type  "
-        },
-        items: [
-          {
-            value: "g",
-            text: "gram (g)"
-          },   
-          {
-            value: "kg",
-            text: "kilogram (kg)"
-          },   
-          {
-            value: "ml",
-            text: "millilitre (ml)"
-          },   
-          {
-            value: "l",
-            text: "litre (l)"
-          }
-        ]
-        }) }}
+<p>Enter details of the container type for this product. You can add more container types later if you need to.  </p>
 
         {{ govukInput({
         label: {
@@ -108,18 +68,7 @@ Container [X] details – {{serviceName}} – GOV.UK
 
         <h2 class="govuk-heading-s">Product container type</h2>
 
-        {{ govukInput({
-        label: {
-          text: "Container type ",
-          classes: "govuk-label?--l",
-          isPageHeading: true
-        },
-        hint: {
-          text: "Type part of the name and select it from the list. If the full name does not show, enter it manually. "
-        },
-        id: "productContainerType",
-        name: "productContainerType"
-        }) }}
+<h2 class="govuk-heading-s">Capacity range for container type   </h2>
 
         <h2 class="govuk-heading-s">Packaging material</h2>
 
@@ -138,7 +87,128 @@ Container [X] details – {{serviceName}} – GOV.UK
         name: "productPackagingMaterial"
         }) }}
 
-        <h3 class="govuk-heading-s">Other pack material (optional)</h3>
+{{ govukRadios({
+  id: "containerVolumeToUnit",
+  name: "containerVolumeToUnit",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select the unit for this container type  "
+  },
+  items: [
+    {
+      value: "g",
+      text: "gram (g)"
+      
+    },   
+    {
+      value: "kg",
+      text: "kilogram (kg)"
+      
+    },   
+    {
+      value: "ml",
+      text: "millilitre (ml)"
+      
+    },   
+    {
+      value: "l",
+      text: "litre (l)"
+      
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-s">Product container type</h2>
+
+{{ govukInput({
+  label: {
+    text: "Container type ",
+    classes: "govuk-label?--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Type part of the name and select it from the list. If the full name does not show, enter it manually. "
+  },
+  id: "productContainerType",
+  name: "productContainerType"
+}) }}
+
+<h2 class="govuk-heading-s">Packaging material</h2>
+
+<p>Enter the material closest to the product</p>
+
+{{ govukInput({
+  label: {
+    text: "Pack material ",
+    classes: "govuk-label?--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Type part of the name and select it from the list. If the full name does not show, enter it manually. "
+  },
+  id: "productPackagingMaterial",
+  name: "productPackagingMaterial"
+}) }}
+
+<h3 class="govuk-heading-s">Other pack material (optional) </h3>
+
+{{ govukInput({
+  label: {
+    text: "Pack material ",
+    classes: "govuk-label?--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "If you have a multiwalled container, start with the layer closest to the product. "
+  },
+  id: "productPackagingMaterialOther1",
+  name: "productPackagingMaterialOther1"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Pack material ",
+    classes: "govuk-label?--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: " "
+  },
+  id: "productPackagingMaterialOther2",
+  name: "productPackagingMaterialOther2"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Pack material ",
+    classes: "govuk-label?--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: " "
+  },
+  id: "productPackagingMaterialOther3",
+  name: "productPackagingMaterialOther3"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Pack material ",
+    classes: "govuk-label?--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: " "
+  },
+  id: "productPackagingMaterialOther4",
+  name: "productPackagingMaterialOther4"
+}) }}
 
         {{ govukInput({
         label: {

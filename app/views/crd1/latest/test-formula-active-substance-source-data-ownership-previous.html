@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Previous data match details –{{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .govuk-summary-list__key {
+    width:60%
+  }
+</style>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Data ownership: Active substance source data</span>
+
+      <h1 class="govuk-heading-l">
+        Enter reference details for the previous letter of access 
+      </h1>
+
+      <p>[Active substance name] </p>
+     
+        <form class="form" method="post">
+
+           
+          
+
+         <style>
+          .govuk-summary-list__key {
+            width:60%
+          }
+        </style>
+        
+
+        {{ govukTextarea({
+          label: {
+            text: 'Letter of access details '
+          },
+          hint: {
+          text: "Enter as much relevant information as possible. Letters of access must be valid and relevant to this application. For example, product name, job number, date of previous letter and MAPP number.  "
+        },
+          id: "formulaActiveSubstanceName",
+          name: "formulaActiveSubstanceName"
+        }) }}
+
+        
+            
+        
+                {{ govukButton({
+                  text: "Save and continue"
+                }) }}
+        
+                
+        
+              </form>
+        
+            </div>
+          </div>
+        
+        {% endblock %}
+        
+       

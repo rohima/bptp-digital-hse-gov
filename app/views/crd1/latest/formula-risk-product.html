@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Is the product considered low risk? – {{serviceName}} – GOV.UK
+Is the product considered low-risk?  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,7 +14,8 @@ Is the product considered low risk? – {{serviceName}} – GOV.UK
       <form class="form" method="post">
         <h1 class="govuk-heading-l">Is the product considered low risk?</p>
 
-        <p>A plant protection product is generally considered low risk if it does not have any harmful effects on:</p>
+      {# <span class="govuk-caption-l">Application details</span> #}
+      <h1 class="govuk-heading-l">Is the product, including all active substances, considered low risk? </p>
 
         <ul class="govuk-list govuk-list--bullet">
           <li>human health</li>
@@ -23,28 +24,42 @@ Is the product considered low risk? – {{serviceName}} – GOV.UK
           <li>the environment</li>
         </ul>
 
-        {{ govukRadios({
-        id: "productRisk",
-        name: "productRisk",
-        fieldset: {
-          legend: {
-            text: "",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-          {
-            value: "Yes",
-            text: "Yes",
-            checked: false
-          },   
-          {
-            value: "No",
-            text: "No"
-          }
-        ]
-        }) }}
+<ul class="govuk-list govuk-list--bullet">
+  <li>human health</li>
+  <li>animal health</li>
+  <li>groundwater</li>
+  <li>the environment</li>
+</ul>
+
+<p><a href="https://www.hse.gov.uk/pesticides/pesticides-registration/active-substances/low-risk.htm">Find out more about low-risk active substances on the HSE website (opens in a new tab).</a>  </p>
+
+
+{{ govukRadios({
+  id: "productRisk",
+  name: "productRisk",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      checked: false
+    },   
+    {
+      value: "No",
+      text: "No"
+    }
+
+  ]
+}) }}
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
