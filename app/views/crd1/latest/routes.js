@@ -30,15 +30,6 @@ router.post('/test-active-substance-source-how-many', function (req, res) {
 
 // ----------------- APPLICATION JOURNEY ----------------- //
 
-// applicant-type
-  
-router.post('/applicant-type', function (req, res) {
-  
-  let applicantType = req.session.data.applicantType;
-  res.redirect('application-name-contact');
-
-})
-
 // application-name-contact
 
 router.post('/application-name-contact', function (req, res) {
@@ -158,15 +149,33 @@ router.post('/task-list', function (req, res) {
 
 // ----------------- AUTHORISED HOLDER ----------------- //
 
+// applicant-type
+  
+router.post('/applicant-type', function (req, res) {
+  let applicantType = req.session.data.applicantType;
+  if (applicantType == "Yes") {
+    res.redirect('auth-holder-check-answers');
+  } else {
+    res.redirect('auth-holder-same');
+  }
+
+})
+
 // auth-holder-same
 
 router.post('/auth-holder-same', function (req, res) {
   
   let authHolderSame = req.session.data.authHolderSame;
-  res.redirect('auth-holder-check-answers');
+  res.redirect('documents-upload-proof-of-authorisation');
 
 })
 
+// documents-upload-proof-of-authorisation
+router.post('/documents-upload-proof-of-authorisation', function (req, res) {
+  let authHolderAuthorisation = req.session.data.authHolderAuthorisation;
+  res.redirect('auth-holder-check-answers');
+
+})
 
 // auth-holder-check-answers
 

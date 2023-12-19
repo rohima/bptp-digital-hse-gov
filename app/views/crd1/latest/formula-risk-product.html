@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Is the product considered low risk? – {{serviceName}} – GOV.UK
+Is the product considered low-risk?  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,7 +18,7 @@ Is the product considered low risk? – {{serviceName}} – GOV.UK
       <form class="form" method="post">
 
       {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">Is the product considered low risk? </p>
+      <h1 class="govuk-heading-l">Is the product, including all active substances, considered low risk? </p>
 
 <p>A plant protection product is generally considered low risk if it does not have any harmful effects on: </p>
 
@@ -29,7 +29,7 @@ Is the product considered low risk? – {{serviceName}} – GOV.UK
   <li>the environment</li>
 </ul>
 
-{# <p>Find out more about <a href="https://www.hse.gov.uk/pesticides/pesticides-registration/active-substances/low-risk.htm">low-risk active substances on the HSE website</a> (opens in a new tab).  </p> #}
+<p><a href="https://www.hse.gov.uk/pesticides/pesticides-registration/active-substances/low-risk.htm">Find out more about low-risk active substances on the HSE website (opens in a new tab).</a>  </p>
 
 
 {{ govukRadios({
