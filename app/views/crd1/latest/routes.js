@@ -166,9 +166,41 @@ router.post('/applicant-type', function (req, res) {
 router.post('/auth-holder-same', function (req, res) {
   
   let authHolderSame = req.session.data.authHolderSame;
-  res.redirect('documents-upload-proof-of-authorisation');
 
+  if (authHolderSame == "Someone else") {
+    res.redirect('auth-holder-company');
+  } else {
+    res.redirect('documents-upload-proof-of-authorisation');
+  }
 })
+
+// auth-holder-company
+
+router.post('/auth-holder-company', function (req, res) {
+  let authCompanyName = req.session.data.authCompanyName;
+  res.redirect('auth-holder-address-postcode');
+})
+
+// auth-holder-address-postcode
+
+router.post('/auth-holder-address-postcode', function (req, res) {
+  let authAddressPostcode = req.session.data.authAddressPostcode;
+  res.redirect('auth-holder-address-list');
+})
+
+// auth-holder-address-list
+
+router.post('/auth-holder-address-list', function (req, res) {
+  let authCompanyAddressList = req.session.data.authCompanyAddressList;
+  res.redirect('auth-holder-address-confirm');
+})
+
+// auth-holder-address-confirm
+
+router.post('/auth-holder-address-confirm', function (req, res) {
+  res.redirect('documents-upload-proof-of-authorisation');
+})
+
 
 // documents-upload-proof-of-authorisation
 router.post('/documents-upload-proof-of-authorisation', function (req, res) {
