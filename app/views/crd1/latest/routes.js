@@ -224,9 +224,40 @@ router.post('/auth-holder-check-answers', function (req, res) {
 
 router.post('/marketing-co-same', function (req, res) {
   
-  let marketingCoSame = req.session.data.marketingCoSame;
-  res.redirect('marketing-co-check-answers');
+  let marketingHolderSame = req.session.data.marketingHolderSame;
+  
+  if (marketingHolderSame == "Someone else") {
+    res.redirect('marketing-company');
+  } else {
+    res.redirect('marketing-co-check-answers');
+  }
+})
 
+// marketing-company
+
+router.post('/marketing-company', function (req, res) {
+  let marketingCompanyName = req.session.data.marketingCompanyName;
+  res.redirect('marketing-address-postcode');
+})
+
+// marketing-address-postcode
+
+router.post('/marketing-address-postcode', function (req, res) {
+  let marketingAddressPostcode = req.session.data.marketingAddressPostcode;
+  res.redirect('marketing-address-list');
+})
+
+// marketing-address-list
+
+router.post('/marketing-address-list', function (req, res) {
+  let marketingCompanyAddressList = req.session.data.marketingCompanyAddressList;
+  res.redirect('marketing-address-confirm');
+})
+
+// marketing-address-confirm
+
+router.post('/marketing-address-confirm', function (req, res) {
+  res.redirect('marketing-co-check-answers');
 })
 
 // marketing-co-check-answers
