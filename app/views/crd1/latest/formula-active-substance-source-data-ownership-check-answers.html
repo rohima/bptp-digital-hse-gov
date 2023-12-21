@@ -1,0 +1,114 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers authorisation holder – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      
+<form method="post">
+
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+
+        <h2 class="govuk-heading-m">Active substance source data ownership</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          {# <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['XXXXXXXXX'] or '[Organisation type]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden">Type of client organisation</span>
+              </a>
+            </dd>
+          </div> #}
+  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Organisation name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['authCompanyName'] or 'Auth XYZ Ltd'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden">Name of client organisation</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Registered address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['authCompanyAddressList'] or '17 Wellborough Street, London, W11 7PP'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden"> Client registered address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Company registration number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['authCompanyRegistration'] or '0123456789'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden"> Client registered address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Proof of authorisation
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['authHolderAuthorisation'] or '[Uploaded file or not required]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-proof-of-authorisation">
+                Change
+                <span class="govuk-visually-hidden"> Proof of authorisation</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        
+
+      {# <h2 class="govuk-heading-m">Continue your application</h2> #}
+
+      {# <p>By continuing, you're confirming that the details you've given so far are correct to the best of your knowledge.</p> #}
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+
+        <p><a href="#">View application progress</a></p>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -12,12 +12,18 @@ Is all the data for this active substance owned by the authorisation holder?  â€
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form class="form" method="post">
-        <h1 class="govuk-heading-l">Is all the data for this active substance owned by the authorisation holder?</p>
 
-        <div class="govuk-inset-text">
-        Active substance name: <strong>{{ data['formulaActiveSubstanceName'] or 'Azoxystrobin' }}
-            {{ data['formulaTypeAddReference'] or 'CAS' }}: {{ data['formulaTypeAdd'] or '131860-33-8' }}</strong>
-        </div>
+      <span class="govuk-caption-l">Data ownership: Active substance data </span>
+      <h1 class="govuk-heading-l">Who is the data owner for [Active substance name]? </p>
+
+{# <p>Provide details for [Azoxystrobin] active substance or data owner. You can add more active substanceslater</p> #}
+
+{# <div class="govuk-inset-text">
+  [Active substance name: 
+  <strong>Azoxystrobin
+  CAS: 131860-33-8</strong>]
+</div> #}
+
 
         {% set emailHtml %}
         {{ govukInput({
@@ -33,28 +39,33 @@ Is all the data for this active substance owned by the authorisation holder?  â€
         }) }}
         {% endset -%}
 
-        {{ govukRadios({
-        id: "formulaActiveSubstanceOwnership",
-        name: "formulaActiveSubstanceOwnership",
-        fieldset: {
-          legend: {
-            text: "",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-          {
-            value: "Yes",
-            text: "Yes"
-          },   
-          {
-            value: "No",
-            text: "No",
-            checked: false
-          }
-        ]
-        }) }}
+{{ govukRadios({
+  id: "formulaActiveSubstanceOwnership",
+  name: "formulaActiveSubstanceOwnership",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "All data is owned by the authorisation holder "
+      
+    },   
+    {
+      value: "No",
+      text: "A different organisation owns all or part of the data ",
+      checked: false
+    }
+
+  ]
+}) }}
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 

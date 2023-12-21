@@ -9,10 +9,26 @@ Confirm manufacturing site address – Manage building control for a higher-risk
 {% endblock %}
 
 {% block content %}
+
+
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Confirm manufacturing site address</h1>
+
+      <span class="govuk-caption-l">Data ownership: Active substance source data </span>
+<h1 class="govuk-heading-l">Confirm the manufacturing site address</h1>
+
+      
+
       <form class="form" method="post">
+
+        {# {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+        {{ govukInsetText({
+          text: " 1 Tully Road, London, SE1 1SS "
+          
+        }) }} #}
+
+        
 
         <div class="govuk-inset-text">
           <p>1 Wellborough Street<br> Leeds<br> LS1 7CD</p>
@@ -20,14 +36,14 @@ Confirm manufacturing site address – Manage building control for a higher-risk
 
         <button class="govuk-button" data-module="govuk-button">Confirm</button>
 
-        <p>
-          <a href="#">Search again</a>
-        </p>
-        <p>
-          <a href="#">Enter address manually</a>
-        </p>
-
       </form>
+
     </div>
   </div>
+
+  <p> <a href="#">Search again</a> </p>
+
+  <p> <a href="#">Enter address manually</a> </p>
+
+  
 {% endblock %}

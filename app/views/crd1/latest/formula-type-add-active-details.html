@@ -1,0 +1,287 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Active substance details  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+        <span class="govuk-caption-l">Formulation composition</span>
+        <h1 class="govuk-heading-l">Details for [Active substance name] </h1>
+
+{# <p>Enter the details of the substance in your formulation. You can add another substance later if you need to.  </p> #}
+
+{# <p>[Active substance name: 
+  <strong>Azoxystrobin
+  CAS: 131860-33-8</strong>]</p> #}
+
+  {# <h2 class="govuk-heading-m">Chemical name </h2>
+  
+  {{ govukInput({
+    label: {
+      text: 'Substance name'
+    },
+    hint: {
+    text: "  "
+  },
+    id: "formulaActiveSubstanceName",
+    name: "formulaActiveSubstanceName",
+    autocomplete: "address-line1"
+  }) }} #}
+
+  <h2 class="govuk-heading-m">Present as (optional)  </h2>
+
+  {{ govukInput({
+    label: {
+      text: 'Enter name '
+    },
+    hint: {
+    text: "  "
+  },
+    id: "formulaActiveSubstanceWeightUnitValue",
+    name: "formulaActiveSubstanceWeightUnitValue",
+    autocomplete: "formulaActiveSubstanceWeightUnitValue"
+  }) }}
+  
+  <h2 class="govuk-heading-m">Pure concentration  </h2>
+
+  {{ govukInput({
+    label: {
+      text: 'Enter value '
+    },
+    hint: {
+    text: "  "
+  },
+    id: "formulaActiveSubstanceWeightUnitValue",
+    name: "formulaActiveSubstanceWeightUnitValue",
+    autocomplete: "formulaActiveSubstanceWeightUnitValue",
+    classes: "govuk-!-width-two-thirds"
+  }) }}
+
+
+{% set Other %}
+{{ govukInput({
+  id: "formulaTypeAddReference",
+  name: "formulaTypeAddReference",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third"
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  id: "formulaTypeAdd",
+  name: "formulaTypeAdd",
+  fieldset: {
+    legend: {
+      text: "Select a unit: "
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "grams per litre (g/l) ",
+      text: "grams per litre (g/l) "
+      
+    },   
+    {
+      value: "grams per kilogram (g/kg) ",
+      text: "grams per kilogram (g/kg) "
+    },   
+    {
+      value: "colony forming units per litre (cfu/l)",
+      text: "colony forming units per litre (cfu/l)"
+    },   
+    {
+      value: "Other",
+      text: "Other",
+      conditional: { html: Other }
+    }
+
+  ]
+}) }}
+
+
+<h2 class="govuk-heading-m">Technical concentration </h2>
+
+{{ govukInput({
+  label: {
+    text: 'Enter value'
+  },
+  hint: {
+  text: "  "
+},
+  id: "formulaActiveSubstanceConcentrationUnitValue",
+  name: "formulaActiveSubstanceConcentrationUnitValue",
+  autocomplete: "formulaActiveSubstanceConcentrationUnitValue",
+  classes: "govuk-!-width-two-thirds"
+}) }}
+
+{{ govukRadios({
+  id: "formulaTypeAdd",
+  name: "formulaTypeAdd",
+  fieldset: {
+    legend: {
+      text: "Select a unit: "
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "grams per litre (g/l) ",
+      text: "grams per litre (g/l) "
+      
+    },   
+    {
+      value: "grams per kilogram (g/kg) ",
+      text: "grams per kilogram (g/kg) "
+    },   
+    {
+      value: "colony forming units per litre (cfu/l)",
+      text: "colony forming units per litre (cfu/l)"
+    }
+
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Pure concentration percentage </h2>
+
+{{ govukInput({
+  label: {
+    text: 'Enter value'
+  },
+  hint: {
+  text: "  "
+},
+  id: "formulaActiveSubstanceConcentrationUnitValue",
+  name: "formulaActiveSubstanceConcentrationUnitValue",
+  autocomplete: "formulaActiveSubstanceConcentrationUnitValue",
+  classes: "govuk-!-width-two-thirds"
+}) }}
+
+{{ govukRadios({
+  id: "formulaTypeAddReference",
+  name: "formulaTypeAddReference",
+  fieldset: {
+    legend: {
+      text: "Select a unit:",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend-"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "weight/volume (w/v%) ",
+      text: "weight/volume (w/v%) "
+    },
+    {
+      value: "mass/volume (m/v%)",
+      text: "mass/volume (m/v%)"
+    }
+  
+
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Technical concentration percentage </h2>
+{{ govukInput({
+  label: {
+    text: 'Enter value'
+  },
+  
+  hint: {
+  text: "  "
+},
+  id: "formulaActiveSubstanceConcentrationUnitValue",
+  name: "formulaActiveSubstanceConcentrationUnitValue",
+  autocomplete: "formulaActiveSubstanceConcentrationUnitValue",
+  classes: "govuk-!-width-two-thirds"
+}) }}
+
+{{ govukRadios({
+  id: "formulaTypeAddReference",
+  name: "formulaTypeAddReference",
+  fieldset: {
+    legend: {
+      text: "Select a unit:",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend-"
+    },
+    label: {text:""}
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "weight/volume (w/v%)  ",
+      text: "weight/volume (w/v%) "
+    },
+    {
+      value: "mass/volume (m/v%)",
+      text: "mass/volume (m/v%)"
+    }
+  
+
+  ]
+}) }}
+
+
+
+
+{# {{ govukRadios({
+  id: "formulaTypeAddReference",
+  name: "formulaTypeAddReference",
+  fieldset: {
+    legend: {
+      text: "Do you need to add another substance?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "Yes ",
+      text: "Yes "
+    },
+    {
+      value: "No ",
+      text: "No "
+    }
+  
+
+  ]
+}) }} #}
+
+
+
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

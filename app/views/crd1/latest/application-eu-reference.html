@@ -62,17 +62,48 @@ EU Member State reference product details – {{serviceName}} – GOV.UK
         name: "marketingCompany"
       }) }}
 
-        {{ govukInput({
-        label: {
-          text: "Authorisation number"
-        },
-        classes: "govuk-input--width-20",
-        hint: {
-          text: ""
-        },
-        id: "authNumber",
-        name: "authNumber"
-      }) }}
+{{ govukInput({
+  label: {
+    text: "Authorisation number"
+  },
+  classes: "govuk-input--width-20",
+  hint: {
+    text: ""
+  },
+  id: "authNumber",
+  name: "authNumber"
+}) }}
+
+{# <h2 class="govuk-heading-m">EU Member State finalised technical equivalence report</h2> #}
+
+      {# <p> Enter the product name. You can also add your own internal code number. This is what we will call your application within this service.</p> #}
+
+
+ {# {% from "govuk/components/input/macro.njk" import govukInput %}
+{{ govukInput({
+  label: {
+    text: "Member State"
+  },
+  classes: "govuk-input--width-20",
+  hint: {
+    text: ""
+  },
+  id: "memberStateTech",
+  name: "memberStateTech"
+}) }} #}
+
+{{ govukDateInput({
+  id: "dateTechnicalReport",
+  namePrefix: "dateTechnicalReport",
+  fieldset: {
+    legend: {
+      text: "Date of finalised EU Member State finalised technical equivalence report"
+    }
+  },
+  hint: {
+    text: "For example, 27 3 2023"
+  }
+}) }}
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
