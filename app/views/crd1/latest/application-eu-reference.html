@@ -74,6 +74,19 @@ EU Member State reference product details – {{serviceName}} – GOV.UK
         name: "authNumber"
       }) }}
 
+        {{ govukDateInput({
+        id: "dateTechnicalReport",
+        namePrefix: "dateTechnicalReport",
+        fieldset: {
+          legend: {
+            text: "Date of finalised EU Member State finalised technical equivalence report"
+          }
+        },
+        hint: {
+          text: "For example, 27 3 2023"
+        }
+      }) }}
+
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>

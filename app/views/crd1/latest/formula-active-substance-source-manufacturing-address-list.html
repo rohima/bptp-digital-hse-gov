@@ -11,11 +11,15 @@ Select registered address for {{ data['clientCompanyName'] or "[Client company n
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Data ownership: Active substance source data </span>
       <h1 class="govuk-heading-l">Select the manufacturing site address</h1>
+
+      <p>Active substance: [Active substance name] <br>Data owner: [Active substance source data owner name]</p>
+
       <form class="form" method="post">
 
-        <p>13 addresses found for <strong>SE1 1SS</strong>
-        </p>
+        <p>13 addresses found for <strong>SE1 1SS</strong></p>
 
         {{ govukRadios({
         id: "formulaManufacturingAddressList",

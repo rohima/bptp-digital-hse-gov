@@ -21,10 +21,7 @@ Active substance source data owner details – {{serviceName}} – GOV.UK
       <h1 class="govuk-heading-l">Active substance source data owner details  </p>
 
 <p>[Active substance name]  </p>
-
-{# <p>[Active substance name: 
-  <strong>Azoxystrobin
-  CAS: 131860-33-8</strong>]</p> #}
+<p>Add details of a data owner for this active substance source. You can add more sources later if you need to.  </p>
 
   <h2 class="govuk-heading-m">Name of data owner </h2>
   
@@ -56,28 +53,43 @@ Active substance source data owner details – {{serviceName}} – GOV.UK
   }) }}
 
 
-  <h2 class="govuk-heading-m">Manufacturing site address </h2>
 
-  {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+  <h2 class="govuk-heading-m">Do you know the manufacturing site address for this source?  </h2>
 
-{{ govukTextarea({
-  name: "moreDetail",
-  id: "more-detail",
-  label: {
-    text: "XXXXXXX "
-  },
-  hint: {
-    text: "xxxxxxxxx"
-  }
-}) }}
+  {{ govukRadios({
+    id: "formulaActiveSourceDataOwnerAddress",
+    name: "formulaActiveSourceDataOwnerAddress",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: ""
+    },
+    items: [
+      {
+        value: "Yes",
+        text: "Yes",
+        checked: false
+      },   
+      {
+        value: "No",
+        text: "No"
+      }
+  
+    ]
+  }) }}
 
   <h2 class="govuk-heading-m">How will you demonstrate access to the active substance source data in this application? </h2>
 
   <p>Letters of access must be valid and relevant to this application.  </p>
 
 {{ govukCheckboxes({
-  id: "formulaTypeAdd",
-  name: "formulaTypeAdd",
+  id: "formulaActiveSourceDataOwnerLetters",
+  name: "formulaActiveSourceDataOwnerLetters",
   fieldset: {
     legend: {
       text: "",
@@ -90,17 +102,17 @@ Active substance source data owner details – {{serviceName}} – GOV.UK
   },
   items: [
     {
-      value: "Letter of access to be provided in this application ",
-      text: "Letter of access to be provided in this application "
+      value: "Letter of access to be provided in this application",
+      text: "Letter of access to be provided in this application"
       
     },   
     {
       value: "Letter of access provided previously",
-      text: "Letter of access provided previously "
+      text: "Letter of access provided previously"
     },   
     {
-      value: "Letter of access provided by a third party ",
-      text: "Letter of access provided by a third party  "
+      value: "Letter of access provided by a third party",
+      text: "Letter of access provided by a third party"
     }
 
   ]
