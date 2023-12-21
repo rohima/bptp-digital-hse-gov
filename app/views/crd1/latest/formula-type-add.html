@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Tell us about your formula composition – {{serviceName}} – GOV.UK
+Add a substance – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -20,7 +20,7 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
       <span class="govuk-caption-l">Formulation composition</span>
       <h1 class="govuk-heading-l">Add a substance </p>
 
-      <p>Enter the details of the substance in your formulation. You can add another substance later if you need to.  </p>
+      <p>Add details of a substance in the product. You can add another substance later if you need to.    </p>
 
 {# <p>[Active substance name: 
   <strong>Azoxystrobin
@@ -30,10 +30,10 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
   
   {{ govukInput({
     label: {
-      text: 'Substance name'
+      text: 'Enter substance name '
     },
     hint: {
-    text: "  "
+    text: "Type part of the substance name and select it from the list. If the full name does not show, enter it manually "
   },
     id: "formulaActiveSubstanceName",
     name: "formulaActiveSubstanceName",
@@ -55,41 +55,20 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
     autocomplete: "formulaActiveSubstanceFunction"
   }) }}
 
-  <h2 class="govuk-heading-m">Substance type</h2>
 
-
-{{ govukRadios({
-  id: "formulaTypeAdd",
-  name: "formulaTypeAdd",
-  fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
+<h2 class="govuk-heading-m">Reference number (optional) </h2>
+{{ govukInput({
+  id: "formulaTypeAddReference",
+  name: "formulaTypeAddReference",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-two-thirds",
+  label: {
+    text: 'Enter reference number '
   },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "Active Substance",
-      text: "Active substance"
-      
-    },   
-    {
-      value: "Co Formulant",
-      text: "Co-formulant",
-      checked: false
-    }
-
-  ]
+  hint: {text: "For example, CAS, EC, ELINCS or EINECS number "}
 }) }}
-
-
-<h2 class="govuk-heading-m">Reference number</h2>
-
-{% set CAS %}
+{# {% set CAS %}
 {{ govukInput({
   id: "formulaTypeAddReference",
   name: "formulaTypeAddReference",
@@ -161,6 +140,37 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
       value: "EINECS",
       text: "EINECS number",
       conditional: { html: EINECS }
+    }
+
+  ]
+}) }} #}
+
+<h2 class="govuk-heading-m">What is the role of the substance in the product? </h2>
+
+
+{{ govukRadios({
+  id: "formulaTypeAdd",
+  name: "formulaTypeAdd",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "Active Substance",
+      text: "Active substance"
+      
+    },   
+    {
+      value: "Co Formulant",
+      text: "Co-formulant",
+      checked: false
     }
 
   ]

@@ -18,7 +18,7 @@ Is the source technically equivalent?   – {{serviceName}} – GOV.UK
       <form class="form" method="post">
 
       <span class="govuk-caption-l">Data ownership: Active substance source data </span>
-      <h1 class="govuk-heading-l">Has this source previously been considered to be technically equivalent?   </p>
+      <h1 class="govuk-heading-l">Has this active substance source previously been considered to be technically equivalent by an EU member state?    </p>
 
 <p>[Active substance name]</p>
 
@@ -43,9 +43,11 @@ Is the source technically equivalent?   – {{serviceName}} – GOV.UK
 }) }}
 {% endset -%}
 
+
+
 {{ govukRadios({
-  id: "formulaActiveSubstanceOwnership",
-  name: "formulaActiveSubstanceOwnership",
+  id: "activeSourcePreviousTechEquivNI",
+  name: "activeSourcePreviousTechEquivNI",
   fieldset: {
     legend: {
       text: "",
@@ -70,6 +72,16 @@ Is the source technically equivalent?   – {{serviceName}} – GOV.UK
 
   ]
 }) }}
+
+
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{{ govukWarningText({
+  text: "This authorisation may not be applied in Northern Ireland if the active substance source has not previously been considered to be technically equivalent by an EU member state.",
+  iconFallbackText: "Warning"
+}) }}
+
+
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 

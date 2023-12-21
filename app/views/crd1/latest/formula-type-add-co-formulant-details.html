@@ -1,0 +1,176 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Co-formulant details – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+        <span class="govuk-caption-l">Formulation composition</span>
+        <h1 class="govuk-heading-l">Details for [Co-formulant name] </h1>
+
+        <h2 class="govuk-heading-m">Trade name </h2>
+
+        {{ govukInput({
+          label: {
+            text: 'Enter trade name '
+          },
+          classes: "",
+          hint: {
+          text: "Enter at least one trade name. If you have more than one, separate each one with a comma. For example ‘Sodium dihydrate’, ‘Lactose’. "
+        },
+          id: "formulaOtherSubstanceTradeName",
+          name: "formulaOtherSubstanceTradeName"
+        }) }}
+
+        <h2 class="govuk-heading-m">Function </h2>
+
+  {{ govukInput({
+    label: {
+      text: 'Enter function '
+    },
+    hint: {
+    text: "  "
+  },
+    id: "formulaActiveSubstanceWeightUnitValue",
+    name: "formulaActiveSubstanceWeightUnitValue",
+    autocomplete: "formulaActiveSubstanceWeightUnitValue"
+  }) }}
+
+  <h2 class="govuk-heading-m">Will you upload safety data sheets dated within the last 2 years as part of this application?  </h2>
+  
+  {{ govukRadios({
+    id: "formulaTypeAddReference",
+    name: "formulaTypeAddReference",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: ""
+    },
+    items: [
+      {
+        value: "Yes",
+        text: "Yes",
+        hint: {text: "You will be asked to upload these later in the application "}
+      },
+      {
+        value: "No",
+        text: "No, these will be provided by a third party ",
+        hint: {text: "The third party must reference the job number for this application when they provide these "}
+      }
+    
+  
+    ]
+  }) }}
+
+
+
+  <h2 class="govuk-heading-m">Concentration   </h2>
+
+  {{ govukInput({
+    label: {
+      text: 'Enter unit'
+    },
+    hint: {
+    text: "  "
+  },
+    id: "formulaActiveSubstanceWeightUnitValue",
+    name: "formulaActiveSubstanceWeightUnitValue",
+    autocomplete: "formulaActiveSubstanceWeightUnitValue",
+    classes: "govuk-!-width-two-thirds"
+  }) }}
+
+
+  {% set Other %}
+  {{ govukInput({
+    id: "formulaTypeAddReference",
+    name: "formulaTypeAddReference",
+    type: "tel",
+    autocomplete: "tel",
+    classes: "govuk-!-width-one-third",
+    label: {
+      text: 'Enter unit'
+    }
+  }) }}
+  {% endset -%}  
+
+{{ govukRadios({
+  id: "formulaTypeAdd",
+  name: "formulaTypeAdd",
+  fieldset: {
+    legend: {
+      text: "Select a unit: ",
+      classes: "govuk-fieldset__legend-"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "grams per litre (g/l)  ",
+      text: "grams per litre (g/l)  "
+      
+    },   
+    {
+      value: "grams per kilogram (g/kg)  ",
+      text: "grams per kilogram (g/kg)  ",
+      checked: false
+    },   
+    {
+      value: "Other",
+      text: "Other",
+      conditional: { html: Other }
+    }
+
+  ]
+}) }}
+
+
+{# <h2 class="govuk-heading-m">If the co-formulant is a mixture, enter the number of components that make up the mixture   </h2>
+
+{{ govukInput({
+  label: {
+    text: 'Enter value'
+  },
+  hint: {
+  text: "If it is not a mixture, leave blank "
+},
+  id: "formulaActiveSubstanceWeightUnitValue",
+  name: "formulaActiveSubstanceWeightUnitValue",
+  autocomplete: "formulaActiveSubstanceWeightUnitValue",
+  classes: "govuk-!-width-two-thirds"
+}) }} #}
+
+
+
+
+
+
+
+
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
