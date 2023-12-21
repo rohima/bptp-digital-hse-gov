@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Find registered address for {{ data['applicationCompanyName'] or "[company name]" }} – Manage building control for a higher-risk building – GOV.UK
+Find registered address for {{ data['applicationCompanyName'] or "[company name]" }} {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -39,7 +39,7 @@ Find registered address for {{ data['applicationCompanyName'] or "[company name]
           name: "clientAddressPostcode"
         }) }}
           <p>
-            <a href="#">Enter an international address</a>
+            <a href="application-address-international">Enter an international address</a>
           </p>
           <button class="govuk-button" data-module="govuk-button">Find address</button>
         </form>

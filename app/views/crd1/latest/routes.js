@@ -86,6 +86,16 @@ router.post('/application-address-confirm', function (req, res) {
 
 })
 
+
+// application-address-international
+
+router.post('/application-address-international', function (req, res) {
+  
+  let applicantCompanyAddressList = req.session.data.applicantCompanyAddressConfirm;
+  res.redirect('application-telephone');
+
+})
+
 // application-telephone
 
 router.post('/application-telephone', function (req, res) {
