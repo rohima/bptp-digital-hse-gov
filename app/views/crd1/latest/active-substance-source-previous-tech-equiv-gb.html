@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Is all the data for this active substance owned by the authorisation holder?  â€“ {{serviceName}} â€“ GOV.UK
+Is the source technically equivalent?   â€“ {{serviceName}} â€“ GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -17,10 +17,10 @@ Is all the data for this active substance owned by the authorisation holder?  â€
 
       <form class="form" method="post">
 
-      <span class="govuk-caption-l">Data ownership: Active substance data </span>
-      <h1 class="govuk-heading-l">Who is the data owner for [Active substance name]? </p>
+      <span class="govuk-caption-l">Data ownership: Active substance source data </span>
+      <h1 class="govuk-heading-l">Has this active substance source previously been considered to be technically equivalent in Great Britain?    </p>
 
-{# <p>Provide details for [Azoxystrobin] active substance or data owner. You can add more active substanceslater</p> #}
+<p>[Active substance name]</p>
 
 {# <div class="govuk-inset-text">
   [Active substance name: 
@@ -44,8 +44,8 @@ Is all the data for this active substance owned by the authorisation holder?  â€
 {% endset -%}
 
 {{ govukRadios({
-  id: "formulaActiveSubstanceOwnership",
-  name: "formulaActiveSubstanceOwnership",
+  id: "activeSourcePreviousTechEquivGB",
+  name: "activeSourcePreviousTechEquivGB",
   fieldset: {
     legend: {
       text: "",
@@ -59,12 +59,12 @@ Is all the data for this active substance owned by the authorisation holder?  â€
   items: [
     {
       value: "Yes",
-      text: "All data is owned by the authorisation holder "
+      text: "Yes "
       
     },   
     {
       value: "No",
-      text: "A different organisation owns all or part of the data ",
+      text: "No",
       checked: false
     }
 

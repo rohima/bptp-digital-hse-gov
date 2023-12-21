@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Is all the data for this active substance owned by the authorisation holder?  â€“ {{serviceName}} â€“ GOV.UK
+Are you applying for a technical equivalence assessment?  â€“ {{serviceName}} â€“ GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -17,10 +17,12 @@ Is all the data for this active substance owned by the authorisation holder?  â€
 
       <form class="form" method="post">
 
-      <span class="govuk-caption-l">Data ownership: Active substance data </span>
-      <h1 class="govuk-heading-l">Who is the data owner for [Active substance name]? </p>
+      <span class="govuk-caption-l">Data ownership: Active substance source data </span>
+      <h1 class="govuk-heading-l">Are you applying for a technical equivalence assessment for this source as part of this application?    </p>
 
-{# <p>Provide details for [Azoxystrobin] active substance or data owner. You can add more active substanceslater</p> #}
+<p>[Active substance name]</p>
+
+<p>All sources must have been assessed for technical equivalence in order for your application for authorisation to proceed.  </p>
 
 {# <div class="govuk-inset-text">
   [Active substance name: 
@@ -37,9 +39,9 @@ Is all the data for this active substance owned by the authorisation holder?  â€
   autocomplete: "tel",
   classes: "govuk-!-width-one-third",
   label: {
-    text: "Reference evaluation report"
+    text: "Enter details "
   },
-  hint: { text: "This could be any or all of the following: COP number, Wisdom reference, HSE reference, product name, product identifier code"}
+  hint: { text: "Give details of the application, for example, job number, product name or MAPP number "}
 }) }}
 {% endset -%}
 
@@ -59,13 +61,13 @@ Is all the data for this active substance owned by the authorisation holder?  â€
   items: [
     {
       value: "Yes",
-      text: "All data is owned by the authorisation holder "
+      text: "Yes "
       
     },   
     {
       value: "No",
-      text: "A different organisation owns all or part of the data ",
-      checked: false
+      text: "No â€“ another application is in progress",
+      conditional: { html: emailHtml }
     }
 
   ]

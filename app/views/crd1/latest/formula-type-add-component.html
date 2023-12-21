@@ -33,7 +33,7 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
       text: 'Enter trade name '
     },
     hint: {
-    text: "If you have more than one, separate each one with a comma. For example ‘Apples 10’, ‘Pears 50’. "
+    text: "If you have more than one, separate each one with a comma. For example ‘Sodium dihydrate’, ‘Lactose’.  "
   },
     id: "formulaActiveSubstanceName",
     name: "formulaActiveSubstanceName",
@@ -130,8 +130,12 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
       value: "EINECS",
       text: "EINECS number",
       conditional: { html: EINECS }
+    },
+    {
+      value: "No reference number",
+      text: "No reference number"
     }
-
+    
   ]
 }) }}
 
