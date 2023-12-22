@@ -149,8 +149,8 @@ router.post('/task-list', function (req, res) {
 // applicant-type
   
 router.post('/applicant-type', function (req, res) {
-  let applicantType = req.session.data.applicantType;
-  if (applicantType == "Yes") {
+  let applicationOrganisationType = req.session.data.applicationOrganisationType;
+  if (applicationOrganisationType == "Yes") {
     res.redirect('auth-holder-check-answers');
   } else {
     res.redirect('auth-holder-same');
