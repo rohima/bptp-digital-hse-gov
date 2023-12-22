@@ -8,6 +8,15 @@ const router = express.Router()
 
 // ----------------- APPLICATION JOURNEY ----------------- //
 
+// existing-job-number
+
+router.post('/existing-job-number', function (req, res) {
+  
+  let existingJobNumber = req.session.data.existingJobNumber;
+  res.redirect('send-verify-code');
+
+})
+
 // application-name-contact
 
 router.post('/application-name-contact', function (req, res) {
