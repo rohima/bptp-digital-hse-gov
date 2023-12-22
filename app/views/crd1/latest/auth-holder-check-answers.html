@@ -14,7 +14,7 @@
       <form method="post">
 
         <h1 class="govuk-heading-xl">Check your answers</h1>
-        <h2 class="govuk-heading-m">Authorisation holder</h2>
+        <h2 class="govuk-heading-m">{{ "Authorisation holder" if data['applicationOrganisationType'] == "Yes" else "Acting on behalf of Auth holder" }}</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
@@ -31,6 +31,8 @@
               </a>
             </dd>
           </div>
+
+          {% if data['authHolderSame'] == "Someone else"  %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
             Registered address
@@ -45,6 +47,8 @@
               </a>
             </dd>
           </div>
+          {% endif %}
+          
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
             Company registration number

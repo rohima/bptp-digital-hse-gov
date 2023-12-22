@@ -20,10 +20,9 @@
             Formulation composition 
           </dt>
             <dd class="govuk-summary-list__value">
-            50% {{ data['formulaActiveSubstanceName'] or 'Azoxystrobin' }}
-              {{ data['formulaTypeAdd' + data['formulaTypeAddReference'] or 'CAS' + 'Reference'] or '131860-33-8' }}</br>
-            25% Substance 2<br>
-            25% Substance 3<br>
+            Substance 1</br>
+            Substance 2<br>
+            Substance 3<br>
           </dd>
           <dd class="govuk-summary-list__actions">
             <a href="test-formula-composition-add-another">
@@ -35,7 +34,7 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Are all active substances low risk?   
+            Is the product low risk?   
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['formulaRisk'] or 'Yes'}}
@@ -43,37 +42,22 @@
           <dd class="govuk-summary-list__actions">
             <a href="formula-risk">
               Change
-              <span class="govuk-visually-hidden">Are all active substances low risk? </span>
+              <span class="govuk-visually-hidden">Is the product low risk?</span>
             </a>
           </dd>
         </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Are all co-formulants low risk? 
+            Low risk statement
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['productRisk'] or 'Yes'}}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="formula-risk-co-formulant">
-              Change
-              <span class="govuk-visually-hidden"> Are all co-formulants low risk? </span>
-            </a>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            5-batch data 
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['formulaActiveSubstanceDataOwnerSpecUpload'] or '[5-batch data upload]'}}
+            {{ data['formulaActiveSubstanceDataOwnerSpecUpload'] or '[low risk statement-upload]'}}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a href="test-formula-active-substance-five-batch-source-upload">
               Change
-              <span class="govuk-visually-hidden">Specification/5 batch analysis data upload</span>
+              <span class="govuk-visually-hidden">Low risk statement</span>
             </a>
           </dd>
         </div>

@@ -8,6 +8,15 @@ const router = express.Router()
 
 // ----------------- APPLICATION JOURNEY ----------------- //
 
+// existing-job-number
+
+router.post('/existing-job-number', function (req, res) {
+  
+  let existingJobNumber = req.session.data.existingJobNumber;
+  res.redirect('send-verify-code');
+
+})
+
 // application-name-contact
 
 router.post('/application-name-contact', function (req, res) {
@@ -65,9 +74,18 @@ router.post('/application-address-confirm', function (req, res) {
 })
 
 
-// application-address-international
+// enter-international-address
 
-router.post('/application-address-international', function (req, res) {
+router.post('/enter-international-address', function (req, res) {
+  
+  let applicantCompanyAddressList = req.session.data.applicantCompanyAddressConfirm;
+  res.redirect('application-telephone');
+
+})
+
+// enter-manual-address
+
+router.post('/enter-manual-address', function (req, res) {
   
   let applicantCompanyAddressList = req.session.data.applicantCompanyAddressConfirm;
   res.redirect('application-telephone');
@@ -142,11 +160,10 @@ router.post('/task-list', function (req, res) {
 router.post('/applicant-type', function (req, res) {
   let applicationOrganisationType = req.session.data.applicationOrganisationType;
   if (applicationOrganisationType == "Yes") {
-    res.redirect('auth-holder-check-answers');
+    res.redirect('auth-holder-company-registration');
   } else {
     res.redirect('auth-holder-same');
   }
-
 })
 
 // auth-holder-same
@@ -158,7 +175,7 @@ router.post('/auth-holder-same', function (req, res) {
   if (authHolderSame == "Someone else") {
     res.redirect('auth-holder-company');
   } else {
-    res.redirect('documents-upload-proof-of-authorisation');
+    res.redirect('auth-holder-company-registration');
   }
 })
 
@@ -186,7 +203,18 @@ router.post('/auth-holder-address-list', function (req, res) {
 // auth-holder-address-confirm
 
 router.post('/auth-holder-address-confirm', function (req, res) {
-  res.redirect('documents-upload-proof-of-authorisation');
+  res.redirect('auth-holder-company-registration');
+})
+
+// auth-holder-company-registration
+  
+router.post('/auth-holder-company-registration', function (req, res) {
+  let applicationOrganisationType = req.session.data.applicationOrganisationType;
+  if (applicationOrganisationType == "Yes") {
+    res.redirect('auth-holder-check-answers');
+  } else {
+    res.redirect('documents-upload-proof-of-authorisation');
+  }
 })
 
 
@@ -217,7 +245,7 @@ router.post('/marketing-co-same', function (req, res) {
   if (marketingHolderSame == "Someone else") {
     res.redirect('marketing-company');
   } else {
-    res.redirect('marketing-co-check-answers');
+    res.redirect('marketing-company-registration');
   }
 })
 
@@ -245,6 +273,13 @@ router.post('/marketing-address-list', function (req, res) {
 // marketing-address-confirm
 
 router.post('/marketing-address-confirm', function (req, res) {
+  res.redirect('marketing-company-registration');
+})
+
+// marketing-company-registration
+  
+router.post('/marketing-company-registration', function (req, res) {
+  let marketingCompanyRegistration = req.session.data.marketingCompanyRegistration;
   res.redirect('marketing-co-check-answers');
 })
 
