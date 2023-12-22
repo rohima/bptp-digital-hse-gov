@@ -245,7 +245,7 @@ router.post('/marketing-co-same', function (req, res) {
   if (marketingHolderSame == "Someone else") {
     res.redirect('marketing-company');
   } else {
-    res.redirect('marketing-co-check-answers');
+    res.redirect('marketing-company-registration');
   }
 })
 
@@ -273,6 +273,13 @@ router.post('/marketing-address-list', function (req, res) {
 // marketing-address-confirm
 
 router.post('/marketing-address-confirm', function (req, res) {
+  res.redirect('marketing-company-registration');
+})
+
+// marketing-company-registration
+  
+router.post('/marketing-company-registration', function (req, res) {
+  let marketingCompanyRegistration = req.session.data.marketingCompanyRegistration;
   res.redirect('marketing-co-check-answers');
 })
 
