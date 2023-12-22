@@ -64,6 +64,16 @@ router.post('/application-address-confirm', function (req, res) {
 
 })
 
+
+// application-address-international
+
+router.post('/application-address-international', function (req, res) {
+  
+  let applicantCompanyAddressList = req.session.data.applicantCompanyAddressConfirm;
+  res.redirect('application-telephone');
+
+})
+
 // application-telephone
 
 router.post('/application-telephone', function (req, res) {
@@ -144,9 +154,41 @@ router.post('/applicant-type', function (req, res) {
 router.post('/auth-holder-same', function (req, res) {
   
   let authHolderSame = req.session.data.authHolderSame;
-  res.redirect('documents-upload-proof-of-authorisation');
 
+  if (authHolderSame == "Someone else") {
+    res.redirect('auth-holder-company');
+  } else {
+    res.redirect('documents-upload-proof-of-authorisation');
+  }
 })
+
+// auth-holder-company
+
+router.post('/auth-holder-company', function (req, res) {
+  let authCompanyName = req.session.data.authCompanyName;
+  res.redirect('auth-holder-address-postcode');
+})
+
+// auth-holder-address-postcode
+
+router.post('/auth-holder-address-postcode', function (req, res) {
+  let authAddressPostcode = req.session.data.authAddressPostcode;
+  res.redirect('auth-holder-address-list');
+})
+
+// auth-holder-address-list
+
+router.post('/auth-holder-address-list', function (req, res) {
+  let authCompanyAddressList = req.session.data.authCompanyAddressList;
+  res.redirect('auth-holder-address-confirm');
+})
+
+// auth-holder-address-confirm
+
+router.post('/auth-holder-address-confirm', function (req, res) {
+  res.redirect('documents-upload-proof-of-authorisation');
+})
+
 
 // documents-upload-proof-of-authorisation
 router.post('/documents-upload-proof-of-authorisation', function (req, res) {
@@ -170,9 +212,40 @@ router.post('/auth-holder-check-answers', function (req, res) {
 
 router.post('/marketing-co-same', function (req, res) {
   
-  let marketingCoSame = req.session.data.marketingCoSame;
-  res.redirect('marketing-co-check-answers');
+  let marketingHolderSame = req.session.data.marketingHolderSame;
+  
+  if (marketingHolderSame == "Someone else") {
+    res.redirect('marketing-company');
+  } else {
+    res.redirect('marketing-co-check-answers');
+  }
+})
 
+// marketing-company
+
+router.post('/marketing-company', function (req, res) {
+  let marketingCompanyName = req.session.data.marketingCompanyName;
+  res.redirect('marketing-address-postcode');
+})
+
+// marketing-address-postcode
+
+router.post('/marketing-address-postcode', function (req, res) {
+  let marketingAddressPostcode = req.session.data.marketingAddressPostcode;
+  res.redirect('marketing-address-list');
+})
+
+// marketing-address-list
+
+router.post('/marketing-address-list', function (req, res) {
+  let marketingCompanyAddressList = req.session.data.marketingCompanyAddressList;
+  res.redirect('marketing-address-confirm');
+})
+
+// marketing-address-confirm
+
+router.post('/marketing-address-confirm', function (req, res) {
+  res.redirect('marketing-co-check-answers');
 })
 
 // marketing-co-check-answers

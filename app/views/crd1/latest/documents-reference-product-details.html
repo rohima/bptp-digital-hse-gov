@@ -9,84 +9,54 @@ Enter the reference product details – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <form class="form" method="post">
+        <h1 class="govuk-heading-l">Enter the reference product details</h1>
 
-      {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">Enter the reference product details</h1>
+        {{ govukInput({
+        label: {
+          text: "Product name",
+          classes: "govuk-label?--l",
+          isPageHeading: true
+        },
+        id: "documentsReferenceProductName",
+        name: "documentsReferenceProductName"
+        }) }}
 
-      {# <p> Enter a new primary product name. You can also add your own internal code number. This is what we will call your application within this service.</p> #}
+        {{ govukInput({
+        label: {
+          text: "MAPP number",
+          classes: "govuk-label?--l",
+          isPageHeading: true
+        },
+        id: "documentsReferenceProductMapp",
+        name: "documentsReferenceProductMapp"
+        }) }}
 
+        {{ govukInput({
+        label: {
+          text: "Authorisation holder",
+          classes: "govuk-label?--l",
+          isPageHeading: true
+        },
+        id: "documentsReferenceProductAuthHolder",
+        name: "documentsReferenceProductAuthHolder"
+        }) }}
 
- {% from "govuk/components/input/macro.njk" import govukInput %}
-{{ govukInput({
-  label: {
-    text: "Product name",
-    classes: "govuk-label?--l",
-    isPageHeading: true
-  },
-  hint: {
-    text: ""
-  },
-  id: "documentsReferenceProductName",
-  name: "documentsReferenceProductName"
-}) }}
-
-{{ govukInput({
-  label: {
-    text: "MAPP number",
-    classes: "govuk-label?--l",
-    isPageHeading: true
-  },
-  hint: {
-    text: ""
-  },
-  id: "documentsReferenceProductMapp",
-  name: "documentsReferenceProductMapp"
-}) }}
-
-
-
-{{ govukInput({
-  label: {
-    text: "Authorisation holder",
-    classes: "govuk-label?--l",
-    isPageHeading: true
-  },
-  hint: {
-    text: ""
-  },
-  id: "documentsReferenceProductAuthHolder",
-  name: "documentsReferenceProductAuthHolder"
-}) }}
-
-
-
-{{ govukInput({
-  label: {
-    text: "Marketing company",
-    classes: "govuk-label?--l",
-    isPageHeading: true
-  },
-  hint: {
-    text: ""
-  },
-  id: "documentsReferenceProductMarketingCo",
-  name: "documentsReferenceProductMarketingCo"
-}) }}
-
-    
+        {{ govukInput({
+        label: {
+          text: "Marketing company",
+          classes: "govuk-label?--l",
+          isPageHeading: true
+        },
+        id: "documentsReferenceProductMarketingCo",
+        name: "documentsReferenceProductMarketingCo"
+        }) }}
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>
-
     </div>
   </div>
-
 {% endblock %}

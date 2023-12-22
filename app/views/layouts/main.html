@@ -4,3 +4,36 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 #}
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% block footer %}
+    {{ govukFooter({
+      meta: {
+        items: [
+          {
+            href: "/manage-prototype/clear-data",
+            text: "Clear data"
+          },
+          {
+            href: "",
+            text: "Help"
+          },
+          {
+            href: "stand-alone/privacy",
+            text: "Privacy"
+          },
+          {
+            href: "stand-alone/accessibility",
+            text: "Accessiblility"
+          },
+          {
+            href: "stand-alone/cookies",
+            text: "Cookies"
+          },
+          {
+            href: "stand-alone/terms-and-conditions",
+            text: "Terms and conditions"
+          }
+        ]
+      }
+    }) }}
+{% endblock %}

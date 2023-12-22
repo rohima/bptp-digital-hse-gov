@@ -9,20 +9,12 @@ Upload proof of authorisation  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Upload proof of authorisation</h1>
+      <p>If the authorisation holder has given permission for you to act for them, you must upload written proof of this.</p>
+      <form class="form" method="post">
 
-      
-
-     
-        {# <span class="govuk-caption-l">Documents</span> #}
-
-        <h1 class="govuk-heading-l">Upload proof of authorisation </h1>
-        <p>If the authorisation holder has given permission for you to act for them, you must upload written proof of this. </p>
-        <form class="form" method="post">
-
-        {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
         {{ govukFileUpload({
           id: "authHolderAuthorisation",
           name: "authHolderAuthorisation",
@@ -30,16 +22,10 @@ Upload proof of authorisation  – {{serviceName}} – GOV.UK
             text: "Upload file"
           }
         }) }}
-    
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
       </form>
-
     </div>
   </div>
-
-   
-
-
 {% endblock %}

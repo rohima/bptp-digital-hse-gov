@@ -9,12 +9,8 @@ Add a substance – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <form class="form" method="post">
 
       <span class="govuk-caption-l">Formulation composition</span>
@@ -41,19 +37,19 @@ Add a substance – {{serviceName}} – GOV.UK
   }) }}
 
 
-  <h2 class="govuk-heading-m">Function</h2>
-  
-  {{ govukInput({
-    label: {
-      text: 'Enter function '
-    },
-    hint: {
-    text: "Type part of the substance name and select it from the list. If the full name does not show, enter it manually.  "
-  },
-    id: "formulaActiveSubstanceFunction",
-    name: "formulaActiveSubstanceFunction",
-    autocomplete: "formulaActiveSubstanceFunction"
-  }) }}
+        <h2 class="govuk-heading-m">Function</h2>
+
+        {{ govukInput({
+        label: {
+          text: 'Enter function '
+        },
+        hint: {
+          text: "Type part of the substance name and select it from the list. If the full name does not show, enter it manually.  "
+        },
+        id: "formulaActiveSubstanceFunction",
+        name: "formulaActiveSubstanceFunction",
+        autocomplete: "formulaActiveSubstanceFunction"
+        }) }}
 
 
 <h2 class="govuk-heading-m">Reference number (optional) </h2>
@@ -183,5 +179,4 @@ Add a substance – {{serviceName}} – GOV.UK
 
     </div>
   </div>
-
 {% endblock %}

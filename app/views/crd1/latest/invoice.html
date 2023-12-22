@@ -5,45 +5,19 @@ Invoice – Manage building control for a higher-risk building – GOV.UK
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      
-
       <h1 class="govuk-heading-l">Enter invoice details</h1>
-
       <form class="form" method="post">
+        <h2 class="govuk-heading-m">Contact details</h2>
 
-        {# <div class="govuk-info-banner govuk-!-margin-bottom-5" style="
-          background: rgb(243, 242, 241); padding: 20px; border-top: 2px solid rgb(53, 110, 181);">
-          <h2 class="govuk-heading-m">Payment summary</h2>
-          <govuk-body class="govuk-!-margin-bottom-5">
-            <p class="govuk-!-margin-bottom-5 govuk-body">Application reference: XXXXXXXXXXX</p>
-          </govuk-body>
-          <govuk-body><p class="govuk-body">Amount due now:</p></govuk-body>
-          <govuk-body class="govuk-payment-amount">
-              <p class="govuk-body govuk-payment-amount" style="font-size: 36px; font-weight: bold;">£216</p>
-          </govuk-body>
-          <p class="govuk-hint">You’ll also be charged £144 per hour for BSR staff to work on your application, and for any costs BSR incur from relevant authorities or third parties. We’ll send a monthly invoice by email for these charges.  </p>
-        </div> #}
-
-      {# <div class="govuk-panel govuk-panel--confirmation">
-        <h1 class="govuk-panel__title">Application complete</h1>
-        <div class="govuk-panel__body">
-          Your application reference is <br><strong>BCA123456789</strong>
-        </div>
-      </div> #}
-
-      <h2 class="govuk-heading-m">Contact details</h2>
-
-      {% call govukFieldset({
-        legend: {
-          text: "",
-          classes: "",
-          isPageHeading: true
-        }
-      }) %}
+        {% call govukFieldset({
+          legend: {
+            text: "",
+            classes: "",
+            isPageHeading: true
+          }
+        }) %}
 
         {{ govukInput({
           label: {
@@ -66,65 +40,18 @@ Invoice – Manage building control for a higher-risk building – GOV.UK
           autocomplete: ""
         }) }}
 
-        
+        {% endcall %}
 
-        
+        <h2 class="govuk-heading-m">Billing address</h2>
+        <p>This is the address associated with the account.</p>
 
-      {% endcall %}
-
-      {# {% from "govuk/components/table/macro.njk" import govukTable %}
-
-{{ govukTable({
-  caption: "",
-  captionClasses: "govuk-table__caption--m",
-  firstCellIsHeader: true,
-  
-  rows: [
-  [
-      
-  {
-    text: "Named contact"
-  },
-  {
-    text: "	[First name, Last name]"
-  }
-  ],
-  [
-      
-      {
-        text: "Email address"
-      },
-      {
-        text: "	[Email address]"
-      }
-    ],
-    
-    [
-      {
-        text: " Correspondence address"
-      },
-      {
-        text: "[Organisation address]"
-      }
-    ]
-  ]
-}) }} #}
-
-      <h2 class="govuk-heading-m">Billing address</h2>    
-      <p>This is the address associated with the account.</p>
-
-      {% from "govuk/components/input/macro.njk" import govukInput %}
-      {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
-
-      {# <div class="govuk-panel" style="background-color: #f3f2f1;"><h1 class="govuk-panel__title">You do not need to register Bob</h1></div>  #}
-
-       {% call govukFieldset({
-        legend: {
-          text: "",
-          classes: "",
-          isPageHeading: true
-        }
-      }) %}
+        {% call govukFieldset({
+          legend: {
+            text: "",
+            classes: "",
+            isPageHeading: true
+          }
+        }) %}
 
         {{ govukInput({
           label: {
@@ -164,131 +91,58 @@ Invoice – Manage building control for a higher-risk building – GOV.UK
           autocomplete: "postal-code"
         }) }}
 
-      {% endcall %}
+        {% endcall %}
 
-      <h2 class="govuk-heading-m">Do you need a purchase order number on the invoice?</h2>
+        <h2 class="govuk-heading-m">Do you need a purchase order number on the invoice?</h2>
 
-      {# <details class="govuk-details" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Purchase order information
-          </span>
-        </summary>
-        
-        <div class="govuk-details__text">
-          <p>You may need the following information to get a purchase order number:</p>
-          {% from "govuk/components/table/macro.njk" import govukTable %}
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "contact-by-email",
+          name: "contactByEmail",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "Purchase order number:"
+          }
+        }) }}
+        {% endset -%}
 
-{{ govukTable({
-  caption: "",
-  captionClasses: "govuk-table__caption--m",
-  firstCellIsHeader: true,
-  
-  rows: [
-    [
-      {
-        text: "Amount"
-      },
-      {
-        text: "£216"
-      }
-    ],
-    [
-      {
-        text: "Billing name"
-      },
-      {
-        text: "Health and Safety Executive"
-      }
-    ],
-    [
-      {
-        text: "Billing address"
-      },
-      {
-        text: "Redgrave Court, Merton Road,
-         Bootle, Merseyside, L20 7HS Apply for building control for a higher-risk building"
-         
-      }
-    ],
-    [
-      {
-        text: "Reason for payment"
-      },
-      {
-        text: "Apply for completion certificate for a higher-risk building "
-      }
-    ]
-  ]
-}) }}
-          
-        </div>
-      </details> #}
+        {{ govukRadios({
+        name: "contact",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes – I have a purchase order number",
+            conditional: {
+              html: emailHtml
+            }
+          },
+          {
+            value: "No",
+            text: "No – I do not need a purchase order number on the invoice",
+            conditional: {
+              html: phoneHtml
+            }
+          }
+        ]
+        }) }}
 
-      
+        <button type="submit" class="govuk-button" data-module="govuk-button">Submit application</button>
 
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
+        <p>
+          <a href="task-list-single-hrb">Save and come back later</a>
+        </p>
 
-{% set emailHtml %}
-{{ govukInput({
-  id: "contact-by-email",
-  name: "contactByEmail",
-  type: "email",
-  autocomplete: "email",
-  spellcheck: false,
-  classes: "govuk-!-width-two-thirds",
-  label: {
-    text: "Purchase order number:"
-  }
-}) }}
-{% endset -%}
-
-
-{{ govukRadios({
-  name: "contact",
-  fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "Yes",
-      text: "Yes – I have a purchase order number",
-      conditional: {
-        html: emailHtml
-      }
-    },
-    {
-      value: "No",
-      text: "No – I do not need a purchase order number on the invoice",
-      conditional: {
-        html: phoneHtml
-      }
-    }
-  ]
-}) }}
-      
-
-      <button type="submit" class="govuk-button" data-module="govuk-button">
-        Submit application
-      </button>
-
-          </div>
-        </div>
-
-        <p><a href="task-list-single-hrb">Save and come back later</a></p>
-
-      {% endblock %}
-
-    </form>
-
-    
-
-
+      </form>
+    </div>
+  </div>
+{% endblock %}

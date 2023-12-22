@@ -9,12 +9,8 @@ Is all the data for this active substance owned by the authorisation holder?  â€
 {% endblock %}
 
 {% block content %}
-
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <form class="form" method="post">
 
       <span class="govuk-caption-l">Data ownership: Active substance data </span>
@@ -29,19 +25,19 @@ Is all the data for this active substance owned by the authorisation holder?  â€
 </div> #}
 
 
-{% set emailHtml %}
-{{ govukInput({
-  id: "formulaActiveSubstanceOwnershipText",
-  name: "formulaActiveSubstanceOwnershipText",
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "Reference evaluation report"
-  },
-  hint: { text: "This could be any or all of the following: COP number, Wisdom reference, HSE reference, product name, product identifier code"}
-}) }}
-{% endset -%}
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "formulaActiveSubstanceOwnershipText",
+          name: "formulaActiveSubstanceOwnershipText",
+          type: "tel",
+          autocomplete: "tel",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Reference evaluation report"
+          },
+          hint: { text: "This could be any or all of the following: COP number, Wisdom reference, HSE reference, product name, product identifier code"}
+        }) }}
+        {% endset -%}
 
 {{ govukRadios({
   id: "formulaActiveSubstanceOwnership",
@@ -77,5 +73,4 @@ Is all the data for this active substance owned by the authorisation holder?  â€
 
     </div>
   </div>
-
 {% endblock %}

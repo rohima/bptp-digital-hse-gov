@@ -9,43 +9,28 @@ Product application methods  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-     
-      
-
       <form class="form" method="post">
 
-      {# <span class="govuk-caption-l">Application</span> #}
+        <h1 class="govuk-heading-l">Product application methods [for protected crops]</h1>
+        <p class="govuk-hint">Select all that apply.</p>
 
-      <h1 class="govuk-heading-l">
-        Product application methods [for protected crops]
-      </h1>
-      
-      
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "gapApplicationAmateurProtectedOther",
+          name: "gapApplicationAmateurProtectedOther",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Provide details"
+          }
+        }) }}
+        {% endset -%}
 
-      <p class="govuk-hint">Select all that apply. </p>
-
-
-
-      {% set emailHtml %}
-{{ govukInput({
-  id: "gapApplicationAmateurProtectedOther",
-  name: "gapApplicationAmateurProtectedOther",
-  type: "email",
-  autocomplete: "email",
-  spellcheck: false,
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "Provide details  "
-  }, 
-  hint: {text:""}
-}) }}
-{% endset -%}
-
-      {{ govukCheckboxes({
+        {{ govukCheckboxes({
         name: "gapApplicationAmateurProtected",
         id: "gapApplicationAmateurProtected",
         fieldset: {
@@ -115,15 +100,11 @@ Product application methods  – {{serviceName}} – GOV.UK
             }
           }
         ]
-      }) }}
+        }) }}
 
-    
-        
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
       </form>
-
     </div>
   </div>
-
 {% endblock %}

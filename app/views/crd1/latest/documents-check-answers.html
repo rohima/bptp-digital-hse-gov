@@ -9,216 +9,195 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
-
-      
-<form method="post">
+      <form method="post">
 
         <h1 class="govuk-heading-xl">Check your answers</h1>
-
         <h2 class="govuk-heading-m">Reference product details</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Using a reference product
-            </dt>
+            Using a reference product
+          </dt>
             <dd class="govuk-summary-list__value">
               {{ data['documentsReferenceProduct'] or 'Yes'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-reference-product">
-                Change
-                <span class="govuk-visually-hidden">Using a reference product to support your application</span>
+              Change
+              <span class="govuk-visually-hidden">Using a reference product to support your application</span>
               </a>
             </dd>
           </div>
-  
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-             Product name
-            </dt>
+           Product name
+          </dt>
             <dd class="govuk-summary-list__value">
               {{ data['documentsReferenceProductName'] or 'Reference product'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-reference-product-details">
-                Change
-                <span class="govuk-visually-hidden">Product name</span>
+              Change
+              <span class="govuk-visually-hidden">Product name</span>
               </a>
             </dd>
           </div>
-
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              MAPP number
-            </dt>
+            MAPP number
+          </dt>
             <dd class="govuk-summary-list__value">
               {{ data['documentsReferenceProductMapp'] or 'MAPP-123456'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-reference-product-details">
-                Change
-                <span class="govuk-visually-hidden">MAPP number</span>
+              Change
+              <span class="govuk-visually-hidden">MAPP number</span>
               </a>
             </dd>
           </div>
-
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Authorisation holder
-            </dt>
+            Authorisation holder
+          </dt>
             <dd class="govuk-summary-list__value">
               {{ data['documentsReferenceProductAuthHolder'] or 'Ref Ltd'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-reference-product-details">
-                Change
-                <span class="govuk-visually-hidden">Authorisation holder</span>
+              Change
+              <span class="govuk-visually-hidden">Authorisation holder</span>
               </a>
             </dd>
           </div>
-
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Marketing company
-            </dt>
+            Marketing company
+          </dt>
             <dd class="govuk-summary-list__value">
               {{ data['documentsReferenceProductMarketingCo'] or 'Ref Marketting Ltd'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-reference-product-details">
-                Change
-                <span class="govuk-visually-hidden">Marketing company</span>
+              Change
+              <span class="govuk-visually-hidden">Marketing company</span>
               </a>
             </dd>
           </div>
-
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Risk assessment areas
-            </dt>
+            Risk assessment areas
+          </dt>
             <dd class="govuk-summary-list__value">
               {{ data['refProductProposedUse'] or 'Chemistry'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-reference-product-risk-areas">
-                Change
-                <span class="govuk-visually-hidden">Marketing company</span>
+              Change
+              <span class="govuk-visually-hidden">Marketing company</span>
               </a>
             </dd>
           </div>
         </dl>
-
         <h2 class="govuk-heading-m">Documents</h2>
-
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Admin documents uploaded
-            </dt>
+            Admin documents uploaded
+          </dt>
             <dd class="govuk-summary-list__value">
               {{ data['documentsAdminSelect'] or 'an application overview'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-admin">
-                Change
-                <span class="govuk-visually-hidden">Admin documents uploaded</span>
+              Change
+              <span class="govuk-visually-hidden">Admin documents uploaded</span>
               </a>
             </dd>
           </div>
-
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Draft registration report documents uploaded
-            </dt>
+            Draft registration report documents uploaded
+          </dt>
             <dd class="govuk-summary-list__value">
               {{ data['documentsDraftRegReportSelect'] or 'Part A Summary of evaluation'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-draft-reg-report">
-                Change
-                <span class="govuk-visually-hidden">Draft registration report documents uploaded</span>
+              Change
+              <span class="govuk-visually-hidden">Draft registration report documents uploaded</span>
               </a>
             </dd>
           </div>
-
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Supporting data dossier uploaded
-            </dt>
+            Supporting data dossier uploaded
+          </dt>
             <dd class="govuk-summary-list__value">
               {{ data['dataDossierUpload'] or 'data-dossier-2023.doc'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-supporting">
-                Change
-                <span class="govuk-visually-hidden">Draft registration report documents uploaded</span>
+              Change
+              <span class="govuk-visually-hidden">Draft registration report documents uploaded</span>
               </a>
             </dd>
           </div>
-
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Relevant CRD correspondence uploaded
-            </dt>
+            Relevant CRD correspondence uploaded
+          </dt>
             <dd class="govuk-summary-list__value">
               {{ data['documentsCRDSelect'] or 'I do not have any CRD correspondence to upload'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-supporting">
-                Change
-                <span class="govuk-visually-hidden">Relevant CRD correspondence uploaded</span>
+              Change
+              <span class="govuk-visually-hidden">Relevant CRD correspondence uploaded</span>
               </a>
             </dd>
           </div>
-
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Safety data sheets (SDS) uploaded
-            </dt>
+            Safety data sheets (SDS) uploaded
+          </dt>
             <dd class="govuk-summary-list__value">
               {{ data['documentSDSUpload'] or 'sds-2024.csv'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-safety-data-sheet">
-                Change
-                <span class="govuk-visually-hidden">Safety data sheets (SDS) uploaded</span>
+              Change
+              <span class="govuk-visually-hidden">Safety data sheets (SDS) uploaded</span>
               </a>
             </dd>
           </div>
-
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Proof of authorisation uploaded
-            </dt>
+            Proof of authorisation uploaded
+          </dt>
             <dd class="govuk-summary-list__value">
               {{ data['documentProofAuthUpload'] or 'auth-proof-02.pdf'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-proof-of-authorisation">
-                Change
-                <span class="govuk-visually-hidden">Proof of authorisation uploaded</span>
+              Change
+              <span class="govuk-visually-hidden">Proof of authorisation uploaded</span>
               </a>
             </dd>
           </div>
-
-          </dl>
-
-        
-
-      {# <h2 class="govuk-heading-m">Continue your application</h2> #}
-
-      {# <p>By continuing, you're confirming that the details you've given so far are correct to the best of your knowledge.</p> #}
+        </dl>
 
         <input type="hidden" name="answers-checked" value="true">
 
-        <button type="submit" class="govuk-button" data-module="govuk-button">
-          Save and continue
-        </button>
+        <button type="submit" class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-        <p><a href="#">View application progress</a></p>
+        <p>
+          <a href="#">View application progress</a>
+        </p>
 
       </form>
 

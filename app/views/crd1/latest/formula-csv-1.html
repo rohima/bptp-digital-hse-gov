@@ -10,183 +10,203 @@ Upload your formulation composition –{{serviceName}} – GOV.UK
 
 {% block content %}
 
-<style>
-  .govuk-summary-list__key {
-    width:60%
-  }
-</style>
+  <style>
+    .govuk-summary-list__key {
+      width: 60%;
+    }
+  </style>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Upload your formulation composition file</h1>
+      <form class="form" method="post">
+        <p>Use the <a href="#">CRD formulation composition template</a> (opens in a new tab) to enter your formulation details. Save the completed file in CSV format.</p>
 
-      {# <span class="govuk-caption-l">Documents</span> #}
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+            Help with errors in your file
+          </span>
+          </summary>
+          <div class="govuk-details__text">
+          When you upload your file, the service will check the data and highlight any errors for you to fix. <br><br>If you need to fix errors, you must make the changes to your spreadsheet (.xlsx or .ods) file, save it in CSV format, and upload it again. 
+        </div>
+        </details>
 
-      <h1 class="govuk-heading-l">
-        Upload your formulation composition file 
-      </h1>
+        <p id="upload-update" class="govuk-body govuk-!-display-none" aria-live="assertive" aria-relevant="all">1 of 2 files uploaded</p>
 
-     
-        <form class="form" method="post">
+        <button id="upload-more" style="display:none" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Add more files
+      </button>
 
-         <style>
-          .govuk-summary-list__key {
-            width:60%
-          }
-        </style>
+        <div id="upload-wrapper" class="govuk-form-group">
+          <label class="govuk-label" for="upload-button">
+          Upload a file
+        </label>
+          <input class="govuk-file-upload" id="upload-button" name="upload-button" type="file" multiple="multiple">
+        </div>
 
-        <p>Use the <a href="#">CRD formulation composition template</a> (opens in a new tab) to enter your formulation details. Save the completed file in CSV format. </p>
+        <p>
+          <a href="test-formula-type-add">Enter formulation manually</a>
+        </p>
 
-        {% from "govuk/components/details/macro.njk" import govukDetails %}
+        <p class="govuk-body govuk-!-display-none" id="refreshPageProgress">
+          <a href="#" class="govuk-link">Refresh page to update file upload progress</a>
+        </p>
 
+        <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key"></dl>
 
-<details class="govuk-details" data-module="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Help with errors in your file
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    When you upload your file, the service will check the data and highlight any errors for you to fix. <br><br>If you need to fix errors, you must make the changes to your spreadsheet (.xlsx or .ods) file, save it in CSV format, and upload it again. 
+        {{ govukButton({
+        text: "Save and continue"
+        }) }}
+
+      </form>
+    </div>
   </div>
-</details>
+{% endblock %}
 
-            {# <div id="file-upload-1-hint" class="govuk-hint">
-              Save your file as a CSV, TSV, ODS, or Microsoft Excel spreadsheet. Each file must be a maximum of XGB.
+{% block pageScripts %}
 
-            </div> #}
-        
-            <p id="upload-update" class="govuk-body govuk-!-display-none" aria-live="assertive" aria-relevant="all">1 of 2 files uploaded</p>
-        
-            
-            <button id="upload-more" style="display:none" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-              Add more files
-            </button>
-            
-            <div id="upload-wrapper" class="govuk-form-group">
-              <label class="govuk-label" for="upload-button">
-                Upload a file
-              </label>
-              <input class="govuk-file-upload" id="upload-button" name="upload-button" type="file" multiple="multiple">
-            </div>
+  <script>
+    document
+      .getElementById("upload-button")
+      .addEventListener("click", fileUpload);
+    document
+      .getElementById("upload-more")
+      .addEventListener("click", showUploadButton);
+    document
+      .getElementById("upload-button")
+      .addEventListener("change", fileSelected);
 
-           <p><a href="test-formula-type-add">Enter formulation manually</a></p>
-        
-            <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
-        
-            <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key">
-        
-            </dl>
-        
-                {{ govukButton({
-                  text: "Save and continue"
-                }) }}
-        
-                
-        
-              </form>
-        
-            </div>
-          </div>
-        
-        {% endblock %}
-        
-        {% block pageScripts %}
-        
-        <script>
-        document.getElementById("upload-button").addEventListener("click", fileUpload);
-        document.getElementById("upload-more").addEventListener("click", showUploadButton);
-        document.getElementById("upload-button").addEventListener("change", fileSelected);
-        
-        const fileRows = document.getElementById("file-row-container");
-        const uploadUpdate = document.getElementById("upload-update");
-        
-        const myTimeout = setInterval(checkUploads, 1000);
-        
-        function checkUploads() {
-          console.log("checking uploads")
-          // check all the uploaded and review if any of them need updating
-          var filesUploading = document.getElementsByClassName('govuk-tag--yellow')
-        
-          if (filesUploading.length > 0) {
-            for (i = 0; i < filesUploading.length; i++) {
-              console.log(filesUploading[i])
-              // do a random check and see if the file is uploaded
-              if (Math.floor(Math.random() * 3) == 2) {
-                // change the label
-                filesUploading[i].innerHTML = 'uploaded'
-                filesUploading[i].classList.add('govuk-tag--green')
-                filesUploading[i].classList.remove('govuk-tag--yellow')
-              }
-            }
+    const fileRows = document.getElementById("file-row-container");
+    const uploadUpdate = document.getElementById("upload-update");
+
+    const myTimeout = setInterval(checkUploads, 1000);
+
+    function checkUploads() {
+      console.log("checking uploads")
+      // check all the uploaded and review if any of them need updating
+      var filesUploading = document.getElementsByClassName('govuk-tag--yellow')
+
+      if (filesUploading.length > 0) {
+        for (i = 0; i < filesUploading.length; i++) {
+          console.log(filesUploading[i])
+          // do a random check and see if the file is uploaded
+          if (Math.floor(Math.random() * 3) == 2) {
+            // change the label
+            filesUploading[i].innerHTML = 'uploaded'
+            filesUploading[i]
+              .classList
+              .add('govuk-tag--green')
+            filesUploading[i]
+              .classList
+              .remove('govuk-tag--yellow')
           }
-        
-          filesUploading = document.getElementsByClassName('govuk-tag--yellow').length
-          filesUploaded =document.getElementsByClassName('govuk-tag--green').length
-        
-          // uploadUpdate.textContent = `${filesUploaded} of ${filesUploading + filesUploaded} files uploaded`;
-          // uploadUpdate.classList.remove("govuk-!-display-none");
-
-          // old code ends
-
-          // new code start
-          uploadUpdate.textContent = `${filesUploaded} of ${filesUploading + filesUploaded} files uploaded`;
-  if (filesUploaded > 0 || filesUploading > 0) {
-    uploadUpdate.classList.remove("govuk-!-display-none");}
-          // new code finish
-
-
         }
-        
-        
-        
-        function fileUpload() {
-          //console.log("upload clicked")
-        }
-        
-        function showUploadButton(e) {
-          // remove the upload button and replace with an upload more button
-            e.preventDefault()
-            document.getElementById("upload-button").value = "";
-            document.getElementById("upload-wrapper").style.display = "block";
-            document.getElementById("upload-more").style.display = "none";
-        }
-        
-        function fileSelected(e) {
-        
-          for (i = 0; i < e.target.files.length; i++) {
-            
-            const markup = `
+      }
+
+      filesUploading = document
+        .getElementsByClassName('govuk-tag--yellow')
+        .length
+      filesUploaded = document
+        .getElementsByClassName('govuk-tag--green')
+        .length
+
+      // uploadUpdate.textContent = `${filesUploaded} of ${filesUploading + filesUploaded} files uploaded`;
+      // uploadUpdate.classList.remove("govuk-!-display-none");
+
+      // old code ends
+
+      // new code start
+      uploadUpdate.textContent = `${filesUploaded} of ${filesUploading + filesUploaded} files uploaded`;
+      if (filesUploaded > 0 || filesUploading > 0) {
+        uploadUpdate
+          .classList
+          .remove("govuk-!-display-none");
+      }
+      // new code finish
+
+    }
+
+    function fileUpload() {
+      //console.log("upload clicked")
+    }
+
+    function showUploadButton(e) {
+      // remove the upload button and replace with an upload more button
+      e.preventDefault()
+      document
+        .getElementById("upload-button")
+        .value = "";
+      document
+        .getElementById("upload-wrapper")
+        .style
+        .display = "block";
+      document
+        .getElementById("upload-more")
+        .style
+        .display = "none";
+    }
+
+    function fileSelected(e) {
+
+      for (i = 0; i < e.target.files.length; i++) {
+
+        const markup = `
               <dt class="govuk-summary-list__key">
-                <a class="govuk-link" href="#">${e.target.files[i].name}</a>
-                 <input type="hidden" id="filesUploaded" name="filesUploaded" value="${e.target.files[i].name}">
+                <a class="govuk-link" href="#">${e
+          .target
+          .files[i]
+          .name}</a>
+                 <input type="hidden" id="filesUploaded" name="filesUploaded" value="${e
+          .target
+          .files[i]
+          .name}">
               </dt>
               <dd class="govuk-summary-list__value">
                 <strong class="govuk-tag govuk-tag--yellow">uploading</strong>
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="#">
-                  Remove<span class="govuk-visually-hidden"> ${e.target.files[i].name}</span>
+                  Remove<span class="govuk-visually-hidden"> ${e
+          .target
+          .files[i]
+          .name}</span>
                 </a>
               </dd>
             `;
-        
-            // remove the upload button and replace with an upload more button
-            document.getElementById("upload-wrapper").style.display = "none";
-            document.getElementById("upload-more").style.display = "block";  
-            
-            let row = document.createElement('div');
-            row.classList.add("govuk-summary-list__row")
-            row.innerHTML = markup
-            fileRows.append(row)
-        
-            filesUploading = document.getElementsByClassName('govuk-tag--yellow').length
-            filesUploaded =document.getElementsByClassName('govuk-tag--green').length
-        
-            uploadUpdate.textContent = `${filesUploaded} of ${filesUploading} files uploaded`;
-            uploadUpdate.classList.remove("govuk-!-display-none");
-        
-          }
-        
-        }
-        </script>
-        {% endblock %}
+
+        // remove the upload button and replace with an upload more button
+        document
+          .getElementById("upload-wrapper")
+          .style
+          .display = "none";
+        document
+          .getElementById("upload-more")
+          .style
+          .display = "block";
+
+        let row = document.createElement('div');
+        row
+          .classList
+          .add("govuk-summary-list__row")
+        row.innerHTML = markup
+        fileRows.append(row)
+
+        filesUploading = document
+          .getElementsByClassName('govuk-tag--yellow')
+          .length
+        filesUploaded = document
+          .getElementsByClassName('govuk-tag--green')
+          .length
+
+        uploadUpdate.textContent = `${filesUploaded} of ${filesUploading} files uploaded`;
+        uploadUpdate
+          .classList
+          .remove("govuk-!-display-none");
+
+      }
+
+    }
+  </script>
+{% endblock %}

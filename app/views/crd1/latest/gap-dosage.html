@@ -9,318 +9,275 @@ Product dosage  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <form class="form" method="post">
+        <h1 class="govuk-heading-l">Product dosage</p>
+        <h2 class="govuk-heading-m">Individual dose</h2>
 
-      {# <span class="govuk-caption-l">Formulation composition</span> #}
-      <h1 class="govuk-heading-l">Product dosage  </p>
+        {{ govukInput({
+        label: {
+          text: ' Maximum individual dose of active substance '
+        },
+        classes: "govuk-input--width-20",
+        id: "gapDosageMaxActiveSubstance",
+        name: "gapDosageMaxActiveSubstance",
+        autocomplete: "gapDosageMaxActiveSubstance"
+        }) }}
 
-{# <p></p> #}
+        {{ govukRadios({
+        id: "gapDosageMaxActiveSubstanceUnit",
+        name: "gapDosageMaxActiveSubstanceUnit",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select a unit: "
+        },
+        items: [
+          {
+            value: "kilograms per hectare (kg/ha) ",
+            text: "kilograms per hectare (kg/ha) "
 
+          },   
+          {
+            value: "litres per hectare (l/ha) ",
+            text: "litres per hectare (l/ha) ",
+            checked: false
+          }
+        ]
+        }) }}
 
-  <h2 class="govuk-heading-m">Individual dose  </h2>
-  {# <h3 class="govuk-heading-s"> Maximum individual dose of active substance   </h3> #}
- 
-  
-  {{ govukInput({
-    label: {
-      text: ' Maximum individual dose of active substance '
-    },
-    hint: {
-    text: "  "
-  },
-  classes: "govuk-input--width-20",
-    id: "gapDosageMaxActiveSubstance",
-    name: "gapDosageMaxActiveSubstance",
-    autocomplete: "gapDosageMaxActiveSubstance"
-  }) }}
+        {{ govukInput({
+        label: {
+          text: ' Maximum individual dose of product '
+        },
+        classes: "govuk-input--width-20",
+        id: "gapDosageMaxProduct",
+        name: "gapDosageMaxProduct",
+        autocomplete: "gapDosageMaxProduct"
+      }) }}
 
-  {{ govukRadios({
-    id: "gapDosageMaxActiveSubstanceUnit",
-    name: "gapDosageMaxActiveSubstanceUnit",
-    fieldset: {
-      legend: {
-        text: "",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-    hint: {
-      text: "Select a unit: "
-    },
-    items: [
-      {
-        value: "kilograms per hectare (kg/ha) ",
-        text: "kilograms per hectare (kg/ha) "
-        
-      },   
-      {
-        value: "litres per hectare (l/ha) ",
-        text: "litres per hectare (l/ha) ",
-        checked: false
-      }
-  
-    ]
-  }) }}
+        {{ govukRadios({
+        id: "gapDosageMaxProductUnit",
+        name: "gapDosageMaxProductUnit",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select a unit: "
+        },
+        items: [
+          {
+            value: "kilograms per hectare (kg/ha) ",
+            text: "kilograms per hectare (kg/ha) "
 
-  {{ govukInput({
-    label: {
-      text: ' Maximum individual dose of product '
-    },
-    hint: {
-    text: "  "
-  },
-  classes: "govuk-input--width-20",
-    id: "gapDosageMaxProduct",
-    name: "gapDosageMaxProduct",
-    autocomplete: "gapDosageMaxProduct"
-  }) }}
+          },   
+          {
+            value: "litres per hectare (l/ha) ",
+            text: "litres per hectare (l/ha) ",
+            checked: false
+          }
+        ]
+        }) }}
 
-  {{ govukRadios({
-    id: "gapDosageMaxProductUnit",
-    name: "gapDosageMaxProductUnit",
-    fieldset: {
-      legend: {
-        text: "",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-    hint: {
-      text: "Select a unit: "
-    },
-    items: [
-      {
-        value: "kilograms per hectare (kg/ha) ",
-        text: "kilograms per hectare (kg/ha) "
-        
-      },   
-      {
-        value: "litres per hectare (l/ha) ",
-        text: "litres per hectare (l/ha) ",
-        checked: false
-      }
-  
-    ]
-  }) }}
+        <h2 class="govuk-heading-m">Total dose</h2>
 
-  <h2 class="govuk-heading-m">Total dose</h2>
+        {{ govukInput({
+        label: {
+          text: ' Maximum total dose of active substance '
+        },
+        classes: "govuk-input--width-20",
+        id: "gapDosageMaxTotalActiveSubstance",
+        name: "gapDosageMaxTotalActiveSubstance",
+        autocomplete: "gapDosageMaxTotalActiveSubstance"
+        }) }}
 
-  {{ govukInput({
-    label: {
-      text: ' Maximum total dose of active substance '
-    },
-    hint: {
-    text: "  "
-  },
-  classes: "govuk-input--width-20",
-    id: "gapDosageMaxTotalActiveSubstance",
-    name: "gapDosageMaxTotalActiveSubstance",
-    autocomplete: "gapDosageMaxTotalActiveSubstance"
-  }) }}
+        {{ govukRadios({
+        id: "gapDosageMaxTotalActiveSubstanceUnit",
+        name: "gapDosageMaxTotalActiveSubstanceUnit",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select a unit: "
+        },
+        items: [
+          {
+            value: "kilograms per hectare (kg/ha) ",
+            text: "kilograms per hectare (kg/ha) "
 
-  {{ govukRadios({
-    id: "gapDosageMaxTotalActiveSubstanceUnit",
-    name: "gapDosageMaxTotalActiveSubstanceUnit",
-    fieldset: {
-      legend: {
-        text: "",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-    hint: {
-      text: "Select a unit: "
-    },
-    items: [
-      {
-        value: "kilograms per hectare (kg/ha) ",
-        text: "kilograms per hectare (kg/ha) "
-        
-      },   
-      {
-        value: "litres per hectare (l/ha) ",
-        text: "litres per hectare (l/ha) ",
-        checked: false
-      }
-  
-    ]
-  }) }}
+          },   
+          {
+            value: "litres per hectare (l/ha) ",
+            text: "litres per hectare (l/ha) ",
+            checked: false
+          }
+        ]
+        }) }}
 
-  {{ govukInput({
-    label: {
-      text: 'Maximum total dose of product'
-    },
-    hint: {
-    text: "  "
-  },
-  classes: "govuk-input--width-20",
-    id: "gapDosageMaxTotalProduct",
-    name: "gapDosageMaxTotalProduct",
-    autocomplete: "gapDosageMaxTotalProduct"
-  }) }}
+        {{ govukInput({
+        label: {
+          text: 'Maximum total dose of product'
+        },
+        classes: "govuk-input--width-20",
+        id: "gapDosageMaxTotalProduct",
+        name: "gapDosageMaxTotalProduct",
+        autocomplete: "gapDosageMaxTotalProduct"
+        }) }}
 
-  {{ govukRadios({
-    id: "gapDosageMaxTotalProductUnit",
-    name: "gapDosageMaxTotalProductUnit",
-    fieldset: {
-      legend: {
-        text: "",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-    hint: {
-      text: "Select a unit: "
-    },
-    items: [
-      {
-        value: "kilograms per hectare (kg/ha) ",
-        text: "kilograms per hectare (kg/ha) "
-        
-      },   
-      {
-        value: "litres per hectare (l/ha) ",
-        text: "litres per hectare (l/ha) ",
-        checked: false
-      }
-  
-    ]
-  }) }}
+        {{ govukRadios({
+        id: "gapDosageMaxTotalProductUnit",
+        name: "gapDosageMaxTotalProductUnit",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select a unit: "
+        },
+        items: [
+          {
+            value: "kilograms per hectare (kg/ha) ",
+            text: "kilograms per hectare (kg/ha) "
 
-  <h2 class="govuk-heading-m">Water volume </h2>
-  
-  {{ govukInput({
-    classes:"govuk-input--width-10",
-    label: {
-      text: "Minimum water volume",
-      classes: "govuk-label?--l",
-      isPageHeading: true
-    },
-    suffix: {text: "l/ha"},
-    hint: {
-      text: "litres per hectare"
-    },
-    id: "proposedUseWaterMin",
-    name: "proposedUseWaterMin"
-  }) }}
-  
-  {{ govukInput({
-    classes:"govuk-input--width-10",
-    label: {
-      text: "Maximum water volume",
-      classes: "govuk-label?--l",
-      isPageHeading: true
-    },
-    suffix: {text: "l/ha"},
-    hint: {
-      text: "litres per hectare"
-    },
-    id: "proposedUseWaterMax",
-    name: "proposedUseWaterMax"
-  }) }}
+          },   
+          {
+            value: "litres per hectare (l/ha) ",
+            text: "litres per hectare (l/ha) ",
+            checked: false
+          }
+        ]
+        }) }}
 
-  <h2 class="govuk-heading-m">In-use concentration  </h2>
-  
-  {{ govukInput({
-    classes:"govuk-input--width-10",
-    label: {
-      text: "Minimum in-use concentration",
-      classes: "govuk-label?--l",
-      isPageHeading: true
-    },
-    
-    hint: {
-      text: ""
-    },
-    id: "proposedUseConcentrationMin",
-    name: "proposedUseConcentrationMin"
-  }) }}
-  {{ govukRadios({
-    id: "proposedUseConcentrationMinUnit",
-    name: "proposedUseConcentrationMinUnit",
-    fieldset: {
-      legend: {
-        text: "",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-    hint: {
-      text: "Select a unit: "
-    },
-    items: [
-      {
-        value: "grams per hectare (g/ha) ",
-        text: "grams per hectare (g/ha) "
-        
-      },   
-      {
-        value: "litres per hectare (l/ha) ",
-        text: "litres per hectare (l/ha) ",
-        checked: false
-      }
-  
-    ]
-  }) }}
-  
-  {{ govukInput({
-    classes:"govuk-input--width-10",
-    label: {
-      text: "Maximum in-use concentration",
-      classes: "govuk-label?--l",
-      isPageHeading: true
-    },
-    
-    hint: {
-      text: ""
-    },
-    id: "proposedUseWaterMax",
-    name: "proposedUseWaterMax"
-  }) }}
+        <h2 class="govuk-heading-m">Water volume</h2>
 
-  {{ govukRadios({
-    id: "formulaTypeAddc",
-    name: "formulaTypeAddc",
-    fieldset: {
-      legend: {
-        text: "",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-    hint: {
-      text: "Select a unit: "
-    },
-    items: [
-      {
-        value: "grams per hectare (g/ha) ",
-        text: "grams per hectare (g/ha) "
-        
-      },   
-      {
-        value: "litres per hectare (l/ha) ",
-        text: "litres per hectare (l/ha) ",
-        checked: false
-      }
-  
-    ]
-  }) }}
+        {{ govukInput({
+        classes:"govuk-input--width-10",
+        label: {
+          text: "Minimum water volume",
+          classes: "govuk-label?--l",
+          isPageHeading: true
+        },
+        suffix: {text: "l/ha"},
+        hint: {
+          text: "litres per hectare"
+        },
+        id: "proposedUseWaterMin",
+        name: "proposedUseWaterMin"
+        }) }}
 
+        {{ govukInput({
+        classes:"govuk-input--width-10",
+        label: {
+          text: "Maximum water volume",
+          classes: "govuk-label?--l",
+          isPageHeading: true
+        },
+        suffix: {text: "l/ha"},
+        hint: {
+          text: "litres per hectare"
+        },
+        id: "proposedUseWaterMax",
+        name: "proposedUseWaterMax"
+        }) }}
 
+        <h2 class="govuk-heading-m">In-use concentration</h2>
 
+        {{ govukInput({
+        classes:"govuk-input--width-10",
+        label: {
+          text: "Minimum in-use concentration",
+          classes: "govuk-label?--l",
+          isPageHeading: true
+        },
+        id: "proposedUseConcentrationMin",
+        name: "proposedUseConcentrationMin"
+        }) }}
 
+        {{ govukRadios({
+        id: "proposedUseConcentrationMinUnit",
+        name: "proposedUseConcentrationMinUnit",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select a unit: "
+        },
+        items: [
+          {
+            value: "grams per hectare (g/ha) ",
+            text: "grams per hectare (g/ha) "
+
+          },   
+          {
+            value: "litres per hectare (l/ha) ",
+            text: "litres per hectare (l/ha) ",
+            checked: false
+          }
+        ]
+        }) }}
+
+        {{ govukInput({
+        classes:"govuk-input--width-10",
+        label: {
+          text: "Maximum in-use concentration",
+          classes: "govuk-label?--l",
+          isPageHeading: true
+        },
+        id: "proposedUseWaterMax",
+        name: "proposedUseWaterMax"
+        }) }}
+
+        {{ govukRadios({
+        id: "formulaTypeAddc",
+        name: "formulaTypeAddc",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select a unit: "
+        },
+        items: [
+          {
+            value: "grams per hectare (g/ha) ",
+            text: "grams per hectare (g/ha) "
+
+          },   
+          {
+            value: "litres per hectare (l/ha) ",
+            text: "litres per hectare (l/ha) ",
+            checked: false
+          }
+        ]
+        }) }}
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>
-
     </div>
   </div>
-
 {% endblock %}

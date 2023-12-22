@@ -9,65 +9,39 @@ Product use – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-     
-      
-
       <form class="form" method="post">
-        
-        
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
+        <h1 class="govuk-heading-l">Is the product a seed treatment? </h1>
 
-      {# <span class="govuk-caption-l">Application</span> #}
+        {{ govukRadios({
+        id: "isProductSeedTreatment",
+        name: "isProductSeedTreatment",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: false
 
-      <h1 class="govuk-heading-l">
-        Is the product a seed treatment? 
-      </h1>
+          },   
+          {
+            value: "No",
+            text: "No"
 
+          }
+        ]
+        }) }}
 
-      
-
-
-
-{{ govukRadios({
-  id: "isProductSeedTreatment",
-  name: "isProductSeedTreatment",
-  fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "Yes",
-      text: "Yes",
-      checked: false
-      
-    },   
-    {
-      value: "No",
-      text: "No"
-      
-    }
-  ]
-}) }}
-
-    
-        
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
       </form>
-
     </div>
   </div>
-
 {% endblock %}

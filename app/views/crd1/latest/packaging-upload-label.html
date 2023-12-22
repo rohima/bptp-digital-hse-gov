@@ -10,15 +10,14 @@ Upload your proposed product label  –{{serviceName}} – GOV.UK
 
 {% block content %}
 
-<style>
-  .govuk-summary-list__key {
-    width:60%
-  }
-</style>
+  <style>
+    .govuk-summary-list__key {
+      width: 60%;
+    }
+  </style>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <span class="govuk-caption-l">Packaging and labels</span>
 
       <h1 class="govuk-heading-l">
@@ -30,10 +29,8 @@ Upload your proposed product label  –{{serviceName}} – GOV.UK
 
         
           
-         <p class="govuk-body">You can find <a href=https://www.hse.gov.uk/pesticides/pesticides-registration/data-requirements-handbook/operator-exposure/index.htm">detailed guidance on labelling requirements on the HSE website (opens in a new tab)</a>.  </p>
-
-
-         {# <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+         {# <p class="govuk-body">To show that this work will comply fully with the building regulations, you must upload: </p>
+         <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
           <li>all necessary drawings and plans</li>
           <li>a reference file, which includes the name of each file and a clear description of what it is </li>
          </ul> #}
@@ -148,65 +145,96 @@ Upload your proposed product label  –{{serviceName}} – GOV.UK
           // uploadUpdate.textContent = `${filesUploaded} of ${filesUploading + filesUploaded} files uploaded`;
           // uploadUpdate.classList.remove("govuk-!-display-none");
 
-          // new code start
-          uploadUpdate.textContent = `${filesUploaded} of ${filesUploading + filesUploaded} files uploaded`;
-  if (filesUploaded > 0 || filesUploading > 0) {
-    uploadUpdate.classList.remove("govuk-!-display-none");}
-          // new code finish
+      // new code start
+      uploadUpdate.textContent = `${filesUploaded} of ${filesUploading + filesUploaded} files uploaded`;
+      if (filesUploaded > 0 || filesUploading > 0) {
+        uploadUpdate
+          .classList
+          .remove("govuk-!-display-none");
+      }
+      // new code finish
 
+    }
 
-        }
-        
-        
-        
-        function fileUpload() {
-          //console.log("upload clicked")
-        }
-        
-        function showUploadButton(e) {
-          // remove the upload button and replace with an upload more button
-            e.preventDefault()
-            document.getElementById("upload-button").value = "";
-            document.getElementById("upload-wrapper").style.display = "block";
-            document.getElementById("upload-more").style.display = "none";
-        }
-        
-        function fileSelected(e) {
-        
-          for (i = 0; i < e.target.files.length; i++) {
-            
-            const markup = `
+    function fileUpload() {
+      //console.log("upload clicked")
+    }
+
+    function showUploadButton(e) {
+      // remove the upload button and replace with an upload more button
+      e.preventDefault()
+      document
+        .getElementById("upload-button")
+        .value = "";
+      document
+        .getElementById("upload-wrapper")
+        .style
+        .display = "block";
+      document
+        .getElementById("upload-more")
+        .style
+        .display = "none";
+    }
+
+    function fileSelected(e) {
+
+      for (i = 0; i < e.target.files.length; i++) {
+
+        const markup = `
               <dt class="govuk-summary-list__key">
-                <a class="govuk-link" href="#">${e.target.files[i].name}</a>
-                 <input type="hidden" id="filesUploaded" name="filesUploaded" value="${e.target.files[i].name}">
+                <a class="govuk-link" href="#">${e
+          .target
+          .files[i]
+          .name}</a>
+                 <input type="hidden" id="filesUploaded" name="filesUploaded" value="${e
+          .target
+          .files[i]
+          .name}">
               </dt>
               <dd class="govuk-summary-list__value">
                 <strong class="govuk-tag govuk-tag--yellow">uploading</strong>
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="#">
-                  Remove<span class="govuk-visually-hidden"> ${e.target.files[i].name}</span>
+                  Remove<span class="govuk-visually-hidden"> ${e
+          .target
+          .files[i]
+          .name}</span>
                 </a>
               </dd>
             `;
-        
-            // remove the upload button and replace with an upload more button
-            document.getElementById("upload-wrapper").style.display = "none";
-            document.getElementById("upload-more").style.display = "block";  
-            
-            let row = document.createElement('div');
-            row.classList.add("govuk-summary-list__row")
-            row.innerHTML = markup
-            fileRows.append(row)
-        
-            filesUploading = document.getElementsByClassName('govuk-tag--yellow').length
-            filesUploaded =document.getElementsByClassName('govuk-tag--green').length
-        
-            uploadUpdate.textContent = `${filesUploaded} of ${filesUploading} files uploaded`;
-            uploadUpdate.classList.remove("govuk-!-display-none");
-        
-          }
-        
-        }
-        </script>
-        {% endblock %}
+
+        // remove the upload button and replace with an upload more button
+        document
+          .getElementById("upload-wrapper")
+          .style
+          .display = "none";
+        document
+          .getElementById("upload-more")
+          .style
+          .display = "block";
+
+        let row = document.createElement('div');
+        row
+          .classList
+          .add("govuk-summary-list__row")
+        row.innerHTML = markup
+        fileRows.append(row)
+
+        filesUploading = document
+          .getElementsByClassName('govuk-tag--yellow')
+          .length
+        filesUploaded = document
+          .getElementsByClassName('govuk-tag--green')
+          .length
+
+        uploadUpdate.textContent = `${filesUploaded} of ${filesUploading} files uploaded`;
+        uploadUpdate
+          .classList
+          .remove("govuk-!-display-none");
+
+      }
+
+    }
+  </script>
+{% endblock %}

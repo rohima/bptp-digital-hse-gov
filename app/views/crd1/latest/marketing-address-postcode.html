@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Find registered address for {{ data['marketingCompanyName'] or "[marketing company name]" }} – Manage building control for a higher-risk building – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Find registered address for {{ data['marketingCompanyName'] or "[marketing company name]" }}
+      </h1>
+      <form class="form" method="post">
+        {{ govukInput({
+          label: {
+          text: "Postcode"
+        },
+          classes: "govuk-!-width-two-thirds",
+          hint: {
+          text: "For example, AA3 1AB."
+        },
+          id: "postcode",
+          name: "postcode"
+        }) }}
+
+          {{ govukInput({
+          label: {
+          text: "Building number or name (optional)"
+        },
+          classes: "govuk-!-width-two-thirds",
+          hint: {
+          text: "For example, 15 or Prospect Cottage."
+        },
+          id: "authAddressPostcode",
+          name: "authAddressPostcode"
+        }) }}
+          <p>
+            <a href="#">Enter an international address</a>
+          </p>
+          <button class="govuk-button" data-module="govuk-button">Find address</button>
+        </form>
+      </div>
+    </div>
+
+  {% endblock %}

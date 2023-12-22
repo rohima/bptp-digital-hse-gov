@@ -5,34 +5,31 @@ Application submitted – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       {{ govukPanel({
-        titleText: "Application submitted ",
-        html: "Your application reference is
-         <br><strong>[202205392]</strong>"
-      }) }}
+      titleText: "Application submitted ",
+      html: "Your application reference is
+       <br><strong>[202205392]</strong>"
+    }) }}
 
-      {# <p>
-        We have sent you a confirmation email. We will also inform the dutyholders for your application that you have applied for a completion certificate. 
-      </p> #}
-
-      <h2 class="govuk-heading-m">
-        What happens next 
-      </h2>
+      <h2 class="govuk-heading-m">What happens next </h2>
 
       <p>We’ll contact you by email within nn days to let you know:</p>
 
-      <ul class="govuk-list govuk-list--bullet">  
-        <li><p>if you need to provide any more information</p></li>
-        <li><p>when our assessment of your application will begin</p></li>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <p>if you need to provide any more information</p>
+        </li>
+        <li>
+          <p>when our assessment of your application will begin</p>
+        </li>
       </ul>
-     
-     <p><a href="#">What did you think of this service?</a> (takes 30 seconds)</p>
+
+      <p>
+        <a href="#">What did you think of this service?</a> (takes 30 seconds)</p>
 
     </div>
   </div>
-
 {% endblock %}

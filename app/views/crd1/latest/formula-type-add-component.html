@@ -9,18 +9,11 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <form class="form" method="post">
-
-      {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">Component [X] details </p>
-
-<p>Enter the details of the component in your mixture.   </p>
+        <h1 class="govuk-heading-l">Component [X] details</p>
+        <p>Enter the details of the component in your mixture.</p>
 
 {# <p>[Active substance name: 
   <strong>Azoxystrobin
@@ -40,60 +33,61 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
     autocomplete: "formulaActiveSubstanceName"
   }) }}
 
-  <h2 class="govuk-heading-m">Chemical name </h2>
-  
-  {{ govukInput({
-    label: {
-      text: 'Enter chemical name '
-    },
-    hint: {
-    text: "Type part of the substance name and select it from the list. If the full name does not show, enter it manually.  "
-  },
-    id: "formulaActiveSubstanceChemicalName",
-    name: "formulaActiveSubstanceChemicalName",
-    autocomplete: "formulaActiveSubstanceChemicalName"
-  }) }}
+        <h2 class="govuk-heading-m">Chemical name</h2>
 
+        {{ govukInput({
+        label: {
+          text: 'Enter chemical name'
+        },
+        hint: {
+          text: "Type part of the substance name and select it from the list. If the full name does not show, enter it manually."
+        },
+        id: "formulaActiveSubstanceChemicalName",
+        name: "formulaActiveSubstanceChemicalName",
+        autocomplete: "formulaActiveSubstanceChemicalName"
+        }) }}
 
+        <h2 class="govuk-heading-m">Reference number</h2>
 
-<h2 class="govuk-heading-m">Reference number </h2>
+        {% set CAS %}
+        {{ govukInput({
+        id: "formulaTypeAddCASReference",
+        name: "formulaTypeAddCASReference",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-!-width-one-third"
+        }) }}
+        {% endset -%}
 
-{% set CAS %}
-{{ govukInput({
-  id: "formulaTypeAddCASReference",
-  name: "formulaTypeAddCASReference",
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third"
-}) }}
-{% endset -%}
-{% set EC %}
-{{ govukInput({
-  id: "formulaTypeAddECReference",
-  name: "formulaTypeAddECReference",
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third"
-}) }}
-{% endset -%}
-{% set ELINCS %}
-{{ govukInput({
-  id: "formulaTypeAddELINCSReference",
-  name: "formulaTypeAddELINCSReference",
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third"
-}) }}
-{% endset -%}
-{% set EINECS  %}
-{{ govukInput({
-  id: "formulaTypeAddEINECSReference",
-  name: "formulaTypeAddEINECSReference",
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third"
-}) }}
-{% endset -%}
+        {% set EC %}
+        {{ govukInput({
+        id: "formulaTypeAddECReference",
+        name: "formulaTypeAddECReference",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-!-width-one-third"
+        }) }}
+        {% endset -%}
+
+        {% set ELINCS %}
+        {{ govukInput({
+        id: "formulaTypeAddELINCSReference",
+        name: "formulaTypeAddELINCSReference",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-!-width-one-third"
+        }) }}
+        {% endset -%}
+
+        {% set EINECS %}
+        {{ govukInput({
+        id: "formulaTypeAddEINECSReference",
+        name: "formulaTypeAddEINECSReference",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-!-width-one-third"
+        }) }}
+        {% endset -%}
 
 {{ govukRadios({
   id: "formulaTypeAddReference",
@@ -139,33 +133,24 @@ Tell us about your formula composition – {{serviceName}} – GOV.UK
   ]
 }) }}
 
-<h2 class="govuk-heading-m">Content composition in mixture</h2>
+        <h2 class="govuk-heading-m">Content composition in mixture</h2>
 
-{% from "govuk/components/input/macro.njk" import govukInput %}
-
-{{ govukInput({
-  label: {
-    text: "Enter content "
-  },
-  classes: "govuk-input--width-5",
-  id: "weight",
-  name: "weight",
-  suffix: {
-    text: "%"
-  },
-  spellcheck: false
-}) }}
-
-
-
-
-
+        {{ govukInput({
+        label: {
+          text: "Enter content "
+        },
+        classes: "govuk-input--width-5",
+        id: "weight",
+        name: "weight",
+        suffix: {
+          text: "%"
+        },
+        spellcheck: false
+        }) }}
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>
-
     </div>
   </div>
-
 {% endblock %}

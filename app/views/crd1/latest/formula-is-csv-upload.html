@@ -9,56 +9,41 @@ Do you want to upload your formulation composition?   – {{serviceName}} – GO
 {% endblock %}
 
 {% block content %}
-
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <form class="form" method="post">
+        <span class="govuk-caption-l">Formulation composition </span>
+        <h1 class="govuk-heading-l">Do you want to upload your formulation composition? </p>
 
-      <span class="govuk-caption-l">Formulation composition </span>
-      <h1 class="govuk-heading-l">Do you want to upload your formulation composition? </p>
+        <p>If you do not want to upload a file, you can enter the information manually.</p>
 
-<p>You can use the <a href="#">CRD formulation composition template</a> (opens in a new tab) to enter this information and upload it.  </p>
+        {{ govukRadios({
+        id: "isCsvUpload",
+        name: "isCsvUpload",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: false
+          },   
+          {
+            value: "No",
+            text: "No"
+          }
 
-
-
-<p>If you do not want to upload a file, you can enter the information manually. </p>
-
-
-{{ govukRadios({
-  id: "isCsvUpload",
-  name: "isCsvUpload",
-  fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "Yes",
-      text: "Yes",
-      checked: false
-    },   
-    {
-      value: "No",
-      text: "No"
-    }
-
-  ]
-}) }}
+        ]
+        }) }}
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>
-
     </div>
   </div>
-
 {% endblock %}
