@@ -385,7 +385,13 @@ router.post('/formula-type-add-active-details', function (req, res) {
 
 // formula-composition-add-another-1
 router.post('/formula-composition-add-another-1', function (req, res) {
-  res.redirect('formula-type-add');
+  let addAnotherFormulaComposition = req.session.data.addAnotherFormulaComposition
+
+  if (addAnotherFormulaComposition == "Yes") {
+    res.redirect('formula-type-add');
+  } else {
+    res.redirect('formula-risk-product');
+  }
 })
 
 // formula-type-add-co-formulant-details
@@ -415,10 +421,17 @@ router.post('/formula-type-add-component', function (req, res) {
   res.redirect('formula-substance-component-add-another');
 })
 
+
 // formula-substance-component-add-another
 
 router.post('/formula-substance-component-add-another', function (req, res) {
-  res.redirect('formula-substance-add-another');
+  let addAnotherSubstanceComponent = req.session.data.addAnotherSubstanceComponent;
+  
+  if (addAnotherSubstanceComponent == "Yes") {
+    res.redirect('formula-type-add-component');
+  } else {
+    res.redirect('formula-substance-add-another');
+  }
 })
 
 // formula-substance-component-remove
@@ -438,7 +451,7 @@ router.post('/formula-substance-remove', function (req, res) {
 
 // formula-composition-add-another
 router.post('/formula-composition-add-another', function (req, res) {
-  res.redirect('formula-risk');
+  res.redirect('formula-risk-product');
 })
 
 
@@ -485,7 +498,12 @@ router.post('/formula-active-substance-data-ownership-details', function (req, r
 
 // formula-product-data-ownership
 router.post('/formula-product-data-ownership', function (req, res) {
-  res.redirect('formula-product-data-ownership-details');
+  let formulaActiveSubstanceOwnership = req.session.data.formulaActiveSubstanceOwnership
+  if (formulaActiveSubstanceOwnership == 'Yes') {
+    res.redirect('active-substance-source-is-csv-upload');
+  } else {
+    res.redirect('formula-product-data-ownership-details');
+  }
 })
 
 // formula-product-data-ownership-details
@@ -505,7 +523,7 @@ router.post('/active-substance-source-is-csv-upload', function (req, res) {
 
 // active-substance-source-csv-1
 router.post('/active-substance-source-csv-1', function (req, res) {
-  res.redirect('active-substance-source-csv-1');
+  res.redirect('formula-active-substance-source-data-ownership-check-answers');
 })
 
 // active-substance-source-how-many
@@ -516,7 +534,7 @@ router.post('/active-substance-source-how-many', function (req, res) {
   } else if (marketArea == 'Great Britain') {
     res.redirect('active-substance-source-previous-tech-equiv-gb');
   } else {
-    res.redirect('aactive-substance-source-previous-tech-equiv-gb');
+    res.redirect('active-substance-source-previous-tech-equiv-gb');
   }
 })
 
@@ -628,7 +646,7 @@ router.post('/formula-active-substance-source-manufacturing-address-confirm', fu
 // formula-active-substance-source-data-ownership-check-answers
 
 router.post('/formula-active-substance-source-data-ownership-check-answers', function (req, res) {
-  res.redirect('formula-active-substance-source-data-ownership-check-answers');
+  res.redirect('product-use');
 })
 
 
@@ -738,9 +756,8 @@ router.post('/product-use', function (req, res) {
 // product-proposed-use
 
 router.post('/product-proposed-use', function (req, res) {
-  let productProposedUse = req.session.data.productProposedUse;
-  let productUser = req.session.data.productUser;
-  if (productUser == "Professional") {
+  let intendedProductUser = req.session.data.intendedProductUser;
+  if (intendedProductUser == "Professional") {
     res.redirect('product-use-seed-treatment');
   } else {
     res.redirect('gap-is-csv-upload');
@@ -764,20 +781,26 @@ router.post('/product-use-seed-treatment', function (req, res) {
 
 
 
-
 // gap-is-csv-upload
 
 router.post('/gap-is-csv-upload', function (req, res) {
   let isProductSeedTreatment = req.session.data.isProductSeedTreatment;
   let isGapCsvUpload = req.session.data.isGapCsvUpload;
-  if (isGapCsvUpload == "Yes") {
+  let intendedProductUser = req.session.data.intendedProductUser;
+  //if (intendedProductUser == "Professional") {
+
+  if (intendedProductUser == "Professional") {
+    if (isGapCsvUpload == "Yes") {
       res.redirect('gap-csv-1');
     } else if (isGapCsvUpload == "No" && isProductSeedTreatment == "Yes"){
       res.redirect('gap-seed-treatment');
     } else {
       res.redirect('gap-crop-product');
     }
-  // res.redirect('gap-csv-1');
+  } else {
+    res.redirect('gap-crop-product');
+  }
+
 })
 
 // gap-csv-1
@@ -904,9 +927,13 @@ router.post('/packaging-x-details', function (req, res) {
 // packaging-add-another
 
 router.post('/packaging-add-another', function (req, res) {
-  let packagingXDetails = req.session.data.packagingXDetails;
-  res.redirect('packaging-upload-label');
+  let addAnotherContainer = req.session.data.addAnotherContainer;
 
+  if (addAnotherContainer == "Yes") {
+    res.redirect('packaging-x-details');
+  } else {
+    res.redirect('packaging-upload-label');
+  }
 })
 
 // packaging-remove
@@ -968,8 +995,11 @@ router.post('/manufacturing-address-confirm', function (req, res) {
 
 router.post('/manufacturing-site-add-another', function (req, res) {  
   let manufacturingAddressAddAnother = req.session.data.manufacturingAddressAddAnother;
-  res.redirect('manufacturing-check-answers');
-
+  if (manufacturingAddressAddAnother == "Yes") {
+    res.redirect('manufacturing-address-postcode');
+  } else {
+    res.redirect('manufacturing-check-answers');
+  }
 })
 
 // manufacturing-check-answers
@@ -988,8 +1018,12 @@ router.post('/manufacturing-check-answers', function (req, res) {
 
 router.post('/documents-reference-product', function (req, res) {  
   let documentsReferenceProduct = req.session.data.documentsReferenceProduct;
-  res.redirect('documents-reference-product-details');
 
+  if (documentsReferenceProduct == "Yes") {
+    res.redirect('documents-reference-product-details');
+  } else {
+    res.redirect('documents-upload-admin');
+  }  
 })
 
 // documents-reference-product-details
@@ -1051,18 +1085,18 @@ router.post('/documents-upload-relevant-correspondence', function (req, res) {
 
 router.post('/documents-upload-safety-data-sheet', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
-  res.redirect('documents-upload-proof-of-authorisation');
+  res.redirect('documents-check-answers');
 
 })
 
 // documents-upload-proof-of-authorisation
-
+/* removed as earlier in the flow
 router.post('/documents-upload-proof-of-authorisation', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
   res.redirect('documents-check-answers');
 
 })
-
+*/
 
 // documents-check-answers
 
