@@ -914,9 +914,13 @@ router.post('/packaging-x-details', function (req, res) {
 // packaging-add-another
 
 router.post('/packaging-add-another', function (req, res) {
-  let packagingXDetails = req.session.data.packagingXDetails;
-  res.redirect('packaging-upload-label');
+  let addAnotherContainer = req.session.data.addAnotherContainer;
 
+  if (addAnotherContainer == "Yes") {
+    res.redirect('packaging-x-details');
+  } else {
+    res.redirect('packaging-upload-label');
+  }
 })
 
 // packaging-remove
@@ -978,8 +982,11 @@ router.post('/manufacturing-address-confirm', function (req, res) {
 
 router.post('/manufacturing-site-add-another', function (req, res) {  
   let manufacturingAddressAddAnother = req.session.data.manufacturingAddressAddAnother;
-  res.redirect('manufacturing-check-answers');
-
+  if (manufacturingAddressAddAnother == "Yes") {
+    res.redirect('manufacturing-address-postcode');
+  } else {
+    res.redirect('manufacturing-check-answers');
+  }
 })
 
 // manufacturing-check-answers
@@ -998,8 +1005,12 @@ router.post('/manufacturing-check-answers', function (req, res) {
 
 router.post('/documents-reference-product', function (req, res) {  
   let documentsReferenceProduct = req.session.data.documentsReferenceProduct;
-  res.redirect('documents-reference-product-details');
 
+  if (documentsReferenceProduct == "Yes") {
+    res.redirect('documents-reference-product-details');
+  } else {
+    res.redirect('documents-upload-admin');
+  }  
 })
 
 // documents-reference-product-details

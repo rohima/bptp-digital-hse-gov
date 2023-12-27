@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Find registered address for {{ data['clientCompanyName'] or "[Client company name]" }} – Manage building control for a higher-risk building – GOV.UK
+  What is the formulation manufacturing address? – Manage building control for a higher-risk building – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,35 +13,35 @@ Find registered address for {{ data['clientCompanyName'] or "[Client company nam
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">What is the formulation manufacturing address?</h1>
 
-      <p>You can add another formulation manufacturing address later if you need to.  </p>
+      <p>You can add another formulation manufacturing address later if you need to.</p>
 
       <form class="form" method="post">
         {{ govukInput({
-        label: {
-        text: "Postcode"
-        },
-        classes: "govuk-!-width-two-thirds",
-        hint: {
-        text: "For example, AA3 1AB."
-        },
-        id: "postcode",
-        name: "postcode"
+          label: {
+          text: "Postcode"
+          },
+          classes: "govuk-input--width-10",
+          hint: {
+          text: "For example, AA3 1AB."
+          },
+          id: "postcode",
+          name: "postcode"
         }) }}
 
         {{ govukInput({
-        label: {
-        text: "Building number or name (optional)"
-        },
-        classes: "govuk-!-width-two-thirds",
-        hint: {
-        text: "For example, 15 or Prospect Cottage."
-        },
-        id: "clientAddressPostcode",
-        name: "clientAddressPostcode"
+          label: {
+          text: "Building number or name (optional)"
+          },
+          classes: "govuk-!-width-two-thirds",
+          hint: {
+          text: "For example, 15 or Prospect Cottage."
+          },
+          id: "clientAddressPostcode",
+          name: "clientAddressPostcode"
         }) }}
 
         <p>
-          <a href="#">Enter an international address</a>
+          <a href="enter-international-address">Enter an international address</a>
         </p>
 
         <button class="govuk-button" data-module="govuk-button">Find address</button>
