@@ -1072,18 +1072,18 @@ router.post('/documents-upload-relevant-correspondence', function (req, res) {
 
 router.post('/documents-upload-safety-data-sheet', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
-  res.redirect('documents-upload-proof-of-authorisation');
+  res.redirect('documents-check-answers');
 
 })
 
 // documents-upload-proof-of-authorisation
-
+/* removed as earlier in the flow
 router.post('/documents-upload-proof-of-authorisation', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
   res.redirect('documents-check-answers');
 
 })
-
+*/
 
 // documents-check-answers
 
