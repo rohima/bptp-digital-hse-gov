@@ -385,7 +385,13 @@ router.post('/formula-type-add-active-details', function (req, res) {
 
 // formula-composition-add-another-1
 router.post('/formula-composition-add-another-1', function (req, res) {
-  res.redirect('formula-type-add');
+  let addAnotherFormulaComposition = req.session.data.addAnotherFormulaComposition
+
+  if (addAnotherFormulaComposition == "Yes") {
+    res.redirect('formula-type-add');
+  } else {
+    res.redirect('formula-risk-product');
+  }
 })
 
 // formula-type-add-co-formulant-details
@@ -415,10 +421,17 @@ router.post('/formula-type-add-component', function (req, res) {
   res.redirect('formula-substance-component-add-another');
 })
 
+
 // formula-substance-component-add-another
 
 router.post('/formula-substance-component-add-another', function (req, res) {
-  res.redirect('formula-substance-add-another');
+  let addAnotherSubstanceComponent = req.session.data.addAnotherSubstanceComponent;
+  
+  if (addAnotherSubstanceComponent == "Yes") {
+    res.redirect('formula-type-add-component');
+  } else {
+    res.redirect('formula-substance-add-another');
+  }
 })
 
 // formula-substance-component-remove
@@ -521,7 +534,7 @@ router.post('/active-substance-source-how-many', function (req, res) {
   } else if (marketArea == 'Great Britain') {
     res.redirect('active-substance-source-previous-tech-equiv-gb');
   } else {
-    res.redirect('aactive-substance-source-previous-tech-equiv-gb');
+    res.redirect('active-substance-source-previous-tech-equiv-gb');
   }
 })
 
