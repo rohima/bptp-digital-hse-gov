@@ -438,7 +438,7 @@ router.post('/formula-substance-remove', function (req, res) {
 
 // formula-composition-add-another
 router.post('/formula-composition-add-another', function (req, res) {
-  res.redirect('formula-risk');
+  res.redirect('formula-risk-product');
 })
 
 
