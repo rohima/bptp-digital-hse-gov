@@ -485,7 +485,12 @@ router.post('/formula-active-substance-data-ownership-details', function (req, r
 
 // formula-product-data-ownership
 router.post('/formula-product-data-ownership', function (req, res) {
-  res.redirect('formula-product-data-ownership-details');
+  let formulaActiveSubstanceOwnership = req.session.data.formulaActiveSubstanceOwnership
+  if (formulaActiveSubstanceOwnership == 'Yes') {
+    res.redirect('active-substance-source-is-csv-upload');
+  } else {
+    res.redirect('formula-product-data-ownership-details');
+  }
 })
 
 // formula-product-data-ownership-details
@@ -505,7 +510,7 @@ router.post('/active-substance-source-is-csv-upload', function (req, res) {
 
 // active-substance-source-csv-1
 router.post('/active-substance-source-csv-1', function (req, res) {
-  res.redirect('active-substance-source-csv-1');
+  res.redirect('formula-active-substance-source-data-ownership-check-answers');
 })
 
 // active-substance-source-how-many
@@ -628,7 +633,7 @@ router.post('/formula-active-substance-source-manufacturing-address-confirm', fu
 // formula-active-substance-source-data-ownership-check-answers
 
 router.post('/formula-active-substance-source-data-ownership-check-answers', function (req, res) {
-  res.redirect('formula-active-substance-source-data-ownership-check-answers');
+  res.redirect('product-use');
 })
 
 
@@ -738,9 +743,8 @@ router.post('/product-use', function (req, res) {
 // product-proposed-use
 
 router.post('/product-proposed-use', function (req, res) {
-  let productProposedUse = req.session.data.productProposedUse;
-  let productUser = req.session.data.productUser;
-  if (productUser == "Professional") {
+  let intendedProductUser = req.session.data.intendedProductUser;
+  if (intendedProductUser == "Professional") {
     res.redirect('product-use-seed-treatment');
   } else {
     res.redirect('gap-is-csv-upload');
@@ -764,20 +768,26 @@ router.post('/product-use-seed-treatment', function (req, res) {
 
 
 
-
 // gap-is-csv-upload
 
 router.post('/gap-is-csv-upload', function (req, res) {
   let isProductSeedTreatment = req.session.data.isProductSeedTreatment;
   let isGapCsvUpload = req.session.data.isGapCsvUpload;
-  if (isGapCsvUpload == "Yes") {
+  let intendedProductUser = req.session.data.intendedProductUser;
+  //if (intendedProductUser == "Professional") {
+
+  if (intendedProductUser == "Professional") {
+    if (isGapCsvUpload == "Yes") {
       res.redirect('gap-csv-1');
     } else if (isGapCsvUpload == "No" && isProductSeedTreatment == "Yes"){
       res.redirect('gap-seed-treatment');
     } else {
       res.redirect('gap-crop-product');
     }
-  // res.redirect('gap-csv-1');
+  } else {
+    res.redirect('gap-crop-product');
+  }
+
 })
 
 // gap-csv-1
