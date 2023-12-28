@@ -488,13 +488,14 @@ router.post('/formula-check-answers', function (req, res) {
 
 })
 
-
+// ----------------- ACTIVE DATA OWNERSHIP ----------------- //
 
 // formula-active-substance-data-ownership-details
 router.post('/formula-active-substance-data-ownership-details', function (req, res) {
   res.redirect('formula-product-data-ownership');
 })
 
+// ----------------- PRODUCT DATA OWNERSHIP ----------------- //
 
 // formula-product-data-ownership
 router.post('/formula-product-data-ownership', function (req, res) {
@@ -510,6 +511,8 @@ router.post('/formula-product-data-ownership', function (req, res) {
 router.post('/formula-product-data-ownership-details', function (req, res) {
   res.redirect('active-substance-source-is-csv-upload');
 })
+
+// ----------------- ACTIVE SUBSTANCE SOURCE DATA ----------------- //
 
 // active-substance-source-is-csv-upload
 router.post('/active-substance-source-is-csv-upload', function (req, res) {
@@ -537,9 +540,6 @@ router.post('/active-substance-source-how-many', function (req, res) {
     res.redirect('active-substance-source-previous-tech-equiv-gb');
   }
 })
-
-
-
 
 
 // active-substance-source-previous-tech-equiv-ni
@@ -929,7 +929,7 @@ router.post('/gap-check-answers', function (req, res) {
 
 
 
-// ----------------- PACKAGING AND LABELS ----------------- //
+// ----------------- PACKAGING ----------------- //
 
 // packaging-number-of
 
@@ -966,6 +966,8 @@ router.post('/packaging-remove', function (req, res) {
   res.redirect('packaging-add-another');
 
 })
+
+// ----------------- PACKAGING AND LABELS ----------------- //
 
 // packaging-upload-label
 
@@ -1151,7 +1153,7 @@ router.post('/declaration', function (req, res) {
 // invoice
 
 router.post('/invoice', function (req, res) {  
-  let declaration = req.session.data.declaration;
+  let invoice = req.session.data.invoice;
   res.redirect('confirmation');
 
 })
@@ -1161,7 +1163,7 @@ router.post('/invoice', function (req, res) {
 // confirmation
 
 router.post('/confirmation', function (req, res) {  
-  let declaration = req.session.data.declaration;
+  let confirmation = req.session.data.confirmation;
   res.redirect('confirmation');
 
 })
@@ -1191,6 +1193,16 @@ router.post('/find-results', function (req, res) {
   res.redirect('find-confirm');
 
 })
+
+// ----------------- PLACEHOLDER PAGE ----------------- //
+
+router.post('/placeholder-page', function (req, res) {  
+  let placeholderPage = req.session.data.placeholderPage;
+  res.redirect('placeholder-page');
+
+})
+
+
 
 
 // ----------------- XXXXXXXXXXXXXXXXXXXXXXXXXXXXX ----------------- //
