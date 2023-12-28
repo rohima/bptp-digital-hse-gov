@@ -846,8 +846,29 @@ router.post('/gap-dosage', function (req, res) {
 
 router.post('/gap-timings', function (req, res) {
   let gapTimings = req.session.data.gapTimings;
-  res.redirect('gap-application-method');
+  let intendedProductUser = req.session.data.intendedProductUser;
+  res.redirect(`gap-application-${intendedProductUser.toLowerCase()}-protected`);
+})
 
+// gap-application-[intendedProductUser]-protected
+
+router.post('/gap-application-*-protected', function (req, res) {
+  let intendedProductUser = req.session.data.intendedProductUser;
+  res.redirect(`gap-application-${intendedProductUser.toLowerCase()}-indoor`);
+})
+
+// gap-application-[intendedProductUser]-indoor
+
+router.post('/gap-application-*-indoor', function (req, res) {
+  let intendedProductUser = req.session.data.intendedProductUser;
+  res.redirect(`gap-application-${intendedProductUser.toLowerCase()}-outdoor`);
+})
+
+// gap-application-[intendedProductUser]-outdoor
+
+router.post('/gap-application-*-outdoor', function (req, res) {
+  let intendedProductUser = req.session.data.intendedProductUser;
+  res.redirect('gap-other-product');
 })
 
 // gap-application-method

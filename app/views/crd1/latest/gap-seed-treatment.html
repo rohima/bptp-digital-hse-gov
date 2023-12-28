@@ -24,16 +24,16 @@ Product dosage  – {{serviceName}} – GOV.UK
         text: "Type part of the crop name and select it from the list. If the full name does not show, enter it manually. "
         },
         classes: "govuk-input--width-20",
-        id: "formulaActiveSubstanceName",
-        name: "formulaActiveSubstanceName",
-        autocomplete: "address-line1"
+        id: "gapCropUsed",
+        name: "gapCropUsed",
+        autocomplete: "gapCropUsed"
         }) }}
 
         <h2 class="govuk-heading-m">Is the seed pelleted?</h2>
 
         {{ govukRadios({
-        id: "formulaTypeAdd",
-        name: "formulaTypeAdd",
+        id: "gapSeedPelleted",
+        name: "gapSeedPelleted",
         fieldset: {
           legend: {
             text: "",
@@ -62,8 +62,8 @@ Product dosage  – {{serviceName}} – GOV.UK
           classes: "govuk-label?--l"
         },
         suffix: {text: "mg"},
-        id: "proposedUseWaterMin",
-        name: "proposedUseWaterMin"
+        id: "gapSeedWeight",
+        name: "gapSeedWeight"
         }) }}
 
         <h2 class="govuk-heading-m">Thousand seed weight</h2>
@@ -75,8 +75,8 @@ Product dosage  – {{serviceName}} – GOV.UK
           classes: "govuk-label?--l"
         },
         suffix: {text: "g"},
-        id: "proposedUseWaterMin",
-        name: "proposedUseWaterMin"
+        id: "gapSeedWeightThousand",
+        name: "gapSeedWeightThousand"
         }) }}
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
