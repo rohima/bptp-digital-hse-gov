@@ -1025,6 +1025,12 @@ router.post('/manufacturing-site-add-another', function (req, res) {
   }
 })
 
+// manufacturing-address-remove
+
+router.post('/manufacturing-address-remove', function (req, res) {
+  res.redirect('manufacturing-site-add-another');
+})
+
 // manufacturing-check-answers
 
 router.post('/manufacturing-check-answers', function (req, res) {  
