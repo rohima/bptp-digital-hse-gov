@@ -803,6 +803,8 @@ router.post('/gap-is-csv-upload', function (req, res) {
 
 })
 
+
+
 // gap-csv-1
 
 router.post('/gap-csv-1', function (req, res) {
@@ -1137,6 +1139,31 @@ router.post('/confirmation', function (req, res) {
 
 })
 
+// ----------------- FIND PRODUCT ----------------- //
+
+// find-search
+
+router.post('/find-search', function (req, res) {  
+  let findSearch = req.session.data.findSearch;
+  res.redirect('find-results');
+
+})
+
+// find-results
+
+router.post('/find-results', function (req, res) {  
+  let findResults = req.session.data.findResults;
+  res.redirect('find-confirm');
+
+})
+
+// find-confirm
+
+router.post('/find-results', function (req, res) {  
+  let findConfirm = req.session.data.findConfirm;
+  res.redirect('find-confirm');
+
+})
 
 
 // ----------------- XXXXXXXXXXXXXXXXXXXXXXXXXXXXX ----------------- //
