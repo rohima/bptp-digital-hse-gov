@@ -10,43 +10,39 @@ Active substance data owner details – {{serviceName}} – GOV.UK
 
 {% block content %}
 
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <form class="form" method="post">
 
-      <span class="govuk-caption-l">Data ownership: Active substance data</span>
-      <h1 class="govuk-heading-l">Data ownership for [Active substance name]   </p>
+        <span class="govuk-caption-l">Data ownership: Active substance data</span>
+        <h1 class="govuk-heading-l">Data ownership for [Active substance name]   </p>
 
-{# <p>Enter the details of the substance in your formulation. You can add another substance later if you need to.  </p> #}
+        {# <p>Enter the details of the substance in your formulation. You can add another substance later if you need to.  </p> #}
 
-{# <p>[Active substance name: 
+        {# <p>[Active substance name: 
   <strong>Azoxystrobin
   CAS: 131860-33-8</strong>]</p> #}
 
-  <h2 class="govuk-heading-m">Describe the data ownership  </h2>
-  
-  {{ govukInput({
+        <h2 class="govuk-heading-m">Describe the data ownership  </h2>
+
+        {{ govukInput({
     label: {
       text: 'Enter description '
     },
     hint: {
     text: "For example, explain if data is owned by authorisation holder or others, or if data is out of protection "
   },
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
+    id: "formulaActiveSubstanceDesc",
+    name: "formulaActiveSubstanceDesc",
+    autocomplete: "formulaActiveSubstanceDesc"
   }) }}
 
+        <h2 class="govuk-heading-m">How will you demonstrate access to the data in this application?  </h2>
 
-  <h2 class="govuk-heading-m">How will you demonstrate access to the data in this application?  </h2>
-
-
-{{ govukCheckboxes({
-  id: "formulaTypeAdd",
-  name: "formulaTypeAdd",
+        {{ govukCheckboxes({
+  id: "formulaActiveSubstanceAccess",
+  name: "formulaActiveSubstanceAccess",
   fieldset: {
     legend: {
       text: "",
@@ -91,25 +87,13 @@ Active substance data owner details – {{serviceName}} – GOV.UK
   ]
 }) }}
 
-<h2 class="govuk-heading-m">If letter of access or data match provided previously, enter reference details </h2>
-  
-  {# {{ govukInput({
-    label: {
-      text: 'Enter description  '
-    },
-    hint: {
-    text: "For example, explain if data matched or renewal data is out of protection, reference to Regulatory Authority consideration and date.  "
-  },
-    id: "formulaActiveSubstanceName",
-    name: "formulaActiveSubstanceName",
-    autocomplete: "address-line1"
-  }) }} #}
+        <h2 class="govuk-heading-m">If letter of access or data match provided previously, enter reference details </h2>
 
-  {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
-{{ govukTextarea({
-  name: "moreDetail",
-  id: "more-detail",
+        {{ govukTextarea({
+  name: "formulaActiveSubstanceReference",
+  id: "formulaActiveSubstanceReference",
   label: {
     text: "Enter details"
   },
@@ -117,14 +101,6 @@ Active substance data owner details – {{serviceName}} – GOV.UK
     text: "Enter as much relevant information as possible. Letters of access must be valid and relevant to this application. For example, product name, job number, date of previous letter and MAPP number. "
   }
 }) }}
-
-
-
-
-
-
-
-
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 

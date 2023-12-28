@@ -498,8 +498,8 @@ router.post('/formula-active-substance-data-ownership-details', function (req, r
 
 // formula-product-data-ownership
 router.post('/formula-product-data-ownership', function (req, res) {
-  let formulaActiveSubstanceOwnership = req.session.data.formulaActiveSubstanceOwnership
-  if (formulaActiveSubstanceOwnership == 'Yes') {
+  let formulaProductOwnership = req.session.data.formulaProductOwnership
+  if (formulaProductOwnership == 'Yes') {
     res.redirect('active-substance-source-is-csv-upload');
   } else {
     res.redirect('formula-product-data-ownership-details');
