@@ -908,7 +908,7 @@ router.post('/gap-check-answers', function (req, res) {
 
 
 
-// ----------------- PACKAGING AND LABELS ----------------- //
+// ----------------- PACKAGING ----------------- //
 
 // packaging-number-of
 
@@ -945,6 +945,8 @@ router.post('/packaging-remove', function (req, res) {
   res.redirect('packaging-add-another');
 
 })
+
+// ----------------- PACKAGING AND LABELS ----------------- //
 
 // packaging-upload-label
 
@@ -1124,7 +1126,7 @@ router.post('/declaration', function (req, res) {
 // invoice
 
 router.post('/invoice', function (req, res) {  
-  let declaration = req.session.data.declaration;
+  let invoice = req.session.data.invoice;
   res.redirect('confirmation');
 
 })
@@ -1134,7 +1136,7 @@ router.post('/invoice', function (req, res) {
 // confirmation
 
 router.post('/confirmation', function (req, res) {  
-  let declaration = req.session.data.declaration;
+  let confirmation = req.session.data.confirmation;
   res.redirect('confirmation');
 
 })
@@ -1167,7 +1169,11 @@ router.post('/find-results', function (req, res) {
 
 // ----------------- PLACEHOLDER PAGE ----------------- //
 
+router.post('/placeholder-page', function (req, res) {  
+  let placeholderPage = req.session.data.placeholderPage;
+  res.redirect('placeholder-page');
 
+})
 
 
 

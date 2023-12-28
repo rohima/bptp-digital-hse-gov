@@ -1,0 +1,148 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Invoice – Manage building control for a higher-risk building – GOV.UK
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Enter invoice details</h1>
+      <form class="form" method="post">
+        <h2 class="govuk-heading-m">Contact details</h2>
+
+        {% call govukFieldset({
+          legend: {
+            text: "",
+            classes: "",
+            isPageHeading: true
+          }
+        }) %}
+
+        {{ govukInput({
+          label: {
+            text: "Name on the invoice"
+          },
+          id: "invoiceName",
+          name: "invoiceName",
+          autocomplete: ""
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          hint: {
+            text: "We'll only use this to send you an invoice"
+          },
+          id: "invoiceEmail",
+          name: "invoiceEmail",
+          autocomplete: ""
+        }) }}
+
+        {% endcall %}
+
+        <h2 class="govuk-heading-m">Billing address</h2>
+        <p>This is the address associated with the account.</p>
+
+        {% call govukFieldset({
+          legend: {
+            text: "",
+            classes: "",
+            isPageHeading: true
+          }
+        }) %}
+
+        {{ govukInput({
+          label: {
+            text: "Address line 1"
+          },
+          id: "address-line-1",
+          name: "addressLine1",
+          autocomplete: "address-line1"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Address line 2 (optional)"
+          },
+          id: "address-line-2",
+          name: "addressLine2",
+          autocomplete: "address-line2"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Town or city"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "address-town",
+          name: "addressTown",
+          autocomplete: "address-level2"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Postcode"
+          },
+          classes: "govuk-input--width-10",
+          id: "address-postcode",
+          name: "addressPostcode",
+          autocomplete: "postal-code"
+        }) }}
+
+        {% endcall %}
+
+        <h2 class="govuk-heading-m">Do you need a purchase order number on the invoice?</h2>
+
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "contact-by-email",
+          name: "contactByEmail",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "Purchase order number:"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+        name: "contact",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes – I have a purchase order number",
+            conditional: {
+              html: emailHtml
+            }
+          },
+          {
+            value: "No",
+            text: "No – I do not need a purchase order number on the invoice",
+            conditional: {
+              html: phoneHtml
+            }
+          }
+        ]
+        }) }}
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">Submit application</button>
+
+        <p>
+          <a href="task-list-single-hrb">Save and come back later</a>
+        </p>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
