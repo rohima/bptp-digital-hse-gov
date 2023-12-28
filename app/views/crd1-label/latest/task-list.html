@@ -11,19 +11,27 @@
       <h1 class="govuk-heading-l">{{ data['existingJobNumber'] or '[Job Number]' }} and [Product name/code (when applicable)]</h1> 
 
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 4 sections.</p>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 3 sections.</p>
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Returning to this application</h2>
       <p class="">We will save the information you give to us on each page.</p>
       <p class="govuk-body govuk-!-margin-bottom-7">Your job number and instructions on how to return later have been sent to <strong>{{ data['your-email'] or 'charlotte.tilbury@barracks.com' }}</strong>.</p>
 
       <h2 class="app-task-list__section">
-        <span class="app-task-list__section-number">1.</span> Applicant information</h2>
+        <span class="app-task-list__section-number">1.</span> Product search</h2>
 
       <ul class="app-task-list__items">
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
-            <a href="applicant-type" aria-describedby="company-information-status">
-             Application information
+            <a href="find-search" aria-describedby="company-information-status">
+             Find product
+            </a>
+          </span>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started yet</strong>
+        </li>
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="find-search" aria-describedby="company-information-status">
+             Alterations requested
             </a>
           </span>
           <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started yet</strong>
@@ -34,41 +42,6 @@
         <span class="app-task-list__section-number">2.</span> Product information</h2>
 
       <ul class="app-task-list__items">
-        <li class="app-task-list__item">
-          <span class="app-task-list__task-name">
-            <a href="#" aria-describedby="company-information-status">
-          Authorised holder
-          </a>
-          </span>
-          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
-        </li>
-
-        <li class="app-task-list__item">
-          <span class="app-task-list__task-name">
-            <a href="#" aria-describedby="company-information-status">
-            Marketing company
-          </a>
-          </span>
-          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
-        </li>
-
-        <li class="app-task-list__item">
-          <span class="app-task-list__task-name">
-            <a href="#" aria-describedby="company-information-status">
-            Product details
-          </a>
-          </span>
-          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
-        </li>
-
-        <li class="app-task-list__item">
-          <span class="app-task-list__task-name">
-            <a href="#" aria-describedby="company-information-status">
-            Formulation composition
-          </a>
-          </span>
-          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
-        </li>
 
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
@@ -91,7 +64,25 @@
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
             <a href="#" aria-describedby="company-information-status">
-            Manufacturing site
+            Summary of changes
+          </a>
+          </span>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
+        </li>
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="#" aria-describedby="company-information-status">
+            Specialist assessment area
+          </a>
+          </span>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
+        </li>
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="#" aria-describedby="company-information-status">
+            Affirmation
           </a>
           </span>
           <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
@@ -99,20 +90,7 @@
       </ul>
 
       <h2 class="app-task-list__section">
-        <span class="app-task-list__section-number">3.</span> Documents</h2>
-
-      <ul class="app-task-list__items">
-        <li class="app-task-list__item">
-          <span class="app-task-list__task-name">
-            <a href="#" aria-describedby="company-information-status"></a>
-           Supporting document
-        </span>
-          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
-        </li>
-      </ul>
-
-      <h2 class="app-task-list__section">
-        <span class="app-task-list__section-number">4.</span> Declaration, payment details and submit</h2>
+        <span class="app-task-list__section-number">3.</span> Declaration, payment details and submit</h2>
       <ul class="app-task-list__items">
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
