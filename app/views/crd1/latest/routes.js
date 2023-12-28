@@ -488,13 +488,14 @@ router.post('/formula-check-answers', function (req, res) {
 
 })
 
-
+// ----------------- ACTIVE DATA OWNERSHIP ----------------- //
 
 // formula-active-substance-data-ownership-details
 router.post('/formula-active-substance-data-ownership-details', function (req, res) {
   res.redirect('formula-product-data-ownership');
 })
 
+// ----------------- PRODUCT DATA OWNERSHIP ----------------- //
 
 // formula-product-data-ownership
 router.post('/formula-product-data-ownership', function (req, res) {
@@ -510,6 +511,8 @@ router.post('/formula-product-data-ownership', function (req, res) {
 router.post('/formula-product-data-ownership-details', function (req, res) {
   res.redirect('active-substance-source-is-csv-upload');
 })
+
+// ----------------- ACTIVE SUBSTANCE SOURCE DATA ----------------- //
 
 // active-substance-source-is-csv-upload
 router.post('/active-substance-source-is-csv-upload', function (req, res) {
@@ -537,9 +540,6 @@ router.post('/active-substance-source-how-many', function (req, res) {
     res.redirect('active-substance-source-previous-tech-equiv-gb');
   }
 })
-
-
-
 
 
 // active-substance-source-previous-tech-equiv-ni
@@ -1164,6 +1164,12 @@ router.post('/find-results', function (req, res) {
   res.redirect('find-confirm');
 
 })
+
+// ----------------- PLACEHOLDER PAGE ----------------- //
+
+
+
+
 
 
 // ----------------- XXXXXXXXXXXXXXXXXXXXXXXXXXXXX ----------------- //
