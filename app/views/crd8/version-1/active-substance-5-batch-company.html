@@ -1,0 +1,83 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What is the name of the  manufacturing site – Manage building control for a higher-risk building – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {# <span class="govuk-caption-l">Application</span> #}
+<h1 class="govuk-heading-l">What is the name of the  manufacturing site?
+   {# {{ data['applicationCompanyName'] or "[Applicant organisation name]" }} #}
+  </h1>
+
+  <div class="govuk-inset-text">
+    [Active substance name: 
+    <strong>Azoxystrobin
+    CAS: 131860-33-8</strong>]
+  </div>
+
+{# <p> Type part of the organisation name and select it from the list. If the full name does not show, enter it manually. </p>  #}
+
+      
+
+      <form class="form" method="post">
+
+        
+        
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% call govukFieldset({
+  legend: {
+    text: "",
+    
+    classes: "govuk-fieldset__legend--l",
+    isPageHeading: true
+  }
+}) %}
+  {{ govukInput({
+    label: {
+      text: 'Organisation name'
+    },
+    hint: {
+    text: "Type part of the organisation name and select it from the list. If the full name does not show, enter it manually."
+  },
+    id: "applicationCompanyName",
+    name: "applicationCompanyName",
+    autocomplete: "address-line1"
+  }) }}
+  
+  {# {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+  {{ govukFileUpload({
+    id: "formulaActiveSubstanceDataOwnerNewDataUpload",
+    name: "formulaActiveSubstanceDataOwnerNewDataUpload",
+    label: {
+      text: "Upload the 5 batch file"
+    }
+  }) }} #}
+    
+{% endcall %}
+       
+
+    
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  
+
+{% endblock %}
