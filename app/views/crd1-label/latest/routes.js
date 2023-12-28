@@ -20,17 +20,10 @@ router.post('/application-name-contact', function (req, res) {
   let applicantFullName = req.session.data.applicantFullName;
   let applicantFirstName = req.session.data.applicantFirstName;
   let applicantLastName = req.session.data.applicantLastName;
-  res.redirect('application-telephone');
-
-})
-
-// application-type-of-organisation - NOT USED
-/*
-router.post('/application-type-of-organisation', function (req, res) {
-  
-  let applicantCompanyType = req.session.data.applicantCompanyType;
   res.redirect('application-company');
+
 })
+
 
 // application-company
 
@@ -86,7 +79,7 @@ router.post('/enter-manual-address', function (req, res) {
   res.redirect('application-telephone');
 
 })
-*/
+
 // application-telephone
 
 router.post('/application-telephone', function (req, res) {
@@ -142,17 +135,6 @@ router.post('/task-list', function (req, res) {
   res.redirect('task-list');
 
 })
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -222,11 +204,7 @@ router.post('/product-proposed-use', function (req, res) {
 router.post('/product-use-seed-treatment', function (req, res) {
   
   let isProductSeedTreatment = req.session.data.isProductSeedTreatment;
-  // if (formulaSubstanceMixture == "Yes") {
-  //   res.redirect('formula-type-add-component');
-  // } else {
-  //   res.redirect('formula-type-add-component');
-  // }
+
   res.redirect('gap-is-csv-upload');
 
 })
@@ -261,7 +239,7 @@ router.post('/gap-is-csv-upload', function (req, res) {
 
 router.post('/gap-csv-1', function (req, res) {
   let gapCsv = req.session.data.gapCsv;
-  res.redirect('gap-check-answers');
+  res.redirect('packaging-number-of');
 
 })
 
@@ -335,7 +313,7 @@ router.post('/gap-application-method', function (req, res) {
 
 router.post('/gap-other-product', function (req, res) {
   let gapOtherProduct = req.session.data.gapOtherProduct;
-  res.redirect('gap-check-answers');
+  res.redirect('packaging-number-of');
 
 })
 
@@ -359,22 +337,6 @@ router.post('/gap-seed-treatment-application', function (req, res) {
 
 router.post('/gap-seed-treatment-growth', function (req, res) {
   let gapSeedGrowth = req.session.data.gapSeedGrowth;
-  res.redirect('gap-check-answers');
-
-})
-
-// gap-csv-check-answers
-
-router.post('/gap-csv-check-answers', function (req, res) {
-  let gapCsvCheckAnswers = req.session.data.gapCsvCheckAnswers;
-  res.redirect('packaging-number-of');
-
-})
-
-// gap-check-answers
-
-router.post('/gap-check-answers', function (req, res) {
-  let gapCheckAnswers = req.session.data.gapCheckAnswers;
   res.redirect('packaging-number-of');
 
 })
@@ -418,7 +380,7 @@ router.post('/packaging-add-another', function (req, res) {
 
 router.post('/packaging-remove', function (req, res) {
   let packagingXDetails = req.session.data.packagingXDetails;
-  res.redirect('packaging-add-another');
+  res.redirect('placeholder-summary');
 
 })
 
@@ -428,18 +390,9 @@ router.post('/packaging-remove', function (req, res) {
 
 router.post('/packaging-upload-label', function (req, res) {
   let packagingXDetails = req.session.data.packagingXDetails;
-  res.redirect('packaging-check-answers');
-
-})
-
-// packaging-check-answers
-
-router.post('/packaging-check-answers', function (req, res) {
-  let packagingCheckAnswers = req.session.data.packagingCheckAnswers;
   res.redirect('placeholder-summary');
 
 })
-
 
 
 
@@ -488,6 +441,7 @@ router.post('/placeholder-eamus-affected', function (req, res) {
   let placeholderPage = req.session.data.placeholderPage;
   res.redirect('check-answers');
 })
+
 
 // ----------------- CHECK ANSWERS ----------------- //
 
