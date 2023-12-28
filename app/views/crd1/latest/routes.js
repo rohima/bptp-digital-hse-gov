@@ -499,8 +499,8 @@ router.post('/formula-active-substance-data-ownership-details', function (req, r
 
 // formula-product-data-ownership
 router.post('/formula-product-data-ownership', function (req, res) {
-  let formulaActiveSubstanceOwnership = req.session.data.formulaActiveSubstanceOwnership
-  if (formulaActiveSubstanceOwnership == 'Yes') {
+  let formulaProductOwnership = req.session.data.formulaProductOwnership
+  if (formulaProductOwnership == 'Yes') {
     res.redirect('active-substance-source-is-csv-upload');
   } else {
     res.redirect('formula-product-data-ownership-details');
@@ -846,8 +846,29 @@ router.post('/gap-dosage', function (req, res) {
 
 router.post('/gap-timings', function (req, res) {
   let gapTimings = req.session.data.gapTimings;
-  res.redirect('gap-application-method');
+  let intendedProductUser = req.session.data.intendedProductUser;
+  res.redirect(`gap-application-${intendedProductUser.toLowerCase()}-protected`);
+})
 
+// gap-application-[intendedProductUser]-protected
+
+router.post('/gap-application-*-protected', function (req, res) {
+  let intendedProductUser = req.session.data.intendedProductUser;
+  res.redirect(`gap-application-${intendedProductUser.toLowerCase()}-indoor`);
+})
+
+// gap-application-[intendedProductUser]-indoor
+
+router.post('/gap-application-*-indoor', function (req, res) {
+  let intendedProductUser = req.session.data.intendedProductUser;
+  res.redirect(`gap-application-${intendedProductUser.toLowerCase()}-outdoor`);
+})
+
+// gap-application-[intendedProductUser]-outdoor
+
+router.post('/gap-application-*-outdoor', function (req, res) {
+  let intendedProductUser = req.session.data.intendedProductUser;
+  res.redirect('gap-other-product');
 })
 
 // gap-application-method
@@ -1004,6 +1025,12 @@ router.post('/manufacturing-site-add-another', function (req, res) {
   } else {
     res.redirect('manufacturing-check-answers');
   }
+})
+
+// manufacturing-address-remove
+
+router.post('/manufacturing-address-remove', function (req, res) {
+  res.redirect('manufacturing-site-add-another');
 })
 
 // manufacturing-check-answers

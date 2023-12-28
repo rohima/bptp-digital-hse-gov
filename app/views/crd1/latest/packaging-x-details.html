@@ -23,6 +23,52 @@ Container [X] details – {{serviceName}} – GOV.UK
 
         {{ govukInput({
         label: {
+          text: "From:"
+        },
+        suffix: {
+          text: ""
+        },
+        classes: "govuk-input--width-5",
+        id: "containerVolumeFrom",
+        name: "containerVolumeFrom"
+        }) }}
+
+        {{ govukRadios({
+        id: "containerVolumeFromUnit",
+        name: "containerVolumeFromUnit",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select the unit for this container type  "
+        },
+        items: [
+          {
+            value: "g",
+            text: "gram (g)"
+          },   
+          {
+            value: "kg",
+            text: "kilogram (kg)"
+          },   
+          {
+            value: "ml",
+            text: "millilitre (ml)"
+          },   
+          {
+            value: "l",
+            text: "litre (l)"
+          }
+        ]
+        }) }}
+
+
+        {{ govukInput({
+        label: {
           text: "To:"
         },
         suffix: {

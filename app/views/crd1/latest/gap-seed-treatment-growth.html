@@ -22,9 +22,9 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
           text: 'Enter value '
         },
         classes: "govuk-input--width-20",
-        id: "formulaActiveSubstanceName",
-        name: "formulaActiveSubstanceName",
-        autocomplete: "address-line1"
+        id: "gapSeedTreatmentSowingDensity",
+        name: "gapSeedTreatmentSowingDensity",
+        autocomplete: "gapSeedTreatmentSowingDensity"
         }) }}
 
         {% set emailHtml %}
@@ -42,8 +42,8 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
         {% endset -%}
 
         {{ govukRadios({
-        id: "formulaTypeAdd",
-        name: "formulaTypeAdd",
+        id: "gapSeedTreatmentSowingDensityUnit",
+        name: "gapSeedTreatmentSowingDensityUnit",
         fieldset: {
           legend: {
             text: "",
@@ -77,8 +77,8 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
           text: "Enter depth   ",
           classes: "govuk-label?--l"
         },
-        id: "proposedUseWaterMin",
-        name: "proposedUseWaterMin"
+        id: "gapSeedTreatmentSowingDepth",
+        name: "gapSeedTreatmentSowingDepth"
         }) }}
 
         <h2 class="govuk-heading-m">Number of crops on the same land within a given year</h2>
@@ -89,8 +89,8 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
           text: "Enter value ",
           classes: "govuk-label?--l"
         },
-        id: "proposedUseWaterMin",
-        name: "proposedUseWaterMin"
+        id: "gapSeedTreatmentSowingNumCrops",
+        name: "gapSeedTreatmentSowingNumCrops"
         }) }}
 
         {{ govukInput({
@@ -102,16 +102,16 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
         hint: {
           text: "For example, where combinations of crops or repeat sowing failure may occur "
         },
-        id: "proposedUseWaterMin",
-        name: "proposedUseWaterMin"
+        id: "gapSeedTreatmentSowingMoreInfo",
+        name: "gapSeedTreatmentSowingMoreInfo"
         }) }}
 
         <h2 class="govuk-heading-m">Treated seed</h2>
         <h3 class="govuk-heading-s"> Is the treated seed precision-drilled?</h3>
 
         {{ govukRadios({
-        id: "formulaTypeAdd",
-        name: "formulaTypeAdd",
+        id: "gapSeedTreatmentSowingDrilled",
+        name: "gapSeedTreatmentSowingDrilled",
         fieldset: {
           legend: {
             text: "",
@@ -135,8 +135,8 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
 
         {% set textHtml %}
         {{ govukInput({
-          id: "contact-by-xx",
-          name: "xx",
+          id: "gapSeedTreatmentSowingUnderProtectionText",
+          name: "gapSeedTreatmentSowingUnderProtectionText",
           type: "text",
           autocomplete: "text",
           spellcheck: false,
@@ -148,8 +148,8 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
         {% endset -%}
 
         {{ govukRadios({
-        id: "formulaTypeAdd",
-        name: "formulaTypeAdd",
+        id: "gapSeedTreatmentSowingUnderProtection",
+        name: "gapSeedTreatmentSowingUnderProtection",
         fieldset: {
           legend: {
             text: "",
@@ -184,8 +184,8 @@ Seed sowing and growth   – {{serviceName}} – GOV.UK
           classes: "govuk-label?--l"
         },
         suffix: {text: ""},
-        id: "proposedUseWaterMin",
-        name: "proposedUseWaterMin"
+        id: "gapSeedTreatmentSowingStageRemoved",
+        name: "gapSeedTreatmentSowingStageRemoved"
         }) }}
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>

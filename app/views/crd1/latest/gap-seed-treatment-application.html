@@ -21,9 +21,9 @@ Product dosage  – {{serviceName}} – GOV.UK
           text: ' Enter description'
         },
         classes: "govuk-input--width-20",
-        id: "formulaActiveSubstanceName",
-        name: "formulaActiveSubstanceName",
-        autocomplete: "address-line1"
+        id: "gapSeedTreatmentDesc",
+        name: "gapSeedTreatmentDesc",
+        autocomplete: "gapSeedTreatmentDesc"
         }) }}
 
         <h2 class="govuk-heading-m">Amount of product per hectare</h2>
@@ -33,14 +33,14 @@ Product dosage  – {{serviceName}} – GOV.UK
           text: ' Enter value'
         },
         classes: "govuk-input--width-20",
-        id: "formulaActiveSubstanceName",
-        name: "formulaActiveSubstanceName",
-        autocomplete: "address-line1"
+        id: "gapSeedTreatmentProductPerHectare",
+        name: "gapSeedTreatmentProductPerHectare",
+        autocomplete: "gapSeedTreatmentProductPerHectare"
         }) }}
 
         {{ govukRadios({
-        id: "formulaTypeAdd",
-        name: "formulaTypeAdd",
+        id: "gapSeedTreatmentProductPerHectareUnit",
+        name: "gapSeedTreatmentProductPerHectareUnit",
         fieldset: {
           legend: {
             text: "",
@@ -72,13 +72,13 @@ Product dosage  – {{serviceName}} – GOV.UK
           text: "Enter value  ",
           classes: "govuk-label?--l"
         },
-        id: "proposedUseWaterMin",
-        name: "proposedUseWaterMin"
+        id: "gapSeedTreatmentProductPer100000",
+        name: "gapSeedTreatmentProductPer100000"
         }) }}
 
         {{ govukRadios({
-        id: "formulaTypeAdd",
-        name: "formulaTypeAdd",
+        id: "gapSeedTreatmentProductPer100000Unit",
+        name: "gapSeedTreatmentProductPer100000Unit",
         fieldset: {
           legend: {
             text: "",
@@ -114,8 +114,8 @@ Product dosage  – {{serviceName}} – GOV.UK
         hint: {
           text: "Grams of active substance per 100,000 seeds "
         },
-        id: "proposedUseWaterMin",
-        name: "proposedUseWaterMin"
+        id: "gapSeedTreatmentRateToSeeds",
+        name: "gapSeedTreatmentRateToSeeds"
         }) }}
 
         <h2 class="govuk-heading-m">Concentration on seeds</h2>
@@ -130,8 +130,8 @@ Product dosage  – {{serviceName}} – GOV.UK
         hint: {
           text: "Milligrams of active substance per 100,000 seeds"
         },
-        id: "proposedUseWaterMin",
-        name: "proposedUseWaterMin"
+        id: "gapSeedTreatmentConcentrationOnSeeds",
+        name: "gapSeedTreatmentConcentrationOnSeeds"
         }) }}
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>

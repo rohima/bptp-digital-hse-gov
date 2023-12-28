@@ -35,12 +35,30 @@
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-            Volume range for container type
+            Product label upload
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['containerVolumeFrom'] or '10'}}
-              {{ data['containerVolumeFromUnit'] or 'gram (g)'}} to {{ data['containerVolumeTo'] or '50'}}
-              {{ data['containerVolumeToUnit'] or 'gram (g)'}}
+              {{ data['xxxx'] or '[label upload file]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="packaging-upload-label">
+              Change
+              <span class="govuk-visually-hidden">Product label upload</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Container [x]</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Volume range for container
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['containerVolumeFrom'] or "[volume from]" }} to {{ data['containerVolumeTo'] or '[volume to]' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="packaging-x-details">
@@ -52,10 +70,25 @@
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+            Material closest to the product
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['productPackagingMaterial'] or '[material]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="packaging-x-details">
+              Change
+              <span class="govuk-visually-hidden">Material closest to the product</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
             Product container type
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['productContainerType'] or 'Box'}}
+              {{ data['productContainerType'] or '[product container type]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="packaging-x-details">
@@ -67,25 +100,10 @@
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-            Packaging material
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['productPackagingMaterial'] or 'Cardboard'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="packaging-x-details">
-              Change
-              <span class="govuk-visually-hidden">Packaging material</span>
-              </a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
             Other pack material
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['productPackagingMaterialOther'] or ''}}
+              {{ data['productPackagingMaterialOther'] or '[other pack material]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="packaging-x-details">

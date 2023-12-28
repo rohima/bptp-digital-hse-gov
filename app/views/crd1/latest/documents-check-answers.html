@@ -32,12 +32,13 @@
             </dd>
           </div>
 
+          {% if data['documentsReferenceProduct'] == "Yes" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
            Product name
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentsReferenceProductName'] or 'Reference product'}}
+              {{ data['documentsReferenceProductName'] or '[reference product]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-reference-product-details">
@@ -51,7 +52,7 @@
             MAPP number
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentsReferenceProductMapp'] or 'MAPP-123456'}}
+              {{ data['documentsReferenceProductMapp'] or '[mapp number]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-reference-product-details">
@@ -65,7 +66,7 @@
             Authorisation holder
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentsReferenceProductAuthHolder'] or 'Ref Ltd'}}
+              {{ data['documentsReferenceProductAuthHolder'] or '[auth holder]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-reference-product-details">
@@ -79,7 +80,7 @@
             Marketing company
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentsReferenceProductMarketingCo'] or 'Ref Marketting Ltd'}}
+              {{ data['documentsReferenceProductMarketingCo'] or '[marketing company]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-reference-product-details">
@@ -93,7 +94,7 @@
             Risk assessment areas
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['refProductProposedUse'] or 'Chemistry'}}
+              {{ data['refProductProposedUse'] or '[risk assessment areas]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-reference-product-risk-areas">
@@ -102,6 +103,7 @@
               </a>
             </dd>
           </div>
+          {% endif %}
         </dl>
         <h2 class="govuk-heading-m">Documents</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -110,7 +112,7 @@
             Admin documents uploaded
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentsAdminSelect'] or 'an application overview'}}
+              {{ data['documentsAdminSelect'] or '[admin docs]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-admin">
@@ -124,7 +126,7 @@
             Draft registration report documents uploaded
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentsDraftRegReportSelect'] or 'Part A Summary of evaluation'}}
+              {{ data['documentsDraftRegReportSelect'] or '[draft reg reports]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-draft-reg-report">
@@ -138,7 +140,7 @@
             Supporting data dossier uploaded
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['dataDossierUpload'] or 'data-dossier-2023.doc'}}
+              {{ data['dataDossierUpload'] or '[data dossier file]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-supporting">
@@ -152,7 +154,7 @@
             Relevant CRD correspondence uploaded
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentsCRDSelect'] or 'I do not have any CRD correspondence to upload'}}
+              {{ data['documentsCRDSelect'] or '[crd correspondence files]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-supporting">
@@ -166,7 +168,7 @@
             Safety data sheets (SDS) uploaded
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentSDSUpload'] or 'sds-2024.csv'}}
+              {{ data['documentSDSUpload'] or '[safety data sheets file]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-safety-data-sheet">
@@ -175,7 +177,7 @@
               </a>
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
+          <!--<div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
             Proof of authorisation uploaded
           </dt>
@@ -188,7 +190,7 @@
               <span class="govuk-visually-hidden">Proof of authorisation uploaded</span>
               </a>
             </dd>
-          </div>
+          </div>-->
         </dl>
 
         <input type="hidden" name="answers-checked" value="true">
