@@ -23,7 +23,7 @@ router.use('/crd1-formula', require('./views/crd1-formula/routes'));
 router.use('/crd1-label', require('./views/crd1-label/routes'));
 router.use('/crd1-mrl', require('./views/crd1-mrl/routes'));
 router.use('/crd1-packaging', require('./views/crd1-packaging/routes'));
-// router.use('/crd1-use', require('./views/crd1-use/routes'));
+router.use('/crd1-use', require('./views/crd1-use/routes'));
 
 // Other journey
 router.use('/crd3', require('./views/crd3/routes'));
