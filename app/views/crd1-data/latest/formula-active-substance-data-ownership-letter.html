@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Which admin documents are you uploading? –{{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .govuk-summary-list__key {
+    width:60%
+  }
+</style>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Data ownership: Active substance data  </span>
+
+      <h1 class="govuk-heading-l">
+        Enter reference details for the previous letter of access 
+      </h1>
+
+     
+        <form class="form" method="post">
+
+           
+          
+
+         <style>
+          .govuk-summary-list__key {
+            width:60%
+          }
+        </style>
+        
+       
+
+        {{ govukTextarea({
+          label: {
+            text: 'Letter of access details '
+          },
+          hint: {
+          text: "For example, product name and MAPP number.  "
+        },
+          id: "formulaActiveSubstanceName",
+          name: "formulaActiveSubstanceName"
+        }) }}
+
+        
+            
+        
+                {{ govukButton({
+                  text: "Save and continue"
+                }) }}
+        
+                
+        
+              </form>
+        
+            </div>
+          </div>
+        
+        {% endblock %}
+        
+       
