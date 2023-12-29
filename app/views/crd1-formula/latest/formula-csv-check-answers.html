@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Check your answers application {{serviceName}} – GOV.UK
+  Check your answers formula composition – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -11,68 +11,59 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
-      <form class="form" method="post">
+      <form method="post">
+
         <h1 class="govuk-heading-xl">Check your answers</h1>
-        <h2 class="govuk-heading-m">Your details</h2>
+        <h2 class="govuk-heading-m">Product details</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-            Name
+            Formulation composition 
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['applicantFullName'] or '[applicant name]'}}
+              {{ data['marketArea'] or '[Substance 1]'}}
+              <br>
+              {{ data['marketArea'] or '[Substance 2]'}}
+              <br>
+              {{ data['marketArea'] or '[Substance 3]'}}
+              <br>
+              {{ data['marketArea'] or '[Substance 4]'}}
+              <br>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="application-name-contact">
+              <a href="test-formula-composition-add-another">
               Change
-              <span class="govuk-visually-hidden">Name</span>
+              <span class="govuk-visually-hidden">Formulation composition</span>
               </a>
             </dd>
           </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-           Organisation name
+            Are all active substances low risk?   
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['applicationCompanyName'] or '[company name]'}}
+              {{ data['productName'] or '[Value]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="application-company">
+              <a href="formula-risk">
               Change
-              <span class="govuk-visually-hidden">Organisation name</span>
+              <span class="govuk-visually-hidden">Is the product low risk?</span>
               </a>
             </dd>
           </div>
-
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-            Organisation address
+            5-batch data 
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['applicantCompanyAddressList'] or '17 Wellborough Street, London, W11 7PP'}}
+              {{ data['formulaActiveSubstanceDataOwnerSpecUpload'] or '[File name]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="application-address-postcode">
+              <a href="test-formula-active-substance-five-batch-source-upload">
               Change
-              <span class="govuk-visually-hidden">Organisation address</span>
-              </a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            Phone number
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['applicantTelephone'] or '[company number]'}}
-
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="application-telephone">
-              Change
-              <span class="govuk-visually-hidden">Phone number</span>
+              <span class="govuk-visually-hidden">Specification/5 batch analysis data upload</span>
               </a>
             </dd>
           </div>
@@ -81,6 +72,11 @@
         <input type="hidden" name="answers-checked" value="true">
 
         <button type="submit" class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+        <p>
+          <a href="#">View application progress</a>
+        </p>
+
       </form>
     </div>
   </div>
