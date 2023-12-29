@@ -9,7 +9,7 @@ const router = express.Router()
 router.post('/existing-job-number', function (req, res) {
   
   let existingJobNumber = req.session.data.existingJobNumber;
-  res.redirect('send-verify-code');
+  res.redirect('application-name-contact');
 
 })
 
@@ -147,12 +147,13 @@ router.post('/task-list', function (req, res) {
 
 
 
+// ----------------- PLACEHOLDER ADMINISTRATION EXAMPLE ----------------- //
 
+// placeholder-administration-example
 
-
-
-
-
+router.post('/placeholder-administration-example', function (req, res) {  
+  res.redirect('find-search');
+})
 
 
 
@@ -177,9 +178,9 @@ router.post('/find-results', function (req, res) {
 
 // find-confirm
 
-router.post('/find-results', function (req, res) {  
+router.post('/find-confirm', function (req, res) {  
   let findConfirm = req.session.data.findConfirm;
-  res.redirect('find-confirm');
+  res.redirect('placeholder-crd2-main-flow');
 
 })
 
@@ -195,14 +196,40 @@ router.post('/placeholder-page', function (req, res) {
 
 
 
+// ----------------- PLACEHOLDER PAGE ----------------- //
+
+
+// Route to main crd2 flow
+
+router.post('/placeholder-crd2-main-flow', function (req, res) {  
+  let placeholderPage = req.session.data.placeholderPage;
+  res.redirect('placeholder-no-change');
+})
+
+
+// Affirm Nothing else has changed / not required
+
+router.post('/placeholder-no-change', function (req, res) {  
+  let placeholderPage = req.session.data.placeholderPage;
+  res.redirect('placeholder-eamus-affected');
+})
+
+// confirm whether EAMUs are affected
+
+router.post('/placeholder-eamus-affected', function (req, res) {  
+  let placeholderPage = req.session.data.placeholderPage;
+  res.redirect('check-answers');
+})
 
 
 
 
+// ----------------- CHECK ANSWERS ----------------- //
 
-
-
-
+router.post('/check-answers', function (req, res) {  
+  let placeholderPage = req.session.data.placeholderPage;
+  res.redirect('declaration');
+})
 
 
 

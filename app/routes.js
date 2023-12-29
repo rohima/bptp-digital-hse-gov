@@ -17,7 +17,9 @@ router.use('/crd1-change', require('./views/crd1-change/routes'));
 // CRD1 change journeys
 router.use('/crd1-active', require('./views/crd1-active/routes'));
 router.use('/crd1-administrative', require('./views/crd1-administrative/routes'));
+
 router.use('/crd1-claim-label', require('./views/crd1-claim-label/routes'));
+
 router.use('/crd1-data', require('./views/crd1-data/routes'));
 router.use('/crd1-formula', require('./views/crd1-formula/routes'));
 router.use('/crd1-label', require('./views/crd1-label/routes'));

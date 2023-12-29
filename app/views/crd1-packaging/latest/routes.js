@@ -9,7 +9,7 @@ const router = express.Router()
 router.post('/existing-job-number', function (req, res) {
   
   let existingJobNumber = req.session.data.existingJobNumber;
-  res.redirect('send-verify-code');
+  res.redirect('application-name-contact');
 
 })
 
@@ -138,23 +138,10 @@ router.post('/receive-verify-code', function (req, res) {
 // task-list
 
 router.post('/task-list', function (req, res) {
-  
   let taskList = req.session.data.taskList;
   res.redirect('task-list');
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // ----------------- FIND PRODUCT ----------------- //
@@ -177,35 +164,107 @@ router.post('/find-results', function (req, res) {
 
 // find-confirm
 
-router.post('/find-results', function (req, res) {  
+router.post('/find-confirm', function (req, res) {  
   let findConfirm = req.session.data.findConfirm;
-  res.redirect('find-confirm');
+  res.redirect('placeholder-technical-assessment');
 
 })
 
 // ----------------- PLACEHOLDER PAGE ----------------- //
 
-router.post('/placeholder-page', function (req, res) {  
+router.post('/placeholder-technical-assessment', function (req, res) {  
   let placeholderPage = req.session.data.placeholderPage;
-  res.redirect('placeholder-page');
+  res.redirect('packaging-number-of');
+})
+
+
+// ----------------- PACKAGING ----------------- //
+
+// packaging-number-of
+
+router.post('/packaging-number-of', function (req, res) {
+  let packagingNumberof = req.session.data.packagingNumberof;
+  res.redirect('packaging-x-details');
+
+})
+
+// packaging-x-details
+
+router.post('/packaging-x-details', function (req, res) {
+  let packagingXDetails = req.session.data.packagingXDetails;
+  res.redirect('packaging-add-another');
+
+})
+
+// packaging-add-another
+
+router.post('/packaging-add-another', function (req, res) {
+  let addAnotherContainer = req.session.data.addAnotherContainer;
+
+  if (addAnotherContainer == "Yes") {
+    res.redirect('packaging-x-details');
+  } else {
+    res.redirect('packaging-upload-label');
+  }
+})
+
+// packaging-remove
+
+router.post('/packaging-remove', function (req, res) {
+  let packagingXDetails = req.session.data.packagingXDetails;
+  res.redirect('placeholder-summary');
+
+})
+
+// ----------------- PACKAGING AND LABELS ----------------- //
+
+// packaging-upload-label
+
+router.post('/packaging-upload-label', function (req, res) {
+  let packagingXDetails = req.session.data.packagingXDetails;
+  res.redirect('documents-reference-product-risk-areas');
 
 })
 
 
+// ----------------- SPECIAL ASSESSMENT AREA ----------------- //
+
+
+// documents-reference-product-risk-areas
+
+router.post('/documents-reference-product-risk-areas', function (req, res) {  
+  let documentsReferenceProductRiskAreas = req.session.data.documentsReferenceProductRiskAreas;
+  res.redirect('placeholder-no-change');
+
+})
+
+
+// ----------------- PLACEHOLDER PAGE ----------------- //
+
+// Affirm Nothing else has changed / not required
+
+router.post('/placeholder-no-change', function (req, res) {  
+  let placeholderPage = req.session.data.placeholderPage;
+  res.redirect('placeholder-eamus-affected');
+})
+
+// confirm whether EAMUs are affected
+
+router.post('/placeholder-eamus-affected', function (req, res) {  
+  let placeholderPage = req.session.data.placeholderPage;
+  res.redirect('check-answers');
+})
 
 
 
+// ----------------- CHECK ANSWERS ----------------- //
 
+// check-answers
 
-
-
-
-
-
-
-
-
-
+router.post('/check-answers', function (req, res) {  
+  let placeholderPage = req.session.data.placeholderPage;
+  res.redirect('declaration');
+})
 
 
 // ----------------- DECLARATIONS ----------------- //
