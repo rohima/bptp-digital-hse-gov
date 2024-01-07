@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Is the source technically equivalent?   – {{serviceName}} – GOV.UK
+Are you applying for a technical equivalence assessment?  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,9 +18,11 @@ Is the source technically equivalent?   – {{serviceName}} – GOV.UK
       <form class="form" method="post">
 
       <span class="govuk-caption-l">Data ownership: Active substance source data </span>
-      <h1 class="govuk-heading-l">Has this active substance source previously been considered to be technically equivalent in Great Britain?    </p>
+      <h1 class="govuk-heading-l">Provide reference to the ongoing application - eg. COP number, product name, MAPP number, Job number </p>
 
 <p>[Active substance name]</p>
+
+<p>All sources must have been assessed for technical equivalence in order for your application for authorisation to proceed.  </p>
 
 {# <div class="govuk-inset-text">
   [Active substance name: 
@@ -37,15 +39,15 @@ Is the source technically equivalent?   – {{serviceName}} – GOV.UK
   autocomplete: "tel",
   classes: "govuk-!-width-one-third",
   label: {
-    text: "Reference evaluation report"
+    text: "Enter details "
   },
-  hint: { text: "This could be any or all of the following: COP number, Wisdom reference, HSE reference, product name, product identifier code"}
+  hint: { text: "Give details of the application, for example, job number, product name or MAPP number "}
 }) }}
 {% endset -%}
 
 {{ govukRadios({
-  id: "activeSourcePreviousTechEquivGB",
-  name: "activeSourcePreviousTechEquivGB",
+  id: "formulaActiveSubstanceOwnership",
+  name: "formulaActiveSubstanceOwnership",
   fieldset: {
     legend: {
       text: "",
@@ -64,18 +66,11 @@ Is the source technically equivalent?   – {{serviceName}} – GOV.UK
     },   
     {
       value: "No",
-      text: "No",
-      checked: false
+      text: "No – another application is in progress",
+      conditional: { html: emailHtml }
     }
 
   ]
-}) }}
-
-{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
-
-{{ govukWarningText({
-  text: "This application may not result in authorisation in Great Britain if the active substance source has not previously been considered to be technically equivalent in Great Britain. ",
-  iconFallbackText: "Warning"
 }) }}
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>

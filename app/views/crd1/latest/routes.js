@@ -588,6 +588,18 @@ router.post('/active-substance-source-request-tech-equiv', function (req, res) {
 
 })
 
+// active-substance-source-request-tech-equiv-upload
+router.post('/active-substance-source-request-tech-equiv-upload', function (req, res) {
+  let requestTechEquiv = req.session.data.requestTechEquiv;
+  if (requestTechEquiv == "Yes") {
+    res.redirect('active-substance-source-request-tech-equiv-upload');
+  } else {
+    res.redirect('formula-active-substance-source-data-ownership-details');
+  }
+
+})
+
+
 // application-eu-tech
 
 router.post('/application-eu-tech', function (req, res) {
@@ -1167,6 +1179,79 @@ router.post('/confirmation', function (req, res) {
   res.redirect('confirmation');
 
 })
+
+
+
+
+
+
+
+
+
+
+// ----------------- MRL ----------------- //
+
+// mrl-needed
+
+router.post('/mrl-needed', function (req, res) {
+  
+  let productMrlNeeded = req.session.data.productMrlNeeded;
+  if (productMrlNeeded == "No") {
+    res.redirect('product-check-answers');
+  } else {
+    res.redirect('mrl-commodity-code-name');
+  }
+
+})
+
+// mrl-commodity-code-name
+
+router.post('/mrl-commodity-code-name', function (req, res) {
+  
+  let productCommodityCodeName = req.session.data.productCommodityCodeName;
+  res.redirect('mrl-change');
+
+})
+
+// mrl-change
+
+router.post('/mrl-change', function (req, res) {
+  
+  let productMrlChange = req.session.data.productMrlChange;
+  let productMrlCurrent = req.session.data.productMrlCurrent;
+  let productMrlProposed = req.session.data.productMrlProposed;
+  res.redirect('product-check-answers');
+
+})
+
+// product-mrl-currently-in-force - NOT USED
+
+router.post('/product-mrl-currently-in-force', function (req, res) {
+  
+  let productMrlInForce = req.session.data.productMrlInForce;
+  res.redirect('product-mrl-currently-in-force-value');
+
+})
+
+// product-mrl-currently-in-force-value NOT USED
+
+router.post('/product-mrl-currently-in-force-value', function (req, res) {
+  
+  let productMrlInForceValue = req.session.data.productMrlInForceValue;
+  res.redirect('product-mrl-currently-in-force-add-another');
+
+})
+
+// product-mrl-currently-in-force-add-another - NOT USED
+
+router.post('/product-mrl-currently-in-force-add-another', function (req, res) {
+  
+  let productMrlInForceAddAnother = req.session.data.productMrlInForceAddAnother;
+  res.redirect('product-check-answers');
+
+})
+
+// 
 
 // ----------------- FIND PRODUCT ----------------- //
 

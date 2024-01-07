@@ -17,10 +17,10 @@ Are you applying for a technical equivalence assessment?  â€“ {{serviceName}} â€
 
       <form class="form" method="post">
 
-      <span class="govuk-caption-l">Data ownership: Active substance source data </span>
-      <h1 class="govuk-heading-l">Are you applying for a technical equivalence assessment for this source as part of this application?    </p>
+      <span class="govuk-caption-l">Data ownership: technical equivalence</span>
+      <h1 class="govuk-heading-l">Are you applying for a technical equivalence assessment as part of this application?    </p>
 
-<p>[Active substance name]</p>
+{# <p>[Active substance name]</p> #}
 
 <p>All sources must have been assessed for technical equivalence in order for your application for authorisation to proceed.  </p>
 
@@ -28,7 +28,7 @@ Are you applying for a technical equivalence assessment?  â€“ {{serviceName}} â€
   [Active substance name: 
   <strong>Azoxystrobin
   CAS: 131860-33-8</strong>]
-</div> #}
+</div> #} 
 
 
 {% set emailHtml %}
@@ -46,8 +46,8 @@ Are you applying for a technical equivalence assessment?  â€“ {{serviceName}} â€
 {% endset -%}
 
 {{ govukRadios({
-  id: "formulaActiveSubstanceOwnership",
-  name: "formulaActiveSubstanceOwnership",
+  id: "requestTechEquiv",
+  name: "requestTechEquiv",
   fieldset: {
     legend: {
       text: "",

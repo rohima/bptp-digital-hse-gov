@@ -31,7 +31,12 @@ Do you want to upload your active substance source information? – {{serviceNam
  
 <p> If you do not want to upload a file, you can enter the information manually.  </p>
       
-
+<p class="govuk-body">If you choose to upload this information: </p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>all sources must have previously been assessed for technical equivalence </li>
+  <li>you must enter the information into the CRD active substance source template before you upload it </li>
+  
+</ul>
 
 
 {{ govukRadios({
@@ -51,7 +56,7 @@ Do you want to upload your active substance source information? – {{serviceNam
     {
       value: "Yes",
       text: "Yes – upload a file ",
-      hint: {text:"You must enter the information into the CRD active substance source template before you upload it  "},
+      hint: {text:""},
       checked: false
     },   
     {

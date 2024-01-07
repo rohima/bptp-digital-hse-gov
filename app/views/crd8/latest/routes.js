@@ -165,9 +165,444 @@ router.post('/source-owner-check-answers', function (req, res) {
 router.post('/type-of-assessment', function (req, res) {
   
   let authHolderCheckAnswers = req.session.data.authHolderCheckAnswers;
+  res.redirect('formula-is-csv-upload');
+
+})
+
+
+
+
+
+
+// ----------------- FORMULATION COMPOSITION ----------------- //
+
+// formula-is-csv-upload
+
+router.post('/formula-is-csv-upload', function (req, res) {
+  let isCsvUpload = req.session.data.isCsvUpload;
+
+  if (isCsvUpload == "Yes") {
+    res.redirect('formula-csv-1');
+  } else {
+    res.redirect('formula-type-add');
+  }
+})
+
+// formula-csv-1
+
+router.post('/formula-csv-1', function (req, res) {
+  res.redirect('formula-csv-3');
+})
+
+// formula-csv-2 - NOT USED
+
+router.post('/formula-csv-2', function (req, res) {
+  res.redirect('formula-csv-3');
+})
+
+// formula-csv-3
+
+router.post('/formula-csv-3', function (req, res) {
+  res.redirect('formula-csv-check-answers');
+})
+
+// ----------------- FORMULATION MANUAL ----------------- //
+
+// formula-type-add
+router.post('/formula-type-add', function (req, res) {
+  let formulaTypeAdd = req.session.data.formulaTypeAdd;
+  if (formulaTypeAdd == "Co Formulant") {
+    res.redirect('formula-type-add-co-formulant-details');
+  } else {
+    res.redirect('formula-type-add-active-details');
+  }
+})
+
+// formula-type-add-active-details
+router.post('/formula-type-add-active-details', function (req, res) {
+  res.redirect('formula-composition-add-another-1');
+})
+
+// formula-composition-add-another-1
+router.post('/formula-composition-add-another-1', function (req, res) {
+  let addAnotherFormulaComposition = req.session.data.addAnotherFormulaComposition
+
+  if (addAnotherFormulaComposition == "Yes") {
+    res.redirect('formula-type-add');
+  } else {
+    res.redirect('formula-risk-product');
+  }
+})
+
+// formula-type-add-co-formulant-details
+router.post('/formula-type-add-co-formulant-details', function (req, res) {
+  res.redirect('formula-substance-components');
+})
+
+// formula-substance-trade-name - NOT USED
+router.post('/formula-substance-trade-name', function (req, res) {
+  res.redirect('formula-substance-components');
+})
+
+// formula-substance-components
+router.post('/formula-substance-components', function (req, res) {
+  let formulaSubstanceNumberComponents = req.session.data.formulaSubstanceNumberComponents;
+  let formulaSubstanceMixture = req.session.data.formulaSubstanceMixture;
+  if (formulaSubstanceMixture == "Yes") {
+    res.redirect('formula-type-add-component');
+  } else {
+    res.redirect('formula-composition-add-another');
+  }
+  
+})
+
+// formula-type-add-component
+router.post('/formula-type-add-component', function (req, res) {
+  res.redirect('formula-substance-component-add-another');
+})
+
+
+// formula-substance-component-add-another
+
+router.post('/formula-substance-component-add-another', function (req, res) {
+  let addAnotherSubstanceComponent = req.session.data.addAnotherSubstanceComponent;
+  
+  if (addAnotherSubstanceComponent == "Yes") {
+    res.redirect('formula-type-add-component');
+  } else {
+    res.redirect('formula-substance-add-another');
+  }
+})
+
+// formula-substance-component-remove
+router.post('/formula-substance-component-remove', function (req, res) {
+  res.redirect('formula-substance-component-add-another');
+})
+
+// formula-substance-add-another
+router.post('/formula-substance-add-another', function (req, res) {
+  res.redirect('formula-risk-product');
+})
+
+// formula-substance-remove
+router.post('/formula-substance-remove', function (req, res) {
+  res.redirect('formula-substance-add-another');
+})
+
+// formula-composition-add-another
+router.post('/formula-composition-add-another', function (req, res) {
+  res.redirect('formula-risk-product');
+})
+
+
+
+
+
+
+// formula-risk-product
+
+router.post('/formula-risk-product', function (req, res) {
+  let productRisk = req.session.data.productRisk;
+  if (productRisk == "No") {
+    res.redirect('formula-check-answers');
+  } else {
+    res.redirect('formula-risk-upload');
+  }
+
+})
+
+// formula-risk-upload
+
+router.post('/formula-risk-upload', function (req, res) {
+  
+  let productRiskUpload = req.session.data.productRiskUpload;
+  res.redirect('formula-check-answers');
+
+})
+
+// formula-check-answers
+
+router.post('/formula-check-answers', function (req, res) {  
+  let formulaCheckAnswers = req.session.data.formulaCheckAnswers;
+  res.redirect('formula-active-substance-data-ownership-details');
+
+})
+
+// ----------------- ACTIVE DATA OWNERSHIP ----------------- //
+
+// formula-active-substance-data-ownership-details
+router.post('/formula-active-substance-data-ownership-details', function (req, res) {
+  res.redirect('formula-product-data-ownership');
+})
+
+// ----------------- PRODUCT DATA OWNERSHIP ----------------- //
+
+// formula-product-data-ownership
+router.post('/formula-product-data-ownership', function (req, res) {
+  let formulaProductOwnership = req.session.data.formulaProductOwnership
+  if (formulaProductOwnership == 'Yes') {
+    res.redirect('active-substance-source-is-csv-upload');
+  } else {
+    res.redirect('formula-product-data-ownership-details');
+  }
+})
+
+// formula-product-data-ownership-details
+router.post('/formula-product-data-ownership-details', function (req, res) {
+  res.redirect('active-substance-source-is-csv-upload');
+})
+
+// ----------------- ACTIVE SUBSTANCE SOURCE DATA ----------------- //
+
+// active-substance-source-is-csv-upload
+router.post('/active-substance-source-is-csv-upload', function (req, res) {
+  let isActiveSubstanceSourceUpload = req.session.data.isActiveSubstanceSourceUpload;
+  if (isActiveSubstanceSourceUpload == "No") {
+    res.redirect('active-substance-source-how-many');
+  } else {
+    res.redirect('active-substance-source-csv-1');
+  }
+})
+
+// active-substance-source-csv-1
+router.post('/active-substance-source-csv-1', function (req, res) {
+  res.redirect('formula-active-substance-source-data-ownership-check-answers');
+})
+
+// active-substance-source-how-many
+router.post('/active-substance-source-how-many', function (req, res) {
+  let marketArea = req.session.data.marketArea;
+  if (marketArea == 'Northern Ireland' || 'Great Britain and Northern Ireland') {
+    res.redirect('active-substance-source-previous-tech-equiv-ni');
+  } else if (marketArea == 'Great Britain') {
+    res.redirect('active-substance-source-previous-tech-equiv-gb');
+  } else {
+    res.redirect('active-substance-source-previous-tech-equiv-gb');
+  }
+})
+
+
+// active-substance-source-previous-tech-equiv-ni
+
+router.post('/active-substance-source-previous-tech-equiv-ni', function (req, res) {
+  let marketArea = req.session.data.marketArea;
+  let activeSourcePreviousTechEquivNI = req.session.data.activeSourcePreviousTechEquivNI;
+  if (activeSourcePreviousTechEquivNI == "Yes") {
+    res.redirect('application-eu-reference');
+  } else if (marketArea == 'Great Britain and Northern Ireland' && activeSourcePreviousTechEquivNI == "No") {
+    res.redirect('active-substance-source-previous-tech-equiv-gb');
+  } else {
+    res.redirect('formula-active-substance-source-data-ownership-details');
+  }
+})
+
+// application-eu-reference
+
+router.post('/application-eu-reference', function (req, res) {
+  let marketArea = req.session.data.marketArea;
+  if (marketArea == 'Great Britain and Northern Ireland') {
+    res.redirect('active-substance-source-previous-tech-equiv-gb');
+  } else {
+    res.redirect('formula-active-substance-source-data-ownership-details');
+  }
+
+})
+
+// active-substance-source-previous-tech-equiv-gb
+
+router.post('/active-substance-source-previous-tech-equiv-gb', function (req, res) {
+  let marketArea = req.session.data.marketArea;
+  let activeSourcePreviousTechEquivGB = req.session.data.activeSourcePreviousTechEquivGB;
+  if (activeSourcePreviousTechEquivGB == "No") {
+    res.redirect('active-substance-source-request-tech-equiv');
+  } else {
+    res.redirect('formula-active-substance-source-data-ownership-details');
+  }
+  res.redirect('formula-active-substance-source-data-ownership-details');
+})
+
+// active-substance-source-request-tech-equiv
+router.post('/active-substance-source-request-tech-equiv', function (req, res) {
+  let marketArea = req.session.data.marketArea;
+  res.redirect('product-name');
+
+})
+
+// application-eu-tech
+
+router.post('/application-eu-tech', function (req, res) {
+  
+  let marketArea = req.session.data.marketArea;
+  res.redirect('product-name');
+
+})
+
+
+
+
+
+
+
+
+// formula-active-substance-source-data-ownership-details
+router.post('/formula-active-substance-source-data-ownership-details', function (req, res) {
+  let formulaActiveSourceDataOwnerAddress = req.session.data.formulaActiveSourceDataOwnerAddress;
+  let formulaActiveSourceDataOwnerLetters = req.session.data.formulaActiveSourceDataOwnerLetters;
+  if (formulaActiveSourceDataOwnerLetters == 'Letter of access provided previously') {
+    res.redirect('formula-active-substance-source-data-ownership-previous');
+  } else if (formulaActiveSourceDataOwnerAddress == "Yes" ) {
+    res.redirect('formula-active-substance-source-manufacturing-address-postcode');
+  } else {
+    res.redirect('formula-active-substance-source-data-ownership-check-answers');
+  }
+})
+
+// formula-active-substance-source-data-ownership-previous
+router.post('/formula-active-substance-source-data-ownership-previous', function (req, res) {
+  let formulaActiveSourceDataOwnerAddress = req.session.data.formulaActiveSourceDataOwnerAddress;
+  if (formulaActiveSourceDataOwnerAddress == "Yes" ) {
+    res.redirect('formula-active-substance-source-manufacturing-address-postcode');
+  } else {
+    res.redirect('formula-active-substance-source-data-ownership-check-answers');
+  }
+})
+
+// formula-active-substance-source-manufacturing-address-postcode
+
+router.post('/formula-active-substance-source-manufacturing-address-postcode', function (req, res) {
+  res.redirect('formula-active-substance-source-manufacturing-address-list');
+})
+
+// formula-active-substance-source-manufacturing-address-list
+router.post('/formula-active-substance-source-manufacturing-address-list', function (req, res) {
+  res.redirect('formula-active-substance-source-manufacturing-address-confirm');
+})
+
+// formula-active-substance-source-manufacturing-address-confirm
+router.post('/formula-active-substance-source-manufacturing-address-confirm', function (req, res) {
+  res.redirect('formula-active-substance-source-data-ownership-check-answers');
+})
+
+// formula-active-substance-source-data-ownership-check-answers
+
+router.post('/formula-active-substance-source-data-ownership-check-answers', function (req, res) {
+  res.redirect('product-use');
+})
+
+
+
+
+
+
+
+
+
+
+
+
+// formula-active-substance-data-ownership - NOT USED
+router.post('/formula-active-substance-data-ownership', function (req, res) {
+  res.redirect('formula-active-substance-manufacturing-source');
+})
+
+// formula-active-substance-manufacturing-source
+router.post('/formula-active-substance-manufacturing-source', function (req, res) {
+  res.redirect('formula-active-substance-manufacturing-source-howmany');
+})
+
+// formula-active-substance-manufacturing-source-howmany
+router.post('/formula-active-substance-manufacturing-source-howmany', function (req, res) {
+  res.redirect('formula-active-substance-manufacturing-source-company');
+})
+
+// formula-active-substance-manufacturing-source-company
+router.post('/formula-active-substance-manufacturing-source-company', function (req, res) {
+  res.redirect('formula-active-substance-manufacturing-source-address-postcode');
+})
+
+
+
+// formula-active-substance-five-batch-source-company
+router.post('/formula-active-substance-five-batch-source-company', function (req, res) {
+  res.redirect('formula-active-substance-five-batch-source-upload');
+})
+
+// formula-active-substance-five-batch-source-upload
+router.post('/formula-active-substance-five-batch-source-upload', function (req, res) {
+  res.redirect('formula-composition-add-another');
+})
+
+
+
+
+// formula-risk - NOT USED
+
+router.post('/formula-risk', function (req, res) {
+  
+  let formulaRisk = req.session.data.formulaRisk;
+  res.redirect('formula-risk-product');
+
+})
+
+
+
+
+
+/// ROHIMA TO LOOK AT XXXXXXX
+// formula-active-substance-data-ownership - NOT USED
+router.post('/formula-active-substance-data-ownership', function (req, res) {
+  res.redirect('formula-active-substance-data-ownership-details');
+})
+
+
+
+// formula-active-substance-data-ownership-letter - NOT USED
+router.post('/formula-active-substance-data-ownership-letter', function (req, res) {
+  res.redirect('formula-active-substance-data-ownership-previous');
+}) 
+
+// formula-active-substance-data-ownership-previous - NOT USED
+router.post('/formula-active-substance-data-ownership-previous', function (req, res) {
+  res.redirect('formula-product-data-ownership');
+}) 
+
+
+
+
+// formula-csv-check-answers
+
+router.post('/formula-csv-check-answers', function (req, res) {  
+  let formulaCheckAnswers = req.session.data.formulaCheckAnswers;
   res.redirect('evaluation-chemistry');
 
 })
+
+
+// ----------------- FORMULATION COMPOSITION  END----------------- //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // evaluation-chemistry
 
