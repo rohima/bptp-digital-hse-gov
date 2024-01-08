@@ -518,7 +518,7 @@ router.post('/formula-product-data-ownership-details', function (req, res) {
 router.post('/active-substance-source-is-csv-upload', function (req, res) {
   let isActiveSubstanceSourceUpload = req.session.data.isActiveSubstanceSourceUpload;
   if (isActiveSubstanceSourceUpload == "No") {
-    res.redirect('active-substance-source-how-many');
+    res.redirect('formula-active-substance-source-data-ownership-details');
   } else {
     res.redirect('active-substance-source-csv-1');
   }
@@ -552,7 +552,7 @@ router.post('/active-substance-source-previous-tech-equiv-ni', function (req, re
   } else if (marketArea == 'Great Britain and Northern Ireland' && activeSourcePreviousTechEquivNI == "No") {
     res.redirect('active-substance-source-previous-tech-equiv-gb');
   } else {
-    res.redirect('formula-active-substance-source-data-ownership-details');
+    res.redirect('formula-active-substance-source-data-ownership-add-another');
   }
 })
 
@@ -563,7 +563,7 @@ router.post('/application-eu-reference', function (req, res) {
   if (marketArea == 'Great Britain and Northern Ireland') {
     res.redirect('active-substance-source-previous-tech-equiv-gb');
   } else {
-    res.redirect('formula-active-substance-source-data-ownership-details');
+    res.redirect('formula-active-substance-source-data-ownership-add-another');
   }
 
 })
@@ -571,15 +571,31 @@ router.post('/application-eu-reference', function (req, res) {
 // active-substance-source-previous-tech-equiv-gb
 
 router.post('/active-substance-source-previous-tech-equiv-gb', function (req, res) {
-  let marketArea = req.session.data.marketArea;
-  let activeSourcePreviousTechEquivGB = req.session.data.activeSourcePreviousTechEquivGB;
-  if (activeSourcePreviousTechEquivGB == "No") {
-    res.redirect('active-substance-source-request-tech-equiv');
-  } else {
-    res.redirect('formula-active-substance-source-data-ownership-details');
-  }
-  res.redirect('formula-active-substance-source-data-ownership-details');
+  res.redirect('formula-active-substance-source-data-ownership-add-another');
 })
+
+
+// formula-active-substance-source-data-ownership-add-another
+
+router.post('/formula-active-substance-source-data-ownership-add-another', function (req, res) {
+  let addAnotherDataOwner = req.session.data.addAnotherDataOwner
+  let marketArea = req.session.data.marketArea;
+  console.log(addAnotherDataOwner)
+  if (addAnotherDataOwner == "Yes") {
+    res.redirect('formula-active-substance-source-data-ownership-details');
+  } else {
+    if (marketArea == "Northern Ireland") {
+      // NI go to check answers
+      res.redirect('formula-active-substance-source-data-ownership-check-answers');
+    } else {
+      res.redirect('active-substance-source-request-tech-equiv');
+    }
+  
+  }
+  
+})
+
+
 
 // active-substance-source-request-tech-equiv
 router.post('/active-substance-source-request-tech-equiv', function (req, res) {
@@ -652,7 +668,14 @@ router.post('/formula-active-substance-source-manufacturing-address-list', funct
 
 // formula-active-substance-source-manufacturing-address-confirm
 router.post('/formula-active-substance-source-manufacturing-address-confirm', function (req, res) {
-  res.redirect('formula-active-substance-source-data-ownership-check-answers');
+  let marketArea = req.session.data.marketArea;
+
+  if (marketArea == 'Great Britain') {
+    res.redirect('active-substance-source-previous-tech-equiv-gb');
+  } else {
+    res.redirect('active-substance-source-previous-tech-equiv-ni');
+  }
+
 })
 
 // formula-active-substance-source-data-ownership-check-answers
@@ -745,7 +768,7 @@ router.post('/formula-active-substance-data-ownership-previous', function (req, 
 
 router.post('/formula-csv-check-answers', function (req, res) {  
   let formulaCheckAnswers = req.session.data.formulaCheckAnswers;
-  res.redirect('product-use');
+  res.redirect('formula-active-substance-data-ownership-details');
 
 })
 
