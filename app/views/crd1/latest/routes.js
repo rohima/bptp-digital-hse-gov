@@ -583,19 +583,19 @@ router.post('/active-substance-source-previous-tech-equiv-gb', function (req, re
 
 // active-substance-source-request-tech-equiv
 router.post('/active-substance-source-request-tech-equiv', function (req, res) {
-  let marketArea = req.session.data.marketArea;
-  res.redirect('product-name');
+  let requestTechEquiv = req.session.data.requestTechEquiv;
+  if (requestTechEquiv == "Yes") {
+    res.redirect('active-substance-source-request-tech-equiv-upload');
+  } else {
+    res.redirect('formula-active-substance-source-data-ownership-check-answers');
+  }
 
 })
 
 // active-substance-source-request-tech-equiv-upload
 router.post('/active-substance-source-request-tech-equiv-upload', function (req, res) {
-  let requestTechEquiv = req.session.data.requestTechEquiv;
-  if (requestTechEquiv == "Yes") {
-    res.redirect('active-substance-source-request-tech-equiv-upload');
-  } else {
-    res.redirect('formula-active-substance-source-data-ownership-details');
-  }
+  let requestTechEquivUpload = req.session.data.requestTechEquivUpload;
+    res.redirect('formula-active-substance-source-data-ownership-check-answers');
 
 })
 
@@ -1088,6 +1088,16 @@ router.post('/documents-reference-product-risk-areas', function (req, res) {
   res.redirect('documents-upload-admin');
 
 })
+
+// documents-reference-product-risk-areas-34
+
+router.post('/documents-reference-product-risk-areas-34', function (req, res) {  
+  let documentsReferenceProductRiskAreas34 = req.session.data.documentsReferenceProductRiskAreas34;
+  res.redirect('documents-upload-admin');
+
+})
+
+
 
 // documents-upload-admin
 
