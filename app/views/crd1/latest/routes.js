@@ -1072,10 +1072,20 @@ router.post('/manufacturing-address-remove', function (req, res) {
 
 router.post('/manufacturing-check-answers', function (req, res) {  
   let manufacturingCheckAnswers = req.session.data.manufacturingCheckAnswers;
-  res.redirect('documents-reference-product');
+  res.redirect('documents-reference-product-risk-areas');
 
 })
 
+
+// ----------------- SPECIALIST ASSESSMENT AREAS ----------------- //
+
+// documents-reference-product-risk-areas
+
+router.post('/documents-reference-product-risk-areas', function (req, res) {  
+  let documentsReferenceProductRiskAreas = req.session.data.documentsReferenceProductRiskAreas;
+  res.redirect('documents-reference-product');
+
+})
 
 
 // ----------------- DOCUMENTS ----------------- //
@@ -1100,17 +1110,11 @@ router.post('/documents-reference-product-details', function (req, res) {
   let documentsReferenceProductMapp = req.session.data.documentsReferenceProductMapp;
   let documentsReferenceProductAuthHolder = req.session.data.documentsReferenceProductAuthHolder;
   let documentsReferenceProductMarketingCo = req.session.data.documentsReferenceProductMarketingCo;
-  res.redirect('documents-reference-product-risk-areas');
-
-})
-
-// documents-reference-product-risk-areas
-
-router.post('/documents-reference-product-risk-areas', function (req, res) {  
-  let documentsReferenceProductRiskAreas = req.session.data.documentsReferenceProductRiskAreas;
   res.redirect('documents-upload-admin');
 
 })
+
+
 
 // documents-reference-product-risk-areas-34
 
