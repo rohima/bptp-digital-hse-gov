@@ -166,7 +166,7 @@ router.post('/find-results', function (req, res) {
 
 router.post('/find-confirm', function (req, res) {  
   let findConfirm = req.session.data.findConfirm;
-  res.redirect('placeholder-technical-assessment');
+  res.redirect('packaging-number-of');
 
 })
 
@@ -234,7 +234,7 @@ router.post('/packaging-upload-label', function (req, res) {
 
 router.post('/documents-reference-product-risk-areas', function (req, res) {  
   let documentsReferenceProductRiskAreas = req.session.data.documentsReferenceProductRiskAreas;
-  res.redirect('placeholder-no-change');
+  res.redirect('check-answers');
 
 })
 
