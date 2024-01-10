@@ -13,16 +13,17 @@ Find product result – {{serviceName}} – GOV.UK
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <span class="govuk-caption-l">[Application name]</span>
-    <h1 class="govuk-heading-l">Find an existing product search result <br>(Content review required)</h1>
-    <p>This is for any previous or existing authorised products</p>
+    {# <h1 class="govuk-heading-l">Find an existing product search result <br>(Content review required)</h1>
+    <p>This is for any previous or existing authorised products</p> #}
     <form class="form" method="post">
       <div class="govuk-form-group">
-        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="draftSearch">
-          Search an existing product or authorisation
+        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="draftSearch">
+          Find an existing plant protection product 
         </label>
         </h1>
+        <p>Search for a product or authorisation </p>
         <div id="search-hint" class="govuk-hint moj-search__hint ">
-          You can search by product name, MAPP number, etc
+          Enter a product name or MAPP number 
         </div>
         <input class="govuk-input" style="width:100%" id="draftSearch" name="draftSearch" type="text">
         {# <button class="govuk-button" data-module="govuk-button">Search</button> #}
@@ -31,50 +32,50 @@ Find product result – {{serviceName}} – GOV.UK
       {{ govukTable({
         head: [
           {
-            text: "Name"
+            text: "Product name"
           },
           {
-            text: "Details"
+            text: "MAPP number "
           },
           {
-            text: "Number"
+            text: "Extent of authorisation "
           }
         ],
         rows: [
           [
             {
-              html: "<a href='find-confirm'>Product name and link<a/>"
+              html: "<a href='find-confirm'>Name<a/>"
             },
             {
-              text: "Details"
+              text: "0123456789"
             },
             
             {
-              text: "Number"
+              text: "Great Britain and Northern Ireland"
             }
           ],
           [
             {
-              html: "<a href='find-confirm'>Product name and link<a/>"
+              html: "<a href='find-confirm'>Name<a/>"
             },
             {
-              text: "Details"
+              text: "0123456789"
             },
             
             {
-              text: "Number"
+              text: "Great Britain"
             }
           ],
           [
             {
-              html: "<a href='find-confirm'>Product name and link<a/>"
+              html: "<a href='find-confirm'>Name<a/>"
             },
             {
-              text: "Details"
+              text: "0123456789"
             },
             
             {
-              text: "Number"
+              text: "Northern Ireland"
             }
           ]
         ]

@@ -37,7 +37,7 @@ router.post('/what-to-do', function (req, res) {
   if (applicationJourney == "CRD1") {
     res.redirect('crd1/latest/application-name-contact');
   } else if (applicationJourney == "CRD1-CHANGE") {
-    res.redirect('crd1-change/latest/what-change-to-do');
+    res.redirect('what-change-to-do');
   }else if (applicationJourney == "CRD8") {
     res.redirect('crd8/latest/applicant-type');
   } else if (applicationJourney == "CRD3") {
@@ -47,6 +47,30 @@ router.post('/what-to-do', function (req, res) {
   }
   
 })
+
+// what-change-to-do
+
+router.post('/what-change-to-do', function (req, res) {
+  let crd1ChangeType = req.session.data.crd1ChangeType;
+  if (crd1ChangeType == "Label") {
+    res.redirect('crd1-label/latest/application-name-contact');
+  } else if (crd1ChangeType == "Formula") {
+    res.redirect('crd1-formula/latest/existing-job-number');
+  }else if (crd1ChangeType == "Packaging") {
+    res.redirect('crd1-packaging/latest/application-name-contact');
+  } else if (crd1ChangeType == "Data") {
+    res.redirect('crd1-data/latest/existing-job-number');
+  } else if (crd1ChangeType == "Active") {
+    res.redirect('crd1-active/latest/existing-job-number');
+  } else if (crd1ChangeType == "Admin") {
+    res.redirect('crd1-administrative/latest/application-name-contact');
+  } else {
+    res.redirect('crd1/latest/applicant-type');
+  }
+  
+})
+
+
 
 // 
 

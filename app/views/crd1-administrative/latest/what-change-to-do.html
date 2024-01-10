@@ -1,0 +1,98 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What change are you making?  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {# <span class="govuk-caption-l">Building details</span> #}
+      
+
+      <form class="form" method="post">
+        
+
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "adminChangeTypeOtherDetails",
+          name: "adminChangeTypeOtherDetails",
+          type: "",
+          autocomplete: "",
+          spellcheck: false,
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Enter details"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "adminChangeType",
+          id: "adminChangeType",
+          fieldset: {
+            legend: {
+              text: "What change are you making to this product? ",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          error: {
+            text: "Select an option"
+          },
+          items: [
+            {
+              value: "Product info",
+              text: "Change of product information ",
+              hint: {text: "Including trade name, authorisation holder or pack size"}
+            },
+            {
+              value: "Formula",
+              text: "Change to a formulation "
+            },
+            
+            {
+              value: "Tech material",
+              text: "Change of sources of technical material   "
+            },
+            {
+              value: "Withdrawal",
+              text: "Commercial withdrawal of an authorised use"
+            },
+            {
+              value: "Extend",
+              text: "Extend identical changes from another authorised product  "
+            },
+            {
+              value: "Renew",
+              text: "Renew trials permits "
+            },
+            {
+              value: "Other",
+              text: "Other",
+              conditional: {
+                html: emailHtml
+              }
+            }
+          ]
+        }) }} 
+
+        {# {
+          value: "CRX",
+          text: "A change to an existing plant protection product authorisation (administrative) "
+        }, #}
+        
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

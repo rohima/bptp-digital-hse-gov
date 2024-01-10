@@ -22,6 +22,14 @@ Upload your proposed use file –{{serviceName}} – GOV.UK
       <form class="form" method="post">
 
         <p>Use the <a href="#">CRD proposed use template</a> (opens in a new tab) to enter this information (also known as ‘GAP table’). Save the completed file in CSV format.</p>
+
+       
+
+            {{ govukInsetText({
+              text: "Only include the relevant changes or additions you are applying to make to the product. These will be assessed in addition to those already authorised. "
+            }) }}
+
+
         <details class="govuk-details" data-module="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
