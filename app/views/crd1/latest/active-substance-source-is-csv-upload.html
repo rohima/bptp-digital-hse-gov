@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Do you want to upload your active substance source information? – {{serviceName}} – GOV.UK
+How do you want to provide your active substance source information? – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -25,7 +25,7 @@ Do you want to upload your active substance source information? – {{serviceNam
       <span class="govuk-caption-l">Data ownership: Active substance source data </span>
 
       <h1 class="govuk-heading-l">
-        Do you want to upload your active substance source information?  </h1>
+        How do you want to provide your active substance source information?  </h1>
 
 <p>You can use the <a href="">CRD active substance source template</a> (opens in a new tab) to enter this information and upload it.    </p>
  
@@ -55,13 +55,13 @@ Do you want to upload your active substance source information? – {{serviceNam
   items: [
     {
       value: "Yes",
-      text: "Yes – upload a file ",
+      text: "Upload a file ",
       hint: {text:""},
       checked: false
     },   
     {
       value: "No",
-      text: "No – enter it manually "
+      text: "Enter it manually "
       
     }
   ]

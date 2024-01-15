@@ -13,7 +13,7 @@ Do you want to upload your formulation composition?   – {{serviceName}} – GO
     <div class="govuk-grid-column-two-thirds">
       <form class="form" method="post">
         <span class="govuk-caption-l">Formulation composition</span>
-        <h1 class="govuk-heading-l">Do you want to upload your formulation composition?</p>
+        <h1 class="govuk-heading-l">How do you want to provide your formulation composition?</p>
 
         <p>You can use the <a href="">CRD forumulation composition template</a> (opens in a new tab) to enter this information.</p>
         
@@ -32,12 +32,13 @@ Do you want to upload your formulation composition?   – {{serviceName}} – GO
         items: [
           {
             value: "Yes",
-            text: "Yes",
+            text: "Upload a file",
+            hint: { text: "You must enter the information into the CRD formulation composition template before you upload it "},
             checked: false
           },   
           {
             value: "No",
-            text: "No"
+            text: "Enter it manually"
           }
 
         ]

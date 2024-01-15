@@ -312,14 +312,14 @@ router.post('/product-name', function (req, res) {
   
   let productName = req.session.data.productName;
   let productCode = req.session.data.productCode;
-  res.redirect('formula-is-csv-upload');
+  res.redirect('formula-type');
 
 })
 
 
 // product-check-answers
 router.post('/product-check-answers', function (req, res) {
-  res.redirect('formula-is-csv-upload');
+  res.redirect('formula-type');
 })
 
 
@@ -334,7 +334,16 @@ router.post('/product-application-reason', function (req, res) {
 })
 
 
+
 // ----------------- FORMULATION COMPOSITION ----------------- //
+
+
+// formula-type
+router.post('/formula-type', function (req, res) {
+  let productApplicationReason = req.session.data.productApplicationReason;
+  res.redirect('formula-is-csv-upload');
+})
+
 
 // formula-is-csv-upload
 
@@ -380,12 +389,28 @@ router.post('/formula-type-add', function (req, res) {
 
 // formula-type-add-active-details
 router.post('/formula-type-add-active-details', function (req, res) {
+  let formulaActiveChemicalName = req.session.data.formulaActiveChemicalName;
+
+  let formulaActivePureConcentrationValue = req.session.data.formulaActivePureConcentrationValue;
+  let formulaActivePureConcentrationUnit = req.session.data.formulaActivePureConcentrationUnit;
+  let formulaActivePureConcentrationOther = req.session.data.formulaActivePureConcentrationOther;
+
+  let formulaActiveTechConcentrationValue = req.session.data.formulaActiveTechConcentrationValue;
+  let formulaActiveTechConcentrationUnit = req.session.data.formulaActiveTechConcentrationUnit;
+  let formulaActiveTechConcentrationOther = req.session.data.formulaActiveTechConcentrationOther;
+
+  let formulaActivePureConcentrationPercentValue = req.session.data.formulaActivePureConcentrationPercentValue;
+  let formulaActivePureConcentrationPercentUnit = req.session.data.formulaActivePureConcentrationPercentUnit;
+
+  let formulaActiveTechConcentrationPercentValue = req.session.data.formulaActiveTechConcentrationPercentValue;
+  let formulaActiveTechConcentrationPercentUnit = req.session.data.formulaActiveTechConcentrationPercentUnit;
+
   res.redirect('formula-composition-add-another-1');
 })
 
 // formula-composition-add-another-1
 router.post('/formula-composition-add-another-1', function (req, res) {
-  let addAnotherFormulaComposition = req.session.data.addAnotherFormulaComposition
+  let addAnotherFormulaComposition = req.session.data.addAnotherFormulaComposition;
 
   if (addAnotherFormulaComposition == "Yes") {
     res.redirect('formula-type-add');
@@ -903,14 +928,30 @@ router.post('/gap-application-*-indoor', function (req, res) {
 
 router.post('/gap-application-*-outdoor', function (req, res) {
   let intendedProductUser = req.session.data.intendedProductUser;
-  res.redirect('gap-other-product');
+  res.redirect('gap-add-another');
 })
 
 // gap-application-method
 
 router.post('/gap-application-method', function (req, res) {
   let gapApplicationMethod = req.session.data.gapApplicationMethod;
+  res.redirect('gap-add-another');
+
+})
+
+// gap-add-another
+
+router.post('/gap-add-another', function (req, res) {
+  let gapAddAnother = req.session.data.gapAddAnother;
   res.redirect('gap-other-product');
+
+})
+
+// gap-remove
+
+router.post('/gap-remove', function (req, res) {
+  let gapAddAnother = req.session.data.gapAddAnother;
+  res.redirect('gap-add-another');
 
 })
 

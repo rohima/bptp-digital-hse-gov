@@ -44,12 +44,12 @@ Active substance details  – {{serviceName}} – GOV.UK
 
   {{ govukInput({
     label: {
-      text: 'Enter name '
+      text: 'Enter chemical  name '
     },
     classes: "govuk-!-width-three-quarters",
-    id: "formulaActiveSubstanceWeightUnitValue",
-    name: "formulaActiveSubstanceWeightUnitValue",
-    autocomplete: "formulaActiveSubstanceWeightUnitValue"
+    id: "formulaActiveChemicalName",
+    name: "formulaActiveChemicalName",
+    autocomplete: "formulaActiveChemicalName"
   }) }}
   
   <h2 class="govuk-heading-m">Pure concentration  </h2>
@@ -58,17 +58,17 @@ Active substance details  – {{serviceName}} – GOV.UK
     label: {
       text: 'Enter value '
     },
-    id: "formulaActiveSubstanceWeightUnitValue",
-    name: "formulaActiveSubstanceWeightUnitValue",
-    autocomplete: "formulaActiveSubstanceWeightUnitValue",
+    id: "formulaActivePureConcentrationValue",
+    name: "formulaActivePureConcentrationValue",
+    autocomplete: "formulaActivePureConcentrationValue",
     classes: "govuk-!-width-two-thirds"
   }) }}
 
 
-{% set Other %}
+{% set FAPCOther %}
 {{ govukInput({
-  id: "formulaTypeAddReference",
-  name: "formulaTypeAddReference",
+  id: "formulaActivePureConcentrationOther",
+  name: "formulaActivePureConcentrationOther",
   type: "tel",
   autocomplete: "tel",
   classes: "govuk-!-width-one-third"
@@ -76,8 +76,8 @@ Active substance details  – {{serviceName}} – GOV.UK
 {% endset -%}
 
 {{ govukRadios({
-  id: "formulaTypeAdd",
-  name: "formulaTypeAdd",
+  id: "formulaActivePureConcentrationUnit",
+  name: "formulaActivePureConcentrationUnit",
   fieldset: {
     legend: {
       text: "Select a unit: "
@@ -103,7 +103,7 @@ Active substance details  – {{serviceName}} – GOV.UK
     {
       value: "Other",
       text: "Other",
-      conditional: { html: Other }
+      conditional: { html: FAPCOther }
     }
 
   ]
@@ -119,15 +119,26 @@ Active substance details  – {{serviceName}} – GOV.UK
   hint: {
   text: "  "
 },
-  id: "formulaActiveSubstanceConcentrationUnitValue",
-  name: "formulaActiveSubstanceConcentrationUnitValue",
-  autocomplete: "formulaActiveSubstanceConcentrationUnitValue",
+  id: "formulaActiveTechConcentrationValue",
+  name: "formulaActiveTechConcentrationValue",
+  autocomplete: "formulaActiveTechConcentrationValue",
   classes: "govuk-!-width-two-thirds"
 }) }}
 
+
+{% set FATCOther %}
+{{ govukInput({
+  id: "formulaActiveTechConcentrationOther",
+  name: "formulaActiveTechConcentrationOther",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third"
+}) }}
+{% endset -%}
+
 {{ govukRadios({
-  id: "formulaTypeAdd",
-  name: "formulaTypeAdd",
+  id: "formulaActiveTechConcentrationUnit",
+  name: "formulaActiveTechConcentrationUnit",
   fieldset: {
     legend: {
       text: "Select a unit: "
@@ -149,6 +160,11 @@ Active substance details  – {{serviceName}} – GOV.UK
     {
       value: "colony forming units per litre (cfu/l)",
       text: "colony forming units per litre (cfu/l)"
+    },   
+    {
+      value: "Other",
+      text: "Other",
+      conditional: { html: FATCOther }
     }
 
   ]
@@ -163,15 +179,15 @@ Active substance details  – {{serviceName}} – GOV.UK
   hint: {
   text: "  "
 },
-  id: "formulaActiveSubstanceConcentrationUnitValue",
-  name: "formulaActiveSubstanceConcentrationUnitValue",
-  autocomplete: "formulaActiveSubstanceConcentrationUnitValue",
+  id: "formulaActivePureConcentrationPercentValue",
+  name: "formulaActivePureConcentrationPercentValue",
+  autocomplete: "formulaActivePureConcentrationPercentValue",
   classes: "govuk-!-width-two-thirds"
 }) }}
 
 {{ govukRadios({
-  id: "formulaTypeAddReference",
-  name: "formulaTypeAddReference",
+  id: "formulaActivePureConcentrationPercentUnit",
+  name: "formulaActivePureConcentrationPercentUnit",
   fieldset: {
     legend: {
       text: "Select a unit:",
@@ -188,8 +204,8 @@ Active substance details  – {{serviceName}} – GOV.UK
       text: "weight/volume (w/v%) "
     },
     {
-      value: "mass/volume (m/v%)",
-      text: "mass/volume (m/v%)"
+      value: "weight/weight (w/w%)",
+      text: "weight/weight (w/w%)"
     }
   
 
@@ -205,15 +221,15 @@ Active substance details  – {{serviceName}} – GOV.UK
   hint: {
   text: "  "
 },
-  id: "formulaActiveSubstanceConcentrationUnitValue",
-  name: "formulaActiveSubstanceConcentrationUnitValue",
-  autocomplete: "formulaActiveSubstanceConcentrationUnitValue",
+  id: "formulaActiveTechConcentrationPercentValue",
+  name: "formulaActiveTechConcentrationPercentValue",
+  autocomplete: "formulaActiveTechConcentrationPercentValue",
   classes: "govuk-!-width-two-thirds"
 }) }}
 
 {{ govukRadios({
-  id: "formulaTypeAddReference",
-  name: "formulaTypeAddReference",
+  id: "formulaActiveTechConcentrationPercentUnit",
+  name: "formulaActiveTechConcentrationPercentUnit",
   fieldset: {
     legend: {
       text: "Select a unit:",
@@ -231,8 +247,8 @@ Active substance details  – {{serviceName}} – GOV.UK
       text: "weight/volume (w/v%) "
     },
     {
-      value: "mass/volume (m/v%)",
-      text: "mass/volume (m/v%)"
+      value: "weight/weight (w/w%)",
+      text: "weight/weight (w/w%)"
     }
   
 

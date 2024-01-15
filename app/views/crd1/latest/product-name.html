@@ -15,12 +15,12 @@ Product name – {{serviceName}} – GOV.UK
 
         <h1 class="govuk-heading-l">What is the product name? </h1>
 
-        <p> Enter the primary product name or code number. This will become the name of your application in this service.  </p>
+        <p>Enter the product name or code number. This will become the name of your application in this service.    </p>
 
         {% from "govuk/components/input/macro.njk" import govukInput %}
         {{ govukInput({
           label: {
-            text: "Primary product name ",
+            text: "Product name ",
             classes: "govuk-label?--l",
             isPageHeading: true
           },

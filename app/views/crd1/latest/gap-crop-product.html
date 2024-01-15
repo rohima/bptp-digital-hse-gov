@@ -152,6 +152,22 @@ Crop and product use  – {{serviceName}} – GOV.UK
         classes: "govuk-!-width-one-third"
         }) }}
 
+        <h2 class="govuk-heading-m">Aquatic buffer zone </h2>
+        <p>The minimum distance of application from a body of water. </p>
+
+        {{ govukInput({
+        label: {
+          text: 'Enter number '
+        },
+        suffix: {
+          text: "metre"
+        },
+        id: "gapCropNumberPerYear",
+        name: "gapCropNumberPerYear",
+        autocomplete: "gapCropNumberPerYear",
+        classes: "govuk-!-width-one-third"
+        }) }}
+
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>
