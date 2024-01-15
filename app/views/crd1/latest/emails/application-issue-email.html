@@ -15,7 +15,7 @@
     {{ data['email'] }}
     <br>
     <strong>Subject:</strong>
-    Verify your email address
+    Application issue
 </p>
 ​
 {% from "govuk/components/header/macro.njk" import govukHeader %}
@@ -25,19 +25,28 @@
 ​
 <div class="govuk-!-padding-bottom-5"></div>
 ​
-<h1 class="govuk-heading-l">Verify your email address to manage your application </h1>
+<h1 class="govuk-heading-l">Application issue</h1>
 ​
-<p>Dear [Applicant firstname lastname], ,</p>
+<p>Dear [Applicant firstname lastname],</p>
 ​
-<p>You’ve started or returned to an application for authorisation of a new plant protection product. So we need you to verify your email address.</p>
+<p>You're application for authorisation of a new plant protection product requires your attention.</p>
+
+<div class="govuk-inset-text">
+  Your application reference is <strong>[XXXXXXXXX]</strong>.
+</div>
 ​
-<p>Your security code is <strong>385553</strong></p>
+<h2 class="govuk-heading-m">What happens next</h2>
 ​
-<p>To verify your email address, enter the security code when prompted.</p>
+<p>You will need to contact us to discuss your application.</p>
 ​
-<p>The code will expire in one hour.</p>
+<p>If we do not hear from you after [x days] working days, we will close the application.</p>
+​
+<p>[contact details]</p>
+​​
+<p>[sign off]</p>
 ​
 <p class="govuk-body-s">From: the Health and Safety Executive at the Chemicals Regulation Division</p>
+​
 <p class="govuk-body-s">Do not reply to this email. It’s an automatic message from an unmonitored account</p>
 ​
 {% endblock %}
