@@ -1,0 +1,160 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers usage – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <form method="post">
+
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+
+        <!-- FORMULATION - START -->
+        <h2 class="govuk-heading-m">Formulation</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Formulation composition 
+          </dt>
+            <dd class="govuk-summary-list__value">
+            Substance 1</br>
+            Substance 2<br>
+            Substance 3<br>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="test-formula-composition-add-another">
+              Change
+              <span class="govuk-visually-hidden">Formulation composition</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Is the product low risk?   
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['formulaRisk'] or 'Yes'}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="formula-risk">
+              Change
+              <span class="govuk-visually-hidden">Is the product low risk?</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Low risk statement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['formulaActiveSubstanceDataOwnerSpecUpload'] or '[low risk statement-upload or not required]'}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="test-formula-active-substance-five-batch-source-upload">
+              Change
+              <span class="govuk-visually-hidden">Low risk statement</span>
+            </a>
+          </dd>
+        </div>
+
+        {% if data['isCsvUpload'] == 'Yes' %}
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            5-batch data 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaActiveSubstanceDataOwnerSpecUpload'] or '[File name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="test-formula-active-substance-five-batch-source-upload">
+              Change
+              <span class="govuk-visually-hidden">Specification/5 batch analysis data upload</span>
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+        </dl>
+        <!-- FORMULATION - START -->
+
+
+        <!-- SPECIALIST ASSESSMENT - START -->
+        <h2 class="govuk-heading-m">Specialist assessment risk</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Risk assessment areas
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['refProductProposedUse'] or '[risk assessment areas]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-reference-product-risk-areas">
+              Change
+              <span class="govuk-visually-hidden">Marketing company</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        <!-- SPECIALIST ASSESSMENT - END -->
+
+
+        <!-- AFFIRMATION - START -->
+        <h2 class="govuk-heading-m">Affirmation</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Affirmation of change
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['changeAffirmation'] or '[nothing changed]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="product-name">
+              Change
+              <span class="govuk-visually-hidden">Affirmation of change</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Confirm EAMUs affected
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['EAMUsAffected'] or '[EAMUs not affected]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="product-name">
+              Change
+              <span class="govuk-visually-hidden">Confirm EAMUs affected</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        <!-- AFFIRMATION - END -->
+
+
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+        <p>
+          <a href="#">View application progress</a>
+        </p>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+
+
+

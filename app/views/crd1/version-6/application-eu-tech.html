@@ -1,0 +1,47 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+EU Member State finalised technical equivalence report – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">EU Member State finalised technical equivalence report</h1>
+
+        {{ govukInput({
+        label: {
+          text: "Member State"
+        },
+        classes: "govuk-input--width-20",
+        hint: {
+          text: ""
+        },
+        id: "memberStateTech",
+        name: "memberStateTech"
+        }) }}
+
+        {{ govukDateInput({
+        id: "dateTechnicalReport",
+        namePrefix: "dateTechnicalReport",
+        fieldset: {
+          legend: {
+            text: "Date of finalised technical equivalence report"
+          }
+        },
+        hint: {
+          text: "For example, 27 3 2023"
+        }
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

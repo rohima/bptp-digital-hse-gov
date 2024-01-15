@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What change are you making?  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {# <span class="govuk-caption-l">Building details</span> #}
+      
+
+      <form class="form" method="post">
+        
+
+        
+
+        {{ govukCheckboxes({
+          name: "adminProductInfoChangeType",
+          id: "adminProductInfoChangeType",
+          fieldset: {
+            legend: {
+              text: "What changes are you making to the product information?  ",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply"
+          },
+          error: {
+            text: "Select an option"
+          },
+          items: [
+            {
+              value: "Product trade name ",
+              text: "Product trade name "
+            },
+            {
+              value: "Authorisation holder ",
+              text: "Authorisation holder "
+            },
+            
+            {
+              value: "Marketing company ",
+              text: "Marketing company "
+            },
+            {
+              value: "Pack size (within existing range) ",
+              text: "Pack size (within existing range) "
+            }
+          ]
+        }) }} 
+
+        {# {
+          value: "CRX",
+          text: "A change to an existing plant protection product authorisation (administrative) "
+        }, #}
+        
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
