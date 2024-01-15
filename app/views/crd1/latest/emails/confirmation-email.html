@@ -15,7 +15,7 @@
     {{ data['email'] }}
     <br>
     <strong>Subject:</strong>
-    {{ data['building-name'] }} application
+    Application received
 </p>
 ​
 {% from "govuk/components/header/macro.njk" import govukHeader %}
@@ -25,44 +25,32 @@
 ​
 <div class="govuk-!-padding-bottom-5"></div>
 ​
-<h1 class="govuk-heading-l">Verify your email address to manage your application </h1>
+<h1 class="govuk-heading-l">Application received</h1>
 ​
-<p>Dear [Applicant firstname lastname], ,</p>
+<p>Dear [Applicant firstname lastname],</p>
 ​
-<p>You’ve started or returned to an application for authorisation of a new plant protection product. So we need you to verify your email address.  </p>
+<p>You've submitted an application for authorisation of a new plant protection product.</p>
+
+<div class="govuk-inset-text">
+  Your application reference is <strong>[XXXXXXXXX]</strong>.
+</div>
 ​
-{# <p>You have been named as the main contact for [organisation name], a dutyholder for this application.</p>
-{# <p><strong>{{ data['building-name'] }}</strong> #}
-  {# <br>7 Example Street, Exampleton, EX1 2AB</p> #}
+<h2 class="govuk-heading-m">What happens next</h2>
 ​
-{# <div class="govuk-inset-text">
-  The building control application reference is <strong>BSR019388477</strong>.
-</div> #}
+<p>We will review your application. Once we have reviewed it, we will contact you to tell you what we will do next. This may take up to [x days] working days.</p>
 ​
-{# <p>If you agreed to be named in this application, please <a href="#">view and confirm the information provided about you</a>.</p>
+<p>If you do not hear from us after [x days] working days, contact us and quote your reference number.</p>
 ​
-<p>If you did not agree to be named in this application and would like to challenge this, please <a href="https://www.hse.gov.uk/contact/tell-us-about-a-health-and-safety-issue.htm">contact the Building Safety Regulator</a> and quote the application reference.</p>
-​ #}
-  <h2 class="govuk-heading-l">Security code </h2>
+<p>[contact details]</p>
 ​
-<p>Your security code is <strong>[6-digit code]</strong>.  </p>
-​
-<p>This code will expire in one hour.  
-</p>
-​
-<p>To verify your email address, enter the security code into your application. 
-</p>
-​
-<h2 class="govuk-heading-l">Return to your application </h2>
+<h2 class="govuk-heading-m">Return to your application</h2>
 ​
 <p>Return to your application at: www.gov.uk/manage-pesticide-product-authorisations </p> 
+​​
+<p>[sign off]</p>
 ​
-
-
-
-
-<p>From: the Health and Safety Executive at the Chemicals Regulation Division</p>
+<p class="govuk-body-s">From: the Health and Safety Executive at the Chemicals Regulation Division</p>
 ​
-<p>Do not reply to this email. It’s an automatic message from an unmonitored account</p>
+<p class="govuk-body-s">Do not reply to this email. It’s an automatic message from an unmonitored account</p>
 ​
 {% endblock %}
