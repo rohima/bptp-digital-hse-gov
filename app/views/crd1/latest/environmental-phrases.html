@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What is the formulation type?  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+
+      {# <span class="govuk-caption-l">Formulation composition</span> #}
+      <h1 class="govuk-heading-l">Environmental protection phrases </p>
+
+      {# <p>Provide the international formulation code and full description    </p> #}
+
+{# <p>[Active substance name: 
+  <strong>Azoxystrobin
+  CAS: 131860-33-8</strong>]</p> #}
+  
+  {{ govukTextarea({
+    label: {
+      text: "Enter the environmental protection phrases for the product",
+      classes: "govuk-label--m",
+      isPageHeading: false
+    },
+    hint: {
+    text: "If there are multiple, enter each one on a new line "
+  },
+    id: "formulationType",
+    name: "formulationType",
+    autocomplete: "formulationType"
+  }) }}
+
+  {{ govukTextarea({
+    label: {
+      text: "If the environmental protection phrases do not apply to all uses, give details of the individual uses they apply to (optional) ",
+      classes: "govuk-label--m",
+      isPageHeading: false
+    },
+    hint: {
+    text: ""
+  },
+    id: "formulationType",
+    name: "formulationType",
+    autocomplete: "formulationType"
+  }) }}
+
+
+
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
