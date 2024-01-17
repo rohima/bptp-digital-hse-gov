@@ -20,7 +20,7 @@ What changes are you applying to make?  – {{serviceName}} – GOV.UK
         
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
-        {{ govukRadios({
+        {{ govukCheckboxes({
           name: "crd1ChangeType",
           id: "crd1ChangeType",
           fieldset: {
