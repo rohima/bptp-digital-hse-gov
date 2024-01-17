@@ -31,12 +31,38 @@ What is the formulation type?  – {{serviceName}} – GOV.UK
     hint: {
     text: "If there are multiple, enter each one on a new line "
   },
-    id: "formulationType",
-    name: "formulationType",
-    autocomplete: "formulationType"
+    id: "environmentalPhrases",
+    name: "environmentalPhrases",
+    autocomplete: "environmentalPhrases"
   }) }}
 
-  {{ govukTextarea({
+  
+
+{{ govukRadios({
+  name: "environmentalPhrasesApplyAll",
+  id: "environmentalPhrasesApplyAll",
+  fieldset: {
+    legend: {
+      text: "Do these phrases apply to all uses? ",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  
+  items: [
+    {
+      value: "Yes",
+      text: "Yes"
+    },
+    {
+      value: "No",
+      text: "No",
+      hint: {text: "Give details of the protection phrases that apply to individual crops in the application overview "}
+    }
+  ]
+}) }}
+
+  {# {{ govukTextarea({
     label: {
       text: "If the environmental protection phrases do not apply to all uses, give details of the individual uses they apply to (optional) ",
       classes: "govuk-label--m",
@@ -45,10 +71,10 @@ What is the formulation type?  – {{serviceName}} – GOV.UK
     hint: {
     text: ""
   },
-    id: "formulationType",
-    name: "formulationType",
-    autocomplete: "formulationType"
-  }) }}
+    id: "environmentalPhrasesDetails",
+    name: "environmentalPhrasesDetails",
+    autocomplete: "environmentalPhrasesDetails"
+  }) }} #}
 
 
 

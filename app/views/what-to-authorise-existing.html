@@ -1,7 +1,10 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What changes are you applying to make?  – {{serviceName}} – GOV.UK
+
+[Back] 
+
+What are you applying for?  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,11 +24,11 @@ What changes are you applying to make?  – {{serviceName}} – GOV.UK
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {{ govukRadios({
-          name: "crd1ChangeType",
-          id: "crd1ChangeType",
+          name: "applicationJourney",
+          id: "applicationJourney",
           fieldset: {
             legend: {
-              text: "What changes are you applying to make?",
+              text: "What are you applying for? ",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -33,34 +36,23 @@ What changes are you applying to make?  – {{serviceName}} – GOV.UK
           error: {
             text: "Select an option"
           },
-          hint: {text: "Select all that apply"},
           items: [
             {
-              value: "Admin",
-              text: "Change to administrative details for an authorisation ",
-              hint: {text: "Including change to a product trade name or marketing company "}
+              value: "CRX",
+              text: "An extension of authorisation for minor use (EAMU)"
             },
             {
-              value: "Label",
-              text: "Change to use or claims for a product"
+              value: "CRX",
+              text: "Renewal of a product authorisation ",
+              hint: {text: "Following renewed approval of an active substance ’ "}
             },
             {
-              value: "Formula",
-              text: "Change to product formulation "
-            },
-            
-            {
-              value: "Packaging",
-              text: "Change to product packaging ",
-              hint: {text: "Including addition of new packaging or change to existing packaging "}
+              value: "CRX",
+              text: "Commercial withdrawal of a product or authorised use "
             },
             {
-              value: "Data",
-              text: "Meeting a data requirement for continuing authorisation "
-            },
-            {
-              value: "Active",
-              text: "Change to active substance sources "
+              value: "CRX",
+              text: "Changes to other details of a product or authorisation "
             }
           ]
         }) }} 

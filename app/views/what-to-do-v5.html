@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What changes are you applying to make?  – {{serviceName}} – GOV.UK
+What are you applying to do? – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,11 +21,11 @@ What changes are you applying to make?  – {{serviceName}} – GOV.UK
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {{ govukRadios({
-          name: "crd1ChangeType",
-          id: "crd1ChangeType",
+          name: "applicationJourney",
+          id: "applicationJourney",
           fieldset: {
             legend: {
-              text: "What changes are you applying to make?",
+              text: "What are you applying to do?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -33,34 +33,35 @@ What changes are you applying to make?  – {{serviceName}} – GOV.UK
           error: {
             text: "Select an option"
           },
-          hint: {text: "Select all that apply"},
           items: [
             {
-              value: "Admin",
-              text: "Change to administrative details for an authorisation ",
-              hint: {text: "Including change to a product trade name or marketing company "}
+              value: "CRD1",
+              text: "Authorisation of a new plant protection product "
             },
             {
-              value: "Label",
-              text: "Change to use or claims for a product"
-            },
-            {
-              value: "Formula",
-              text: "Change to product formulation "
+              value: "CRD1-CHANGE",
+              text: "A change to an existing plant protection product authorisation"
             },
             
             {
-              value: "Packaging",
-              text: "Change to product packaging ",
-              hint: {text: "Including addition of new packaging or change to existing packaging "}
+              value: "CRX",
+              text: "Renewal of an existing plant protection product "
             },
             {
-              value: "Data",
-              text: "Meeting a data requirement for continuing authorisation "
+              value: "CRD3",
+              text: "Extension of authorisation for minor use "
             },
             {
-              value: "Active",
-              text: "Change to active substance sources "
+              value: "CRD8",
+              text: "Standalone technical equivalence "
+            },
+            {
+              value: "CRX",
+              text: "Emergency 120 day authorisation "
+            },
+            {
+              value: "CRX",
+              text: "A change to Maxiumum Residue Levels or import tolerances "
             }
           ]
         }) }} 

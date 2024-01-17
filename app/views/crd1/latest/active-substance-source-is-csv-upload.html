@@ -30,13 +30,9 @@ How do you want to provide your active substance source information? – {{servi
 <p>You can use the <a href="">CRD active substance source template</a> (opens in a new tab) to enter this information and upload it.    </p>
  
 <p> If you do not want to upload a file, you can enter the information manually.  </p>
+
       
-<p class="govuk-body">If you choose to upload this information: </p>
-<ul class="govuk-list govuk-list--bullet">
-  <li>all sources must have previously been assessed for technical equivalence </li>
-  <li>you must enter the information into the CRD active substance source template before you upload it </li>
-  
-</ul>
+
 
 
 {{ govukRadios({
@@ -56,12 +52,17 @@ How do you want to provide your active substance source information? – {{servi
     {
       value: "Yes",
       text: "Upload a file ",
-      hint: {text:""},
+      hint: {text:"You must enter the information into the CRD active substance source template before you upload it "},
       checked: false
-    },   
+    },
     {
       value: "No",
       text: "Enter it manually "
+      
+    },   
+    {
+      value: "Third party",
+      text: "To be provided separately by a third party  "
       
     }
   ]

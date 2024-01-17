@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What are you applying to do? – {{serviceName}} – GOV.UK
+WWhat is your application about?  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -25,7 +25,7 @@ What are you applying to do? – {{serviceName}} – GOV.UK
           id: "applicationJourney",
           fieldset: {
             legend: {
-              text: "What are you applying to do?",
+              text: "What is your application about?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -36,32 +36,24 @@ What are you applying to do? – {{serviceName}} – GOV.UK
           items: [
             {
               value: "CRD1",
-              text: "Authorisation of a new plant protection product "
+              text: "A new product authorisation "
             },
             {
               value: "CRD1-CHANGE",
-              text: "A change to an existing plant protection product authorisation"
+              text: "An existing authorised product "
             },
             
             {
               value: "CRX",
-              text: "Renewal of an existing plant protection product "
+              text: "An emergency authorisation or plant health order "
             },
             {
               value: "CRD3",
-              text: "Extension of authorisation for minor use "
-            },
-            {
-              value: "CRD8",
-              text: "Standalone technical equivalence "
+              text: "A new active substance source that requires a standalone equivalence assessment in Great Britain  "
             },
             {
               value: "CRX",
-              text: "Emergency 120 day authorisation "
-            },
-            {
-              value: "CRX",
-              text: "A change to Maxiumum Residue Levels or import tolerances "
+              text: "A change to maximum residue levels (MRLs) "
             }
           ]
         }) }} 

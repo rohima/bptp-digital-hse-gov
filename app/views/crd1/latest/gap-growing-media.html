@@ -15,7 +15,7 @@ Growing media for protected uses – {{serviceName}} – GOV.UK
         <h1 class="govuk-heading-l">Protected crops</p>
 
         <h2 class="govuk-heading-m">What type of growing media are used for the protected uses?</h2>
-        <p>Only select the methods that most growers would typically use for the crop.</p>
+        <p>If covers are removed during the life of a crop and not replaced later, the crop is considered protected only while the covers are in place. </p>
 
         {{ govukCheckboxes({
         id: "waste",
@@ -54,7 +54,8 @@ Growing media for protected uses – {{serviceName}} – GOV.UK
         id: "more-detail",
         label: {
           text: "Enter description "
-        }
+        },
+        hint: { text: "If the protection is to be temporary, explain what type of temporary structure is being used (for example, polytunnels or mulches) "}
         }) }}
 
         <h2 class="govuk-heading-m">Describe the growth stages the protection is used for, and whether application will be while crop is under protection</h2>

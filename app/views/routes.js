@@ -48,6 +48,20 @@ router.post('/what-to-do', function (req, res) {
   
 })
 
+// what-to-authorise
+router.post('/what-to-authorise', function (req, res) {
+  let applicationWhatAuthorisation = req.session.data.applicationWhatAuthorisation;
+  res.redirect('what-to-authorise');
+})
+
+// what-to-authorise-existing
+
+router.post('/what-to-authorise-existing', function (req, res) {
+  let applicationWhatAuthorisationExisting = req.session.data.applicationWhatAuthorisationExisting;
+  res.redirect('what-to-authorise-existing');
+})
+
+
 // what-change-to-do
 
 router.post('/what-change-to-do', function (req, res) {

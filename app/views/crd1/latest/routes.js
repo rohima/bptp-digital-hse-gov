@@ -491,7 +491,19 @@ router.post('/formula-risk-product', function (req, res) {
   if (productRisk == "No") {
     res.redirect('formula-check-answers');
   } else {
+    res.redirect('formula-risk-upload-info');
+  }
+
+})
+
+// formula-risk-upload-info
+router.post('/formula-risk-upload-info', function (req, res) {
+  
+  let productRiskInfo = req.session.data.productRiskInfo;
+  if (productRiskInfo == "Upload a file") {
     res.redirect('formula-risk-upload');
+  } else {
+    res.redirect('formula-check-answers');
   }
 
 })
@@ -626,10 +638,22 @@ router.post('/formula-active-substance-source-data-ownership-add-another', funct
 router.post('/active-substance-source-request-tech-equiv', function (req, res) {
   let requestTechEquiv = req.session.data.requestTechEquiv;
   if (requestTechEquiv == "Yes") {
+    res.redirect('active-substance-source-request-tech-equiv-upload-info');
+  } else {
+    res.redirect('formula-active-substance-source-data-ownership-check-answers');
+  }
+
+})
+
+// active-substance-source-request-tech-equiv-upload-info
+router.post('/active-substance-source-request-tech-equiv-upload-info', function (req, res) {
+  let requestTechEquivUploadInfo = req.session.data.requestTechEquivUploadInfo;
+  if (requestTechEquivUploadInfo == "Upload a file") {
     res.redirect('active-substance-source-request-tech-equiv-upload');
   } else {
     res.redirect('formula-active-substance-source-data-ownership-check-answers');
   }
+    res.redirect('formula-active-substance-source-data-ownership-check-answers');
 
 })
 
@@ -943,7 +967,7 @@ router.post('/gap-application-method', function (req, res) {
 
 router.post('/gap-add-another', function (req, res) {
   let gapAddAnother = req.session.data.gapAddAnother;
-  res.redirect('gap-other-product');
+  res.redirect('environmental-phrases');
 
 })
 
@@ -954,6 +978,43 @@ router.post('/gap-remove', function (req, res) {
   res.redirect('gap-add-another');
 
 })
+
+// gap-environmental-phrases
+
+router.post('/gap-environmental-phrases', function (req, res) {
+  let environmentalPhrases = req.session.data.environmentalPhrases;
+  let environmentalPhrasesDetails = req.session.data.environmentalPhrasesDetails;
+  res.redirect('gap-other-specific-restrictions');
+
+})
+
+// gap-other-specific-restrictions
+
+router.post('/other-specific-restrictions', function (req, res) {
+  let otherSpecificRestrictions = req.session.data.otherSpecificRestrictions;
+  let individualUsesDetails = req.session.data.individualUsesDetails;
+  res.redirect('personal-protective-equipment');
+
+})
+
+// gap-personal-protective-equipment 
+
+router.post('/gap-personal-protective-equipment', function (req, res) {
+  let personalProtectiveEquipment = req.session.data.personalProtectiveEquipment;
+  let personalProtectiveEquipmentDetails = req.session.data.personalProtectiveEquipmentDetails;
+  res.redirect('gap-clp');
+
+})
+
+// gap-clp
+router.post('/gap-clp', function (req, res) {
+  let gapClp = req.session.data.gapClp;
+  let gapClpApplyAll = req.session.data.gapClpApplyAll;
+  res.redirect('gap-other-product');
+
+})
+
+
 
 // gap-other-product
 
@@ -1124,8 +1185,30 @@ router.post('/manufacturing-check-answers', function (req, res) {
 
 router.post('/documents-reference-product-risk-areas', function (req, res) {  
   let documentsReferenceProductRiskAreas = req.session.data.documentsReferenceProductRiskAreas;
-  res.redirect('documents-reference-product');
+  let productProposedUse = req.session.data.productProposedUse;
+  if (productProposedUse == "Data") {
+    res.redirect('documents-reference-product-risk-areas-upload-info');
+  } else {
+    res.redirect('documents-reference-product');
+  }  
+})
 
+// documents-reference-product-risk-areas-upload-info
+router.post('/documents-reference-product-risk-areas-upload-info', function (req, res) {  
+  let documentsReferenceProductRiskAreasInfo = req.session.data.documentsReferenceProductRiskAreas;
+  if (documentsReferenceProductRiskAreasInfo == "Upload a file") {
+    res.redirect('documents-reference-product-risk-areas-upload');
+  } else {
+    res.redirect('documents-reference-product');
+  }  
+
+})
+
+// documents-reference-product-risk-areas-upload
+
+router.post('/documents-reference-product-risk-areas-upload', function (req, res) {  
+  let documentsReferenceProductRiskAreasUpload = req.session.data.documentsReferenceProductRiskAreas;
+    res.redirect('documents-reference-product');
 })
 
 
