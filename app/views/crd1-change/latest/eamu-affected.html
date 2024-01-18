@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Will EAMUs be affected?  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+        {# <span class="govuk-caption-l">Data ownership: Product data</span> #}
+        <h1 class="govuk-heading-l">Will any extensions of authorisation for minor use (EAMUs) be affected by this change? </p>
+
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "eamuAffectedDetails",
+          name: "eamuAffectedDetails",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Enter crops and current NANUM "
+          },
+          hint: {text: "Include details including data owner and whether you still give data access in the application overview "}
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          id: "eamuAffected",
+          name: "eamuAffected",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              conditional: {
+                html: emailHtml
+              }
+            },   
+            {
+              value: "No",
+              text: "No"
+            }
+
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

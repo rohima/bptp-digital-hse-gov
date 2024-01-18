@@ -24,8 +24,8 @@ What type of product are you applying to authorise? – {{serviceName}} – GOV.
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {{ govukRadios({
-          name: "applicationJourney",
-          id: "applicationJourney",
+          name: "applicationWhatAuthorisation",
+          id: "applicationWhatAuthorisation",
           fieldset: {
             legend: {
               text: "What type of product are you applying to authorise?",
@@ -38,17 +38,17 @@ What type of product are you applying to authorise? – {{serviceName}} – GOV.
           },
           items: [
             {
-              value: "CRX",
+              value: "CRD2",
               text: "Identical to another product",
               hint: {text: "A ‘back-to-back authorisation’ "}
             },
             {
-              value: "CRX",
+              value: "CRD1 ARTICLE34",
               text: "Comparable to an existing authorised product, which will be the single reference product "
             },
             
             {
-              value: "CRX",
+              value: "CRD1",
               text: "Any other new product requiring a full technical assessment"
             }
           ]

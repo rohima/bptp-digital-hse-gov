@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Is all the data for this active substance owned by the authorisation holder?  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      {# <span class="govuk-caption-l">Application details</span> #}
+      <h1 class="govuk-heading-l">Is all the data for this active substance owned by the authorisation holder? </p>
+
+{# <p>Provide details for [Azoxystrobin] active substance or data owner. You can add more active substanceslater</p> #}
+
+<div class="govuk-inset-text">
+  [Active substance name: 
+  <strong>Azoxystrobin
+  CAS: 131860-33-8</strong>]
+</div>
+
+
+{% set emailHtml %}
+{{ govukInput({
+  id: "formulaActiveSubstanceOwnershipText",
+  name: "formulaActiveSubstanceOwnershipText",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Reference evaluation report"
+  },
+  hint: { text: "This could be any or all of the following: COP number, Wisdom reference, HSE reference, product name, product identifier code"}
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  id: "formulaActiveSubstanceOwnership",
+  name: "formulaActiveSubstanceOwnership",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes"
+      
+    },   
+    {
+      value: "No",
+      text: "No",
+      checked: false
+    }
+
+  ]
+}) }}
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

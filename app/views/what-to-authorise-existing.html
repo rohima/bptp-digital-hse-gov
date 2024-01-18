@@ -24,8 +24,8 @@ What are you applying for?  – {{serviceName}} – GOV.UK
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {{ govukRadios({
-          name: "applicationJourney",
-          id: "applicationJourney",
+          name: "applicationWhatAuthorisationExisting",
+          id: "applicationWhatAuthorisationExisting",
           fieldset: {
             legend: {
               text: "What are you applying for? ",
@@ -38,20 +38,20 @@ What are you applying for?  – {{serviceName}} – GOV.UK
           },
           items: [
             {
-              value: "CRX",
+              value: "CRD3",
               text: "An extension of authorisation for minor use (EAMU)"
             },
             {
-              value: "CRX",
+              value: "CRDR",
               text: "Renewal of a product authorisation ",
               hint: {text: "Following renewed approval of an active substance ’ "}
             },
             {
-              value: "CRX",
+              value: "CRD2 WITHDRAWAL",
               text: "Commercial withdrawal of a product or authorised use "
             },
             {
-              value: "CRX",
+              value: "Change details",
               text: "Changes to other details of a product or authorisation "
             }
           ]

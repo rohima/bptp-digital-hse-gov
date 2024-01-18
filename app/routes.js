@@ -28,7 +28,9 @@ router.use('/crd1-packaging', require('./views/crd1-packaging/routes'));
 router.use('/crd1-use', require('./views/crd1-use/routes'));
 
 // Other journey
+router.use('/crd2', require('./views/crd2/routes'));
 router.use('/crd3', require('./views/crd3/routes'));
 router.use('/crd8', require('./views/crd8/routes'));
+router.use('/crdr', require('./views/crdr/routes'));
 
 // Add your routes here
