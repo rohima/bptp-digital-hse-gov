@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Upload your draft registration report documents (dRR)  –{{serviceName}} – GOV.UK
+Upload your letters of access   –{{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,127 +19,19 @@ Upload your draft registration report documents (dRR)  –{{serviceName}} – GO
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <span class="govuk-caption-l">Documents</span>
-      <h1 class="govuk-heading-l">Upload your draft registration report documents (dRR)</h1>
-      <p>Select the documents you are uploading as part of your dRR.</p>
-
+      <h1 class="govuk-heading-l">Upload your letters of access </h1>
       <form class="form" method="post">
-        <h2 class="govuk-heading-s">Part A</h2>
-        {{ govukCheckboxes({
-        id: "documentsDraftRegReportSelect",
-        name: "documentsDraftRegReportSelect",
-        fieldset: {
-          legend: {
-            text: ""
-          }
-        },
-        items: [
-          {
-            value: "Summary of evaluation",
-            text: "Summary of evaluation"
-          }
-          ]
-        }) }}
 
-        <h2 class="govuk-heading-s">Part B</h2>
-
-        {{ govukCheckboxes({
-        id: "documentsDraftRegReportSelect",
-        name: "documentsDraftRegReportSelect",
-        fieldset: {
-          legend: {
-            text: ""
-          }
-        },
-        items: [
-         
-          {
-            value: "Section 1, 2 and 4 ",
-            text: "Section 1, 2 and 4 ",
-            hint: {text: "Identity, physical and chemical properties and further information "}
-          },
-          {
-            value: "Section 3",
-            text: "Section 3",
-            hint:{text:"Efficacy data and information "}
-          },
-          {
-            value: "Section 5",
-            text: "Section 5 ",
-            hint:{text:"Analytical methods "}
-          },
-          {
-            value: "Section 6",
-            text: "Section 6",
-            hint:{text:"Mammalian toxicology and UK national addendum"}
-          },
-          {
-            value: "Section 7",
-            text: "Section 7",
-            hint:{text:"Metabolism and residues and UK national addendum"}
-          },
-          {
-            value: "Section 8",
-            text: "Section 8",
-            hint:{text:"Environmental fate and UK national addendum "}
-          },
-          {
-            value: "Section 9 ",
-            text: "Section 9 ",
-            hint:{text:"Ecotoxicology and UK national addendum "}
-          },
-          {
-            value: "Section 10 ",
-            text: "Section 10 ",
-            hint:{text:"Assessment of the relevance of metabolites in groundwater"}
-          }
-        ]
-        }) }}
-
-
-        <h2 class="govuk-heading-s">Part C</h2>
-        {{ govukCheckboxes({
-        id: "documentsDraftRegReportSelectC",
-        name: "documentsDraftRegReportSelectC",
-        fieldset: {
-          legend: {
-            text: ""
-          }
-        },
-        items: [
-        {
-          value: "Confidential information",
-          text: "Confidential information",
-          hint:{text:""}
-        }
-          ]
-        }) }}
-
-        <h2 class="govuk-heading-s">To be provided by a third party </h2>
-        {{ govukCheckboxes({
-        id: "documentsDraftRegReportSelectThirdParty",
-        name: "documentsDraftRegReportSelectThirdParty",
-        fieldset: {
-          legend: {
-            text: ""
-          }
-        },
-        items: [
-        {
-          value: "Third party",
-              text: "Relevant information will be provided separately by a third party  "
-        }
-          ]
-        }) }}
-
+        
         <div id="file-upload-1-hint" class="govuk-hint">
-          You can upload more than one file. Each file must be a maximum of 4GB.  
-        </div>
+        You can upload more than one file. Each file must be a maximum of 4GB.  
+      </div>
 
         <p id="upload-update" class="govuk-body govuk-!-display-none" aria-live="assertive" aria-relevant="all">1 of 2 files uploaded</p>
 
         <button id="upload-more" style="display:none" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-          Add more files
-        </button>
+        Add more files
+      </button>
 
         <div id="upload-wrapper" class="govuk-form-group">
           <label class="govuk-label" for="upload-button">
@@ -154,6 +46,29 @@ Upload your draft registration report documents (dRR)  –{{serviceName}} – GO
 
         <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key"></dl>
 
+
+
+
+        {{ govukCheckboxes({
+          name: "ThirdParty",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: ""
+          },
+          items: [
+            {
+              value: "Third party",
+              text: "To be provided separately by a third party "
+            }
+          ]
+        }) }}
+
         {{ govukButton({
         text: "Save and continue"
         }) }}
@@ -161,11 +76,9 @@ Upload your draft registration report documents (dRR)  –{{serviceName}} – GO
       </form>
     </div>
   </div>
-
 {% endblock %}
 
 {% block pageScripts %}
-
   <script>
     document
       .getElementById("upload-button")
@@ -213,6 +126,7 @@ Upload your draft registration report documents (dRR)  –{{serviceName}} – GO
 
       // uploadUpdate.textContent = `${filesUploaded} of ${filesUploading + filesUploaded} files uploaded`;
       // uploadUpdate.classList.remove("govuk-!-display-none");
+
       // new code start
       uploadUpdate.textContent = `${filesUploaded} of ${filesUploading + filesUploaded} files uploaded`;
       if (filesUploaded > 0 || filesUploading > 0) {
@@ -299,9 +213,7 @@ Upload your draft registration report documents (dRR)  –{{serviceName}} – GO
         uploadUpdate
           .classList
           .remove("govuk-!-display-none");
-
       }
-
     }
   </script>
 {% endblock %}

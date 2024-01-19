@@ -488,6 +488,7 @@ router.post('/formula-composition-add-another', function (req, res) {
 
 router.post('/formula-risk-product', function (req, res) {
   let productRisk = req.session.data.productRisk;
+  let productRiskMicrobial = req.session.data.productRiskMicrobial;
   if (productRisk == "No") {
     res.redirect('formula-check-answers');
   } else {
@@ -1264,6 +1265,15 @@ router.post('/documents-upload-admin', function (req, res) {
 router.post('/documents-upload-draft-reg-report', function (req, res) {  
   let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
   let documentsDraftRegReportSelect = req.session.data.documentsDraftRegReportSelect;
+  res.redirect('documents-upload-supporting');
+
+})
+
+// documents-upload-draft-reg-report microbials
+
+router.post('/documents-upload-draft-reg-report-microbials', function (req, res) {  
+  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
+  let documentsDraftRegReportSelectMicrobes = req.session.data.documentsDraftRegReportSelectMicrobes;
   res.redirect('documents-upload-supporting');
 
 })

@@ -12,16 +12,18 @@ Is the product considered low-risk?  – {{serviceName}} – GOV.UK
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form class="form" method="post">
-        <h1 class="govuk-heading-l">Is the product, including all active substances, considered low risk?</h1>
-
-        <p>A plant protection product is generallty considered low risk if it does not have any harmful effects on:</p>
+        <h1 class="govuk-heading-l">Product risk and microbials </h1>
+        <h2 class="govuk-heading-m">Is the product, including all active substances, considered low-risk? </h2>
+        {# <p>A plant protection product is generallty considered low risk if it does not have any harmful effects on:</p>
 
         <ul class="govuk-list govuk-list--bullet">
           <li>human health</li>
           <li>animal health</li>
           <li>groundwater</li>
           <li>the environment</li>
-        </ul>
+        </ul> #}
+
+        <p>A low-risk active substance in a plant protection product must comply with specific regulatory criteria, and the products containing that substance expected to be only a low risk to human and animal health and the environment. </p>
 
         <p>
           <a href="https://www.hse.gov.uk/pesticides/pesticides-registration/active-substances/low-risk.htm">Find out more about low-risk active substances on the HSE website (opens in a new tab).</a>
@@ -30,6 +32,36 @@ Is the product considered low-risk?  – {{serviceName}} – GOV.UK
         {{ govukRadios({
           id: "productRisk",
           name: "productRisk",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: ""
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: false
+            },   
+            {
+              value: "No",
+              text: "No"
+            }
+
+          ]
+        }) }}
+
+
+        <h2 class="govuk-heading-m">Is the product a microbial?</h2>
+
+        {{ govukRadios({
+          id: "productRiskMicrobial",
+          name: "productRiskMicrobial",
           fieldset: {
             legend: {
               text: "",

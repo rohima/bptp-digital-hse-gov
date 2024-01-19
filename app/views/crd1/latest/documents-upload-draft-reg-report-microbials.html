@@ -43,54 +43,53 @@ Upload your draft registration report documents (dRR)  –{{serviceName}} – GO
         <h2 class="govuk-heading-s">Part B</h2>
 
         {{ govukCheckboxes({
-        id: "documentsDraftRegReportSelect",
-        name: "documentsDraftRegReportSelect",
+        id: "documentsDraftRegReportSelectMicrobes",
+        name: "documentsDraftRegReportSelectMicrobes",
         fieldset: {
           legend: {
             text: ""
           }
         },
         items: [
-         
           {
-            value: "Section 1, 2 and 4 ",
-            text: "Section 1, 2 and 4 ",
-            hint: {text: "Identity, physical and chemical properties and further information "}
+            value: "Section 1 ",
+            text: "Section 1",
+            hint: {text: "Identity of the PPP and physical and chemical properties "}
+          },
+          {
+            value: "Section 2",
+            text: "Section 2",
+            hint:{text:"Methods of analysis"}
           },
           {
             value: "Section 3",
             text: "Section 3",
-            hint:{text:"Efficacy data and information "}
+            hint:{text:"Mammalian toxicology and UK national addendum "}
+          },
+          {
+            value: "Section 4",
+            text: "Section 4",
+            hint:{text:"Residues and UK national addendum "}
           },
           {
             value: "Section 5",
             text: "Section 5 ",
-            hint:{text:"Analytical methods "}
+            hint:{text:"Fate and behaviour and UK national addendum "}
           },
           {
             value: "Section 6",
             text: "Section 6",
-            hint:{text:"Mammalian toxicology and UK national addendum"}
+            hint:{text:"Ecotoxicology and UK national addendum "}
           },
           {
             value: "Section 7",
             text: "Section 7",
-            hint:{text:"Metabolism and residues and UK national addendum"}
+            hint:{text:"Efficacy"}
           },
           {
             value: "Section 8",
             text: "Section 8",
-            hint:{text:"Environmental fate and UK national addendum "}
-          },
-          {
-            value: "Section 9 ",
-            text: "Section 9 ",
-            hint:{text:"Ecotoxicology and UK national addendum "}
-          },
-          {
-            value: "Section 10 ",
-            text: "Section 10 ",
-            hint:{text:"Assessment of the relevance of metabolites in groundwater"}
+            hint:{text:"Metabolites "}
           }
         ]
         }) }}
