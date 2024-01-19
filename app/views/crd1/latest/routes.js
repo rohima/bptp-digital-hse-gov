@@ -1269,6 +1269,15 @@ router.post('/documents-upload-draft-reg-report', function (req, res) {
 
 })
 
+// documents-upload-draft-reg-report microbials
+
+router.post('/documents-upload-draft-reg-report-microbials', function (req, res) {  
+  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
+  let documentsDraftRegReportSelectMicrobes = req.session.data.documentsDraftRegReportSelectMicrobes;
+  res.redirect('documents-upload-supporting');
+
+})
+
 // documents-upload-supporting
 
 router.post('/documents-upload-supporting', function (req, res) {  
