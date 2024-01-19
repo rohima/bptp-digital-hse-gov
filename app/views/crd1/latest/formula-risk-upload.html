@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Upload statement of low risk – {{serviceName}} – GOV.UK
+Upload statement of low-risk – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,7 +12,7 @@ Upload statement of low risk – {{serviceName}} – GOV.UK
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form class="form" method="post">
-        <h1 class="govuk-heading-l">Upload a statement to demonstrate the product is low risk </p>
+        <h1 class="govuk-heading-l">Upload a statement to demonstrate the product is low-risk  </p>
 
         <p class="govuk-hint">Files must be a maximum of 4GB </p>
 
@@ -34,6 +34,28 @@ Upload statement of low risk – {{serviceName}} – GOV.UK
         </p>
 
         <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key"></dl>
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "ThirdParty",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "Third party",
+      text: "To be provided separately by a third party "
+    }
+  ]
+}) }}
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 

@@ -488,6 +488,7 @@ router.post('/formula-composition-add-another', function (req, res) {
 
 router.post('/formula-risk-product', function (req, res) {
   let productRisk = req.session.data.productRisk;
+  let productRiskMicrobial = req.session.data.productRiskMicrobial;
   if (productRisk == "No") {
     res.redirect('formula-check-answers');
   } else {
