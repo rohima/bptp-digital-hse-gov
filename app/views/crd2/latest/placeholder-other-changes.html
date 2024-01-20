@@ -1,0 +1,25 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Placeholder page  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">Placeholder page </h1>
+        <p>Capture any other changes </p>
+       <p><a href="https://app.mural.co/t/bptpdesignflows4492/m/bptpdesignflows4492/1700045505608/5f1e3cc491b6f581af39203cc446b3804c0711e8?wid=0-1705400685385">Link to post-it note in the flow on the MURAL board</a></p>
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

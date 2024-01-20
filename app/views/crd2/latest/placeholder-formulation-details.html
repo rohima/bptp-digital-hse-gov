@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-How many different types of container does the product have?   – {{serviceName}} – GOV.UK
+Placeholder page  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -9,25 +9,17 @@ How many different types of container does the product have?   – {{serviceName
 {% endblock %}
 
 {% block content %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form class="form" method="post">
-        <span class="govuk-caption-l">Packaging and labels</span>
-        <h1 class="govuk-heading-l">How many different types of container does the product have?</h1>
-
-        {{ govukInput({
-        label: {
-          text: "Number of containers"
-        },
-        classes: "govuk-input--width-5",
-        id: "numContainers",
-        name: "numContainers"
-        }) }}
+        <h1 class="govuk-heading-l">Placeholder page </h1>
+        <p>Are formulation details identical to parent?</p>
+       <p><a href="https://app.mural.co/t/bptpdesignflows4492/m/bptpdesignflows4492/1700045505608/5f1e3cc491b6f581af39203cc446b3804c0711e8?wid=0-1705323375673">Link to post-it note in the flow on the MURAL board</a></p>
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>
-
     </div>
   </div>
 {% endblock %}

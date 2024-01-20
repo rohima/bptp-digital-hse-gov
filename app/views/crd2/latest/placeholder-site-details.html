@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Product packaging volume – {{serviceName}} – GOV.UK
+Placeholder page  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -10,37 +10,16 @@ Product packaging volume – {{serviceName}} – GOV.UK
 
 {% block content %}
 
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <form class="form" method="post">
-
-      {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">What is the commodity code or name?</h1>
-
-
- {% from "govuk/components/input/macro.njk" import govukInput %}
- {{ govukInput({
-  label: {
-    text: ""
-  },
-  
-  classes: "govuk-input--width-three-quarter",
-  id: "productCommodity",
-  name: "productCommodity"
-}) }}
-
-
-
-    
+        <h1 class="govuk-heading-l">Placeholder page </h1>
+        <p>Are formulation manufacturing site details identical to parent?</p>
+       <p><a href="https://app.mural.co/t/bptpdesignflows4492/m/bptpdesignflows4492/1700045505608/5f1e3cc491b6f581af39203cc446b3804c0711e8?wid=0-1705323318167">Link to post-it note in the flow on the MURAL board</a></p>
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>
-
     </div>
   </div>
-
 {% endblock %}
