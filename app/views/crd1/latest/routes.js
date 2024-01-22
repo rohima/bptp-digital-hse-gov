@@ -1297,9 +1297,27 @@ router.post('/documents-upload-relevant-correspondence', function (req, res) {
 
 router.post('/documents-upload-safety-data-sheet', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-upload-comparative-assessment-report');
+
+})
+
+// documents-upload-comparative-assessment-report
+
+router.post('/documents-upload-comparative-assessment-report', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-upload-letters-of-access');
+
+})
+
+// documents-upload-letters-of-access
+
+router.post('/documents-upload-letters-of-access', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
   res.redirect('documents-check-answers');
 
 })
+
+
 
 // documents-upload-proof-of-authorisation
 /* removed as earlier in the flow

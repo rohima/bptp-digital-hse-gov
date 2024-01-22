@@ -81,22 +81,20 @@ router.post('/what-to-authorise-existing', function (req, res) {
 router.post('/what-change-to-do', function (req, res) {
   let crdChangeType = req.session.data.crdChangeType;
   if (crdChangeType == "Label") {
-    res.redirect('crd1-change/latest/application-name-contact');
+    res.redirect('crd1-label/latest/application-name-contact');
   } else if (crdChangeType == "Formula") {
     res.redirect('crd1-change/latest/application-name-contact');
   }else if (crdChangeType == "Packaging") {
-    res.redirect('crd1-change/latest/application-name-contact');
+    res.redirect('crd1-packaging/latest/application-name-contact');
   } else if (crdChangeType == "Data") {
     res.redirect('crd1-change/latest/application-name-contact');
   } else if (crdChangeType == "Active") {
     res.redirect('crd1-change/latest/application-name-contact');
   } else if (crdChangeType == "CRD2 ADMIN") {
-    res.redirect('crd2/latest/application-name-contact');
+    res.redirect('crd1-administrative/latest/application-name-contact');
   }
   
 })
-
-
 
 // 
 
