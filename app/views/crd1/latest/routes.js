@@ -639,14 +639,22 @@ router.post('/formula-active-substance-source-data-ownership-add-another', funct
 router.post('/active-substance-source-request-tech-equiv', function (req, res) {
   let requestTechEquiv = req.session.data.requestTechEquiv;
   if (requestTechEquiv == "Yes") {
-    res.redirect('active-substance-source-request-tech-equiv-upload-info');
+    res.redirect('active-substance-source-request-tech-equiv-production-scale');
   } else {
     res.redirect('formula-active-substance-source-data-ownership-check-answers');
   }
 
 })
 
-// active-substance-source-request-tech-equiv-upload-info
+// active-substance-source-request-tech-equiv-production-scale
+router.post('/active-substance-source-request-tech-equiv-production-scale', function (req, res) {
+  let requestTechEquivProdScale = req.session.data.requestTechEquivProdScale;
+    res.redirect('active-substance-source-request-tech-equiv-upload');
+
+})
+
+
+// active-substance-source-request-tech-equiv-upload-info - NOT USED
 router.post('/active-substance-source-request-tech-equiv-upload-info', function (req, res) {
   let requestTechEquivUploadInfo = req.session.data.requestTechEquivUploadInfo;
   if (requestTechEquivUploadInfo == "Upload a file") {
@@ -659,8 +667,10 @@ router.post('/active-substance-source-request-tech-equiv-upload-info', function 
 })
 
 // active-substance-source-request-tech-equiv-upload
+
 router.post('/active-substance-source-request-tech-equiv-upload', function (req, res) {
-  let requestTechEquivUpload = req.session.data.requestTechEquivUpload;
+  let requestTechEquivUpload = req.session.data.requestTechEquivUpload; 
+  let techEquivThirdParty = req.session.data.techEquivThirdParty;
     res.redirect('formula-active-substance-source-data-ownership-check-answers');
 
 })
@@ -676,13 +686,8 @@ router.post('/application-eu-tech', function (req, res) {
 })
 
 
-
-
-
-
-
-
 // formula-active-substance-source-data-ownership-details
+
 router.post('/formula-active-substance-source-data-ownership-details', function (req, res) {
   let formulaActiveSourceDataOwnerAddress = req.session.data.formulaActiveSourceDataOwnerAddress;
   let formulaActiveSourceDataOwnerLetters = req.session.data.formulaActiveSourceDataOwnerLetters;
@@ -695,7 +700,9 @@ router.post('/formula-active-substance-source-data-ownership-details', function 
   }
 })
 
+
 // formula-active-substance-source-data-ownership-previous
+
 router.post('/formula-active-substance-source-data-ownership-previous', function (req, res) {
   let formulaActiveSourceDataOwnerAddress = req.session.data.formulaActiveSourceDataOwnerAddress;
   if (formulaActiveSourceDataOwnerAddress == "Yes" ) {
@@ -712,11 +719,13 @@ router.post('/formula-active-substance-source-manufacturing-address-postcode', f
 })
 
 // formula-active-substance-source-manufacturing-address-list
+
 router.post('/formula-active-substance-source-manufacturing-address-list', function (req, res) {
   res.redirect('formula-active-substance-source-manufacturing-address-confirm');
 })
 
 // formula-active-substance-source-manufacturing-address-confirm
+
 router.post('/formula-active-substance-source-manufacturing-address-confirm', function (req, res) {
   let marketArea = req.session.data.marketArea;
 
@@ -733,17 +742,6 @@ router.post('/formula-active-substance-source-manufacturing-address-confirm', fu
 router.post('/formula-active-substance-source-data-ownership-check-answers', function (req, res) {
   res.redirect('product-use');
 })
-
-
-
-
-
-
-
-
-
-
-
 
 // formula-active-substance-data-ownership - NOT USED
 router.post('/formula-active-substance-data-ownership', function (req, res) {
