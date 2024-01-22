@@ -352,8 +352,10 @@ router.post('/formula-is-csv-upload', function (req, res) {
 
   if (isCsvUpload == "Yes") {
     res.redirect('formula-csv-1');
-  } else {
+  } else if (isCsvUpload == "No") {
     res.redirect('formula-type-add');
+  } else if (isCsvUpload == "Third party"){
+    res.redirect('formula-risk-product');
   }
 })
 
@@ -372,7 +374,7 @@ router.post('/formula-csv-2', function (req, res) {
 // formula-csv-3
 
 router.post('/formula-csv-3', function (req, res) {
-  res.redirect('formula-csv-check-answers');
+  res.redirect('formula-risk-product');
 })
 
 // ----------------- FORMULATION MANUAL ----------------- //
@@ -492,7 +494,7 @@ router.post('/formula-risk-product', function (req, res) {
   if (productRisk == "No") {
     res.redirect('formula-check-answers');
   } else {
-    res.redirect('formula-risk-upload-info');
+    res.redirect('formula-risk-upload');
   }
 
 })
@@ -557,6 +559,8 @@ router.post('/active-substance-source-is-csv-upload', function (req, res) {
   let isActiveSubstanceSourceUpload = req.session.data.isActiveSubstanceSourceUpload;
   if (isActiveSubstanceSourceUpload == "No") {
     res.redirect('formula-active-substance-source-data-ownership-details');
+  } else if (isActiveSubstanceSourceUpload == "Third party") {
+    res.redirect('active-substance-source-request-tech-equiv');
   } else {
     res.redirect('active-substance-source-csv-1');
   }

@@ -35,15 +35,16 @@ Upload statement of low-risk – {{serviceName}} – GOV.UK
 
         <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key"></dl>
 
-        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
-{{ govukCheckboxes({
-  name: "ThirdParty",
+
+{{ govukRadios({
+  name: "lowRiskDocThirdParty",
+  id: "lowRiskDocThirdParty",
   fieldset: {
     legend: {
-      text: "",
+      text: "Will a third party provide any or all of this information?",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--s"
+      classes: "govuk-fieldset__legend--m"
     }
   },
   hint: {
@@ -52,7 +53,11 @@ Upload statement of low-risk – {{serviceName}} – GOV.UK
   items: [
     {
       value: "Third party",
-      text: "To be provided separately by a third party "
+      text: "Yes"
+    },
+    {
+      value: "No",
+      text: "No"
     }
   ]
 }) }}
