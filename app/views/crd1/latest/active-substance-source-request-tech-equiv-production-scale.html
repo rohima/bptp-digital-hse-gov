@@ -26,7 +26,7 @@ What is the production scale of the 5-batch data to be submitted?  – {{service
 
       {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
-      {{ govukCheckboxes({
+      {{ govukRadios({
         name: "productionScale",
         id: "productionScale",
         fieldset: {

@@ -24,14 +24,15 @@ EAMU details – {{serviceName}} – GOV.UK
 
         {{ govukInput({
           label: {
-            text: 'Enter crop name  '
+            text: 'Enter crop names  '
           },
+          hint: {text: "If there are more than one, separate each one with a comma "},
           id: "eamuAuthCurrentDetailsCropName",
           name: "eamuAuthCurrentDetailsCropName",
           autocomplete: "eamuAuthCurrentDetails"
         }) }}
 
-        <h2 class="govuk-heading-m">Current NANUM  </h2>
+        <h2 class="govuk-heading-m">Current extension of authorisation number  </h2>
 
         {{ govukInput({
           label: {

@@ -13,14 +13,14 @@ Product name – {{serviceName}} – GOV.UK
     <div class="govuk-grid-column-two-thirds">
       <form class="form" method="post">
 
-        <h1 class="govuk-heading-l">What is the product name? </h1>
+        <h1 class="govuk-heading-l">What is the new product name?  </h1>
 
-        <p> Enter the primary product name or code number. This will become the name of your application in this service.  </p>
+        <p>Enter the product name or code number. This will become the name of your application in this service.    </p>
 
         {% from "govuk/components/input/macro.njk" import govukInput %}
         {{ govukInput({
           label: {
-            text: "Primary product name ",
+            text: "Product name ",
             classes: "govuk-label?--l",
             isPageHeading: true
           },
@@ -31,7 +31,7 @@ Product name – {{serviceName}} – GOV.UK
 
         {{ govukInput({
         label: {
-          text: "Code number ",
+          text: "Development code number ",
           classes: "govuk-label?--l",
           isPageHeading: true
         },
