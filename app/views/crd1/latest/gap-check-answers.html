@@ -190,6 +190,21 @@
               </a>
             </dd>
           </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Aquatic buffer zone
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapCropAquaticBufferZone'] or '[aquatic buffer zone]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-crop-product">
+              Change
+              <span class="govuk-visually-hidden">Aquatic buffer zone</span>
+              </a>
+            </dd>
+          </div>
         </dl>
 
         <h2 class="govuk-heading-m">Product dosage</h2>
@@ -304,6 +319,22 @@
               </a>
             </dd>
           </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Maximum in-use concentration
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['proposedUseConcentrationMax'] or '10'}}
+              {{ data['proposedUseConcentrationMaxUnit'] or 'litres per hectare (l/ha)' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+              Change
+              <span class="govuk-visually-hidden">Maximum in-use concentration</span>
+              </a>
+            </dd>
+          </div>
         </dl>
 
         <h2 class="govuk-heading-m">Product application timings</h2>
@@ -311,20 +342,176 @@
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-            Maximum individual dose of active substance
+            Maximum number of treatments
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['gapDosageMaxActiveSubstance'] or '50'}}
-              {{ data['gapDosageMaxActiveSubstanceUnit'] or 'kilograms per hectare (kg/ha)'}}
+              {{ data['gapProductMaxTreatment'] or '[max number treatment]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="gap-dosage">
+              <a href="gap-timings">
               Change
-              <span class="govuk-visually-hidden">Individual dose of active substance</span>
+              <span class="govuk-visually-hidden">Maximum number of treatments</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Number of days between application
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapProductDaysBetween'] or '[days between application]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-timings">
+              Change
+              <span class="govuk-visually-hidden">Maximum number of treatments</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Period of use
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapProductPeriodFrom'] or '[period from]'}} - {{ data['gapProductPeriodTo'] or '[period to]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-timings">
+              Change
+              <span class="govuk-visually-hidden">Period of use</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Earliest time of application
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapProductEarliestApplication'] or '[earliest application month]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-timings">
+              Change
+              <span class="govuk-visually-hidden">Earliest time of application</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Earliest BBCH code
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapProductEarliestBBCH'] or '[earliest BBCH code]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-timings">
+              Change
+              <span class="govuk-visually-hidden">Earliest BBCH code</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Latest time of application
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapProductLatestApplication'] or '[latest application month]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-timings">
+              Change
+              <span class="govuk-visually-hidden">Latest time of application</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Latest BBCH code
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapProductLatestBBCH'] or '[latest BBCH code]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-timings">
+              Change
+              <span class="govuk-visually-hidden">Latest BBCH code</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Pre-harvest interval or witholding period
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapProductWithholdingPeriod'] or '[withholding days]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-timings">
+              Change
+              <span class="govuk-visually-hidden">Pre-harvest interval or witholding period </span>
+              </a>
+            </dd>
+          </div> 
+        </dl>
+
+
+        <h2 class="govuk-heading-m">Product application methods</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Protected crops
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapApplicationProProtected'] or '[protected crops]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-application-professional-protected">
+              Change
+              <span class="govuk-visually-hidden">Protected crops</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Indoor crops
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapApplicationProIndoor'] or '[indoor crops]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-application-professional-indoor">
+              Change
+              <span class="govuk-visually-hidden">Indoor crops</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Outdoor crops
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapApplicationProOutdoorOther'] or '[outdoor crops]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-application-professional-outdoor">
+              Change
+              <span class="govuk-visually-hidden">Outdoor crops</span>
               </a>
             </dd>
           </div>
         </dl>
+
+
         {% endif %}
 
         {% if data['isGapCsvUpload'] == "No" and data['isProductSeedTreatment'] == "Yes" %}
@@ -581,6 +768,122 @@
         </dl>
 
         {% endif %}
+
+
+
+        <h2 class="govuk-heading-m">Protection and restrictions</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Environmental phrases
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['environmentalPhrases'] or '[environmental phrases]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-environmental-phrases">
+              Change
+              <span class="govuk-visually-hidden">Environmental phrases</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Environmental phrases apply to all users
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['environmentalPhrasesApplyAll'] or '[phrases apply to all]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-environmental-phrases">
+              Change
+              <span class="govuk-visually-hidden">Phrases apply to all users</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Other specific restrictions
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['otherSpecificRestrictions'] or '[phrases apply to all]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-other-specific-restrictions">
+              Change
+              <span class="govuk-visually-hidden">Other specific restrictions</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Other specific restrictions apply to all users
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['otherSpecificRestrictionsApplyAll'] or '[specific restrictions apply to all]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-other-specific-restrictions">
+              Change
+              <span class="govuk-visually-hidden">Other specific restrictions apply to all users</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Personal protective equipment (PPE)
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['personalProtectiveEquipment'] or '[PPE]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-personal-protective-equipment">
+              Change
+              <span class="govuk-visually-hidden">Personal protective equipment (PPE)</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Personal protective equipment (PPE) apply to all users
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['personalProtectiveEquipmentApplyAll'] or '[PPE apply to all]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-personal-protective-equipment">
+              Change
+              <span class="govuk-visually-hidden">Personal protective equipment (PPE) apply to all users</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Product classification
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapClp'] or '[product classification]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-clp">
+              Change
+              <span class="govuk-visually-hidden">Product classification</span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+
+
+
+
 
         <input type="hidden" name="answers-checked" value="true">
 

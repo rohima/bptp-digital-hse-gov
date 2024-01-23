@@ -20,9 +20,9 @@ Product application timings   – {{serviceName}} – GOV.UK
           text: ' Enter maximum number of treatments'
         },
         classes: "govuk-input--width-20",
-        id: "formulaActiveSubstanceName",
-        name: "formulaActiveSubstanceName",
-        autocomplete: "address-line1"
+        id: "gapProductMaxTreatment",
+        name: "gapProductMaxTreatment",
+        autocomplete: "gapProductMaxTreatment"
         }) }}
 
         <h2 class="govuk-heading-m">Time between applications</h2>
@@ -36,9 +36,9 @@ Product application timings   – {{serviceName}} – GOV.UK
         },
         suffix: {text: "days"},
         classes: "govuk-input--width-10",
-        id: "formulaActiveSubstanceName",
-        name: "formulaActiveSubstanceName",
-        autocomplete: "address-line1"
+        id: "gapProductDaysBetween",
+        name: "gapProductDaysBetween",
+        autocomplete: "gapProductDaysBetween"
         }) }}
 
         <h2 class="govuk-heading-m">Period of use</h2>
@@ -51,8 +51,8 @@ Product application timings   – {{serviceName}} – GOV.UK
           classes: "govuk-label?--l",
           isPageHeading: true
         },
-        id: "proposedUseActiveMaxTotalDose",
-        name: "proposedUseActiveMaxTotalDose"
+        id: "gapProductPeriodFrom",
+        name: "gapProductPeriodFrom"
         }) }}
 
         {{ govukInput({
@@ -62,8 +62,8 @@ Product application timings   – {{serviceName}} – GOV.UK
           classes: "govuk-label?--l",
           isPageHeading: true
         },
-        id: "proposedUseActiveMaxTotalDose",
-        name: "proposedUseActiveMaxTotalDose"
+        id: "gapProductPeriodTo",
+        name: "gapProductPeriodTo"
         }) }}
 
         <h2 class="govuk-heading-m">Earliest time of application</h2>
@@ -75,8 +75,8 @@ Product application timings   – {{serviceName}} – GOV.UK
           classes: "govuk-label?--l",
           isPageHeading: true
         },
-        id: "proposedUseActiveMaxTotalDose",
-        name: "proposedUseActiveMaxTotalDose"
+        id: "gapProductEarliestApplication",
+        name: "gapProductEarliestApplication"
         }) }}
 
         {{ govukInput({
@@ -86,8 +86,8 @@ Product application timings   – {{serviceName}} – GOV.UK
           classes: "govuk-label?--l",
           isPageHeading: true
         },
-        id: "proposedUseActiveMaxTotalDose",
-        name: "proposedUseActiveMaxTotalDose"
+        id: "gapProductEarliestBBCH",
+        name: "gapProductEarliestBBCH"
         }) }}
 
         <h2 class="govuk-heading-m">Latest time of application</h2>
@@ -99,8 +99,8 @@ Product application timings   – {{serviceName}} – GOV.UK
           classes: "govuk-label?--l",
           isPageHeading: true
         },
-        id: "proposedUseActiveMaxTotalDose",
-        name: "proposedUseActiveMaxTotalDose"
+        id: "gapProductLatestApplication",
+        name: "gapProductLatestApplication"
         }) }}
 
         {{ govukInput({
@@ -110,8 +110,8 @@ Product application timings   – {{serviceName}} – GOV.UK
           classes: "govuk-label?--l",
           isPageHeading: true
         },
-        id: "proposedUseActiveMaxTotalDose",
-        name: "proposedUseActiveMaxTotalDose"
+        id: "gapProductLatestBBCH",
+        name: "gapProductLatestBBCH"
         }) }}
 
         <h2 class="govuk-heading-m">Pre-harvest interval or witholding period</h2>
@@ -125,9 +125,9 @@ Product application timings   – {{serviceName}} – GOV.UK
         },
         suffix: {text: "days"},
         classes: "govuk-input--width-10",
-        id: "formulaActiveSubstanceName",
-        name: "formulaActiveSubstanceName",
-        autocomplete: "address-line1"
+        id: "gapProductWithholdingPeriod",
+        name: "gapProductWithholdingPeriod",
+        autocomplete: "gapProductWithholdingPeriod"
         }) }}
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
