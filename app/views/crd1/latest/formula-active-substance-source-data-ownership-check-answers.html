@@ -366,30 +366,30 @@
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-             Are you applying for a technical equivalence assessment as part of this application?
+             Applying for a technical equivalence assessment as part of this application
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['formulaActiveSubstanceDesc'] or '[Active substance description]'}}
+              {{ data['requestTechEquiv'] or '[request technical equivalence]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="active-substance-source-request-tech-equiv">
                 Change
-                <span class="govuk-visually-hidden">Describe the data ownership</span>
+                <span class="govuk-visually-hidden">Applying for a technical equivalence assessment as part of this application</span>
               </a>
             </dd>
           </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              How will you provide your technical equivalence reports and data dossiers?
+              Production scale of the 5-batch data
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['formulaActiveSubstanceAccess'] or '[Authorisation holder owns all data]'}}
+              {{ data['productionScale'] or '[production scale]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="active-substance-source-request-tech-equiv-production-scale">
                 Change
-                <span class="govuk-visually-hidden">Access to the data in this application</span>
+                <span class="govuk-visually-hidden">Production scale of the 5-batch data</span>
               </a>
             </dd>
           </div>
@@ -399,15 +399,18 @@
               Technical equivalence upload
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['formulaActiveSubstanceReference'] or '[more details]'}}
+              {{ data['xxxx'] or ['technical equiv upload'] }} <br>
+              {{ data['techEquivThirdParty'] or '[provided by third party]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="#">
+              <a href="active-substance-source-request-tech-equiv-upload">
                 Change
-                <span class="govuk-visually-hidden"> Client registered address</span>
+                <span class="govuk-visually-hidden">Technical equivalence upload</span>
               </a>
             </dd>
           </div>
+
+          
         </dl>
 
         {% endif %}
