@@ -970,7 +970,7 @@ router.post('/gap-application-method', function (req, res) {
 
 router.post('/gap-add-another', function (req, res) {
   let gapAddAnother = req.session.data.gapAddAnother;
-  res.redirect('environmental-phrases');
+  res.redirect('gap-environmental-phrases');
 
 })
 
@@ -993,10 +993,10 @@ router.post('/gap-environmental-phrases', function (req, res) {
 
 // gap-other-specific-restrictions
 
-router.post('/other-specific-restrictions', function (req, res) {
+router.post('/gap-other-specific-restrictions', function (req, res) {
   let otherSpecificRestrictions = req.session.data.otherSpecificRestrictions;
   let individualUsesDetails = req.session.data.individualUsesDetails;
-  res.redirect('personal-protective-equipment');
+  res.redirect('gap-personal-protective-equipment');
 
 })
 
@@ -1047,7 +1047,7 @@ router.post('/gap-seed-treatment-application', function (req, res) {
 
 router.post('/gap-seed-treatment-growth', function (req, res) {
   let gapSeedGrowth = req.session.data.gapSeedGrowth;
-  res.redirect('gap-check-answers');
+  res.redirect('gap-environmental-phrases');
 
 })
 
