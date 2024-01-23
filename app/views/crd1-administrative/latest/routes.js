@@ -192,6 +192,11 @@ router.post('/find-confirm', function (req, res) {
 router.post('/what-change-to-do', function (req, res) {
   
   let adminChangeType = req.session.data.adminChangeType;
+  if (adminChangeType == 'Product info') {
+    res.redirect('what-product-info-change-to-do');
+  } else {
+    res.redirect('formula-product-data-ownership-details');
+  }
   res.redirect('what-product-info-change-to-do');
 
 })
@@ -203,6 +208,7 @@ router.post('/what-change-to-do', function (req, res) {
 router.post('/what-product-info-change-to-do', function (req, res) {
   
   let adminChangeType = req.session.data.adminChangeType;
+  
   res.redirect('product-name');
 
 })
@@ -479,15 +485,110 @@ router.post('/clp-affected', function (req, res) {
 
 router.post('/eamu-auth-current', function (req, res) {  
   let eamuAuthCurrent = req.session.data.eamuAuthCurrent;
-  res.redirect('eamu-auth-current-details');
+  if (eamuAuthCurrent == 'Yes') {
+    res.redirect('eamu-auth-current-details');
+  } else {
+    res.redirect('documents-upload-admin');
+  }
 })
 
 // eamu-auth-current-details
 
 router.post('/eamu-auth-current-details', function (req, res) {  
   let eamuAuthCurrentDetails = req.session.data.eamuAuthCurrentDetails;
-  res.redirect('check-answers');
+  res.redirect('documents-upload-admin');
 })
+
+
+// ----------------- DOCUMENTS ----------------- //
+
+
+
+// documents-upload-admin
+
+router.post('/documents-upload-admin', function (req, res) {  
+  let documentsAdmin = req.session.data.documentsAdmin;
+  let documentsAdminSelect = req.session.data.documentsAdminSelect;
+  res.redirect('documents-upload-draft-reg-report');
+
+})
+
+// documents-upload-draft-reg-report
+
+router.post('/documents-upload-draft-reg-report', function (req, res) {  
+  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
+  let documentsDraftRegReportSelect = req.session.data.documentsDraftRegReportSelect;
+  res.redirect('documents-upload-supporting');
+
+})
+
+// documents-upload-draft-reg-report microbials
+
+router.post('/documents-upload-draft-reg-report-microbials', function (req, res) {  
+  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
+  let documentsDraftRegReportSelectMicrobes = req.session.data.documentsDraftRegReportSelectMicrobes;
+  res.redirect('documents-upload-supporting');
+
+})
+
+// documents-upload-supporting
+
+router.post('/documents-upload-supporting', function (req, res) {  
+  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
+  let documentsDraftRegReportSelect = req.session.data.documentsDraftRegReportSelect;
+  res.redirect('documents-upload-relevant-correspondence');
+
+})
+
+// documents-upload-relevant-correspondence
+
+router.post('/documents-upload-relevant-correspondence', function (req, res) {  
+  let documentsRelevantCorrespondence = req.session.data.documentsRelevantCorrespondence;
+  res.redirect('documents-upload-safety-data-sheet');
+
+})
+
+// documents-upload-safety-data-sheet
+
+router.post('/documents-upload-safety-data-sheet', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-upload-comparative-assessment-report');
+
+})
+
+// documents-upload-comparative-assessment-report
+
+router.post('/documents-upload-comparative-assessment-report', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-upload-letters-of-access');
+
+})
+
+// documents-upload-letters-of-access
+
+router.post('/documents-upload-letters-of-access', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-check-answers');
+
+})
+
+// documents-upload-proof-of-authorisation
+/* removed as earlier in the flow
+router.post('/documents-upload-proof-of-authorisation', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-check-answers');
+
+})
+*/
+
+// documents-check-answers
+
+router.post('/documents-check-answers', function (req, res) {  
+  let documentsCheckAnswers = req.session.data.documentsCheckAnswers;
+  res.redirect('declaration');
+
+})
+
 
 
 // ----------------- CHECK ANSWERS ----------------- //

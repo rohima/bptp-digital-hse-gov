@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Upload the specification/5 batch analysis data – {{serviceName}} – GOV.UK
+Upload the supporting data documents – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -11,8 +11,8 @@ Upload the specification/5 batch analysis data – {{serviceName}} – GOV.UK
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <span class="govuk-caption-l">Data ownership: technical equivalence</span>
-      <h1 class="govuk-heading-l">Upload your technical equivalence reports and data dossiers, including 5-batch data </h1>
+      {# <span class="govuk-caption-l">Data ownership: technical equivalence</span> #}
+      <h1 class="govuk-heading-l">Upload your supporting data documents </h1>
 
       <p>Your supporting data should include any relevant data studies, risk assessments and modelling.  </p>
       {# <div class="govuk-inset-text">
@@ -44,31 +44,6 @@ Upload the specification/5 batch analysis data – {{serviceName}} – GOV.UK
           </p>
   
           <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key"></dl>
-
-          {{ govukRadios({
-            name: "techEquivThirdParty",
-            id: "techEquivThirdParty",
-            fieldset: {
-              legend: {
-                text: "Will a third party provide any or all of this information?",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--m"
-              }
-            },
-            hint: {
-              text: ""
-            },
-            items: [
-              {
-                value: "Third party",
-                text: "Yes"
-              },
-              {
-                value: "No",
-                text: "No"
-              }
-            ]
-          }) }}
   
           {{ govukButton({
           text: "Save and continue"

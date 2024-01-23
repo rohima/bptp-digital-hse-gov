@@ -352,8 +352,10 @@ router.post('/formula-is-csv-upload', function (req, res) {
 
   if (isCsvUpload == "Yes") {
     res.redirect('formula-csv-1');
-  } else {
+  } else if (isCsvUpload == "No") {
     res.redirect('formula-type-add');
+  } else if (isCsvUpload == "Third party"){
+    res.redirect('formula-risk-product');
   }
 })
 
@@ -372,7 +374,7 @@ router.post('/formula-csv-2', function (req, res) {
 // formula-csv-3
 
 router.post('/formula-csv-3', function (req, res) {
-  res.redirect('formula-csv-check-answers');
+  res.redirect('formula-risk-product');
 })
 
 // ----------------- FORMULATION MANUAL ----------------- //
@@ -492,7 +494,7 @@ router.post('/formula-risk-product', function (req, res) {
   if (productRisk == "No") {
     res.redirect('formula-check-answers');
   } else {
-    res.redirect('formula-risk-upload-info');
+    res.redirect('formula-risk-upload');
   }
 
 })
@@ -557,6 +559,8 @@ router.post('/active-substance-source-is-csv-upload', function (req, res) {
   let isActiveSubstanceSourceUpload = req.session.data.isActiveSubstanceSourceUpload;
   if (isActiveSubstanceSourceUpload == "No") {
     res.redirect('formula-active-substance-source-data-ownership-details');
+  } else if (isActiveSubstanceSourceUpload == "Third party") {
+    res.redirect('active-substance-source-request-tech-equiv');
   } else {
     res.redirect('active-substance-source-csv-1');
   }
@@ -639,14 +643,22 @@ router.post('/formula-active-substance-source-data-ownership-add-another', funct
 router.post('/active-substance-source-request-tech-equiv', function (req, res) {
   let requestTechEquiv = req.session.data.requestTechEquiv;
   if (requestTechEquiv == "Yes") {
-    res.redirect('active-substance-source-request-tech-equiv-upload-info');
+    res.redirect('active-substance-source-request-tech-equiv-production-scale');
   } else {
     res.redirect('formula-active-substance-source-data-ownership-check-answers');
   }
 
 })
 
-// active-substance-source-request-tech-equiv-upload-info
+// active-substance-source-request-tech-equiv-production-scale
+router.post('/active-substance-source-request-tech-equiv-production-scale', function (req, res) {
+  let requestTechEquivProdScale = req.session.data.requestTechEquivProdScale;
+    res.redirect('active-substance-source-request-tech-equiv-upload');
+
+})
+
+
+// active-substance-source-request-tech-equiv-upload-info - NOT USED
 router.post('/active-substance-source-request-tech-equiv-upload-info', function (req, res) {
   let requestTechEquivUploadInfo = req.session.data.requestTechEquivUploadInfo;
   if (requestTechEquivUploadInfo == "Upload a file") {
@@ -659,8 +671,10 @@ router.post('/active-substance-source-request-tech-equiv-upload-info', function 
 })
 
 // active-substance-source-request-tech-equiv-upload
+
 router.post('/active-substance-source-request-tech-equiv-upload', function (req, res) {
-  let requestTechEquivUpload = req.session.data.requestTechEquivUpload;
+  let requestTechEquivUpload = req.session.data.requestTechEquivUpload; 
+  let techEquivThirdParty = req.session.data.techEquivThirdParty;
     res.redirect('formula-active-substance-source-data-ownership-check-answers');
 
 })
@@ -676,13 +690,8 @@ router.post('/application-eu-tech', function (req, res) {
 })
 
 
-
-
-
-
-
-
 // formula-active-substance-source-data-ownership-details
+
 router.post('/formula-active-substance-source-data-ownership-details', function (req, res) {
   let formulaActiveSourceDataOwnerAddress = req.session.data.formulaActiveSourceDataOwnerAddress;
   let formulaActiveSourceDataOwnerLetters = req.session.data.formulaActiveSourceDataOwnerLetters;
@@ -695,7 +704,9 @@ router.post('/formula-active-substance-source-data-ownership-details', function 
   }
 })
 
+
 // formula-active-substance-source-data-ownership-previous
+
 router.post('/formula-active-substance-source-data-ownership-previous', function (req, res) {
   let formulaActiveSourceDataOwnerAddress = req.session.data.formulaActiveSourceDataOwnerAddress;
   if (formulaActiveSourceDataOwnerAddress == "Yes" ) {
@@ -712,11 +723,13 @@ router.post('/formula-active-substance-source-manufacturing-address-postcode', f
 })
 
 // formula-active-substance-source-manufacturing-address-list
+
 router.post('/formula-active-substance-source-manufacturing-address-list', function (req, res) {
   res.redirect('formula-active-substance-source-manufacturing-address-confirm');
 })
 
 // formula-active-substance-source-manufacturing-address-confirm
+
 router.post('/formula-active-substance-source-manufacturing-address-confirm', function (req, res) {
   let marketArea = req.session.data.marketArea;
 
@@ -733,17 +746,6 @@ router.post('/formula-active-substance-source-manufacturing-address-confirm', fu
 router.post('/formula-active-substance-source-data-ownership-check-answers', function (req, res) {
   res.redirect('product-use');
 })
-
-
-
-
-
-
-
-
-
-
-
 
 // formula-active-substance-data-ownership - NOT USED
 router.post('/formula-active-substance-data-ownership', function (req, res) {
@@ -1299,9 +1301,27 @@ router.post('/documents-upload-relevant-correspondence', function (req, res) {
 
 router.post('/documents-upload-safety-data-sheet', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-upload-comparative-assessment-report');
+
+})
+
+// documents-upload-comparative-assessment-report
+
+router.post('/documents-upload-comparative-assessment-report', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-upload-letters-of-access');
+
+})
+
+// documents-upload-letters-of-access
+
+router.post('/documents-upload-letters-of-access', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
   res.redirect('documents-check-answers');
 
 })
+
+
 
 // documents-upload-proof-of-authorisation
 /* removed as earlier in the flow

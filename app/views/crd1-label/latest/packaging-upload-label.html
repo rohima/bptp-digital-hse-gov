@@ -21,7 +21,7 @@ Upload your proposed product label  –{{serviceName}} – GOV.UK
       <span class="govuk-caption-l">Packaging and labels</span>
 
       <h1 class="govuk-heading-l">
-        Upload your proposed product label
+        Upload your labelling documents 
       </h1>
 
      
@@ -29,11 +29,11 @@ Upload your proposed product label  –{{serviceName}} – GOV.UK
 
         
           
-         {# <p class="govuk-body">To show that this work will comply fully with the building regulations, you must upload: </p>
+         <p class="govuk-body">Upload your:  </p>
          <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-          <li>all necessary drawings and plans</li>
-          <li>a reference file, which includes the name of each file and a clear description of what it is </li>
-         </ul> #}
+          <li>proposed product label </li>
+          <li>compatibility assurance statement, if your label recommends the product is mixed with other products  </li>
+         </ul>
 
            
           
@@ -44,32 +44,19 @@ Upload your proposed product label  –{{serviceName}} – GOV.UK
           }
         </style>
         
-        
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help with labelling
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            You can find <a href="https://www.hse.gov.uk/pesticides/pesticides-registration/data-requirements-handbook/operator-exposure/index.htm">detailed guidance on labelling requirements on the HSE website</a> (opens in a new tab). 
+          </div>
+        </details> 
+  
 
- {# {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-
-{{ govukCheckboxes({
-  id: "documentsAdminSelect",
-  name: "documentsAdminSelect",
-  fieldset: {
-    legend: {
-      text: ""
-    }
-  },
-  hint: {
-    text: "Select all that apply."
-  },
-  items: [
-    {
-      value: "an application overview",
-      text: "an application overview"
-    },
-    {
-      value: "a copy of the proposed product label ",
-      text: "a copy of the proposed product label "
-    }
-  ]
-}) }} #}
+       
 
         
             <div id="file-upload-1-hint" class="govuk-hint">

@@ -617,14 +617,14 @@ router.post('/evaluation-chemistry', function (req, res) {
 
 router.post('/evaluation-mode', function (req, res) { 
   let evaluationMode = req.session.data.evaluationMode;
-  res.redirect('production-scale');
+  res.redirect('active-substance-source-request-tech-equiv-production-scale');
 
 })
 
 
-// production-scale
+// active-substance-source-request-tech-equiv-production-scale
 
-router.post('/production-scale', function (req, res) { 
+router.post('/active-substance-source-request-tech-equiv-production-scale', function (req, res) { 
   let productionScale = req.session.data.productionScale;
   res.redirect('active-substance-5-batch-company');
 

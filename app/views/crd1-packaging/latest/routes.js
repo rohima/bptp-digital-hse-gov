@@ -166,19 +166,29 @@ router.post('/find-results', function (req, res) {
 
 router.post('/find-confirm', function (req, res) {  
   let findConfirm = req.session.data.findConfirm;
-  res.redirect('packaging-number-of');
+  res.redirect('proposed-packaging-info');
 
 })
+
+
 
 // ----------------- PLACEHOLDER PAGE ----------------- //
 
 router.post('/placeholder-technical-assessment', function (req, res) {  
   let placeholderPage = req.session.data.placeholderPage;
-  res.redirect('packaging-number-of');
+  res.redirect('proposed-packaging-info');
 })
 
 
 // ----------------- PACKAGING ----------------- //
+
+
+// proposed-packaging-info
+
+router.post('/proposed-packaging-info', function (req, res) {  
+  let placeholderPage = req.session.data.placeholderPage;
+  res.redirect('packaging-x-details');
+})
 
 // packaging-number-of
 

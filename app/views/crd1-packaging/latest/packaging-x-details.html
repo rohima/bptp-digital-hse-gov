@@ -13,13 +13,15 @@ Container [X] details – {{serviceName}} – GOV.UK
     <div class="govuk-grid-column-two-thirds">
       <form class="form" method="post">
         <span class="govuk-caption-l">Packaging and labels</span>
-        <h1 class="govuk-heading-l">Container [X] details</p>
-        <h2 class="govuk-heading-s">Volume range for container type</h2>
+        <h1 class="govuk-heading-l">Container details </h1>
+        <p>Enter details of the container type for this product. You can add more container types later if you need to. </p>
+        <h2 class="govuk-heading-m">Capacity range for container type </h2>
 
-        <span class="govuk-caption-l">Packaging and labels</span>
-        <h1 class="govuk-heading-l">Container details  </p>
+        <div class="govuk-inset-text">
+          If the capacity is greater than 20 litres or 25kg, the label must include advice to use mechanical handling of the container 
+        </div>
 
-        <p>Enter details of the container type for this product. You can add more container types later if you need to.  </p>
+       
 
         {{ govukInput({
         label: {
@@ -114,7 +116,18 @@ Container [X] details – {{serviceName}} – GOV.UK
 
         <h2 class="govuk-heading-s">Product container type</h2>
 
-        <h2 class="govuk-heading-s">Capacity range for container type   </h2>
+        {{ govukInput({
+          label: {
+            text: "Container type ",
+            classes: "govuk-label?--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "Type part of the name and select it from the list. If the full name does not show, enter it manually. "
+          },
+          id: "productPackagingMaterial",
+          name: "productPackagingMaterial"
+          }) }}
 
         <h2 class="govuk-heading-s">Packaging material</h2>
 
@@ -170,37 +183,7 @@ Container [X] details – {{serviceName}} – GOV.UK
           ]
         }) }}
 
-        <h2 class="govuk-heading-s">Product container type</h2>
-
-        {{ govukInput({
-          label: {
-            text: "Container type ",
-            classes: "govuk-label?--l",
-            isPageHeading: true
-          },
-          hint: {
-            text: "Type part of the name and select it from the list. If the full name does not show, enter it manually. "
-          },
-          id: "productContainerType",
-          name: "productContainerType"
-        }) }}
-
-        <h2 class="govuk-heading-s">Packaging material</h2>
-
-        <p>Enter the material closest to the product</p>
-
-        {{ govukInput({
-          label: {
-            text: "Pack material ",
-            classes: "govuk-label?--l",
-            isPageHeading: true
-          },
-          hint: {
-            text: "Type part of the name and select it from the list. If the full name does not show, enter it manually. "
-          },
-          id: "productPackagingMaterial",
-          name: "productPackagingMaterial"
-        }) }}
+        
 
         <h3 class="govuk-heading-s">Other pack material (optional) </h3>
 
@@ -256,28 +239,9 @@ Container [X] details – {{serviceName}} – GOV.UK
           name: "productPackagingMaterialOther4"
         }) }}
 
-        {{ govukInput({
-        label: {
-          text: "Pack material ",
-          classes: "govuk-label?--l",
-          isPageHeading: true
-        },
-        hint: {
-          text: "If you have a multiwalled container, start with the layer closest to the product. "
-        },
-        id: "productPackagingMaterialOther",
-        name: "productPackagingMaterialOther"
-        }) }}
+       
 
-        {{ govukInput({
-        label: {
-          text: "Pack material ",
-          classes: "govuk-label?--l",
-          isPageHeading: true
-        },
-        id: "productPackagingMaterialOther",
-        name: "productPackagingMaterialOther"
-        }) }}
+        
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 

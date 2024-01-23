@@ -45,6 +45,32 @@ Upload supporting data dossier –{{serviceName}} – GOV.UK
 
         <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key"></dl>
 
+        {{ govukRadios({
+          name: "supportingDocThirdParty",
+          id: "supportingDocThirdParty",
+          fieldset: {
+            legend: {
+              text: "Will a third party provide any or all of this information?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: ""
+          },
+          items: [
+            {
+              value: "Third party",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+
         {{ govukButton({
         text: "Save and continue"
         }) }}

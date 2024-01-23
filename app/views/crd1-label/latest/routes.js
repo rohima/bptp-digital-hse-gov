@@ -204,7 +204,7 @@ router.post('/formula-active-substance-data-ownership-details', function (req, r
 router.post('/formula-product-data-ownership', function (req, res) {
   let formulaProductOwnership = req.session.data.formulaProductOwnership
   if (formulaProductOwnership == 'Yes') {
-    res.redirect('active-substance-source-is-csv-upload');
+    res.redirect('active-substance-source-request-tech-equiv');
   } else {
     res.redirect('formula-product-data-ownership-details');
   }
@@ -212,7 +212,7 @@ router.post('/formula-product-data-ownership', function (req, res) {
 
 // formula-product-data-ownership-details
 router.post('/formula-product-data-ownership-details', function (req, res) {
-  res.redirect('active-substance-source-is-csv-upload');
+  res.redirect('active-substance-source-request-tech-equiv');
 })
 
 // ----------------- ACTIVE SUBSTANCE SOURCE DATA ----------------- //
@@ -243,6 +243,10 @@ router.post('/active-substance-source-how-many', function (req, res) {
     res.redirect('active-substance-source-previous-tech-equiv-gb');
   }
 })
+
+
+
+
 
 
 // active-substance-source-previous-tech-equiv-ni
@@ -284,10 +288,43 @@ router.post('/active-substance-source-previous-tech-equiv-gb', function (req, re
   res.redirect('formula-active-substance-source-data-ownership-details');
 })
 
+
 // active-substance-source-request-tech-equiv
 router.post('/active-substance-source-request-tech-equiv', function (req, res) {
-  let marketArea = req.session.data.marketArea;
-  res.redirect('product-name');
+  let requestTechEquiv = req.session.data.requestTechEquiv;
+  if (requestTechEquiv == "Yes") {
+    res.redirect('active-substance-source-request-tech-equiv-production-scale');
+  } else {
+    res.redirect('proposed-use-info');
+  }
+
+})
+
+// active-substance-source-request-tech-equiv-production-scale
+router.post('/active-substance-source-request-tech-equiv-production-scale', function (req, res) {
+  let requestTechEquivProdScale = req.session.data.requestTechEquivProdScale;
+    res.redirect('active-substance-source-request-tech-equiv-upload');
+
+})
+
+
+// active-substance-source-request-tech-equiv-upload-info - NOT USED
+router.post('/active-substance-source-request-tech-equiv-upload-info', function (req, res) {
+  let requestTechEquivUploadInfo = req.session.data.requestTechEquivUploadInfo;
+  if (requestTechEquivUploadInfo == "Upload a file") {
+    res.redirect('active-substance-source-request-tech-equiv-upload');
+  } else {
+    res.redirect('proposed-use-info');
+  }
+
+})
+
+// active-substance-source-request-tech-equiv-upload
+
+router.post('/active-substance-source-request-tech-equiv-upload', function (req, res) {
+  let requestTechEquivUpload = req.session.data.requestTechEquivUpload; 
+  let techEquivThirdParty = req.session.data.techEquivThirdParty;
+    res.redirect('proposed-use-info');
 
 })
 
@@ -638,7 +675,7 @@ router.post('/eamu-affected', function (req, res) {
 
 router.post('/mrl-affected', function (req, res) {  
   let mrlAffected = req.session.data.mrlAffected;
-  res.redirect('documents-reference-product');
+  res.redirect('documents-upload-admin');
 
 })
 
@@ -738,6 +775,22 @@ router.post('/documents-upload-relevant-correspondence', function (req, res) {
 // documents-upload-safety-data-sheet
 
 router.post('/documents-upload-safety-data-sheet', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-upload-comparative-assessment-report');
+
+})
+
+// documents-upload-comparative-assessment-report
+
+router.post('/documents-upload-comparative-assessment-report', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-upload-letters-of-access');
+
+})
+
+// documents-upload-letters-of-access
+
+router.post('/documents-upload-letters-of-access', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
   res.redirect('check-answers');
 

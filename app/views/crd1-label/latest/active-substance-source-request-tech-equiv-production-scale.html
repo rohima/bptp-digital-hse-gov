@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What is the production scale of the 5 batch to be submitted? – {{serviceName}} – GOV.UK
+What is the production scale of the 5-batch data to be submitted?  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,15 +18,15 @@ What is the production scale of the 5 batch to be submitted? – {{serviceName}}
 
       <form class="form" method="post">
 
-      {# <span class="govuk-caption-l">Application</span> #}
+      <span class="govuk-caption-l">Data ownership: technical equivalence</span>
 
       <h1 class="govuk-heading-l">
-        What is the production scale of the 5 batch to be submitted?
+        What is the production scale of the 5-batch data to be submitted? 
       </h1>
 
       {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
-      {{ govukCheckboxes({
+      {{ govukRadios({
         name: "productionScale",
         id: "productionScale",
         fieldset: {
@@ -37,7 +37,7 @@ What is the production scale of the 5 batch to be submitted? – {{serviceName}}
           }
         },
         hint: {
-          text: "Select all that apply"
+          text: ""
         },
         items: [
           {
@@ -46,9 +46,9 @@ What is the production scale of the 5 batch to be submitted? – {{serviceName}}
             hint: {text: ""}
           },
           {
-            value: "Pilot plan production",
-            text: "Pilot plan production",
-            hint: {text:"If your production moves to full-scale, a new application will be required for asessment and full-scale batches cannot be used until that assessment has been finalised."}
+            value: "Pilot plant production",
+            text: "Pilot plant production",
+            hint: {text:"If your production moves to full-scale, a new application will be required for assessment. Full-scale batches cannot be used until that assessment has been finalised "}
           }
         ]
       }) }}

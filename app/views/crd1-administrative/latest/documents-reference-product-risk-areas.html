@@ -11,7 +11,7 @@ Which risk assessment areas are you using the reference product for? – {{servi
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">How are you supporting this application in each specialist assessment area? </h1>
+      <h1 class="govuk-heading-l">Which risk assessment areas are you using the reference product for?</h1>
       <form class="form" method="post">
         
         
@@ -63,26 +63,10 @@ Which risk assessment areas are you using the reference product for? – {{servi
         <p>Select all that apply. </p>
 
       
-        {% set emailHtmlChemistry %}
-        {{ govukInput({
-          id: "productRiskAreaChemistryCaseRef",
-          name: "productRiskAreaChemistryCaseRef",
-          type: "email",
-          autocomplete: "email",
-          spellcheck: false,
-          classes: "govuk-!-width-two-thirds",
-          label: {
-            text: "Enter reference information "
-          },
-          hint: {
-            text: "For example, product name, MAPP number, authorisation holder, marketing company "
-          }
-        }) }}
-        {% endset -%}
 
         {{ govukCheckboxes({
-          name: "productRiskAreaChemistry",
-          id: "productRiskAreaChemistry",
+          name: "productProposedUse",
+          id: "productProposedUse",
           fieldset: {
             legend: {
               text: "Chemistry",
@@ -97,10 +81,7 @@ Which risk assessment areas are you using the reference product for? – {{servi
             },
             {
               value: "Case",
-              text: "Case",
-              conditional: {
-                html: emailHtmlChemistry
-              }
+              text: "Case"
             },
             {
               value: "Data protection expired",
@@ -110,29 +91,9 @@ Which risk assessment areas are you using the reference product for? – {{servi
           ]
         }) }}
 
-
-
-
-        {% set emailHtmlMammalian %}
-        {{ govukInput({
-          id: "productRiskAreaMammalianCaseRef",
-          name: "productRiskAreaMammalianCaseRef",
-          type: "email",
-          autocomplete: "email",
-          spellcheck: false,
-          classes: "govuk-!-width-two-thirds",
-          label: {
-            text: "Enter reference information "
-          },
-          hint: {
-            text: "For example, product name, MAPP number, authorisation holder, marketing company "
-          }
-        }) }}
-        {% endset -%}
-
         {{ govukCheckboxes({
-  name: "productRiskAreaMammalian",
-  id: "productRiskAreaMammalian",
+  name: "productProposedUse",
+  id: "productProposedUse",
   fieldset: {
     legend: {
       text: "Mammalian toxicology",
@@ -150,10 +111,7 @@ Which risk assessment areas are you using the reference product for? – {{servi
     },
     {
       value: "Case",
-      text: "Case",
-      conditional: {
-        html: emailHtmlMammalian
-      }
+      text: "Case"
     },
     {
       value: "Data protection expired",
@@ -163,25 +121,9 @@ Which risk assessment areas are you using the reference product for? – {{servi
   ]
 }) }}
 
-{% set emailHtmlNondiet %}
-{{ govukInput({
-  id: "productRiskAreaNondietRef",
-  name: "productRiskAreaNondietRef",
-  type: "email",
-  autocomplete: "email",
-  spellcheck: false,
-  classes: "govuk-!-width-two-thirds",
-  label: {
-    text: "Enter reference information "
-  },
-  hint: {
-    text: "For example, product name, MAPP number, authorisation holder, marketing company "
-  }
-}) }}
-{% endset -%}
         {{ govukCheckboxes({
-  name: "productRiskAreaNondiet",
-  id: "productRiskAreaNondiet",
+  name: "productProposedUse",
+  id: "productProposedUse",
   fieldset: {
     legend: {
       text: "Non-dietary human exposure",
@@ -203,10 +145,7 @@ Which risk assessment areas are you using the reference product for? – {{servi
     },
     {
       value: "Case",
-      text: "Case",
-      conditional: {
-        html: emailHtmlNondiet
-      }
+      text: "Case"
     },
     {
       value: "Data protection expired",
@@ -216,25 +155,9 @@ Which risk assessment areas are you using the reference product for? – {{servi
   ]
 }) }}
 
-{% set emailHtmlResidue %}
-{{ govukInput({
-  id: "productRiskAreaResidueRef",
-  name: "productRiskAreaResidueRef",
-  type: "email",
-  autocomplete: "email",
-  spellcheck: false,
-  classes: "govuk-!-width-two-thirds",
-  label: {
-    text: "Enter reference information "
-  },
-  hint: {
-    text: "For example, product name, MAPP number, authorisation holder, marketing company "
-  }
-}) }}
-{% endset -%}
         {{ govukCheckboxes({
-  name: "productRiskAreaResidue",
-  id: "productRiskAreaResidue",
+  name: "productProposedUse",
+  id: "productProposedUse",
   fieldset: {
     legend: {
       text: "Residues/consumer exposure",
@@ -256,10 +179,7 @@ Which risk assessment areas are you using the reference product for? – {{servi
     },
     {
       value: "Case",
-      text: "Case",
-      conditional: {
-        html: emailHtmlResidue
-      }
+      text: "Case"
     },
     {
       value: "Data protection expired",
@@ -269,25 +189,9 @@ Which risk assessment areas are you using the reference product for? – {{servi
   ]
 }) }}
 
-{% set emailHtmlEnvironment %}
-{{ govukInput({
-  id: "productRiskAreaEnvironmentRef",
-  name: "productRiskAreaEnvironmentRef",
-  type: "email",
-  autocomplete: "email",
-  spellcheck: false,
-  classes: "govuk-!-width-two-thirds",
-  label: {
-    text: "Enter reference information "
-  },
-  hint: {
-    text: "For example, product name, MAPP number, authorisation holder, marketing company "
-  }
-}) }}
-{% endset -%}
         {{ govukCheckboxes({
-  name: "productRiskAreaEnvironment",
-  id: "productRiskAreaEnvironment",
+  name: "productProposedUse",
+  id: "productProposedUse",
   fieldset: {
     legend: {
       text: "Environtmental fate and behaviour",
@@ -309,10 +213,7 @@ Which risk assessment areas are you using the reference product for? – {{servi
     },
     {
       value: "Case",
-      text: "Case",
-      conditional: {
-        html: emailHtmlEnvironment
-      }
+      text: "Case"
     },
     {
       value: "Data protection expired",
@@ -322,27 +223,9 @@ Which risk assessment areas are you using the reference product for? – {{servi
   ]
 }) }}
 
-
-
-{% set emailHtmlEcotoxicology %}
-{{ govukInput({
-  id: "productRiskAreaEcotoxicologyRef",
-  name: "productRiskAreaEcotoxicologyRef",
-  type: "email",
-  autocomplete: "email",
-  spellcheck: false,
-  classes: "govuk-!-width-two-thirds",
-  label: {
-    text: "Enter reference information "
-  },
-  hint: {
-    text: "For example, product name, MAPP number, authorisation holder, marketing company "
-  }
-}) }}
-{% endset -%}
         {{ govukCheckboxes({
-  name: "productRiskAreaEcotoxicology",
-  id: "productRiskAreaEcotoxicology",
+  name: "productProposedUse",
+  id: "productProposedUse",
   fieldset: {
     legend: {
       text: "Ecotoxicology",
@@ -360,10 +243,7 @@ Which risk assessment areas are you using the reference product for? – {{servi
     },
     {
       value: "Case",
-      text: "Case",
-      conditional: {
-        html: emailHtmlEcotoxicology
-      }
+      text: "Case"
     },
     {
       value: "Data protection expired",
@@ -373,25 +253,9 @@ Which risk assessment areas are you using the reference product for? – {{servi
   ]
 }) }}
 
-{% set emailHtmlEfficacy %}
-{{ govukInput({
-  id: "productRiskAreaEfficacyRef",
-  name: "productRiskAreaEfficacyRef",
-  type: "email",
-  autocomplete: "email",
-  spellcheck: false,
-  classes: "govuk-!-width-two-thirds",
-  label: {
-    text: "Enter reference information "
-  },
-  hint: {
-    text: "For example, product name, MAPP number, authorisation holder, marketing company "
-  }
-}) }}
-{% endset -%}
         {{ govukCheckboxes({
-  name: "productRiskAreaEfficacy",
-  id: "productRiskAreaEfficacy",
+  name: "productProposedUse",
+  id: "productProposedUse",
   fieldset: {
     legend: {
       text: "Efficacy",
@@ -409,10 +273,7 @@ Which risk assessment areas are you using the reference product for? – {{servi
     },
     {
       value: "Case",
-      text: "Case",
-      conditional: {
-        html: emailHtmlEfficacy
-      }
+      text: "Case"
     },
     {
       value: "Data protection expired",
