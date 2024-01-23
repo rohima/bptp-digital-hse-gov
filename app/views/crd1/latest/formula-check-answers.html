@@ -9,17 +9,32 @@
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
-      <form method="post">
-        <h1 class="govuk-heading-xl">Check your answers</h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <form method="post">
+      <h1 class="govuk-heading-xl">Check your answers</h1>
 
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Formulation type 
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['formulationType'] or '[formulation type]' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="formula-type">
+              Change
+              <span class="govuk-visually-hidden">Formulation type</span>
+            </a>
+          </dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
             Formulation composition 
           </dt>
-            <dd class="govuk-summary-list__value">
+          <dd class="govuk-summary-list__value">
             Substance 1</br>
             Substance 2<br>
             Substance 3<br>

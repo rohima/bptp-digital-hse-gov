@@ -166,6 +166,8 @@
               </dd>
             </div>
           {% else %}
+            
+            <!--
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                Number of sources
@@ -180,6 +182,7 @@
                 </a>
               </dd>
             </div>
+            -->
 
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
@@ -196,7 +199,71 @@
               </dd>
             </div>
 
-            <!-- NI check answers -->
+            
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               Name of data owner
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['formulaActiveSubstanceSourceName'] or '[Data owner]'}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="formula-active-substance-source-data-ownership-details">
+                  Change
+                  <span class="govuk-visually-hidden">Name of data owner</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               Existing application reference
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['formulaActiveSubstanceRef'] or '[Existing application reference]'}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="formula-active-substance-source-data-ownership-details">
+                  Change
+                  <span class="govuk-visually-hidden">Existing application reference</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               Manufacturing site address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['formulaManufacturingAddressList'] or '[Manufacturing address]'}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="formula-active-substance-source-data-ownership-details">
+                  Change
+                  <span class="govuk-visually-hidden">Manufacturing site address</span>
+                </a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+               Access to the active substance source data in this application
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['formulaActiveSourceDataOwnerLetters'] or '[Access to data source]'}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="formula-active-substance-source-data-ownership-details">
+                  Change
+                  <span class="govuk-visually-hidden">Access to the active substance source data in this application</span>
+                </a>
+              </dd>
+            </div>
+
+          {% endif %}
+
+          <!-- NI check answers -->
             {% if data['activeSourcePreviousTechEquivNI'] == "Yes" %}
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -288,69 +355,64 @@
                 </dd>
               </div>
             {% endif %}
-
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-               Name of data owner
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['formulaActiveSubstanceSourceName'] or '[Data owner]'}}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a href="formula-active-substance-source-data-ownership-details">
-                  Change
-                  <span class="govuk-visually-hidden">Name of data owner</span>
-                </a>
-              </dd>
-            </div>
-
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-               Existing application reference
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['formulaActiveSubstanceRef'] or '[Existing application reference]'}}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a href="formula-active-substance-source-data-ownership-details">
-                  Change
-                  <span class="govuk-visually-hidden">Existing application reference</span>
-                </a>
-              </dd>
-            </div>
-
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-               Manufacturing site address
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['formulaManufacturingAddressList'] or '[Manufacturing address]'}}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a href="formula-active-substance-source-data-ownership-details">
-                  Change
-                  <span class="govuk-visually-hidden">Manufacturing site address</span>
-                </a>
-              </dd>
-            </div>
-
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-               Access to the active substance source data in this application
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['formulaActiveSourceDataOwnerLetters'] or '[Access to data source]'}}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a href="formula-active-substance-source-data-ownership-details">
-                  Change
-                  <span class="govuk-visually-hidden">Access to the active substance source data in this application</span>
-                </a>
-              </dd>
-            </div>
-
-          {% endif %}
         </dl>
+
+<!-- technical equiv -->
+
+        {% if data['activeSourcePreviousTechEquivNI'] == "Yes" %}
+        
+        <h2 class="govuk-heading-m">Technical equivalence assessment</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Are you applying for a technical equivalence assessment as part of this application?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaActiveSubstanceDesc'] or '[Active substance description]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden">Describe the data ownership</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              How will you provide your technical equivalence reports and data dossiers?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaActiveSubstanceAccess'] or '[Authorisation holder owns all data]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden">Access to the data in this application</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Technical equivalence upload
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaActiveSubstanceReference'] or '[more details]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden"> Client registered address</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        {% endif %}
+
+
 
 
 
