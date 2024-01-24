@@ -187,7 +187,25 @@ router.post('/applicant-parent', function (req, res) {
   let applicationDiffProduct = req.session.data.applicationDiffProduct;
   let applicationDiffAuthHolder = req.session.data.applicationDiffAuthHolder;
   let applicationDiffMarketing = req.session.data.applicationDiffMarketing;
-    res.redirect('applicant-type');
+  let applicationDiffPackaging = req.session.data.applicationDiffPackaging;
+
+  if (applicationDiffProduct == "Yes") {
+    res.redirect('product-name')
+  } else {
+    if (applicationDiffAuthHolder == "Yes") {
+      res.redirect('auth-holder-company')
+    } else {
+      if (applicationDiffMarketing == "Yes") {
+        res.redirect('marketing-company')
+      } else {
+        if (applicationDiffPackaging == "Yes") {
+          res.redirect('placeholder-packaging-size')
+        } else {
+          res.redirect('formula-active-substance-data-ownership-details')
+        }
+      }
+    }
+  }
 })
 
 
@@ -266,7 +284,19 @@ router.post('/documents-upload-proof-of-authorisation', function (req, res) {
 router.post('/auth-holder-check-answers', function (req, res) {
   
   let authHolderCheckAnswers = req.session.data.authHolderCheckAnswers;
-  res.redirect('marketing-co-same');
+
+  let applicationDiffMarketing = req.session.data.applicationDiffMarketing;
+  let applicationDiffPackaging = req.session.data.applicationDiffPackaging;
+
+  if (applicationDiffMarketing == "Yes") {
+    res.redirect('marketing-company')
+  } else {
+    if (applicationDiffPackaging == "Yes") {
+      res.redirect('placeholder-packaging-size')
+    } else {
+      res.redirect('formula-active-substance-data-ownership-details')
+    }
+  }
 
 })
 
@@ -324,8 +354,13 @@ router.post('/marketing-company-registration', function (req, res) {
 router.post('/marketing-co-check-answers', function (req, res) {
   
   let marketingCoCheckAnswers = req.session.data.marketingCoCheckAnswers;
-  res.redirect('application-market-area');
+  let applicationDiffPackaging = req.session.data.applicationDiffPackaging;
 
+  if (applicationDiffPackaging == "Yes") {
+    res.redirect('placeholder-packaging-size')
+  } else {
+    res.redirect('formula-active-substance-data-ownership-details')
+  }
 })
 
 // ----------------- MARKET AREA ----------------- //
@@ -348,8 +383,24 @@ router.post('/product-name', function (req, res) {
   
   let productName = req.session.data.productName;
   let productCode = req.session.data.productCode;
-  res.redirect('gap-clp');
 
+  let applicationDiffAuthHolder = req.session.data.applicationDiffAuthHolder;
+  let applicationDiffMarketing = req.session.data.applicationDiffMarketing;
+  let applicationDiffPackaging = req.session.data.applicationDiffPackaging;
+
+  if (applicationDiffAuthHolder == "Yes") {
+    res.redirect('auth-holder-company')
+  } else {
+    if (applicationDiffMarketing == "Yes") {
+      res.redirect('marketing-company')
+    } else {
+      if (applicationDiffPackaging == "Yes") {
+        res.redirect('placeholder-packaging-size')
+      } else {
+        res.redirect('formula-active-substance-data-ownership-details')
+      }
+    }
+  }
 })
 
 
@@ -378,9 +429,9 @@ router.post('/placeholder-packaging-size', function (req, res) {
   let packagingSize = req.session.data.packagingSize;
 
   if (packagingSize == "Yes") {
-    res.redirect('placeholder-site-details');
+    res.redirect('formula-active-substance-data-ownership-details');
   } else {
-    res.redirect('placeholder-site-details');
+    res.redirect('formula-active-substance-data-ownership-details');
   }
   
 })

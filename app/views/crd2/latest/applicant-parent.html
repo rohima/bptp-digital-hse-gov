@@ -89,6 +89,28 @@ Changes to product details – Manage pesticide product authorisations – GOV.U
           ]
         }) }}
 
+        {{ govukRadios({
+          id: "applicationDiffPackaging",
+          name: "applicationDiffPackaging",
+          fieldset: {
+            legend: {
+              text: "Will the product packaging be different for the new product?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },   
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
 
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
