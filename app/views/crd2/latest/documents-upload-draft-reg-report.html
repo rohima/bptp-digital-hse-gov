@@ -18,7 +18,7 @@ Upload your draft registration report documents (dRR)  –{{serviceName}} – GO
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
+      <span class="govuk-caption-l">Documents</span>
       <h1 class="govuk-heading-l">Upload your draft registration report documents (dRR)</h1>
       <p>Select the documents you are uploading as part of your dRR.</p>
 
@@ -51,10 +51,7 @@ Upload your draft registration report documents (dRR)  –{{serviceName}} – GO
           }
         },
         items: [
-          {
-            value: "Summary of Evaluation",
-            text: "Summary of Evaluation"
-          },
+         
           {
             value: "Section 1, 2 and 4 ",
             text: "Section 1, 2 and 4 ",
@@ -73,41 +70,65 @@ Upload your draft registration report documents (dRR)  –{{serviceName}} – GO
           {
             value: "Section 6",
             text: "Section 6",
-            hint:{text:"Mammalian toxicology "}
+            hint:{text:"Mammalian toxicology and UK national addendum"}
           },
           {
             value: "Section 7",
             text: "Section 7",
-            hint:{text:"Metabolism and residues "}
+            hint:{text:"Metabolism and residues and UK national addendum"}
           },
           {
             value: "Section 8",
             text: "Section 8",
-            hint:{text:"Environmental fate"}
+            hint:{text:"Environmental fate and UK national addendum "}
           },
           {
             value: "Section 9 ",
             text: "Section 9 ",
-            hint:{text:"Ecotoxicology"}
+            hint:{text:"Ecotoxicology and UK national addendum "}
           },
           {
             value: "Section 10 ",
             text: "Section 10 ",
             hint:{text:"Assessment of the relevance of metabolites in groundwater"}
-          },
-          {
-            value: "Confidential information",
-            text: "Confidential information",
-            hint:{text:""}
-          },
-          {
-            divider: "or"
-          },
-          {
-            value: "Third party",
-                text: "To be provided separately by a third party  "
           }
         ]
+        }) }}
+
+
+        <h2 class="govuk-heading-s">Part C</h2>
+        {{ govukCheckboxes({
+        id: "documentsDraftRegReportSelectC",
+        name: "documentsDraftRegReportSelectC",
+        fieldset: {
+          legend: {
+            text: ""
+          }
+        },
+        items: [
+        {
+          value: "Confidential information",
+          text: "Confidential information",
+          hint:{text:""}
+        }
+          ]
+        }) }}
+
+        <h2 class="govuk-heading-s">To be provided by a third party </h2>
+        {{ govukCheckboxes({
+        id: "documentsDraftRegReportSelectThirdParty",
+        name: "documentsDraftRegReportSelectThirdParty",
+        fieldset: {
+          legend: {
+            text: ""
+          }
+        },
+        items: [
+        {
+          value: "Third party",
+              text: "Relevant information will be provided separately by a third party  "
+        }
+          ]
         }) }}
 
         <div id="file-upload-1-hint" class="govuk-hint">

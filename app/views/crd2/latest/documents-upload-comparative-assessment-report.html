@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Upload safety data sheets –{{serviceName}} – GOV.UK
+Upload your comparative assessment report  –{{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,19 +18,20 @@ Upload safety data sheets –{{serviceName}} – GOV.UK
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Upload your safety data sheets (SDS)</h1>
-      <p>Upload a safety data sheet for each co-formulant. These must be dated within the last 2 years.</p>
+      <span class="govuk-caption-l">Documents</span>
+      <h1 class="govuk-heading-l">Upload your comparative assessment report (optional) </h1>
       <form class="form" method="post">
 
+        
         <div id="file-upload-1-hint" class="govuk-hint">
-        You can upload more than one file. Each file must be a maximum of 4GB. 
-        </div>
+        You can upload more than one file. Each file must be a maximum of 4GB.  
+      </div>
 
         <p id="upload-update" class="govuk-body govuk-!-display-none" aria-live="assertive" aria-relevant="all">1 of 2 files uploaded</p>
 
         <button id="upload-more" style="display:none" class="govuk-button govuk-button--secondary" data-module="govuk-button">
         Add more files
-        </button>
+      </button>
 
         <div id="upload-wrapper" class="govuk-form-group">
           <label class="govuk-label" for="upload-button">
@@ -45,8 +46,7 @@ Upload safety data sheets –{{serviceName}} – GOV.UK
 
         <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key"></dl>
 
-
-        {{ govukRadios({
+        {# {{ govukRadios({
           name: "supportingDocThirdParty",
           id: "supportingDocThirdParty",
           fieldset: {
@@ -69,7 +69,8 @@ Upload safety data sheets –{{serviceName}} – GOV.UK
               text: "No"
             }
           ]
-        }) }}
+        }) }} #}
+
 
         {{ govukButton({
         text: "Save and continue"
@@ -81,7 +82,6 @@ Upload safety data sheets –{{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block pageScripts %}
-
   <script>
     document
       .getElementById("upload-button")
@@ -138,7 +138,6 @@ Upload safety data sheets –{{serviceName}} – GOV.UK
           .remove("govuk-!-display-none");
       }
       // new code finish
-
     }
 
     function fileUpload() {
@@ -217,9 +216,7 @@ Upload safety data sheets –{{serviceName}} – GOV.UK
         uploadUpdate
           .classList
           .remove("govuk-!-display-none");
-
       }
-
     }
   </script>
 {% endblock %}

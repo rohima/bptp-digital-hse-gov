@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Active substance source data owner details – {{serviceName}} – GOV.UK
+Active substance source details – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,10 +18,10 @@ Active substance source data owner details – {{serviceName}} – GOV.UK
       <form class="form" method="post">
 
       <span class="govuk-caption-l">Data ownership: Active substance source data </span>
-      <h1 class="govuk-heading-l">Active substance source data owner details  </p>
+      <h1 class="govuk-heading-l">Active substance source details  </p>
 
 <p>[Active substance name]  </p>
-<p>Add details of a data owner for this active substance source. You can add more sources later if you need to.  </p>
+<p>Add details of  this active substance source. You can add more sources later if you need to.  </p>
 
   <h2 class="govuk-heading-m">Name of data owner </h2>
   
@@ -115,6 +115,10 @@ Active substance source data owner details – {{serviceName}} – GOV.UK
     {
       value: "Letter of access provided by a third party",
       text: "Letter of access provided by a third party"
+    },
+    {
+      value: "Not required – applicant is the source owner",
+      text: "Not required – applicant is the source owner "
     }
 
   ]
