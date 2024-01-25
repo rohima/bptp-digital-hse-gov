@@ -170,7 +170,7 @@ router.post('/find-results', function (req, res) {
 
 router.post('/find-confirm', function (req, res) {  
   let findConfirm = req.session.data.findConfirm;
-  res.redirect('applicant-type');
+  res.redirect('applicant-parent');
 
 })
 
@@ -180,6 +180,34 @@ router.post('/find-confirm', function (req, res) {
 
 
 // ----------------- AUTHORISED HOLDER ----------------- //
+
+// applicant-parent
+  
+router.post('/applicant-parent', function (req, res) {
+  let applicationDiffProduct = req.session.data.applicationDiffProduct;
+  let applicationDiffAuthHolder = req.session.data.applicationDiffAuthHolder;
+  let applicationDiffMarketing = req.session.data.applicationDiffMarketing;
+  let applicationDiffPackaging = req.session.data.applicationDiffPackaging;
+
+  if (applicationDiffProduct == "Yes") {
+    res.redirect('product-name')
+  } else {
+    if (applicationDiffAuthHolder == "Yes") {
+      res.redirect('auth-holder-company')
+    } else {
+      if (applicationDiffMarketing == "Yes") {
+        res.redirect('marketing-company')
+      } else {
+        if (applicationDiffPackaging == "Yes") {
+          res.redirect('packaging-size-change')
+        } else {
+          res.redirect('formula-active-substance-data-ownership-details')
+        }
+      }
+    }
+  }
+})
+
 
 // applicant-type
   
@@ -256,7 +284,19 @@ router.post('/documents-upload-proof-of-authorisation', function (req, res) {
 router.post('/auth-holder-check-answers', function (req, res) {
   
   let authHolderCheckAnswers = req.session.data.authHolderCheckAnswers;
-  res.redirect('marketing-co-same');
+
+  let applicationDiffMarketing = req.session.data.applicationDiffMarketing;
+  let applicationDiffPackaging = req.session.data.applicationDiffPackaging;
+
+  if (applicationDiffMarketing == "Yes") {
+    res.redirect('marketing-company')
+  } else {
+    if (applicationDiffPackaging == "Yes") {
+      res.redirect('packaging-size-change')
+    } else {
+      res.redirect('formula-active-substance-data-ownership-details')
+    }
+  }
 
 })
 
@@ -314,8 +354,13 @@ router.post('/marketing-company-registration', function (req, res) {
 router.post('/marketing-co-check-answers', function (req, res) {
   
   let marketingCoCheckAnswers = req.session.data.marketingCoCheckAnswers;
-  res.redirect('application-market-area');
+  let applicationDiffPackaging = req.session.data.applicationDiffPackaging;
 
+  if (applicationDiffPackaging == "Yes") {
+    res.redirect('packaging-size-change')
+  } else {
+    res.redirect('formula-active-substance-data-ownership-details')
+  }
 })
 
 // ----------------- MARKET AREA ----------------- //
@@ -338,8 +383,24 @@ router.post('/product-name', function (req, res) {
   
   let productName = req.session.data.productName;
   let productCode = req.session.data.productCode;
-  res.redirect('gap-clp');
 
+  let applicationDiffAuthHolder = req.session.data.applicationDiffAuthHolder;
+  let applicationDiffMarketing = req.session.data.applicationDiffMarketing;
+  let applicationDiffPackaging = req.session.data.applicationDiffPackaging;
+
+  if (applicationDiffAuthHolder == "Yes") {
+    res.redirect('auth-holder-company')
+  } else {
+    if (applicationDiffMarketing == "Yes") {
+      res.redirect('marketing-company')
+    } else {
+      if (applicationDiffPackaging == "Yes") {
+        res.redirect('packaging-size-change')
+      } else {
+        res.redirect('formula-active-substance-data-ownership-details')
+      }
+    }
+  }
 })
 
 
@@ -353,25 +414,33 @@ router.post('/product-check-answers', function (req, res) {
 // ----------------- CLP ----------------- //
  
 
+// clp-affected
+router.post('/clp-affected', function (req, res) {
+  let clpAffected = req.session.data.clpAffected;
+  if (clpAffected == "Yes") {
+    res.redirect('product-differences');
+  } else {
+    res.redirect('gap-clp');
+  }
+  
+
+})
+
 // gap-clp
 router.post('/gap-clp', function (req, res) {
   let gapClp = req.session.data.gapClp;
   let gapClpApplyAll = req.session.data.gapClpApplyAll;
-  res.redirect('placeholder-packaging-size');
+  res.redirect('product-differences');
 
 })
 
 
 // is packaging size different?
-// placeholder-packaging-size
-router.post('/placeholder-packaging-size', function (req, res) {
+// packaging-size-change
+router.post('/packaging-size-change', function (req, res) {
   let packagingSize = req.session.data.packagingSize;
-
-  if (packagingSize == "Yes") {
-    res.redirect('placeholder-site-details');
-  } else {
-    res.redirect('placeholder-site-details');
-  }
+  
+  res.redirect('formula-active-substance-data-ownership-details');
   
 })
 
@@ -397,17 +466,15 @@ router.post('/placeholder-formulation-details', function (req, res) {
 })
 
 //Capture any other changes 
-// placeholder-other-changes
-router.post('/placeholder-other-changes', function (req, res) {
+// product-differences
+router.post('/product-differences', function (req, res) {
   let otherChanges = req.session.data.otherChanges;
-  res.redirect('formula-active-substance-data-ownership-details');
+  res.redirect('documents-upload-admin');
 })
 
 
 // check your answers?
 
-
-// data ownership
 
 // ----------------- ACTIVE DATA OWNERSHIP ----------------- //
 
@@ -440,6 +507,8 @@ router.post('/active-substance-source-is-csv-upload', function (req, res) {
   let isActiveSubstanceSourceUpload = req.session.data.isActiveSubstanceSourceUpload;
   if (isActiveSubstanceSourceUpload == "No") {
     res.redirect('formula-active-substance-source-data-ownership-details');
+  } else if (isActiveSubstanceSourceUpload == "Third party") {
+    res.redirect('active-substance-source-request-tech-equiv');
   } else {
     res.redirect('active-substance-source-csv-1');
   }
@@ -522,14 +591,22 @@ router.post('/formula-active-substance-source-data-ownership-add-another', funct
 router.post('/active-substance-source-request-tech-equiv', function (req, res) {
   let requestTechEquiv = req.session.data.requestTechEquiv;
   if (requestTechEquiv == "Yes") {
-    res.redirect('active-substance-source-request-tech-equiv-upload-info');
+    res.redirect('active-substance-source-request-tech-equiv-production-scale');
   } else {
     res.redirect('formula-active-substance-source-data-ownership-check-answers');
   }
 
 })
 
-// active-substance-source-request-tech-equiv-upload-info
+// active-substance-source-request-tech-equiv-production-scale
+router.post('/active-substance-source-request-tech-equiv-production-scale', function (req, res) {
+  let requestTechEquivProdScale = req.session.data.requestTechEquivProdScale;
+    res.redirect('active-substance-source-request-tech-equiv-upload');
+
+})
+
+
+// active-substance-source-request-tech-equiv-upload-info - NOT USED
 router.post('/active-substance-source-request-tech-equiv-upload-info', function (req, res) {
   let requestTechEquivUploadInfo = req.session.data.requestTechEquivUploadInfo;
   if (requestTechEquivUploadInfo == "Upload a file") {
@@ -542,8 +619,10 @@ router.post('/active-substance-source-request-tech-equiv-upload-info', function 
 })
 
 // active-substance-source-request-tech-equiv-upload
+
 router.post('/active-substance-source-request-tech-equiv-upload', function (req, res) {
-  let requestTechEquivUpload = req.session.data.requestTechEquivUpload;
+  let requestTechEquivUpload = req.session.data.requestTechEquivUpload; 
+  let techEquivThirdParty = req.session.data.techEquivThirdParty;
     res.redirect('formula-active-substance-source-data-ownership-check-answers');
 
 })
@@ -559,13 +638,8 @@ router.post('/application-eu-tech', function (req, res) {
 })
 
 
-
-
-
-
-
-
 // formula-active-substance-source-data-ownership-details
+
 router.post('/formula-active-substance-source-data-ownership-details', function (req, res) {
   let formulaActiveSourceDataOwnerAddress = req.session.data.formulaActiveSourceDataOwnerAddress;
   let formulaActiveSourceDataOwnerLetters = req.session.data.formulaActiveSourceDataOwnerLetters;
@@ -578,7 +652,9 @@ router.post('/formula-active-substance-source-data-ownership-details', function 
   }
 })
 
+
 // formula-active-substance-source-data-ownership-previous
+
 router.post('/formula-active-substance-source-data-ownership-previous', function (req, res) {
   let formulaActiveSourceDataOwnerAddress = req.session.data.formulaActiveSourceDataOwnerAddress;
   if (formulaActiveSourceDataOwnerAddress == "Yes" ) {
@@ -595,11 +671,13 @@ router.post('/formula-active-substance-source-manufacturing-address-postcode', f
 })
 
 // formula-active-substance-source-manufacturing-address-list
+
 router.post('/formula-active-substance-source-manufacturing-address-list', function (req, res) {
   res.redirect('formula-active-substance-source-manufacturing-address-confirm');
 })
 
 // formula-active-substance-source-manufacturing-address-confirm
+
 router.post('/formula-active-substance-source-manufacturing-address-confirm', function (req, res) {
   let marketArea = req.session.data.marketArea;
 
@@ -614,19 +692,8 @@ router.post('/formula-active-substance-source-manufacturing-address-confirm', fu
 // formula-active-substance-source-data-ownership-check-answers
 
 router.post('/formula-active-substance-source-data-ownership-check-answers', function (req, res) {
-  res.redirect('documents-reference-product');
+  res.redirect('clp-affected');
 })
-
-
-
-
-
-
-
-
-
-
-
 
 // formula-active-substance-data-ownership - NOT USED
 router.post('/formula-active-substance-data-ownership', function (req, res) {
@@ -706,6 +773,7 @@ router.post('/formula-csv-check-answers', function (req, res) {
 })
 
 
+
 // ----------------- FORMULATION COMPOSITION  END----------------- //
 
 
@@ -766,6 +834,15 @@ router.post('/documents-upload-draft-reg-report', function (req, res) {
 
 })
 
+// documents-upload-draft-reg-report microbials
+
+router.post('/documents-upload-draft-reg-report-microbials', function (req, res) {  
+  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
+  let documentsDraftRegReportSelectMicrobes = req.session.data.documentsDraftRegReportSelectMicrobes;
+  res.redirect('documents-upload-supporting');
+
+})
+
 // documents-upload-supporting
 
 router.post('/documents-upload-supporting', function (req, res) {  
@@ -787,9 +864,46 @@ router.post('/documents-upload-relevant-correspondence', function (req, res) {
 
 router.post('/documents-upload-safety-data-sheet', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-upload-comparative-assessment-report');
+
+})
+
+// documents-upload-comparative-assessment-report
+
+router.post('/documents-upload-comparative-assessment-report', function (req, res) {  
+  let letterOfAccess = false;
+  let formulaActiveSourceDataOwnerLetters = req.session.data.formulaActiveSourceDataOwnerLetters;
+  let formulaActiveSubstanceAccess = req.session.data.formulaActiveSubstanceAccess;
+
+  if (formulaActiveSourceDataOwnerLetters != undefined) {
+    if (formulaActiveSourceDataOwnerLetters.indexOf("Letter of access to be provided in this application") > -1) {
+      letterOfAccess = true;
+    }
+  }
+
+  if (formulaActiveSubstanceAccess != undefined) {
+    if (formulaActiveSubstanceAccess.indexOf("Letter of access to be provided in this application") > -1) {
+      letterOfAccess = true;
+    }
+  } 
+
+  if (letterOfAccess == true) {
+    res.redirect('documents-upload-letters-of-access');
+  } else {
+    res.redirect('documents-check-answers');
+  }
+})
+
+
+// documents-upload-letters-of-access
+
+router.post('/documents-upload-letters-of-access', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
   res.redirect('documents-check-answers');
 
 })
+
+
 
 // documents-upload-proof-of-authorisation
 /* removed as earlier in the flow
@@ -807,6 +921,7 @@ router.post('/documents-check-answers', function (req, res) {
   res.redirect('declaration');
 
 })
+
 
 
 

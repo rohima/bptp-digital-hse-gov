@@ -14,6 +14,28 @@
       <form method="post">
 
         <h1 class="govuk-heading-xl">Check your answers</h1>
+        
+        <h2 class="govuk-heading-m">Risk assessment areas</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Risk assessment areas using the reference product
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['xxxx'] or '[chemistry risk assessment area]'}}<br>
+              {{ data['xxxx'] or '[mammalian toxicology risk assessment area]'}}<br>
+              {{ data['xxxx'] or '[non-dietary human exposure risk assessment area]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-reference-product-risk-areas">
+              Change
+              <span class="govuk-visually-hidden">Risk assessment areas using the reference product</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        
         <h2 class="govuk-heading-m">Reference product details</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -89,30 +111,17 @@
               </a>
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            Risk assessment areas
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['refProductProposedUse'] or '[risk assessment areas]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="documents-reference-product-risk-areas">
-              Change
-              <span class="govuk-visually-hidden">Marketing company</span>
-              </a>
-            </dd>
-          </div>
           {% endif %}
         </dl>
+
         <h2 class="govuk-heading-m">Documents</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-            Admin documents uploaded
+            Application overview uploaded
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentsAdminSelect'] or '[admin docs]'}}
+              {{ data['documentsAdminSelect'] or '[application overview doc]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-admin">
@@ -174,6 +183,34 @@
               <a href="documents-upload-safety-data-sheet">
               Change
               <span class="govuk-visually-hidden">Safety data sheets (SDS) uploaded</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Comparative assessment report uploaded
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentComparativeAssessmentUpload'] or '[comparative assessment file]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-comparative-assessment-report">
+              Change
+              <span class="govuk-visually-hidden">Comparative assessment report uploaded</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Letters of access uploaded
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentLettersOfAccessUpload'] or '[letters of access file]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-letters-of-access">
+              Change
+              <span class="govuk-visually-hidden">Letters of access uploaded</span>
               </a>
             </dd>
           </div>

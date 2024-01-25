@@ -18,7 +18,7 @@ Upload supporting evidence –{{serviceName}} – GOV.UK
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Upload any relevant CRD correspondence</h1>
+      <h1 class="govuk-heading-l">Upload any relevant CRD correspondence (optional)</h1>
       <p>If you have previous correspondence with CRD relating to this application, upload it here.</p>
       <form class="form" method="post">
 
@@ -26,7 +26,7 @@ Upload supporting evidence –{{serviceName}} – GOV.UK
         You can upload more than one file. Each file must be a maximum of 4GB. 
       </div>
 
-        {{ govukCheckboxes({
+        {# {{ govukCheckboxes({
         id: "documentsCRDSelect",
         name: "documentsCRDSelect",
         fieldset: {
@@ -40,7 +40,7 @@ Upload supporting evidence –{{serviceName}} – GOV.UK
             text: "I do not have any CRD correspondence to upload "
           }
         ]
-        }) }}
+        }) }} #}
 
         <p id="upload-update" class="govuk-body govuk-!-display-none" aria-live="assertive" aria-relevant="all">1 of 2 files uploaded</p>
 
