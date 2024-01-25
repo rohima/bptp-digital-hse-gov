@@ -199,7 +199,7 @@ router.post('/applicant-parent', function (req, res) {
         res.redirect('marketing-company')
       } else {
         if (applicationDiffPackaging == "Yes") {
-          res.redirect('placeholder-packaging-size')
+          res.redirect('packaging-size-change')
         } else {
           res.redirect('formula-active-substance-data-ownership-details')
         }
@@ -292,7 +292,7 @@ router.post('/auth-holder-check-answers', function (req, res) {
     res.redirect('marketing-company')
   } else {
     if (applicationDiffPackaging == "Yes") {
-      res.redirect('placeholder-packaging-size')
+      res.redirect('packaging-size-change')
     } else {
       res.redirect('formula-active-substance-data-ownership-details')
     }
@@ -357,7 +357,7 @@ router.post('/marketing-co-check-answers', function (req, res) {
   let applicationDiffPackaging = req.session.data.applicationDiffPackaging;
 
   if (applicationDiffPackaging == "Yes") {
-    res.redirect('placeholder-packaging-size')
+    res.redirect('packaging-size-change')
   } else {
     res.redirect('formula-active-substance-data-ownership-details')
   }
@@ -395,7 +395,7 @@ router.post('/product-name', function (req, res) {
       res.redirect('marketing-company')
     } else {
       if (applicationDiffPackaging == "Yes") {
-        res.redirect('placeholder-packaging-size')
+        res.redirect('packaging-size-change')
       } else {
         res.redirect('formula-active-substance-data-ownership-details')
       }
@@ -414,25 +414,33 @@ router.post('/product-check-answers', function (req, res) {
 // ----------------- CLP ----------------- //
  
 
+// clp-affected
+router.post('/clp-affected', function (req, res) {
+  let clpAffected = req.session.data.clpAffected;
+  if (clpAffected == "Yes") {
+    res.redirect('product-differences');
+  } else {
+    res.redirect('gap-clp');
+  }
+  
+
+})
+
 // gap-clp
 router.post('/gap-clp', function (req, res) {
   let gapClp = req.session.data.gapClp;
   let gapClpApplyAll = req.session.data.gapClpApplyAll;
-  res.redirect('placeholder-packaging-size');
+  res.redirect('product-differences');
 
 })
 
 
 // is packaging size different?
-// placeholder-packaging-size
-router.post('/placeholder-packaging-size', function (req, res) {
+// packaging-size-change
+router.post('/packaging-size-change', function (req, res) {
   let packagingSize = req.session.data.packagingSize;
-
-  if (packagingSize == "Yes") {
-    res.redirect('formula-active-substance-data-ownership-details');
-  } else {
-    res.redirect('formula-active-substance-data-ownership-details');
-  }
+  
+  res.redirect('formula-active-substance-data-ownership-details');
   
 })
 
@@ -458,10 +466,10 @@ router.post('/placeholder-formulation-details', function (req, res) {
 })
 
 //Capture any other changes 
-// placeholder-other-changes
-router.post('/placeholder-other-changes', function (req, res) {
+// product-differences
+router.post('/product-differences', function (req, res) {
   let otherChanges = req.session.data.otherChanges;
-  res.redirect('formula-active-substance-data-ownership-details');
+  res.redirect('documents-upload-admin');
 })
 
 
@@ -684,7 +692,7 @@ router.post('/formula-active-substance-source-manufacturing-address-confirm', fu
 // formula-active-substance-source-data-ownership-check-answers
 
 router.post('/formula-active-substance-source-data-ownership-check-answers', function (req, res) {
-  res.redirect('documents-reference-product');
+  res.redirect('clp-affected');
 })
 
 // formula-active-substance-data-ownership - NOT USED
@@ -863,10 +871,29 @@ router.post('/documents-upload-safety-data-sheet', function (req, res) {
 // documents-upload-comparative-assessment-report
 
 router.post('/documents-upload-comparative-assessment-report', function (req, res) {  
-  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
-  res.redirect('documents-upload-letters-of-access');
+  let letterOfAccess = false;
+  let formulaActiveSourceDataOwnerLetters = req.session.data.formulaActiveSourceDataOwnerLetters;
+  let formulaActiveSubstanceAccess = req.session.data.formulaActiveSubstanceAccess;
 
+  if (formulaActiveSourceDataOwnerLetters != undefined) {
+    if (formulaActiveSourceDataOwnerLetters.indexOf("Letter of access to be provided in this application") > -1) {
+      letterOfAccess = true;
+    }
+  }
+
+  if (formulaActiveSubstanceAccess != undefined) {
+    if (formulaActiveSubstanceAccess.indexOf("Letter of access to be provided in this application") > -1) {
+      letterOfAccess = true;
+    }
+  } 
+
+  if (letterOfAccess == true) {
+    res.redirect('documents-upload-letters-of-access');
+  } else {
+    res.redirect('documents-check-answers');
+  }
 })
+
 
 // documents-upload-letters-of-access
 
