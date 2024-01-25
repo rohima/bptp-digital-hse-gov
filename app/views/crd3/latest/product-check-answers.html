@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Check your answers authorisation holder – {{serviceName}} – GOV.UK
+  Check your answers product details – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -9,248 +9,177 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
-
-      
-<form method="post">
-
+      <form method="post">
         <h1 class="govuk-heading-xl">Check your answers</h1>
-
         <h2 class="govuk-heading-m">Product details</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Product name and code
-            </dt>
+            Extent of authorisation 
+          </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['productName'] or '[Product name]'}}
-              {{ data['productCode'] or '[Product code]'}}
+              {{ data['marketArea'] or 'Great Britain (England, Scotland and Wales)' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="application-market-area">
+              Change
+              <span class="govuk-visually-hidden">Extent of authorisation</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            EU Member State (product details)
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['memberState'] or '[EU member state]' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="application-eu-reference">
+              Change
+              <span class="govuk-visually-hidden">Member State</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Product name (or Code) 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['productCode'] or '[product code]' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="application-eu-reference">
+              Change
+              <span class="govuk-visually-hidden">Product name (or Code)</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Authorisation holder
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['authHolder'] or '[auth company name]' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="application-eu-reference">
+              Change
+              <span class="govuk-visually-hidden">Authorisation holder</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Marketing company
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['marketingCompany'] or '[marketing company name]' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="application-eu-reference">
+              Change
+              <span class="govuk-visually-hidden">Marketing company</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Authorisation number
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['authNumber'] or '[auth number]' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="application-eu-reference">
+              Change
+              <span class="govuk-visually-hidden">Authorisation number</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            EU Member State (technical equivalence report)
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['memberStateTech'] or '[EU member state technical]' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="application-eu-tech">
+              Change
+              <span class="govuk-visually-hidden">EU Member State (technical equivalence report)</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Date of finalised technical equivalence report
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['dateTechnicalReport-day'] or '12' }}
+              {{ data['dateTechnicalReport-month'] or '4' }}
+              {{ data['dateTechnicalReport-year'] or '2023' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="application-eu-tech">
+              Change
+              <span class="govuk-visually-hidden">Date of finalised technical equivalence report</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Product name
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['productName'] or '[product name]' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="product-name">
-                Change
-                <span class="govuk-visually-hidden">Product name and code</span>
+              Change
+              <span class="govuk-visually-hidden">Product name</span>
               </a>
             </dd>
           </div>
-  
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-             Who will use the product
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['productUser'] or '[Product User]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="product-use">
-                Change
-                <span class="govuk-visually-hidden"> Who will use the product</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Proposed field of use
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['productProposedUse'] or '[Product proposed use]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="product-proposed-use">
-                Change
-                <span class="govuk-visually-hidden"> Proposed field of use</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Packaging unit of measurement
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['productMeasurement'] or '[Product unit of measurement]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="product-measurement">
-                Change
-                <span class="govuk-visually-hidden">Packaging unit of measurement </span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Product volume range
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['productVolume'] or '[Product volume range]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="product-volume-range">
-                Change
-                <span class="govuk-visually-hidden"> Product volume range</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Company registration number
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['XXXXXXXXX'] or '[Company registration number]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">
-                Change
-                <span class="govuk-visually-hidden"> Client registered address</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Material used for inner packaging
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['productInnerPackaging'] or '[Product inner packaging]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="product-inner-material">
-                Change
-                <span class="govuk-visually-hidden"> Material used for inner packaging</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Material used for outer packaging
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['productOuterPackaging'] or '[Product outer packaging]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="product-outer-material">
-                Change
-                <span class="govuk-visually-hidden"> Material used for outer packaging</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Material used for additional layer of packaging
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['productPackagingAddAnother'] or '[Product additional layer packaging]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="product-material-add-another">
-                Change
-                <span class="govuk-visually-hidden"> MMaterial used for additional layer of packaging</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Does product need a new Maximum Residue Level (MRL)
-            <dd class="govuk-summary-list__value">
-              {{ data['productMrlNeeded'] or '[Is product MRL needed]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="product-mrl-needed">
-                Change
-                <span class="govuk-visually-hidden"> Does product need a new Maximum Residue Level (MRL)</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Commodity code or name
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['productCommodityCodeName'] or '[Company registration number]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="product-commodity-code-name">
-                Change
-                <span class="govuk-visually-hidden">Commodity code or name</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Current MRL value
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['productMrlCurrent'] or '[Current MRL value]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="product-mrl-change">
-                Change
-                <span class="govuk-visually-hidden"> Current MRL value</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Proposed MRL value
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['productMrlProposed'] or '[Proposed MRL value]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="product-mrl-change">
-                Change
-                <span class="govuk-visually-hidden"> Proposed MRL value</span>
-              </a>
-            </dd>
-          </div>
-          {# <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Is there an MRL in force
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['productMrlInForce'] or '[MRL in force]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="product-mrl-currently-in-force">
-                Change
-                <span class="govuk-visually-hidden"> Is there an MRL in forces</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              MRL value in force
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['productMrlInForceValue'] or '[MRL value in force]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="product-mrl-currently-in-force-value">
-                Change
-                <span class="govuk-visually-hidden"> MRL value in force</span>
-              </a>
-            </dd>
-          </div> #}
-          
 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Product code
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['productCode'] or '[product code]' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="product-name">
+              Change
+              <span class="govuk-visually-hidden">Product code</span>
+              </a>
+            </dd>
+          </div>
         </dl>
-
-        
-
-      {# <h2 class="govuk-heading-m">Continue your application</h2> #}
-
-      {# <p>By continuing, you're confirming that the details you've given so far are correct to the best of your knowledge.</p> #}
 
         <input type="hidden" name="answers-checked" value="true">
 
         <button type="submit" class="govuk-button" data-module="govuk-button">
-          Save and continue
-        </button>
+        Save and continue
+      </button>
 
-        <p><a href="#">View application progress</a></p>
+        <p>
+          <a href="#">View application progress</a>
+        </p>
 
       </form>
-
     </div>
   </div>
 {% endblock %}

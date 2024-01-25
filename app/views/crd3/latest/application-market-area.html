@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Who is doing the application? – {{serviceName}} – GOV.UK
+What is the market area for your product?  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -9,79 +9,77 @@ Who is doing the application? – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-     
-      
-
       <form class="form" method="post">
-        
-        
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
 
-      {# <span class="govuk-caption-l">Application</span> #}
+        {% set textHtml %}
+        {{ govukInput({
+        id: "applicantType",
+        name: "applicantType",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "Give details"
+        }
+        }) }}
+        {% endset -%}
 
-      <h1 class="govuk-heading-l">
-        What is the market area for your product?
-      </h1>
+        <h1 class="govuk-heading-l">Where do you want the authorisation for this product to apply? </h1>
 
+        {% set textHtml %}
+        {{ govukInput({
+          id: "applicantType",
+          name: "applicantType",
+          type: "tel",
+          autocomplete: "tel",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Give details"
+          }
+        }) }}
+        {% endset -%}
 
-      
+        {{ govukRadios({
+          id: "marketArea",
+          name: "marketArea",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: ""
+          },
+          items: [
+            {
+              value: "Great Britain",
+              text: "Great Britain (England, Scotland and Wales)",
+              hint: {text:"All active substance sources must have a technical equivalence assessment from Great Britain (you can apply for this as part of this application)"}
+              
+            },   
+            {
+              value: "Northern Ireland",
+              text: "Northern Ireland",
+              hint: {text:"All active substance sources must have been considered technically equivalent by an EU member state. Details must be provided as part of this application.  "}
+             
+            },   
+            {
+              value: "Great Britain and Northern Ireland",
+              text: "Great Britain and Northern Ireland",
+              hint: {text:"All active substance sources must have a technical equivalence assessment from Great Britain (you can apply for this as part of this application) and a technical equivalence assessment from an EU member state. Details must be provided as part of this application. "}
+             
+            }
+            
+          ]
+        }) }}
 
-{% set textHtml %}
-{{ govukInput({
-  id: "applicantType",
-  name: "applicantType",
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "Give details"
-  }
-}) }}
-{% endset -%}
-
-{{ govukRadios({
-  id: "applicantType",
-  name: "applicantType",
-  fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "Great Britain",
-      text: "Great Britain"
-      
-    },   
-    {
-      value: "Northern Ireland",
-      text: "Northern Ireland"
-     
-    },   
-    {
-      value: "Great Britain and Northern Ireland",
-      text: "Great Britain and Northern Ireland"
-     
-    }
-    
-  ]
-}) }}
-        
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>
-
     </div>
   </div>
-
 {% endblock %}

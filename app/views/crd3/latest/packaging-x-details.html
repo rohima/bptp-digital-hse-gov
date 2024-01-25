@@ -1,0 +1,251 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Container [X] details – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <span class="govuk-caption-l">Packaging and labels</span>
+        <h1 class="govuk-heading-l">Container details </h1>
+        <p>Enter details of the container type for this product. You can add more container types later if you need to. </p>
+        <h2 class="govuk-heading-m">Capacity range for container type </h2>
+
+        <div class="govuk-inset-text">
+          If the capacity is greater than 20 litres or 25kg, the label must include advice to use mechanical handling of the container 
+        </div>
+
+       
+
+        {{ govukInput({
+        label: {
+          text: "From:"
+        },
+        suffix: {
+          text: ""
+        },
+        classes: "govuk-input--width-5",
+        id: "containerVolumeFrom",
+        name: "containerVolumeFrom"
+        }) }}
+
+        {{ govukRadios({
+        id: "containerVolumeFromUnit",
+        name: "containerVolumeFromUnit",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select the unit for this container type  "
+        },
+        items: [
+          {
+            value: "g",
+            text: "gram (g)"
+          },   
+          {
+            value: "kg",
+            text: "kilogram (kg)"
+          },   
+          {
+            value: "ml",
+            text: "millilitre (ml)"
+          },   
+          {
+            value: "l",
+            text: "litre (l)"
+          }
+        ]
+        }) }}
+
+
+        {{ govukInput({
+        label: {
+          text: "To:"
+        },
+        suffix: {
+          text: ""
+        },
+        classes: "govuk-input--width-5",
+        id: "containerVolumeTo",
+        name: "containerVolumeTo"
+        }) }}
+
+        {{ govukRadios({
+        id: "containerVolumeToUnit",
+        name: "containerVolumeToUnit",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select the unit for this container type  "
+        },
+        items: [
+          {
+            value: "g",
+            text: "gram (g)"
+          },   
+          {
+            value: "kg",
+            text: "kilogram (kg)"
+          },   
+          {
+            value: "ml",
+            text: "millilitre (ml)"
+          },   
+          {
+            value: "l",
+            text: "litre (l)"
+          }
+        ]
+        }) }}
+
+        <h2 class="govuk-heading-s">Product container type</h2>
+
+        {{ govukInput({
+          label: {
+            text: "Container type ",
+            classes: "govuk-label?--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "Type part of the name and select it from the list. If the full name does not show, enter it manually. "
+          },
+          id: "productPackagingMaterial",
+          name: "productPackagingMaterial"
+          }) }}
+
+        <h2 class="govuk-heading-s">Packaging material</h2>
+
+        <p>Enter the material closest to the product</p>
+
+        {{ govukInput({
+        label: {
+          text: "Pack material ",
+          classes: "govuk-label?--l",
+          isPageHeading: true
+        },
+        hint: {
+          text: "Type part of the name and select it from the list. If the full name does not show, enter it manually. "
+        },
+        id: "productPackagingMaterial",
+        name: "productPackagingMaterial"
+        }) }}
+
+        {{ govukRadios({
+          id: "containerVolumeToUnit",
+          name: "containerVolumeToUnit",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select the unit for this container type  "
+          },
+          items: [
+            {
+              value: "g",
+              text: "gram (g)"
+
+            },   
+            {
+              value: "kg",
+              text: "kilogram (kg)"
+
+            },   
+            {
+              value: "ml",
+              text: "millilitre (ml)"
+
+            },   
+            {
+              value: "l",
+              text: "litre (l)"
+
+            }
+          ]
+        }) }}
+
+        
+
+        <h3 class="govuk-heading-s">Other pack material (optional) </h3>
+
+        {{ govukInput({
+          label: {
+            text: "Pack material ",
+            classes: "govuk-label?--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "If you have a multiwalled container, start with the layer closest to the product. "
+          },
+          id: "productPackagingMaterialOther1",
+          name: "productPackagingMaterialOther1"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Pack material ",
+            classes: "govuk-label?--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: " "
+          },
+          id: "productPackagingMaterialOther2",
+          name: "productPackagingMaterialOther2"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Pack material ",
+            classes: "govuk-label?--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: " "
+          },
+          id: "productPackagingMaterialOther3",
+          name: "productPackagingMaterialOther3"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Pack material ",
+            classes: "govuk-label?--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: " "
+          },
+          id: "productPackagingMaterialOther4",
+          name: "productPackagingMaterialOther4"
+        }) }}
+
+       
+
+        
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
