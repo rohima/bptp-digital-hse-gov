@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What additional evidence will you be providing to support this application?  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {# <span class="govuk-caption-l">Documents</span> #}
+      <h1 class="govuk-heading-l">What additional evidence will you be providing to support this application?  </h1>
+
+      
+
+      <form class="form" method="post">
+
+    <p>This will help to calculate the fee to be charged  </p>
+
+{# <p>Select all that apply. We’ll ask you to upload the documents later. </p> #}
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "countries",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select all that apply. We’ll ask you to upload the documents later."
+  },
+  items: [
+    {
+      value: "Mammalian toxicology case",
+      text: "Mammalian toxicology case"
+    },
+    {
+      value: "Mammalian toxicology data",
+      text: "Mammalian toxicology data"
+    },
+    {
+      value: "Ecotoxicology case",
+      text: "Ecotoxicology case"
+    },
+    {
+      value: "Ecotoxicology data",
+      text: "Ecotoxicology data"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "none",
+      text: "None of the above",
+      behaviour: "exclusive"
+    }
+  ]
+}) }}
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+
+{% endblock %}

@@ -1,6 +1,38 @@
 const express = require('express')
 const router = express.Router()
 
+// ----------------- NEEDS ROUTING ----------------- //
+
+
+// active-substance-source-change-all
+
+router.post('/active-substance-source-change-all', function (req, res) {
+  
+  let activeChangeAll = req.session.data.activeChangeAll;
+  res.redirect('active-substance-source-change-all');
+
+})
+
+// active-substance-source-change-which-products
+
+router.post('/active-substance-source-change-which-products', function (req, res) {
+  
+  let activeChangeWhichProducts = req.session.data.activeChangeWhichProducts;
+  res.redirect('active-substance-source-change-which-products');
+
+})
+
+// active-substance-source-data-ownership-change
+
+router.post('/active-substance-source-data-ownership-change', function (req, res) {
+  
+  let activeChangeDataOwnership = req.session.data.activeChangeDataOwnership;
+  res.redirect('active-substance-source-data-ownership-change');
+
+})
+
+
+
 
 // ----------------- APPLICATION JOURNEY ----------------- //
 
