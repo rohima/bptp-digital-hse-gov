@@ -12,10 +12,23 @@ router.post('/what-to-withdraw', function (req, res) {
 
 })
 
-// what-to-withdraw - 
+// what-to-withdraw-describe 
 
+router.post('/what-to-withdraw-describe', function (req, res) {
+  
+  let whatToWithdrawDescription = req.session.data.whatToWithdrawDescription;
+  res.redirect('what-to-withdraw-describe');
 
+})
 
+// what-to-withdraw-describe-use 
+
+router.post('/what-to-withdraw-describe-use', function (req, res) {
+  
+  let whatToWithdrawDescriptionUse = req.session.data.whatToWithdrawDescriptionUse;
+  res.redirect('what-to-withdraw-describe-use');
+
+})
 
 
 

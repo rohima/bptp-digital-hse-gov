@@ -4,7 +4,7 @@
 
 [Back] 
 
-What are you applying for?  – {{serviceName}} – GOV.UK
+What change are you making to this product?   – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -22,13 +22,27 @@ What are you applying for?  – {{serviceName}} – GOV.UK
       <form class="form" method="post">
         
 
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "contact-by-email",
+          name: "contactByEmail",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Enter details "
+          }
+        }) }}
+        {% endset -%}
+
+
         {{ govukRadios({
           name: "applicationWhatAuthorisationExisting",
           id: "applicationWhatAuthorisationExisting",
           fieldset: {
             legend: {
-              text: "What are you applying for? ",
+              text: "What change are you making to this product? ",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -38,28 +52,44 @@ What are you applying for?  – {{serviceName}} – GOV.UK
           },
           items: [
             {
-              value: "CRD3",
-              text: "An extension of authorisation for minor use (EAMU)"
+              value: "Change details",
+              text: "Change of product information ",
+              hint: {text: "Including trade name, authorisation holder or pack size "}
             },
+            
             {
-              value: "CRDR",
-              text: "Renewal of a product authorisation ",
-              hint: {text: "Following renewed approval of an active substance ’ "}
+              value: "CRD3",
+              text: "Change of sources of technical material "
             },
             {
               value: "CRD2 WITHDRAWAL",
-              text: "Commercial withdrawal of a product or authorised use "
+              text: "Commercial withdrawal of an authorised use  "
             },
             {
-              value: "Change details",
-              text: "Changes to other details of a product or authorisation "
+              value: "CRD3",
+              text: "Extend identical changes from another authorised product ",
+              hint: {text: "Formulation composition, manufacturing site and authorisation holder manufacturing the product must be identical to the existing product "}
+            },
+            {
+              value: "Other",
+              text: "Other  ",
+              conditional: {
+                html: emailHtml
+              }
             }
+
           ]
         }) }} 
 
         {# {
           value: "CRX",
           text: "A change to an existing plant protection product authorisation (administrative) "
+        }, #}
+
+        {# {
+          value: "CRDR",
+          text: "Renewal of a product authorisation ",
+          hint: {text: "Following renewed approval of an active substance ’ "}
         }, #}
         
         <button class="govuk-button" data-module="govuk-button">Continue</button>

@@ -1,6 +1,16 @@
 const express = require('express')
 const router = express.Router()
 
+// ----------------- NOT ROUTED ----------------- //
+
+// formula-active-substance-data-ownership-parent
+router.post('/formula-active-substance-data-ownership-parent', function (req, res) {
+  let activeSubstanceSourceParent = req.session.data.activeSubstanceSourceParent;
+  res.redirect('formula-active-substance-data-ownership-parent');
+
+})
+
+
 
 // ----------------- APPLICATION JOURNEY ----------------- //
 
