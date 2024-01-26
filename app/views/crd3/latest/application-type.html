@@ -15,7 +15,8 @@ What type of application are you making? – Manage pesticide product authorisat
       <form class="form" method="post">
         
         {{ govukCheckboxes({
-          name: "waste",
+          name: "applicationType",
+          id: "applicationType",
           fieldset: {
             legend: {
               text: "What type of application are you making?",
@@ -40,8 +41,8 @@ What type of application are you making? – Manage pesticide product authorisat
               text: "Finalisation of an extension of authorisation for minor use (EAMU) application following the publication of a revised or raised maximum residue level (MRL)"
             },
             {
-              value: "Change to an existing extension of authorisation for minor use (EAMU) ",
-              text: "Change to an existing extension of authorisation for minor use (EAMU) "
+              value: "Change to an existing extension of authorisation for minor use (EAMU)",
+              text: "Change to an existing extension of authorisation for minor use (EAMU)"
             }
           ]
         }) }}

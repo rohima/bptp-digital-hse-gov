@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Are you requesting urgent status? – Manage pesticide product authorisations – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+
+
+        {% set urgentHint %}
+          <p>If you are requesting urgent status, include the following information on your case for need: </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>details estimating the severity of the problem if the extension of authorisation is not issued urgently – including crop losses, damage, costs and the significance of these losses</li>
+            <li>the impact if the authorisation is not issued by the date required</li>
+          </ul>
+        {% endset -%}
+        
+        
+        {% set urgentHtml %}
+          {{ govukDateInput({
+            id: "EAMUDate",
+            namePrefix: "EAMUDate",
+            fieldset: {
+              legend: {
+                text: "Date the EAMU is required for use ",
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            hint: {
+              text: "HSE will endeavour to complete the application by the requested date, but cannot guarantee this will be met. "
+            }
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "applicationUrgentStatus",
+          id: "applicationUrgentStatus",
+          fieldset: {
+            legend: {
+              text: "Are you requesting urgent status?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            html: urgentHint
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              conditional: {
+                html: urgentHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

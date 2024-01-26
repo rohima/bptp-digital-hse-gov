@@ -202,6 +202,20 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+            Case for need uploaded
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentComparativeAssessmentUpload'] or '[case for need file]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-case-for-need">
+              Change
+              <span class="govuk-visually-hidden">Case for need uploaded</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
             Letters of access uploaded
           </dt>
             <dd class="govuk-summary-list__value">

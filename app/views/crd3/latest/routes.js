@@ -331,7 +331,7 @@ router.post('/product-name', function (req, res) {
   
   let productName = req.session.data.productName;
   let productCode = req.session.data.productCode;
-  res.redirect('placeholder-urgency');
+  res.redirect('application-urgent-status');
 
 })
 
@@ -341,12 +341,10 @@ router.post('/product-name', function (req, res) {
 
 // placeholder-urgency
 
-router.post('/placeholder-urgency', function (req, res) {
+router.post('/application-urgent-status', function (req, res) {
   
-  let productName = req.session.data.productName;
-  let productCode = req.session.data.productCode;
+  let applicationUrgentStatus = req.session.data.applicationUrgentStatus;
   res.redirect('product-use');
-
 })
 
 
@@ -1348,15 +1346,20 @@ router.post('/documents-upload-relevant-correspondence', function (req, res) {
 router.post('/documents-upload-safety-data-sheet', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
   res.redirect('documents-upload-comparative-assessment-report');
-
 })
 
 // documents-upload-comparative-assessment-report
 
 router.post('/documents-upload-comparative-assessment-report', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
-  res.redirect('documents-upload-letters-of-access');
+  res.redirect('documents-upload-case-for-need');
+})
 
+// documents-upload-case-for-need
+
+router.post('/documents-upload-case-for-need', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-upload-letters-of-access');
 })
 
 // documents-upload-letters-of-access
@@ -1364,7 +1367,6 @@ router.post('/documents-upload-comparative-assessment-report', function (req, re
 router.post('/documents-upload-letters-of-access', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
   res.redirect('documents-check-answers');
-
 })
 
 
@@ -1523,7 +1525,28 @@ router.post('/find-confirm', function (req, res) {
 
 router.post('/application-type', function (req, res) {  
   let applicationType = req.session.data.applicationType;
-  res.redirect('application-existing-product-details');
+
+  if (applicationType != undefined) {
+    if (applicationType.indexOf("New extension of authorisation identical to an existing extension of authorisation for an identical product") > -1) {
+        res.redirect('application-existing-product-details')
+    } else {
+        if (applicationType.indexOf("Reinstatement of a previously authorised extension of authorisation for minor use (EAMU)") > -1) {
+          res.redirect('application-reason-for-reinstatement')
+        } else {
+          if (applicationType.indexOf("Finalisation of an extension of authorisation for minor use (EAMU) application following the publication of a revised or raised maximum residue level (MRL)") > -1) {
+            res.redirect('application-finalisation-of-extension')
+          } else {
+            if (applicationType.indexOf("Change to an existing extension of authorisation for minor use (EAMU)") > -1) {
+              res.redirect('application-changes')
+            } else {
+              res.redirect('application-market-area');
+            }
+          }
+        }
+    }
+  } else {
+    res.redirect('application-market-area');
+  }
 })
 
 
@@ -1531,14 +1554,67 @@ router.post('/application-type', function (req, res) {
 
 router.post('/application-existing-product-details', function (req, res) {  
   let applicationType = req.session.data.applicationType;
-  res.redirect('application-reason-for-reinstatement');
+
+  if (applicationType != undefined) {
+    if (applicationType.indexOf("Reinstatement of a previously authorised extension of authorisation for minor use (EAMU)") > -1) {
+      res.redirect('application-reason-for-reinstatement')
+    } else {
+      if (applicationType.indexOf("Finalisation of an extension of authorisation for minor use (EAMU) application following the publication of a revised or raised maximum residue level (MRL)") > -1) {
+        res.redirect('application-finalisation-of-extension')
+      } else {
+        if (applicationType.indexOf("Change to an existing extension of authorisation for minor use (EAMU)") > -1) {
+          res.redirect('application-changes')
+        } else {
+          res.redirect('application-market-area');
+        }
+      }
+    }
+  } else {
+    res.redirect('application-market-area');
+  }
 })
 
 // application-reason-for-reinstatement
 
 router.post('/application-reason-for-reinstatement', function (req, res) {  
   let applicationType = req.session.data.applicationType;
-  res.redirect('application-reason-for-reinstatement');
+
+  if (applicationType != undefined) {
+    if (applicationType.indexOf("Finalisation of an extension of authorisation for minor use (EAMU) application following the publication of a revised or raised maximum residue level (MRL)") > -1) {
+        res.redirect('application-finalisation-of-extension')
+    } else {
+      if (applicationType.indexOf("Change to an existing extension of authorisation for minor use (EAMU)") > -1) {
+        res.redirect('application-changes')
+      } else {
+        res.redirect('application-market-area');
+      }
+    }
+  } else {
+    res.redirect('application-market-area');
+  }
+})
+
+// application-finalisation-of-extension
+
+router.post('/application-finalisation-of-extension', function (req, res) {  
+  let applicationType = req.session.data.applicationType;
+
+  if (applicationType != undefined) {
+    if (applicationType.indexOf("Change to an existing extension of authorisation for minor use (EAMU)") > -1) {
+      res.redirect('application-changes')
+    } else {
+      res.redirect('application-market-area');
+    }
+  } else {
+    res.redirect('application-market-area');
+  }
+})
+
+// application-changes
+
+router.post('/application-changes', function (req, res) {  
+  let applicationChanges = req.session.data.applicationChanges;
+  res.redirect('application-market-area');
 })
 
 
