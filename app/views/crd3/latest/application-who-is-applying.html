@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Who is applying? – Manage pesticide product authorisations – GOV.UK 
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        
+        {{ govukRadios({
+          id: "applicationWhoApplying",
+          name: "applicationWhoApplying",
+          fieldset: {
+            legend: {
+              text: "Who is applying?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "If you are making this application on behalf of someone else, select their role."
+          },
+          items: [
+            {
+              value: "Authorisation holder, agronomist or distributor",
+              text: "Authorisation holder, agronomist or distributor"
+            },
+            {
+              value: "Grower or grower representative",
+              text: "Grower or grower representative"
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
