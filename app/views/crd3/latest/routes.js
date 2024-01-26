@@ -149,6 +149,16 @@ router.post('/task-list', function (req, res) {
 })
 
 
+// application-who-is-applying
+
+router.post('/application-who-is-applying', function (req, res) {
+  
+  let applicationWhoApplying = req.session.data.applicationWhoApplying;
+  res.redirect('find-search');
+
+})
+
+
 // ----------------- PRODUCT INFORMATION ----------------- //
 
 
@@ -1087,9 +1097,21 @@ router.post('/gap-csv-check-answers', function (req, res) {
 
 router.post('/gap-check-answers', function (req, res) {
   let gapCheckAnswers = req.session.data.gapCheckAnswers;
-  res.redirect('packaging-number-of');
+  res.redirect('placeholder-supporting-info');
 
 })
+
+
+// ----------------- SUPPORTING INFO ----------------- //
+
+// placeholder-supporting-info
+
+router.post('/placeholder-supporting-info', function (req, res) {
+  let packagingNumberof = req.session.data.packagingNumberof;
+  res.redirect('documents-reference-product-risk-areas');
+
+})
+
 
 
 
@@ -1488,18 +1510,35 @@ router.post('/find-results', function (req, res) {
 
 // find-confirm
 
-router.post('/find-results', function (req, res) {  
+router.post('/find-confirm', function (req, res) {  
   let findConfirm = req.session.data.findConfirm;
-  res.redirect('find-confirm');
+  res.redirect('application-type');
 
 })
 
 // ----------------- PLACEHOLDER PAGE ----------------- //
 
-router.post('/placeholder-page', function (req, res) {  
-  let placeholderPage = req.session.data.placeholderPage;
-  res.redirect('placeholder-page');
 
+// application-type
+
+router.post('/application-type', function (req, res) {  
+  let applicationType = req.session.data.applicationType;
+  res.redirect('application-existing-product-details');
+})
+
+
+// application-existing-product-details
+
+router.post('/application-existing-product-details', function (req, res) {  
+  let applicationType = req.session.data.applicationType;
+  res.redirect('application-reason-for-reinstatement');
+})
+
+// application-reason-for-reinstatement
+
+router.post('/application-reason-for-reinstatement', function (req, res) {  
+  let applicationType = req.session.data.applicationType;
+  res.redirect('application-reason-for-reinstatement');
 })
 
 
