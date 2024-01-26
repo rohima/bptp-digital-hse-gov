@@ -401,10 +401,17 @@ router.post('/documents-reference-product-risk-areas', function (req, res) {
 router.post('/documents-upload-draft-reg-report', function (req, res) {  
   let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
   let documentsDraftRegReportSelect = req.session.data.documentsDraftRegReportSelect;
-  res.redirect('placeholder-no-change');
+  res.redirect('documents-upload-supporting');
 
 })
 
+// documents-upload-supporting
+router.post('/documents-upload-supporting', function (req, res) {  
+  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
+  let documentsDraftRegReportSelect = req.session.data.documentsDraftRegReportSelect;
+  res.redirect('placeholder-no-change');
+
+})
 
 
 // ----------------- PLACEHOLDER PAGE ----------------- //

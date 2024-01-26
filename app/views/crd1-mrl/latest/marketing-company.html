@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Name of client organisation – Manage building control for a higher-risk building – GOV.UK
+What is the name of the new marketing company?  – Manage building control for a higher-risk building – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,7 +12,7 @@ Name of client organisation – Manage building control for a higher-risk buildi
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">What is the name of the authorisation holder’s organisation? </h1>
+      <h1 class="govuk-heading-l">What is the name of the new marketing company? </h1>
       <p>Type part of the organisation name and select it from the list. If the full name does not show, enter it manually.</p>
       <form class="form" method="post">
 
@@ -25,14 +25,14 @@ Name of client organisation – Manage building control for a higher-risk buildi
         }) %}
         {{ govukInput({
             label: {
-              text: 'Organisation name'
+              text: 'Marketing organisation name'
             },
             hint: {
             text: " "
           },
-            id: "applicationCompanyName",
-            name: "applicationCompanyName",
-            autocomplete: "address-line1",
+            id: "marketingCompanyName",
+            name: "marketingCompanyName",
+            autocomplete: "marketingCompanyName",
             classes: "govuk-input--width-20"
           }) }}
         {% endcall %}
