@@ -11,7 +11,6 @@ const router = express.Router()
 // existing-job-number
 
 router.post('/existing-job-number', function (req, res) {
-  
   let existingJobNumber = req.session.data.existingJobNumber;
   res.redirect('send-verify-code');
 

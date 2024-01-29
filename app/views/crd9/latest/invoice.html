@@ -7,7 +7,7 @@ Invoice – Manage building control for a higher-risk building – GOV.UK
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Enter invoice details</h1>
+      <h1 class="govuk-heading-l">Invoice details </h1>
       <form class="form" method="post">
         <h2 class="govuk-heading-m">Contact details</h2>
 
@@ -33,7 +33,7 @@ Invoice – Manage building control for a higher-risk building – GOV.UK
             text: "Email address"
           },
           hint: {
-            text: "We'll only use this to send you an invoice"
+            text: "This is where we will send the invoice "
           },
           id: "invoiceEmail",
           name: "invoiceEmail",
@@ -93,7 +93,7 @@ Invoice – Manage building control for a higher-risk building – GOV.UK
 
         {% endcall %}
 
-        <h2 class="govuk-heading-m">Do you need a purchase order number on the invoice?</h2>
+        <h2 class="govuk-heading-m">Do you have a purchase order number for the invoice? </h2>
 
         {% set emailHtml %}
         {{ govukInput({
@@ -126,9 +126,16 @@ Invoice – Manage building control for a higher-risk building – GOV.UK
               html: emailHtml
             }
           },
+    {
+      value: "Yes",
+      text: "Yes - I will provide it later ",
+      hint: {text:"Email the purchase order number to PPPapplications@hse.gov.uk with the job number for this application "},
+      checked: false
+    },
+
           {
             value: "No",
-            text: "No – I do not need a purchase order number on the invoice",
+            text: "I do not need a purchase order number on the invoice",
             conditional: {
               html: phoneHtml
             }

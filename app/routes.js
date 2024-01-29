@@ -31,6 +31,7 @@ router.use('/crd1-use', require('./views/crd1-use/routes'));
 router.use('/crd2', require('./views/crd2/routes'));
 router.use('/crd3', require('./views/crd3/routes'));
 router.use('/crd8', require('./views/crd8/routes'));
+router.use('/crd9', require('./views/crd9/routes'));
 router.use('/crdr', require('./views/crdr/routes'));
 router.use('/crdr', require('./views/crdw/routes'));
 

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What is the market area for your product?  – {{serviceName}} – GOV.UK
+Where do you want the authorisation for this EAMU to apply? – Manage pesticide product authorisations – GOV.UK 
 {% endblock %}
 
 {% block beforeContent %}
@@ -26,7 +26,7 @@ What is the market area for your product?  – {{serviceName}} – GOV.UK
         }) }}
         {% endset -%}
 
-        <h1 class="govuk-heading-l">Where do you want the authorisation for this product to apply? </h1>
+        <h1 class="govuk-heading-l">Where do you want the authorisation for this EAMU to apply?</h1>
 
         {% set textHtml %}
         {{ govukInput({
@@ -57,21 +57,15 @@ What is the market area for your product?  – {{serviceName}} – GOV.UK
           items: [
             {
               value: "Great Britain",
-              text: "Great Britain (England, Scotland and Wales)",
-              hint: {text:"All active substance sources must have a technical equivalence assessment from Great Britain "}
-              
+              text: "Great Britain (England, Scotland and Wales)"
             },   
             {
               value: "Northern Ireland",
-              text: "Northern Ireland",
-              hint: {text:"All active substance sources must have a technical equivalence assessment from an EU member state  "}
-             
+              text: "Northern Ireland"
             },   
             {
               value: "Great Britain and Northern Ireland",
-              text: "Great Britain and Northern Ireland",
-              hint: {text:"All active substance sources must have a technical equivalence assessment from Great Britain and an EU member state  "}
-             
+              text: "Great Britain and Northern Ireland"             
             }
             
           ]
