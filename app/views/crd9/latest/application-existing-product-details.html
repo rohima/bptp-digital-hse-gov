@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What type of application are you making? – Manage pesticide product authorisations – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">Enter details of the identical product </h1>
+        <h2 class="govuk-heading-m">Product name</h2>
+
+        {{ govukInput({
+          label: {
+            text: "Enter name"
+          },
+          id: "event-name",
+          name: "eventName",
+          classes: "govuk-input--width-20"
+        }) }}
+
+        <h2 class="govuk-heading-m">NANUM</h2>
+
+        {{ govukInput({
+          label: {
+            text: "Enter NANUM"
+          },
+          id: "event-name",
+          name: "eventName",
+          classes: "govuk-input--width-10"
+        }) }}
+
+        <h2 class="govuk-heading-m">Extension of authorisation number</h2>
+
+        {{ govukInput({
+          label: {
+            text: "Enter name"
+          },
+          id: "Enter number ",
+          name: "eventName",
+          classes: "govuk-input--width-20"
+        }) }}
+
+        <h2 class="govuk-heading-m">Job number</h2>
+
+        {{ govukInput({
+          label: {
+            text: "Enter number"
+          },
+          id: "event-name",
+          name: "eventName",
+          classes: "govuk-input--width-10"
+        }) }}
+        
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
