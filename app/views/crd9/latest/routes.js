@@ -11,7 +11,6 @@ const router = express.Router()
 // existing-job-number
 
 router.post('/existing-job-number', function (req, res) {
-  
   let existingJobNumber = req.session.data.existingJobNumber;
   res.redirect('send-verify-code');
 
@@ -151,9 +150,9 @@ router.post('/task-list', function (req, res) {
 
 // application-who-is-applying
 
-router.post('/application-who-is-applying', function (req, res) {
+router.post('/placeholder-contact-for-tech-info', function (req, res) {
   
-  let applicationWhoApplying = req.session.data.applicationWhoApplying;
+  let applicationTechContact = req.session.data.applicationTechContact;
   res.redirect('find-search');
 
 })
@@ -1095,21 +1094,9 @@ router.post('/gap-csv-check-answers', function (req, res) {
 
 router.post('/gap-check-answers', function (req, res) {
   let gapCheckAnswers = req.session.data.gapCheckAnswers;
-  res.redirect('placeholder-supporting-info');
-
-})
-
-
-// ----------------- SUPPORTING INFO ----------------- //
-
-// placeholder-supporting-info
-
-router.post('/placeholder-supporting-info', function (req, res) {
-  let packagingNumberof = req.session.data.packagingNumberof;
   res.redirect('documents-reference-product-risk-areas');
 
 })
-
 
 
 
@@ -1232,13 +1219,32 @@ router.post('/manufacturing-check-answers', function (req, res) {
 
 router.post('/documents-reference-product-risk-areas', function (req, res) {  
   let documentsReferenceProductRiskAreas = req.session.data.documentsReferenceProductRiskAreas;
-  let productProposedUse = req.session.data.productProposedUse;
+  /*let productProposedUse = req.session.data.productProposedUse;
   if (productProposedUse == "Data") {
     res.redirect('documents-reference-product-risk-areas-upload-info');
   } else {
     res.redirect('documents-reference-product');
-  }  
+  } */
+  res.redirect('placeholder-emergency-situation');
+
 })
+
+
+// ----------------- EMERGENCY SITUATION ----------------- //
+
+// placeholder-emergency-situation
+
+router.post('/placeholder-emergency-situation', function (req, res) {  
+  let manufacturingCheckAnswers = req.session.data.manufacturingCheckAnswers;
+  res.redirect('documents-reference-product');
+
+})
+
+
+// ----------------- DOCUMENTS ----------------- //
+
+
+
 
 // documents-reference-product-risk-areas-upload-info
 router.post('/documents-reference-product-risk-areas-upload-info', function (req, res) {  
@@ -1514,7 +1520,15 @@ router.post('/find-results', function (req, res) {
 
 router.post('/find-confirm', function (req, res) {  
   let findConfirm = req.session.data.findConfirm;
-  res.redirect('application-type');
+  res.redirect('placeholder-plant-health-order');
+
+})
+
+// placeholder-plant-health-order
+
+router.post('/placeholder-plant-health-order', function (req, res) {  
+  let applicationPlantHealthOrder = req.session.data.applicationPlantHealthOrder;
+  res.redirect('auth-holder-company');
 
 })
 
