@@ -10,6 +10,15 @@ router.post('/formula-active-substance-data-ownership-parent', function (req, re
 
 })
 
+// eamu-extent-of-auth
+
+router.post('/eamu-extent-of-auth', function (req, res) {
+  let eamuExtentOfAuth = req.session.data.eamuExtentOfAuth;
+  res.redirect('eamu-extent-of-auth');
+
+})
+
+
 
 
 // ----------------- APPLICATION JOURNEY ----------------- //
