@@ -9,53 +9,35 @@ Verify your email address – Manage building control for a higher-risk building
 {% endblock %}
 
 {% block content %}
-
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form class="form" method="post">
-      {# <span class="govuk-caption-l">Verify email address</span> #}
-<h1 class="govuk-heading-l">Verify your email address</h1>
-        <p>  We have sent a 6-digit security code to: 
-            {{ data['your-email'] or 'charlotte.tilbury@barracks.com'}} 
-           </p>
+        <h1 class="govuk-heading-l">Verify your email address</h1>
+        <p>We have sent a 6-digit security code to: {{ data['your-email'] or 'charlotte.tilbury@barracks.com'}}
+        </p>
+        <p>If you cannot find the email check your junk or spam folders.</p>
+        <p class="govuk-body">
+          <a href="send-verify-code">Resend the email or use a different email address</a>.</p>
 
-           <p> If you cannot find the email check your junk or spam folders.</p>
-           <p class="govuk-body"> <a href="send-verify-code">Resend the email or use a different email address</a>.</p>
-
-          
-          {% from "govuk/components/input/macro.njk" import govukInput %}
-{{ govukInput({
-  label: {
-    text: "Enter security code",
-    classes: "govuk-label--s",
-    isPageHeading: false
-  },
-  classes: "govuk-input--width-10",
-  hint: {
-    text: "For example, '123456'."
-  },
-  id: "securityCode",
-  name: "securityCode",
-  inputmode: "numeric",
-  spellcheck: false
-}) }}
-
-
-
-
-
-      
-
-
-    
+        {{ govukInput({
+        label: {
+          text: "Enter security code",
+          classes: "govuk-label--s",
+          isPageHeading: false
+        },
+        classes: "govuk-input--width-10",
+        hint: {
+          text: "For example, '123456'."
+        },
+        id: "securityCode",
+        name: "securityCode",
+        inputmode: "numeric",
+        spellcheck: false
+        }) }}
 
         <button class="govuk-button" data-module="govuk-button">Verify email</button>
 
       </form>
-
     </div>
   </div>
-
 {% endblock %}

@@ -3,32 +3,6 @@ const router = express.Router()
 
 // ---------------- NEEDS ROUTING ------------------------ //
 
-// what-to-withdraw
-
-router.post('/what-to-withdraw', function (req, res) {
-  
-  let whatToWithdraw = req.session.data.whatToWithdraw;
-  res.redirect('what-to-withdraw');
-
-})
-
-// what-to-withdraw-describe 
-
-router.post('/what-to-withdraw-describe', function (req, res) {
-  
-  let whatToWithdrawDescription = req.session.data.whatToWithdrawDescription;
-  res.redirect('what-to-withdraw-describe');
-
-})
-
-// what-to-withdraw-describe-use 
-
-router.post('/what-to-withdraw-describe-use', function (req, res) {
-  
-  let whatToWithdrawDescriptionUse = req.session.data.whatToWithdrawDescriptionUse;
-  res.redirect('what-to-withdraw-describe-use');
-
-})
 
 
 
@@ -49,8 +23,8 @@ router.post('/applicant-type', function (req, res) {
 router.post('/application-name-contact', function (req, res) {
   
   let applicantFullName = req.session.data.applicantFullName;
-  // let applicantFirstName = req.session.data.applicantFirstName;
-  // let applicantLastName = req.session.data.applicantLastName;
+  let applicantFirstName = req.session.data.applicantFirstName;
+  let applicantLastName = req.session.data.applicantLastName;
   res.redirect('application-company');
 
 })
@@ -101,7 +75,6 @@ router.post('/application-telephone', function (req, res) {
 })
 
 
-
 // application-check-answers
 
 router.post('/application-check-answers', function (req, res) {
@@ -139,6 +112,83 @@ router.post('/task-list', function (req, res) {
   res.redirect('task-list');
 
 })
+
+
+
+// ----------------- FIND PRODUCT ----------------- //
+
+// find-search
+
+router.post('/find-search', function (req, res) {  
+  let findSearch = req.session.data.findSearch;
+  res.redirect('find-results');
+
+})
+
+// find-results
+
+router.post('/find-results', function (req, res) {  
+  let findResults = req.session.data.findResults;
+  res.redirect('find-confirm');
+
+})
+
+// find-confirm
+
+router.post('/find-confirm', function (req, res) {  
+  let findConfirm = req.session.data.findConfirm;
+  res.redirect('what-to-withdraw');
+
+})
+
+
+
+
+// what-to-withdraw-describe - NOT USED
+
+router.post('/what-to-withdraw-describe', function (req, res) {
+  
+  let whatToWithdrawDescription = req.session.data.whatToWithdrawDescription;
+  res.redirect('what-to-withdraw-describe');
+
+})
+
+// what-to-withdraw-describe-use 
+
+router.post('/what-to-withdraw-describe-use', function (req, res) {
+  
+  let whatToWithdrawCrops = req.session.data.whatToWithdrawCrops;
+  let whatToWithdrawDescription = req.session.data.whatToWithdrawDescription;
+  let whatToWithdrawDescriptionAdditional = req.session.data.whatToWithdrawDescriptionAdditional;
+  res.redirect('what-to-withdraw-adverse-data');
+
+})
+
+// what-to-withdraw
+
+router.post('/what-to-withdraw', function (req, res) {
+  
+  let whatToWithdraw = req.session.data.whatToWithdraw;
+  if (whatToWithdraw == "Product") {
+    res.redirect('what-to-withdraw-adverse-data');
+  } else {
+    res.redirect('what-to-withdraw-describe-use');
+  }
+
+})
+
+// what-to-withdraw-adverse-data
+
+router.post('/what-to-withdraw-adverse-data', function (req, res) {
+  
+  let whatToWithdrawAdverse = req.session.data.whatToWithdrawAdverse;
+  res.redirect('what-to-withdraw-adverse-data');
+
+})
+
+
+
+
 
 
 // ----------------- PRODUCT INFORMATION ----------------- //
@@ -199,6 +249,7 @@ router.post('/type-of-assessment', function (req, res) {
   res.redirect('formula-is-csv-upload');
 
 })
+
 
 
 

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Describe the uses being withdrawn – {{serviceName}} – GOV.UK
+Details of uses being withdrawn  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,17 +16,51 @@ Describe the uses being withdrawn – {{serviceName}} – GOV.UK
     <div class="govuk-grid-column-two-thirds">
 
       {# <span class="govuk-caption-l">Application</span> #}
-<h1 class="govuk-heading-l">Describe the uses being withdrawn
+<h1 class="govuk-heading-l">Details of uses being withdrawn 
    {# {{ data['applicationCompanyName'] or "[Applicant organisation name]" }} #}
   </h1>
 
-<p>Include all relevant details for each use, for example, stocks held, details of requested wind-down or grace periods. </p>
+<h2 class="govuk-heading-m">Crops</h2>
+<p>If there are multiple, separate each one with a comma.</p>
 
       <form class="form" method="post">
+
+
+        
+
+        {{ govukInput({
+          name: "whatToWithdrawCrops",
+          id: "whatToWithdrawCrops",
+          label: {
+            text: "Enter crops",
+            classes: "govuk-label--",
+            isPageHeading: true
+          },
+          hint: {
+            text: ""
+          }
+        }) }}
+
+        <h2 class="govuk-heading-m">Describe the uses being withdrawn </h2>
 
         {{ govukTextarea({
           name: "whatToWithdrawDescription",
           id: "whatToWithdrawDescription",
+          label: {
+            text: "Enter description",
+            classes: "govuk-label--",
+            isPageHeading: true
+          },
+          hint: {
+            text: ""
+          }
+        }) }}
+
+        <h2 class="govuk-heading-m">Give any additional details</h2>
+        <p>For example, stocks held, details of requested wind-down or grace periods. </p>
+        {{ govukTextarea({
+          name: "whatToWithdrawDescriptionAdditional",
+          id: "whatToWithdrawDescriptionAdditional",
           label: {
             text: "Enter description",
             classes: "govuk-label--",
