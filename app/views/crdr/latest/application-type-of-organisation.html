@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Type of organisation – Manage building control for a higher-risk building – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">What is your organisation type?</h1>
+
+        {% set textHtml %}
+        {{ govukInput({
+          id: "applicationOrganisationTypeDetail",
+          name: "applicationOrganisationTypeDetail",
+          type: "tel",
+          autocomplete: "tel",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Give details"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+        id: "applicationOrganisationType",
+        name: "applicationOrganisationType",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Company",
+            text: "Company",
+            checked: false,
+            conditional: {
+              html: emailHtml
+            }
+          },
+          {
+            value: "Charity",
+            text: "Charity",
+            checked: false,
+            conditional: {
+              html: emailHtml
+            }
+          },
+          {
+            value: "Local authority",
+            text: "Local authority",
+            checked: false,
+            conditional: {
+              html: emailHtml
+            }
+          },{
+            value: "Housing association",
+            text: "Housing association",
+            checked: false,
+            conditional: {
+              html: emailHtml
+            }
+          },
+          {
+            value: "Other",
+            text: "Other",
+            conditional: {
+              html: textHtml
+            }
+          }
+        ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

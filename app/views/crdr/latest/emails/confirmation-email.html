@@ -1,0 +1,56 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+​
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+​
+{% block content %}
+​
+<div class="govuk-!-padding-bottom-5"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Microsoft_Office_Outlook_%282018–present%29.svg/826px-Microsoft_Office_Outlook_%282018–present%29.svg.png" width="40px"></div>
+​
+<p>
+    <strong>From:</strong> enquiries@hse.gov.uk
+  <br>
+    <strong>To:</strong>
+    {{ data['email'] }}
+    <br>
+    <strong>Subject:</strong>
+    Application received
+</p>
+​
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+  {{ govukHeader({
+  homepageUrl: "#"
+}) }}
+​
+<div class="govuk-!-padding-bottom-5"></div>
+​
+<h1 class="govuk-heading-l">Application received</h1>
+​
+<p>Dear [Applicant firstname lastname],</p>
+​
+<p>You've submitted an application for authorisation of a new plant protection product.</p>
+
+<div class="govuk-inset-text">
+  Your application reference is <strong>[XXXXXXXXX]</strong>.
+</div>
+​
+<h2 class="govuk-heading-m">What happens next</h2>
+​
+<p>We will review your application. Once we have reviewed it, we will contact you to tell you what we will do next. This may take up to [x days] working days.</p>
+​
+<p>If you do not hear from us after [x days] working days, contact us and quote your reference number.</p>
+​
+<p>[contact details]</p>
+​
+<h2 class="govuk-heading-m">Return to your application</h2>
+​
+<p>Return to your application at: www.gov.uk/manage-pesticide-product-authorisations </p> 
+​​
+<p>[sign off]</p>
+​
+<p class="govuk-body-s">From: the Health and Safety Executive at the Chemicals Regulation Division</p>
+​
+<p class="govuk-body-s">Do not reply to this email. It’s an automatic message from an unmonitored account</p>
+​
+{% endblock %}

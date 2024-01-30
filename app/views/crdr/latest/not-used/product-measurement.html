@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Product packaging unit of measurement – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     
+      
+
+      <form class="form" method="post">
+        
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {# <span class="govuk-caption-l">Application</span> #}
+
+      <h1 class="govuk-heading-l">
+        What is the unit of measure for your packaging?
+      </h1>
+
+
+      
+
+
+
+{{ govukRadios({
+  id: "productMeasurement",
+  name: "productMeasurement",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "g",
+      text: "gram (g)"
+      
+    },   
+    {
+      value: "kg",
+      text: "kilogram (kg)"
+      
+    },   
+    {
+      value: "ml",
+      text: "milliliter (ml)"
+      
+    },   
+    {
+      value: "l",
+      text: "litre (l)"
+      
+    }
+  ]
+}) }}
+
+    
+        
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

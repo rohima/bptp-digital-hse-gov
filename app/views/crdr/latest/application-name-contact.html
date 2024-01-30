@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Your name  – {{serviceName}} – GOV.UK
+What is your name?  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -9,78 +9,38 @@ Your name  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
-
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      {# <span class="govuk-caption-l">Applicant details</span> #}
-      <h1 class="govuk-heading-l">Your name</h1>
-
-     
-
+      <h1 class="govuk-heading-l">What is your name?</h1>
       <form class="form" method="post">
 
-        
+        {% call govukFieldset({
+        legend: {
+          text: "",
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+      }) %}
 
-        {% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
-{% call govukFieldset({
-  legend: {
-    text: "",
-    classes: "govuk-fieldset__legend--l",
-    isPageHeading: true
-  }
-}) %}
+        <p>We'll use this if we need to contact you about anything you tell us in this application.</p>
 
-<p> We'll use this if we need to contact you about anything you tell us in this application.</p>
-  
-{{ govukInput({
-  label: {
-    text: "Full name"
-  },
-  id: "applicantFullName",
-  name: "applicantFullName",
-  autocomplete: "name",
-  spellcheck: false
-}) }}
-  
-  {# {{ govukInput({
-    label: {
-      text: 'First name'
-    },
-    classes: "govuk-input--width-10",
-    id: "applicantFirstName",
-    name: "applicantFirstName",
-    autocomplete: "address-line2"
-  }) }}
-  {{ govukInput({
-    label: {
-      text: "Last name"
-    },
-    classes: "govuk-input--width-10",
-    id: "applicantLastName",
-    name: "applicantLastName",
-    autocomplete: "address-level2"
-  }) }} #}
-  
-  
-{% endcall %}
-       
+        {{ govukInput({
+        label: {
+          text: "Full name"
+        },
+        id: "applicantFullName",
+        name: "applicantFullName",
+        autocomplete: "name",
+        spellcheck: false,
+        classes: "govuk-input--width-20"
+      }) }}
 
-
-      
-
-    
+        {% endcall %}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
       </form>
-
     </div>
   </div>
-
-  
 
 {% endblock %}

@@ -12,39 +12,25 @@ Summary of completed work – Manage a building control application for a higher
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      {# <span class="govuk-caption-l">Product details</span> #}
-
-      <h1 class="govuk-heading-l">
-        Reason for the application
-      </h1>
-      <p>Explain the purpose of the product and give a summary of the proposed uses.  </p>
+      <h1 class="govuk-heading-l">Reason for the application</h1>
+      <p>Explain the purpose of the product and give a summary of the proposed uses.</p>
 
       <form class="form" method="post">
 
-        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-
         {{ govukTextarea({
-          name: "productApplicationReason",
-          id: "productApplicationReason",
-          label: { text: "Provide reason "
-          },
-          hint: {
-            text: ""
-          }
+        name: "productApplicationReason",
+        id: "productApplicationReason",
+        label: { text: "Provide reason "
+        }
         }) }}
 
         {{ govukButton({
-          text: "Save and continue"
+        text: "Save and continue"
         }) }}
 
       </form>
-
-      
     </div>
   </div>
-
 {% endblock %}
