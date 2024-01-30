@@ -1464,9 +1464,19 @@ router.post('/find-results', function (req, res) {
 
 // find-confirm
 
-router.post('/find-results', function (req, res) {  
+router.post('/find-confirm', function (req, res) {  
   let findConfirm = req.session.data.findConfirm;
-  res.redirect('find-confirm');
+  res.redirect('placeholder-anything-changed');
+
+})
+
+// ----------------- ANY CHANGES ----------------- //
+
+// placeholder-anything-changed
+
+router.post('/placeholder-anything-changed', function (req, res) {  
+  let placeholderPage = req.session.data.placeholderPage;
+  res.redirect('auth-holder-company');
 
 })
 
