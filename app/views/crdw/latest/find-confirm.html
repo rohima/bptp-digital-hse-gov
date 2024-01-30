@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Confirm registered address for {{ data['applicationCompanyName'] or "[company name]" }} {{serviceName}} – GOV.UK
+Find product confirm – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -9,14 +9,17 @@ Confirm registered address for {{ data['applicationCompanyName'] or "[company na
 {% endblock %}
 
 {% block content %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Confirm registered address for {{ data['applicationCompanyName'] or "[company name]" }}</h1>
-
+      <span class="govuk-caption-l">Change control for [Application name]</span>
+      <h1 class="govuk-heading-l">Your change control submissions [for] [Stage name]</h1>
       <form class="form" method="post">
 
         <div class="govuk-inset-text">
-          <p>1 Wellborough Street<br> Leeds<br> LS1 7CD</p>
+          <p>Product details: [Product details]</p>
+          <p>Product description: [Product description]</p>
+          <p>Product numbers: [Product numbers]</p>
         </div>
 
         <button class="govuk-button" data-module="govuk-button">Confirm</button>
@@ -24,12 +27,12 @@ Confirm registered address for {{ data['applicationCompanyName'] or "[company na
         <p>
           <a href="#">Search again</a>
         </p>
-        <p>
-          <a href="#">Enter address manually</a>
-        </p>
 
       </form>
+
     </div>
   </div>
+
+
 
 {% endblock %}

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What are you applying to withdraw?  – {{serviceName}} – GOV.UK
+Is the withdrawal due to adverse data?  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,16 +18,16 @@ What are you applying to withdraw?  – {{serviceName}} – GOV.UK
       <form class="form" method="post">
 
       {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">What are you applying to withdraw?</h1>
+      <h1 class="govuk-heading-l">Is the withdrawal due to adverse data? </h1>
 
-      {# <p> This will apply to you if you need top raise the MRL beyond the current Great Britain limit. You can see <a href="#">current GB Maximum Residue Level (opens in new tab)</a> if you are unsure.</p> #}
+      <p>If the withdrawal is due to adverse data, the authorisation holder must immediately submit any new data or information on the potentially dangerous effects of an active substance or product to the Chemicals Regulation Division (CRD).  </p>
 
-      <p>[Play back product details] </p>
+      <p> <a href="https://www.hse.gov.uk/pesticides/pesticides-registration/applicant-guide/adverse-data.htm">Find out more about adverse data (opens in a new tab)</a></p>
 
 
  {{ govukRadios({
-  id: "whatToWithdraw",
-  name: "whatToWithdraw",
+  id: "whatToWithdrawAdverse",
+  name: "whatToWithdrawAdverse",
   fieldset: {
     legend: {
       text: "",
@@ -40,14 +40,14 @@ What are you applying to withdraw?  – {{serviceName}} – GOV.UK
   },
   items: [
     {
-      value: "Product",
-      text: "Product",
+      value: "Yes",
+      text: "Yes",
       checked: false
       
     },   
     {
-      value: "Product uses",
-      text: "Product uses"
+      value: "No",
+      text: "No"
       
     }
   ]
