@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Is there a reference product to support your application? – {{serviceName}} – GOV.UK
+Are you using a reference product to support your application? – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -9,55 +9,43 @@ Is there a reference product to support your application? – {{serviceName}} �
 {% endblock %}
 
 {% block content %}
-
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <form class="form" method="post">
+        <h1 class="govuk-heading-l">Are you using a reference product to support your application?</p>
 
-      {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">Is there a reference product to support your application?</p>
+        <p>You may only use:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>a reference product for which protection has expired </li>
+          <li>one reference product to support this application </li>
+        </ul>
 
-<p>Select yes if you’re relying on data where the protection has expired under <a href="#"> 34 (link opens in a new tab)</a>. Only one reference product can be used to support an application.</p>
-
-
-
-
-
-{{ govukRadios({
-  id: "documentsReferenceProduct",
-  name: "documentsReferenceProduct",
-  fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-    {
-      value: "Yes",
-      text: "Yes",
-      checked: false
-    },   
-    {
-      value: "No",
-      text: "No"
-    }
-
-  ]
-}) }}
+        {{ govukRadios({
+        id: "documentsReferenceProduct",
+        name: "documentsReferenceProduct",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: false
+          },   
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+        }) }}
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>
-
     </div>
   </div>
-
 {% endblock %}
