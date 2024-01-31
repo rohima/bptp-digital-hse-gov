@@ -68,8 +68,8 @@ router.post('/what-to-authorise-existing', function (req, res) {
     res.redirect('crd3/latest/application-name-contact');
   }  else if (applicationWhatAuthorisationExisting == "CRDR") {
     res.redirect('crdr/latest/application-name-contact');
-  } else if (applicationWhatAuthorisationExisting == "CRD2 WITHDRAWAL") {
-    res.redirect('crd2/latest/application-name-contact');
+  } else if (applicationWhatAuthorisationExisting == "CRDW") {
+    res.redirect('crdw/latest/application-name-contact');
   } else if (applicationWhatAuthorisationExisting == "Change details") {
     res.redirect('what-change-to-do');
   }
