@@ -160,17 +160,17 @@ router.post('/find-results', function (req, res) {
 
 router.post('/find-confirm', function (req, res) {  
   let findConfirm = req.session.data.findConfirm;
-  res.redirect('summary-of-changes');
+  res.redirect('formula-active-substance-data-ownership-details');
 
 })
-
+/*
 // ----------------- SUMMARY OF CHANGES ----------------- //
 
 router.post('/summary-of-changes', function (req, res) {  
   let summaryOfChanges = req.session.data.summaryOfChanges;
   res.redirect('formula-active-substance-data-ownership-details');
 })
-
+*/
 
 // ----------------- CHANGE TO DATA OWNERSHIP ----------------- //
 
@@ -444,6 +444,13 @@ router.post('/formula-csv-check-answers', function (req, res) {
 
 router.post('/proposed-use-info', function (req, res) {  
   let summaryOfChanges = req.session.data.summaryOfChanges;
+  res.redirect('is-microbial');
+})
+
+// is-microbial
+
+router.post('/is-microbial', function (req, res) {  
+  let isMicrobial = req.session.data.isMicrobial;
   res.redirect('product-use');
 })
 
@@ -493,8 +500,9 @@ router.post('/gap-is-csv-upload', function (req, res) {
   let isProductSeedTreatment = req.session.data.isProductSeedTreatment;
   let isGapCsvUpload = req.session.data.isGapCsvUpload;
   let intendedProductUser = req.session.data.intendedProductUser;
+  res.redirect('gap-csv-1');
   //if (intendedProductUser == "Professional") {
-
+/*
   if (intendedProductUser == "Professional") {
     if (isGapCsvUpload == "Yes") {
       res.redirect('gap-csv-1');
@@ -506,7 +514,7 @@ router.post('/gap-is-csv-upload', function (req, res) {
   } else {
     res.redirect('gap-crop-product');
   }
-
+*/
 })
 
 
@@ -515,9 +523,57 @@ router.post('/gap-is-csv-upload', function (req, res) {
 
 router.post('/gap-csv-1', function (req, res) {
   let gapCsv = req.session.data.gapCsv;
-  res.redirect('packaging-upload-label');
+  res.redirect('gap-environmental-phrases');
 
 })
+
+// gap-environmental-phrases
+
+router.post('/gap-environmental-phrases', function (req, res) {
+  let environmentalPhrases = req.session.data.environmentalPhrases;
+  let environmentalPhrasesDetails = req.session.data.environmentalPhrasesDetails;
+  res.redirect('gap-other-specific-restrictions');
+
+})
+
+// gap-other-specific-restrictions
+
+router.post('/gap-other-specific-restrictions', function (req, res) {
+  let otherSpecificRestrictions = req.session.data.otherSpecificRestrictions;
+  let individualUsesDetails = req.session.data.individualUsesDetails;
+  res.redirect('gap-personal-protective-equipment');
+
+})
+
+// gap-personal-protective-equipment 
+
+router.post('/gap-personal-protective-equipment', function (req, res) {
+  let personalProtectiveEquipment = req.session.data.personalProtectiveEquipment;
+  let personalProtectiveEquipmentDetails = req.session.data.personalProtectiveEquipmentDetails;
+  res.redirect('gap-clp');
+
+})
+
+// gap-clp
+router.post('/gap-clp', function (req, res) {
+  let gapClp = req.session.data.gapClp;
+  let gapClpApplyAll = req.session.data.gapClpApplyAll;
+  res.redirect('gap-other-product');
+
+})
+
+
+
+// gap-other-product
+
+router.post('/packaging-upload-label', function (req, res) {
+  let gapOtherProduct = req.session.data.gapOtherProduct;
+  res.redirect('documents-reference-product-risk-areas');
+
+})
+
+
+
 
 
 // gap-crop-product
@@ -742,13 +798,28 @@ router.post('/documents-reference-product-risk-areas-34', function (req, res) {
 router.post('/documents-upload-admin', function (req, res) {  
   let documentsAdmin = req.session.data.documentsAdmin;
   let documentsAdminSelect = req.session.data.documentsAdminSelect;
-  res.redirect('documents-upload-draft-reg-report');
+  let isMicrobial = req.session.data.isMicrobial
+
+  if (isMicrobial == "Yes") {
+    res.redirect('documents-upload-draft-reg-report-microbials');
+  } else {
+    res.redirect('documents-upload-draft-reg-report');
+  }
 
 })
 
 // documents-upload-draft-reg-report
 
 router.post('/documents-upload-draft-reg-report', function (req, res) {  
+  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
+  let documentsDraftRegReportSelect = req.session.data.documentsDraftRegReportSelect;
+  res.redirect('documents-upload-supporting');
+
+})
+
+// documents-upload-draft-reg-report-microbials
+
+router.post('/documents-upload-draft-reg-report-microbials', function (req, res) {  
   let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
   let documentsDraftRegReportSelect = req.session.data.documentsDraftRegReportSelect;
   res.redirect('documents-upload-supporting');
