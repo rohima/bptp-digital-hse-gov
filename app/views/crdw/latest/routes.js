@@ -182,12 +182,37 @@ router.post('/what-to-withdraw', function (req, res) {
 router.post('/what-to-withdraw-adverse-data', function (req, res) {
   
   let whatToWithdrawAdverse = req.session.data.whatToWithdrawAdverse;
-  res.redirect('what-to-withdraw-adverse-data');
+  res.redirect('clp-affected');
 
 })
 
 
+// ----------------- CLP, EAMU 1, EAMU 2 AFFECTED ----------------- //
 
+// clp-affected
+
+router.post('/clp-affected', function (req, res) {  
+  let clpAffected = req.session.data.clpAffected;
+  res.redirect('eamu-auth-current');
+})
+
+// eamu-auth-current
+
+router.post('/eamu-auth-current', function (req, res) {  
+  let eamuAuthCurrent = req.session.data.eamuAuthCurrent;
+  if (eamuAuthCurrent == 'Yes') {
+    res.redirect('eamu-auth-current-details');
+  } else {
+    res.redirect('declarations');
+  }
+})
+
+// eamu-auth-current-details
+
+router.post('/eamu-auth-current-details', function (req, res) {  
+  let eamuAuthCurrentDetails = req.session.data.eamuAuthCurrentDetails;
+  res.redirect('declaration');
+})
 
 
 
@@ -812,29 +837,7 @@ router.post('/active-substance-component', function (req, res) {
 
 })
 
-// invoice
 
-router.post('/invoice', function (req, res) { 
-  let productionScale = req.session.data.productionScale;
-  res.redirect('declaration');
-
-})
-
-// declaration
-
-router.post('/declaration', function (req, res) { 
-  let productionScale = req.session.data.productionScale;
-  res.redirect('confirmation');
-
-})
-
-// confirmation
-
-router.post('/confirmation', function (req, res) { 
-  let productionScale = req.session.data.productionScale;
-  res.redirect('confirmation');
-
-})
 
 
 
@@ -935,7 +938,7 @@ router.post('/declaration', function (req, res) {
 // invoice
 
 router.post('/invoice', function (req, res) {  
-  let declaration = req.session.data.declaration;
+  let invoice = req.session.data.invoice;
   res.redirect('confirmation');
 
 })
