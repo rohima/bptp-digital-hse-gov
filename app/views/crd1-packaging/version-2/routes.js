@@ -232,16 +232,6 @@ router.post('/packaging-remove', function (req, res) {
 
 router.post('/packaging-upload-label', function (req, res) {
   let packagingXDetails = req.session.data.packagingXDetails;
-  res.redirect('is-microbial');
-
-})
-
-// ----------------- MICROBIAL ----------------- //
-
-// is-microbial
-
-router.post('/is-microbial', function (req, res) {
-  let isMicrobial = req.session.data.isMicrobial;
   res.redirect('documents-reference-product-risk-areas');
 
 })
@@ -254,90 +244,9 @@ router.post('/is-microbial', function (req, res) {
 
 router.post('/documents-reference-product-risk-areas', function (req, res) {  
   let documentsReferenceProductRiskAreas = req.session.data.documentsReferenceProductRiskAreas;
-  res.redirect('documents-upload-admin');
-
-})
-
-
-
-// ----------------- DOCUMENTS ----------------- //
-
-
-// documents-upload-admin
-
-router.post('/documents-upload-admin', function (req, res) {  
-  let documentsAdmin = req.session.data.documentsAdmin;
-  let documentsAdminSelect = req.session.data.documentsAdminSelect;
-  let isMicrobial = req.session.data.isMicrobial;
-  if (isMicrobial == "Yes") {
-    res.redirect('documents-upload-draft-reg-report-microbials');
-  } else {
-    res.redirect('documents-upload-draft-reg-report');
-  }
-
-})
-
-// documents-upload-draft-reg-report
-
-router.post('/documents-upload-draft-reg-report', function (req, res) {  
-  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
-  let documentsDraftRegReportSelect = req.session.data.documentsDraftRegReportSelect;
-  res.redirect('documents-upload-supporting');
-
-})
-
-// documents-upload-draft-reg-report microbials
-
-router.post('/documents-upload-draft-reg-report-microbials', function (req, res) {  
-  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
-  let documentsDraftRegReportSelectMicrobes = req.session.data.documentsDraftRegReportSelectMicrobes;
-  res.redirect('documents-upload-supporting');
-
-})
-
-// documents-upload-supporting
-
-router.post('/documents-upload-supporting', function (req, res) {  
-  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
-  let documentsDraftRegReportSelect = req.session.data.documentsDraftRegReportSelect;
-  res.redirect('documents-upload-relevant-correspondence');
-
-})
-
-// documents-upload-relevant-correspondence
-
-router.post('/documents-upload-relevant-correspondence', function (req, res) {  
-  let documentsRelevantCorrespondence = req.session.data.documentsRelevantCorrespondence;
-  res.redirect('documents-upload-comparative-assessment-report');
-
-})
-
-// documents-upload-comparative-assessment-report
-
-router.post('/documents-upload-comparative-assessment-report', function (req, res) {  
-  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
-  res.redirect('documents-upload-letters-of-access');
-
-})
-
-// documents-upload-letters-of-access
-
-router.post('/documents-upload-letters-of-access', function (req, res) {  
-  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
   res.redirect('check-answers');
 
 })
-
-
-
-// documents-upload-proof-of-authorisation
-/* removed as earlier in the flow
-router.post('/documents-upload-proof-of-authorisation', function (req, res) {  
-  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
-  res.redirect('documents-check-answers');
-
-})
-*/
 
 
 // ----------------- PLACEHOLDER PAGE ----------------- //

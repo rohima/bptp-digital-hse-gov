@@ -184,29 +184,36 @@ router.post('/find-confirm', function (req, res) {
 // applicant-parent
   
 router.post('/applicant-parent', function (req, res) {
+    res.redirect('product-name')
+})
+
+
+// ----------------- PRODUCT DETAILS ----------------- //
+
+// product-name
+
+router.post('/product-name', function (req, res) {
+  
   let applicationDiffProduct = req.session.data.applicationDiffProduct;
   let applicationDiffAuthHolder = req.session.data.applicationDiffAuthHolder;
   let applicationDiffMarketing = req.session.data.applicationDiffMarketing;
   let applicationDiffPackaging = req.session.data.applicationDiffPackaging;
 
-  if (applicationDiffProduct == "Yes") {
-    res.redirect('product-name')
+  if (applicationDiffAuthHolder == "Yes") {
+    res.redirect('auth-holder-company')
   } else {
-    if (applicationDiffAuthHolder == "Yes") {
-      res.redirect('auth-holder-company')
+    if (applicationDiffMarketing == "Yes") {
+      res.redirect('marketing-company')
     } else {
-      if (applicationDiffMarketing == "Yes") {
-        res.redirect('marketing-company')
+      if (applicationDiffPackaging == "Yes") {
+        res.redirect('packaging-number-of')
       } else {
-        if (applicationDiffPackaging == "Yes") {
-          res.redirect('packaging-size-change')
-        } else {
-          res.redirect('formula-active-substance-data-ownership-details')
-        }
+        res.redirect('formula-active-substance-data-ownership-details')
       }
     }
   }
 })
+
 
 
 // applicant-type
@@ -292,7 +299,7 @@ router.post('/auth-holder-check-answers', function (req, res) {
     res.redirect('marketing-company')
   } else {
     if (applicationDiffPackaging == "Yes") {
-      res.redirect('packaging-size-change')
+      res.redirect('packaging-number-of')
     } else {
       res.redirect('formula-active-substance-data-ownership-details')
     }
@@ -357,7 +364,7 @@ router.post('/marketing-co-check-answers', function (req, res) {
   let applicationDiffPackaging = req.session.data.applicationDiffPackaging;
 
   if (applicationDiffPackaging == "Yes") {
-    res.redirect('packaging-size-change')
+    res.redirect('packaging-number-of')
   } else {
     res.redirect('formula-active-substance-data-ownership-details')
   }
@@ -375,33 +382,119 @@ router.post('/application-market-area', function (req, res) {
 })
 
 
-// ----------------- PRODUCT DETAILS ----------------- //
 
-// product-name
+// ----------------- PACKAGING ----------------- //
 
-router.post('/product-name', function (req, res) {
-  
-  let productName = req.session.data.productName;
-  let productCode = req.session.data.productCode;
+// packaging-number-of
 
-  let applicationDiffAuthHolder = req.session.data.applicationDiffAuthHolder;
-  let applicationDiffMarketing = req.session.data.applicationDiffMarketing;
-  let applicationDiffPackaging = req.session.data.applicationDiffPackaging;
+router.post('/packaging-number-of', function (req, res) {
+  let packagingNumberof = req.session.data.packagingNumberof;
+  res.redirect('packaging-x-details');
 
-  if (applicationDiffAuthHolder == "Yes") {
-    res.redirect('auth-holder-company')
+})
+
+// packaging-x-details
+
+router.post('/packaging-x-details', function (req, res) {
+  let packagingXDetails = req.session.data.packagingXDetails;
+  res.redirect('packaging-add-another');
+
+})
+
+// packaging-add-another
+
+router.post('/packaging-add-another', function (req, res) {
+  let addAnotherContainer = req.session.data.addAnotherContainer;
+
+  if (addAnotherContainer == "Yes") {
+    res.redirect('packaging-x-details');
   } else {
-    if (applicationDiffMarketing == "Yes") {
-      res.redirect('marketing-company')
-    } else {
-      if (applicationDiffPackaging == "Yes") {
-        res.redirect('packaging-size-change')
-      } else {
-        res.redirect('formula-active-substance-data-ownership-details')
-      }
-    }
+    res.redirect('packaging-upload-label');
   }
 })
+
+// packaging-remove
+
+router.post('/packaging-remove', function (req, res) {
+  let packagingXDetails = req.session.data.packagingXDetails;
+  res.redirect('packaging-add-another');
+
+})
+
+// ----------------- PACKAGING AND LABELS ----------------- //
+
+// packaging-upload-label
+
+router.post('/packaging-upload-label', function (req, res) {
+  let packagingXDetails = req.session.data.packagingXDetails;
+  res.redirect('packaging-check-answers');
+
+})
+
+// packaging-check-answers
+
+router.post('/packaging-check-answers', function (req, res) {
+  let packagingCheckAnswers = req.session.data.packagingCheckAnswers;
+  res.redirect('formula-active-substance-data-ownership-details');
+
+})
+
+
+
+// ----------------- MANUFACTURING LOCATION ----------------- //
+
+// manufacturing-address-postcode
+
+router.post('/manufacturing-address-postcode', function (req, res) {
+  
+  let manufacturingPostcode = req.session.data.manufacturingPostcode;
+  res.redirect('manufacturing-address-list');
+
+})
+
+// manufacturing-address-list
+
+router.post('/manufacturing-address-list', function (req, res) {
+  
+  let manufacturingAddressList = req.session.data.manufacturingAddressList;
+  res.redirect('manufacturing-address-confirm');
+
+})
+
+// manufacturing-address-confirm
+
+router.post('/manufacturing-address-confirm', function (req, res) {
+  
+  let manufacturingAddressConfirm = req.session.data.manufacturingAddressConfirm;
+  res.redirect('manufacturing-site-add-another');
+
+})
+
+// manufacturing-site-add-another
+
+router.post('/manufacturing-site-add-another', function (req, res) {  
+  let manufacturingAddressAddAnother = req.session.data.manufacturingAddressAddAnother;
+  if (manufacturingAddressAddAnother == "Yes") {
+    res.redirect('manufacturing-address-postcode');
+  } else {
+    res.redirect('manufacturing-check-answers');
+  }
+})
+
+// manufacturing-address-remove
+
+router.post('/manufacturing-address-remove', function (req, res) {
+  res.redirect('manufacturing-site-add-another');
+})
+
+// manufacturing-check-answers
+
+router.post('/manufacturing-check-answers', function (req, res) {  
+  let manufacturingCheckAnswers = req.session.data.manufacturingCheckAnswers;
+  res.redirect('documents-reference-product-risk-areas');
+
+})
+
 
 
 // product-check-answers
@@ -821,7 +914,7 @@ router.post('/documents-reference-product-risk-areas-34', function (req, res) {
 router.post('/documents-upload-admin', function (req, res) {  
   let documentsAdmin = req.session.data.documentsAdmin;
   let documentsAdminSelect = req.session.data.documentsAdminSelect;
-  res.redirect('documents-upload-draft-reg-report');
+  res.redirect('documents-upload-supporting');
 
 })
 
@@ -855,8 +948,27 @@ router.post('/documents-upload-supporting', function (req, res) {
 // documents-upload-relevant-correspondence
 
 router.post('/documents-upload-relevant-correspondence', function (req, res) {  
-  let documentsRelevantCorrespondence = req.session.data.documentsRelevantCorrespondence;
-  res.redirect('documents-upload-safety-data-sheet');
+  let letterOfAccess = false;
+  let formulaActiveSourceDataOwnerLetters = req.session.data.formulaActiveSourceDataOwnerLetters;
+  let formulaActiveSubstanceAccess = req.session.data.formulaActiveSubstanceAccess;
+
+  if (formulaActiveSourceDataOwnerLetters != undefined) {
+    if (formulaActiveSourceDataOwnerLetters.indexOf("Letter of access to be provided in this application") > -1) {
+      letterOfAccess = true;
+    }
+  }
+
+  if (formulaActiveSubstanceAccess != undefined) {
+    if (formulaActiveSubstanceAccess.indexOf("Letter of access to be provided in this application") > -1) {
+      letterOfAccess = true;
+    }
+  } 
+
+  if (letterOfAccess == true) {
+    res.redirect('documents-upload-letters-of-access');
+  } else {
+    res.redirect('documents-check-answers');
+  }
 
 })
 

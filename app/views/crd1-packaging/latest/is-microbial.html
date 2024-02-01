@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Is the product a microbial? – Manage building control for a higher-risk building – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Is the product a microbial?</h1>
+      <form class="form" method="post">
+
+        {{ govukRadios({
+        id: "isMicrobial",
+        name: "isMicrobial",
+        fieldset: {
+          legend: {
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            hint: {
+              text: ""
+            }
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
