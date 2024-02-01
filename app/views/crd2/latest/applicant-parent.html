@@ -102,7 +102,10 @@ Changes to product details – Manage pesticide product authorisations – GOV.U
           items: [
             {
               value: "Yes",
-              text: "Yes"
+              text: "Yes",
+              conditional: {
+                html: "<p>You can only change pack sizes within the existing range. To make any other packaging changes, start an application for a new product authorisation requiring full technical assessment</p>"
+              }
             },   
             {
               value: "No",
