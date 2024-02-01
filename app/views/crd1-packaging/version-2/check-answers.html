@@ -33,7 +33,22 @@
               </a>
             </dd>
           </div>
-
+          <!--
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Claim alteration
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['claimAlt'] or '[altered claim]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="product-name">
+              Change
+              <span class="govuk-visually-hidden">Claim alteration</span>
+              </a>
+            </dd>
+          </div>
+          -->
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
             Proposed changes require technical assessment
@@ -150,20 +165,6 @@
               </a>
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            Microbial product
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['isMicrobial'] or '[microbial product]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="is-microbial">
-              Change
-              <span class="govuk-visually-hidden">Microbial product</span>
-              </a>
-            </dd>
-          </div>
         </dl>
 
         <!-- PACKAGING AND LABELS - END -->
@@ -188,96 +189,6 @@
           </div>
         </dl>
         <!-- SPECIALIST ASSESSMENT - END -->
-
-        <!-- DOCUMENTS START -->
-
-        <h2 class="govuk-heading-m">Documents</h2>
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            Application overview uploaded
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['documentsAdminSelect'] or '[application overview doc]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="documents-upload-admin">
-              Change
-              <span class="govuk-visually-hidden">Admin documents uploaded</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            Draft registration report documents uploaded
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['documentsDraftRegReportSelect'] or '[draft reg reports]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="documents-upload-draft-reg-report">
-              Change
-              <span class="govuk-visually-hidden">Draft registration report documents uploaded</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            Supporting data dossier uploaded
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['dataDossierUpload'] or '[data dossier file]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="documents-upload-supporting">
-              Change
-              <span class="govuk-visually-hidden">Draft registration report documents uploaded</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            Relevant CRD correspondence uploaded
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['documentsCRDSelect'] or '[crd correspondence files]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="documents-upload-supporting">
-              Change
-              <span class="govuk-visually-hidden">Relevant CRD correspondence uploaded</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            Comparative assessment report uploaded
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['documentComparativeAssessmentUpload'] or '[comparative assessment file]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="documents-upload-comparative-assessment-report">
-              Change
-              <span class="govuk-visually-hidden">Comparative assessment report uploaded</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            Letters of access uploaded
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['documentLettersOfAccessUpload'] or '[letters of access file]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="documents-upload-letters-of-access">
-              Change
-              <span class="govuk-visually-hidden">Letters of access uploaded</span>
-              </a>
-            </dd>
-          </div>
-        </dl>
 
 
         <!-- AFFIRMATION - START -->
