@@ -1,0 +1,115 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+EAMU details – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+        {# <span class="govuk-caption-l">Data ownership: Product data </span> #}
+        <h1 class="govuk-heading-l">Enter EAMU details </p>
+
+        
+
+        <h2 class="govuk-heading-m">Crops  </h2>
+
+        {{ govukInput({
+          label: {
+            text: 'Enter crop names  '
+          },
+          hint: {text: "If there are more than one, separate each one with a comma "},
+          id: "eamuAuthCurrentDetailsCropName",
+          name: "eamuAuthCurrentDetailsCropName",
+          autocomplete: "eamuAuthCurrentDetails"
+        }) }}
+
+        <h2 class="govuk-heading-m">Current extension of authorisation number  </h2>
+
+        {{ govukInput({
+          label: {
+            text: 'Enter NANUM '
+          },
+          id: "eamuAuthCurrentDetailsNanum",
+          name: "eamuAuthCurrentDetailsNanum"
+        }) }}
+
+        <h2 class="govuk-heading-m">Data owner</h2>
+
+        {{ govukInput({
+          label: {
+            text: 'Enter data owner '
+          },
+          id: "eamuAuthCurrentDetailsDataOwner",
+          name: "eamuAuthCurrentDetailsDataOwner"
+        }) }}
+
+        <h2 class="govuk-heading-m">Data access </h2>
+
+        {{ govukRadios({
+          id: "eamuAuthCurrentDetailsDataAccess",
+          name: "eamuAuthCurrentDetailsDataAccess",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Continue to give data access  ",
+              text: "Continue to give data access  "
+            },   
+            {
+              value: "Providing a new letter of access ",
+              text: "Providing a new letter of access  "
+            }
+          ]
+        }) }}
+
+        <h2 class="govuk-heading-m">Do you support transfer of these EAMUs and accept the additional admin fee for each EAMU? </h2>
+
+        {{ govukRadios({
+          id: "eamuAuthCurrentDetailsDataAccessAddition",
+          name: "eamuAuthCurrentDetailsDataAccessAddition",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: { text: "You will be charged an admin fee for each EAMU notice to be re-issued "},
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },   
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+
+
+        
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
