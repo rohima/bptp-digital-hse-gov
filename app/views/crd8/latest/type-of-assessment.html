@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Product use – {{serviceName}} – GOV.UK
+Type of application – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -22,12 +22,12 @@ Product use – {{serviceName}} – GOV.UK
 
       <h1 class="govuk-heading-l">
        {# Application requiring technical assessment: #}
-       What type of application are you submitting? 
+       Type of application
       </h1>
 
-      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+     
 
-      {{ govukCheckboxes({
+      {{ govukRadios({
         name: "proposedUseCropSituation",
         id: "proposedUseCropSituation",
         fieldset: {

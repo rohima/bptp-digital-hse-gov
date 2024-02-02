@@ -1,7 +1,10 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What change are you making?  – {{serviceName}} – GOV.UK
+
+[Back] 
+
+What change are you making to this product?   – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,21 +24,22 @@ What change are you making?  – {{serviceName}} – GOV.UK
 
         {% set emailHtml %}
         {{ govukInput({
-          id: "adminChangeTypeOtherDetails",
-          name: "adminChangeTypeOtherDetails",
-          type: "",
-          autocomplete: "",
+          id: "contact-by-email",
+          name: "contactByEmail",
+          type: "email",
+          autocomplete: "email",
           spellcheck: false,
           classes: "govuk-!-width-one-third",
           label: {
-            text: "Enter details"
+            text: "Enter details "
           }
         }) }}
         {% endset -%}
 
+
         {{ govukRadios({
-          name: "adminChangeType",
-          id: "adminChangeType",
+          name: "applicationWhatAuthorisationExisting",
+          id: "applicationWhatAuthorisationExisting",
           fieldset: {
             legend: {
               text: "What change are you making to this product? ",
@@ -48,33 +52,44 @@ What change are you making?  – {{serviceName}} – GOV.UK
           },
           items: [
             {
-              value: "Product info",
+              value: "Change details",
               text: "Change of product information ",
-              hint: {text: "Including trade name, authorisation holder or pack size"}
-            },
-            
-            {
-              value: "Tech material",
-              text: "Change of sources of technical material   "
+              hint: {text: "Including trade name, authorisation holder or pack size "}
             },
             {
-              value: "Extend",
+              value: "CRDR",
+              text: "Renewal of a product authorisation",
+              hint: {text:"Must be submitted within 3 months of the date of application of the renewal of an active substance "}
+            },
+            {
+              value: "CRDW",
+              text: "Commercial withdrawal of an authorised use  "
+            },
+            {
+              value: "CRD3",
               text: "Extend identical changes from another authorised product ",
               hint: {text: "Formulation composition, manufacturing site and authorisation holder manufacturing the product must be identical to the existing product "}
             },
             {
               value: "Other",
-              text: "Other",
+              text: "Other  ",
               conditional: {
                 html: emailHtml
               }
             }
+
           ]
         }) }} 
 
         {# {
           value: "CRX",
           text: "A change to an existing plant protection product authorisation (administrative) "
+        }, #}
+
+        {# {
+          value: "CRDR",
+          text: "Renewal of a product authorisation ",
+          hint: {text: "Following renewed approval of an active substance ’ "}
         }, #}
         
         <button class="govuk-button" data-module="govuk-button">Continue</button>

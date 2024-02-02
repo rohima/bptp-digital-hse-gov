@@ -4,7 +4,7 @@
 
 [Back] 
 
-What change are you making to this product?   – {{serviceName}} – GOV.UK
+What are you applying for?  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -42,7 +42,7 @@ What change are you making to this product?   – {{serviceName}} – GOV.UK
           id: "applicationWhatAuthorisationExisting",
           fieldset: {
             legend: {
-              text: "What change are you making to this product? ",
+              text: "What are you applying for? ",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -52,33 +52,23 @@ What change are you making to this product?   – {{serviceName}} – GOV.UK
           },
           items: [
             {
-              value: "Change details",
-              text: "Change of product information ",
-              hint: {text: "Including trade name, authorisation holder or pack size "}
+              value: "CRD3",
+              text: "An extension of authorisation for minor use (EAMU)  ",
+              hint: {text: ""}
             },
             {
               value: "CRDR",
-              text: "Renewal of a product authorisation"
-            },
-            {
-              value: "CRD3",
-              text: "Change of sources of technical material "
+              text: "Renewal of a product authorisation",
+              hint: {text:"Must be submitted within 3 months of the date of application of the renewal of an active substance "}
             },
             {
               value: "CRDW",
               text: "Commercial withdrawal of an authorised use  "
             },
             {
-              value: "CRD3",
-              text: "Extend identical changes from another authorised product ",
-              hint: {text: "Formulation composition, manufacturing site and authorisation holder manufacturing the product must be identical to the existing product "}
-            },
-            {
-              value: "Other",
-              text: "Other  ",
-              conditional: {
-                html: emailHtml
-              }
+              value: "Change details",
+              text: "Changes to other details of a product or authorisation ",
+              hint: {text: ""}
             }
 
           ]
