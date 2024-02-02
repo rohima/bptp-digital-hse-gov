@@ -144,9 +144,66 @@ router.post('/auth-holder-check-answers', function (req, res) {
 router.post('/source-owner-same', function (req, res) {
   
   let sourceOwnerSame = req.session.data.sourceOwnerSame;
+
+  if (sourceOwnerSame == "Someone else") {
+    res.redirect('source-owner-company');
+  } else {
+    res.redirect('source-owner-check-answers');
+  }
+
+})
+
+
+
+// TO CHANGE
+
+
+// source-owner-company
+
+router.post('/source-owner-company', function (req, res) {
+  let sourceOwnerCompanyName = req.session.data.sourceOwnerCompanyName;
+  res.redirect('source-owner-address-postcode');
+})
+
+// source-owner-address-postcode
+
+router.post('/source-owner-address-postcode', function (req, res) {
+  let sourceOwnerAddressPostcode = req.session.data.sourceOwnerAddressPostcode;
+  res.redirect('source-owner-address-list');
+})
+
+// source-owner-address-list
+
+router.post('/source-owner-address-list', function (req, res) {
+  let sourceOwnerCompanyAddressList = req.session.data.sourceOwnerCompanyAddressList;
+  res.redirect('source-owner-address-confirm');
+})
+
+// source-owner-address-confirm
+
+router.post('/source-owner-address-confirm', function (req, res) {
+  res.redirect('source-owner-company-registration');
+})
+
+// auth-holder-company-registration
+  
+router.post('/source-owner-company-registration', function (req, res) {
+  let applicationOrganisationType = req.session.data.applicationOrganisationType;
+  if (applicationOrganisationType == "Yes") {
+    res.redirect('source-owner-check-answers');
+  } else {
+    res.redirect('documents-upload-proof-of-authorisation');
+  }
+})
+
+
+// documents-upload-proof-of-authorisation
+router.post('/documents-upload-proof-of-authorisation', function (req, res) {
+  let sourceOwnerHolderAuthorisation = req.session.data.sourceOwnerHolderAuthorisation;
   res.redirect('source-owner-check-answers');
 
 })
+
 
 
 // source-owner-check-answers
@@ -160,14 +217,33 @@ router.post('/source-owner-check-answers', function (req, res) {
 
 
 
+
+
+
 // type-of-assessment
 
 router.post('/type-of-assessment', function (req, res) {
   
   let authHolderCheckAnswers = req.session.data.authHolderCheckAnswers;
-  res.redirect('formula-is-csv-upload');
+  res.redirect('active-substance-source-request-tech-equiv-upload');
 
 })
+
+
+// active-substance-source-request-tech-equiv-upload
+
+router.post('/active-substance-source-request-tech-equiv-upload', function (req, res) {
+    res.redirect('document-data');
+})
+
+
+// document-data
+
+router.post('/document-data', function (req, res) {
+  res.redirect('active-substance-source-request-tech-equiv-production-scale');
+})
+
+
 
 
 
@@ -626,7 +702,7 @@ router.post('/evaluation-mode', function (req, res) {
 
 router.post('/active-substance-source-request-tech-equiv-production-scale', function (req, res) { 
   let productionScale = req.session.data.productionScale;
-  res.redirect('active-substance-5-batch-company');
+  res.redirect('manufacturing-address-postcode');
 
 })
 

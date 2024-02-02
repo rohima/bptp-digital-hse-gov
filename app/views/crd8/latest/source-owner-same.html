@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Who is the owner of the source in this application? – {{serviceName}} – GOV.UK
+Who is the owner of the source? – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,9 +15,7 @@ Who is the owner of the source in this application? – {{serviceName}} – GOV.
 
      
       
- {# <span class="govuk-caption-l">Principal designer</span> #}
- <h1 class="govuk-heading-l">Who is the owner of the source in this application?
-   {# {{data ['clientCompanyName'] or "[Client Company Name]"}} #}
+ <h1 class="govuk-heading-l">Who is the owner of the source?
   </h1>
       <form class="form" method="post">
 
@@ -35,13 +33,6 @@ Who is the owner of the source in this application? – {{serviceName}} – GOV.
               text: "Applicants company ltd",
               hint: {
                 text: "Applicant"
-              }
-            },
-            {
-              value: "Authorisation holder company ltd",
-              text: "Authorisation holder company ltd",
-              hint: {
-                text: "Authorisation holder"
               }
             },
             {

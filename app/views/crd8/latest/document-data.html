@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Upload your data document supporting assessment in chemistry – {{serviceName}} – GOV.UK
+Upload your data – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,15 +12,113 @@ Upload your data document supporting assessment in chemistry – {{serviceName}}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Upload your data</h1>
+        <p>Select how you are supporting this application in each assessment area, and upload your data.</p>
 
-      
-
-     
-        {# <span class="govuk-caption-l">Documents</span> #}
-
-        <h1 class="govuk-heading-l">Upload your data document supporting assessment in chemistry evaluation</h1>
-        <p></p>
         <form class="form" method="post">
+
+          {{ govukCheckboxes({
+            name: "waste",
+            fieldset: {
+              legend: {
+                text: "Chemistry (5-batch data)",
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "Case",
+                text: "Case"
+              },
+              {
+                value: "Data",
+                text: "Data"
+              }
+            ]
+          }) }}
+
+          {{ govukCheckboxes({
+            name: "waste",
+            fieldset: {
+              legend: {
+                text: "Declaration ",
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "I confirm that the batch data submitted to support the consideration of equivalence of this source of technical material are representative of usual production.",
+                text: "I confirm that the batch data submitted to support the consideration of equivalence of this source of technical material are representative of usual production."
+              }
+            ]
+          }) }}
+
+          {{ govukCheckboxes({
+            name: "waste",
+            fieldset: {
+              legend: {
+                text: "Toxicology",
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "Case",
+                text: "Case"
+              },
+              {
+                value: "Data",
+                text: "Data"
+              }
+            ]
+          }) }}
+
+          {{ govukCheckboxes({
+            name: "waste",
+            fieldset: {
+              legend: {
+                text: "Ecotoxicology",
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "Case",
+                text: "Case"
+              },
+              {
+                value: "Data",
+                text: "Data"
+              }
+            ]
+          }) }}
+
+
+
+          {{ govukRadios({
+          name: "supportingDocThirdParty",
+          id: "supportingDocThirdParty",
+          fieldset: {
+            legend: {
+              text: "Will a third party provide any or all of this information?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Third party",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+
+{#
 
         {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
         {{ govukFileUpload({
@@ -30,6 +128,29 @@ Upload your data document supporting assessment in chemistry – {{serviceName}}
             text: "Upload file"
           }
         }) }}
+#}
+        <div id="file-upload-1-hint" class="govuk-hint">
+        You can upload more than one file. Each file must be a maximum of 4GB.  
+      </div>
+
+        <p id="upload-update" class="govuk-body govuk-!-display-none" aria-live="assertive" aria-relevant="all">1 of 2 files uploaded</p>
+
+        <button id="upload-more" style="display:none" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Add more files
+      </button>
+
+        <div id="upload-wrapper" class="govuk-form-group">
+          <label class="govuk-label" for="upload-button">
+          Upload a file
+        </label>
+          <input class="govuk-file-upload" id="upload-button" name="upload-button" type="file" multiple="multiple">
+        </div>
+
+        <p class="govuk-body govuk-!-display-none" id="refreshPageProgress">
+          <a href="#" class="govuk-link">Refresh page to update file upload progress</a>
+        </p>
+
+        <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key"></dl>
     
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>

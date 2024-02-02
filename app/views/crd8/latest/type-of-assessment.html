@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Product use – {{serviceName}} – GOV.UK
+What type of application are you submitting? – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,21 +13,13 @@ Product use – {{serviceName}} – GOV.UK
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-     
-      
-
       <form class="form" method="post">
 
-      {# <span class="govuk-caption-l">Application</span> #}
-
-      <h1 class="govuk-heading-l">
-       {# Application requiring technical assessment: #}
-       What type of application are you submitting? 
-      </h1>
+      <h1 class="govuk-heading-l">What are you applying for?</h1>
 
       {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
-      {{ govukCheckboxes({
+      {{ govukRadios({
         name: "proposedUseCropSituation",
         id: "proposedUseCropSituation",
         fieldset: {
@@ -37,24 +29,21 @@ Product use – {{serviceName}} – GOV.UK
             classes: "govuk-fieldset__legend--l"
           }
         },
-        hint: {
-          text: "Select all that apply"
-        },
         items: [
           {
-            value: "New active substance manufacturing site",
-            text: "New active substance manufacturing site",
-            hint: {text: ""}
+            value: "New active substance manufacturing site ",
+            text: "New active substance manufacturing site "
           },
           {
-            value: "SoChange to the technical specification of an existing source of technical materialil",
-            text: "Change to the technical specification of an existing source of technical material",
-            hint: {text:""}
+            value: "Change to the technical specification of an existing source of technical material ",
+            text: "Change to the technical specification of an existing source of technical material "
           },
           {
             value: "Change to existing manufacturing process",
             text: "Change to existing manufacturing process",
-            hint: {text:"For example, going from pilot plant to full-scale production "}
+            hint: {
+              text:"For example, going from pilot plant to full-scale production"
+            }
           }
         ]
       }) }}
