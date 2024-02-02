@@ -1,0 +1,128 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Give details of the actives due for renewal within the next 12 months  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      {# <span class="govuk-caption-l">Data ownership: Active substance source data </span> #}
+      <h1 class="govuk-heading-l">Give details of the actives due for renewal within the next 12 months </p>
+
+{# <p>[Active substance name]  </p>
+<p>Add details of  this active substance source. You can add more sources later if you need to.  </p> #}
+
+  <h2 class="govuk-heading-m">Active name </h2>
+  
+  {{ govukInput({
+    label: {
+      text: 'Enter substance name '
+    },
+    hint: {
+    text: "Type part of the substance name and select it from the list. If the full name does not show, enter it manually "
+  },
+    id: "formulaActiveSubstanceSourceName",
+    name: "formulaActiveSubstanceSourceName",
+    autocomplete: "address-line1",
+    classes: "govuk-!-width-two-thirds"
+  }) }}
+
+
+  <h2 class="govuk-heading-m">Expiry date   </h2>
+
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      
+      </legend>
+      <div id="passport-issued-hint" class="govuk-hint">
+        For example, 03 2007
+      </div>
+      <div class="govuk-date-input" id="passport-issued">
+        {# <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+          </div>
+        </div> #}
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  
+ 
+
+
+  <h2 class="govuk-heading-m">Do you need to add another active due for renewal within the next 12 months? </h2>
+
+  {{ govukRadios({
+    id: "formulaActiveSourceDataOwnerAddress",
+    name: "formulaActiveSourceDataOwnerAddress",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: ""
+    },
+    items: [
+      {
+        value: "Yes",
+        text: "Yes",
+        checked: false
+      },   
+      {
+        value: "No",
+        text: "No"
+      }
+  
+    ]
+  }) }}
+
+  
+
+
+
+
+
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

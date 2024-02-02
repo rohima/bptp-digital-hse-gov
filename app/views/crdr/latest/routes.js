@@ -148,6 +148,124 @@ router.post('/task-list', function (req, res) {
 
 })
 
+// ----------------- FIND PRODUCT ----------------- //
+
+// find-search
+
+router.post('/find-search', function (req, res) {  
+  let findSearch = req.session.data.findSearch;
+  res.redirect('find-results');
+
+})
+
+// find-results
+
+router.post('/find-results', function (req, res) {  
+  let findResults = req.session.data.findResults;
+  res.redirect('find-confirm');
+
+})
+
+// find-confirm
+
+router.post('/find-confirm', function (req, res) {  
+  let findConfirm = req.session.data.findConfirm;
+  res.redirect('application-market-area-extent');
+
+})
+
+// ----------------- MARKET AREA ----------------- //
+
+// application-market-area-extent
+
+router.post('/application-market-area-extent', function (req, res) {
+  
+  let marketArea = req.session.data.marketArea;
+  res.redirect('request-delay');
+
+})
+
+// ----------------- REQUEST DELAY ----------------- //
+
+// request-delay
+
+router.post('/request-delay', function (req, res) {
+  
+  let requestDelay = req.session.data.requestDelay;
+  if (requestDelay == "Yes") {
+    res.redirect('request-delay-type');
+  } else {
+    res.redirect('request-delay-who');
+  }
+
+})
+
+// request-delay-type
+
+router.post('/request-delay-type', function (req, res) {
+  
+  let requestDelayType = req.session.data.requestDelayType;
+  if (requestDelayType == "Mixed active delay") {
+    res.redirect('request-delay-active');
+  } else {
+    res.redirect('request-delay-type');
+  }
+  
+
+})
+
+// request-delay-who
+
+router.post('/request-delay-who', function (req, res) {
+  
+  let requestDelayWho = req.session.data.requestDelayWho;
+  let requestDelayName = req.session.data.requestDelayName;
+  res.redirect('request-delay-who');
+
+})
+
+// request-delay-active
+
+router.post('/request-delay-active', function (req, res) {
+  
+  let requestDelayActive = req.session.data.requestDelayActive;
+  res.redirect('formulation-is-change');
+
+})
+
+
+// formulation-is-change
+
+router.post('/formulation-is-change', function (req, res) {
+  
+  let isFormulationChange = req.session.data.isFormulationChange;
+  res.redirect('gap-is-change');
+
+})
+
+// gap-is-change
+
+router.post('/gap-is-change', function (req, res) {
+  
+  let isGapChange = req.session.data.isGapChange;
+  if (isGapChange == "Yes") {
+    res.redirect('product-use-info');
+  } else {
+    res.redirect('active-substance-renewal-details');
+  }
+
+})
+
+// active-substance-renewal-details
+
+router.post('/active-substance-renewal-details', function (req, res) {
+  
+  let isFormulationChange = req.session.data.isFormulationChange;
+  res.redirect('gap-is-change');
+
+})
+
+
 
 // ----------------- PRODUCT INFORMATION ----------------- //
 
@@ -292,16 +410,7 @@ router.post('/marketing-co-check-answers', function (req, res) {
 
 })
 
-// ----------------- MARKET AREA ----------------- //
 
-// application-market-area
-
-router.post('/application-market-area', function (req, res) {
-  
-  let marketArea = req.session.data.marketArea;
-  res.redirect('product-name');
-
-})
 
 
 // ----------------- PRODUCT DETAILS ----------------- //
@@ -1444,31 +1553,7 @@ router.post('/product-mrl-currently-in-force-add-another', function (req, res) {
 
 // 
 
-// ----------------- FIND PRODUCT ----------------- //
 
-// find-search
-
-router.post('/find-search', function (req, res) {  
-  let findSearch = req.session.data.findSearch;
-  res.redirect('find-results');
-
-})
-
-// find-results
-
-router.post('/find-results', function (req, res) {  
-  let findResults = req.session.data.findResults;
-  res.redirect('find-confirm');
-
-})
-
-// find-confirm
-
-router.post('/find-confirm', function (req, res) {  
-  let findConfirm = req.session.data.findConfirm;
-  res.redirect('placeholder-anything-changed');
-
-})
 
 // ----------------- ANY CHANGES ----------------- //
 
