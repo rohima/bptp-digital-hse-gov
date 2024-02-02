@@ -24,7 +24,8 @@ Active substance technical specification – {{serviceName}} – GOV.UK
         },
         id: "formulaActiveSubstanceName",
         name: "formulaActiveSubstanceName",
-        autocomplete: "address-line1"
+        autocomplete: "address-line1",
+        classes: "govuk-input--width-20"
       }) }}
 
 
@@ -36,10 +37,11 @@ Active substance technical specification – {{serviceName}} – GOV.UK
         },
         id: "formulaActiveSubstanceCAS",
         name: "formulaActiveSubstanceCAS",
-        autocomplete: "address-line1"
+        autocomplete: "address-line1",
+        classes: "govuk-input--width-10"
       }) }}
 
-      <h2 class="govuk-heading-s">Minimum content</h2>
+      <h2 class="govuk-heading-m">Minimum content</h2>
 
       {{ govukInput({
         label: {
@@ -47,7 +49,8 @@ Active substance technical specification – {{serviceName}} – GOV.UK
         },
         id: "formulaActiveSubstanceMinContent",
         name: "formulaActiveSubstanceMinContent",
-        autocomplete: "address-line1"
+        autocomplete: "address-line1",
+        classes: "govuk-input--width-5"
       }) }}
 
       {% set otherUnit %}
@@ -57,7 +60,8 @@ Active substance technical specification – {{serviceName}} – GOV.UK
         },
         id: "formulaActiveSubstanceMinContentUnitOther",
         name: "formulaActiveSubstanceMinContentUnitOther",
-        autocomplete: "address-line1"
+        autocomplete: "address-line1",
+        classes: "govuk-input--width-20"
       }) }}
       {% endset %}
 

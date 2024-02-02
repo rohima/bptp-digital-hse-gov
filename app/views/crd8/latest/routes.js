@@ -735,7 +735,16 @@ router.post('/document-covering-letter', function (req, res) {
 
 router.post('/document-application-overview', function (req, res) { 
   let productionScale = req.session.data.productionScale;
-  res.redirect('document-draft-technical-report');
+  res.redirect('check-answers');
+
+})
+
+
+// check-answers
+
+router.post('/check-answers', function (req, res) { 
+  let productionScale = req.session.data.productionScale;
+  res.redirect('declaration');
 
 })
 
@@ -794,9 +803,18 @@ router.post('/manufacturing-site-add-another', function (req, res) {
 
 router.post('/active-substance-details', function (req, res) { 
   let productionScale = req.session.data.productionScale;
-  res.redirect('active-substance-component');
+  res.redirect('active-substance-impurity');
 
 })
+
+// active-substance-impurity
+
+router.post('/active-substance-impurity', function (req, res) { 
+  let productionScale = req.session.data.productionScale;
+  res.redirect('document-application-overview');
+
+})
+
 
 // active-substance-component
 
@@ -810,7 +828,7 @@ router.post('/active-substance-component', function (req, res) {
 
 router.post('/invoice', function (req, res) { 
   let productionScale = req.session.data.productionScale;
-  res.redirect('declaration');
+  res.redirect('confirmation');
 
 })
 
@@ -818,7 +836,7 @@ router.post('/invoice', function (req, res) {
 
 router.post('/declaration', function (req, res) { 
   let productionScale = req.session.data.productionScale;
-  res.redirect('confirmation');
+  res.redirect('invoice');
 
 })
 
