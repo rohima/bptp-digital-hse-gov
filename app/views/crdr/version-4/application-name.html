@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Name your application – Manage building control for a higher-risk building – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">Name your application</h1>
+        <p>To help keep track of your application, choose a name that identifies it clearly to you.</p>
+
+        {{ govukInput({
+        label: {
+          text: "",
+          classes: "govuk-label?--l",
+          isPageHeading: true
+        },
+        hint: {
+          text: "For a new building, you might use the building name - like Hawthorn House. For work to an existing building, you might name the building and the works. For example, The Shard window replacement."
+        },
+        id: "applicationName",
+        name: "applicationName"
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

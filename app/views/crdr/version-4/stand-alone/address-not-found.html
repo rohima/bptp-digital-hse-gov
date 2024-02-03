@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Select registered address for {{ data['applicationCompanyName'] or "[company name]" }} {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Address not found</h1>
+
+      <form class="form" method="post">
+
+        <p>0 addresses found for <strong>[house number] [post code]</strong></p>
+        
+        <p>If you typed the post code, check it is correct.</p>
+
+        <p>If you pasted the post code, check you copied the entire post code.</p>
+
+        <button class="govuk-button" data-module="govuk-button">Search again</button>
+
+
+        <p>
+          <a href="enter-manual-address">Enter address manually</a>
+        </p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -181,9 +181,77 @@ router.post('/find-confirm', function (req, res) {
 router.post('/application-market-area-extent', function (req, res) {
   
   let marketArea = req.session.data.marketArea;
+  res.redirect('application-type');
+
+})
+
+// application-type
+router.post('/application-type', function (req, res) {
+  
+  let renewalApplicationType = req.session.data.renewalApplicationType;
+  if (renewalApplicationType == "Delay") {
+    res.redirect('delay-type');
+  } else {
+    res.redirect('active-substance-renewal-details');
+  }
+ 
+
+})
+
+// delay-type
+router.post('/delay-type', function (req, res) {
+  
+  let delayType = req.session.data.delayType;
+  res.redirect('active-substance-renewal-details');
+
+})
+
+
+// ----------------- ACTIVE RENEWALS DETAILS ----------------- //
+
+// active-substance-renewal-details
+
+router.post('/active-substance-renewal-details', function (req, res) {
+  
+  let activeRenewalDetails = req.session.data.activeRenewalDetails;
+  res.redirect('gap-product-use-compliance');
+
+})
+
+// ----------------- COMPLIANCE ----------------- //
+
+// gap-product-use-compliance
+
+router.post('/gap-product-use-compliance', function (req, res) {
+  
+  let gapProductUseCompliance = req.session.data.gapProductUseCompliance;
+  res.redirect('active-substance-source-compliance');
+
+})
+
+
+
+// active-substance-source-compliance
+
+router.post('/active-substance-source-compliance', function (req, res) {
+  let activeSourceCompliance = req.session.data.activeSourceCompliance;
+  if (activeSourceCompliance == "No") {
+    res.redirect('active-substance-source-compliance-details');
+  } else {
+    res.redirect('request-delay');
+  }
+
+})
+
+// active-substance-source-compliance-details
+
+router.post('/active-substance-source-compliance-details', function (req, res) {
+  
+  let activeSourceComplianceDetails = req.session.data.activeSourceComplianceDetails;
   res.redirect('request-delay');
 
 })
+
 
 // ----------------- REQUEST DELAY ----------------- //
 
@@ -208,9 +276,18 @@ router.post('/request-delay-type', function (req, res) {
   if (requestDelayType == "Mixed active delay") {
     res.redirect('request-delay-active');
   } else {
-    res.redirect('request-delay-type');
+    res.redirect('request-delay-who');
   }
   
+
+})
+
+// request-delay-active
+
+router.post('/request-delay-active', function (req, res) {
+  
+  let requestDelayActive = req.session.data.requestDelayActive;
+  res.redirect('request-delay-who');
 
 })
 
@@ -220,18 +297,10 @@ router.post('/request-delay-who', function (req, res) {
   
   let requestDelayWho = req.session.data.requestDelayWho;
   let requestDelayName = req.session.data.requestDelayName;
-  res.redirect('request-delay-who');
-
-})
-
-// request-delay-active
-
-router.post('/request-delay-active', function (req, res) {
-  
-  let requestDelayActive = req.session.data.requestDelayActive;
   res.redirect('formulation-is-change');
 
 })
+
 
 
 // formulation-is-change
@@ -239,6 +308,7 @@ router.post('/request-delay-active', function (req, res) {
 router.post('/formulation-is-change', function (req, res) {
   
   let isFormulationChange = req.session.data.isFormulationChange;
+
   res.redirect('gap-is-change');
 
 })
@@ -249,27 +319,658 @@ router.post('/gap-is-change', function (req, res) {
   
   let isGapChange = req.session.data.isGapChange;
   if (isGapChange == "Yes") {
-    res.redirect('product-use-info');
+    res.redirect('proposed-use-info');
   } else {
-    res.redirect('active-substance-renewal-details');
+    res.redirect('back-to-back-is-change');
   }
 
 })
 
-// active-substance-renewal-details
 
-router.post('/active-substance-renewal-details', function (req, res) {
-  
-  let isFormulationChange = req.session.data.isFormulationChange;
-  res.redirect('gap-is-change');
-
-})
 
 
 
 // ----------------- PRODUCT INFORMATION ----------------- //
 
 
+
+
+
+
+
+
+// ----------------- CHANGE GAP ----------------- //
+
+// proposed-use-info
+
+router.post('/proposed-use-info', function (req, res) {  
+  let summaryOfChanges = req.session.data.summaryOfChanges;
+  res.redirect('is-microbial');
+})
+
+// is-microbial
+
+router.post('/is-microbial', function (req, res) {  
+  let isMicrobial = req.session.data.isMicrobial;
+  res.redirect('product-use');
+})
+
+
+// ----------------- GAP ----------------- //
+
+
+// ----------------- PRODUCT USE ----------------- //
+
+
+// product-use
+
+router.post('/product-use', function (req, res) {
+  
+  let productUser = req.session.data.productUser;
+  res.redirect('product-proposed-use');
+
+})
+
+// product-proposed-use
+
+router.post('/product-proposed-use', function (req, res) {
+  let intendedProductUser = req.session.data.intendedProductUser;
+  if (intendedProductUser == "Professional") {
+    res.redirect('product-use-seed-treatment');
+  } else {
+    res.redirect('gap-is-csv-upload');
+  }
+
+})
+
+// product-use-seed-treatment
+
+router.post('/product-use-seed-treatment', function (req, res) {
+  
+  let isProductSeedTreatment = req.session.data.isProductSeedTreatment;
+
+  res.redirect('gap-is-csv-upload');
+
+})
+
+
+
+// gap-is-csv-upload
+
+router.post('/gap-is-csv-upload', function (req, res) {
+  let isProductSeedTreatment = req.session.data.isProductSeedTreatment;
+  let isGapCsvUpload = req.session.data.isGapCsvUpload;
+  let intendedProductUser = req.session.data.intendedProductUser;
+  res.redirect('gap-csv-1');
+  //if (intendedProductUser == "Professional") {
+/*
+  if (intendedProductUser == "Professional") {
+    if (isGapCsvUpload == "Yes") {
+      res.redirect('gap-csv-1');
+    } else if (isGapCsvUpload == "No" && isProductSeedTreatment == "Yes"){
+      res.redirect('gap-seed-treatment');
+    } else {
+      res.redirect('gap-crop-product');
+    }
+  } else {
+    res.redirect('gap-crop-product');
+  }
+*/
+})
+
+
+
+// gap-csv-1
+
+router.post('/gap-csv-1', function (req, res) {
+  let gapCsv = req.session.data.gapCsv;
+  res.redirect('gap-environmental-phrases');
+
+})
+
+// gap-environmental-phrases
+
+router.post('/gap-environmental-phrases', function (req, res) {
+  let environmentalPhrases = req.session.data.environmentalPhrases;
+  let environmentalPhrasesDetails = req.session.data.environmentalPhrasesDetails;
+  res.redirect('gap-other-specific-restrictions');
+
+})
+
+// gap-other-specific-restrictions
+
+router.post('/gap-other-specific-restrictions', function (req, res) {
+  let otherSpecificRestrictions = req.session.data.otherSpecificRestrictions;
+  let individualUsesDetails = req.session.data.individualUsesDetails;
+  res.redirect('gap-personal-protective-equipment');
+
+})
+
+// gap-personal-protective-equipment 
+
+router.post('/gap-personal-protective-equipment', function (req, res) {
+  let personalProtectiveEquipment = req.session.data.personalProtectiveEquipment;
+  let personalProtectiveEquipmentDetails = req.session.data.personalProtectiveEquipmentDetails;
+  res.redirect('gap-clp');
+
+})
+
+// gap-clp
+router.post('/gap-clp', function (req, res) {
+  let gapClp = req.session.data.gapClp;
+  let gapClpApplyAll = req.session.data.gapClpApplyAll;
+  res.redirect('gap-other-product');
+
+})
+
+
+
+// gap-other-product
+
+// router.post('/packaging-upload-label', function (req, res) {
+//   let gapOtherProduct = req.session.data.gapOtherProduct;
+//   res.redirect('documents-reference-product-risk-areas');
+
+// })
+
+
+
+
+
+// gap-crop-product
+
+router.post('/gap-crop-product', function (req, res) {
+  let gapCropLocation = req.session.data.gapCropLocation;
+  if (gapCropLocation == "Protected" || gapCropLocation == "PPFE") {
+    res.redirect('gap-growing-media');
+  } else {
+    res.redirect('gap-dosage');
+  }
+
+})
+
+// gap-growing-media
+
+router.post('/gap-growing-media', function (req, res) {
+  let gapGrowingMedia = req.session.data.gapGrowingMedia;
+  res.redirect('gap-dosage');
+
+})
+
+// gap-dosage
+
+router.post('/gap-dosage', function (req, res) {
+  let gapDosage = req.session.data.gapDosage;
+  res.redirect('gap-timings');
+
+})
+
+// gap-timings
+
+router.post('/gap-timings', function (req, res) {
+  let gapTimings = req.session.data.gapTimings;
+  let intendedProductUser = req.session.data.intendedProductUser;
+  res.redirect(`gap-application-${intendedProductUser.toLowerCase()}-protected`);
+})
+
+// gap-application-[intendedProductUser]-protected
+
+router.post('/gap-application-*-protected', function (req, res) {
+  let intendedProductUser = req.session.data.intendedProductUser;
+  res.redirect(`gap-application-${intendedProductUser.toLowerCase()}-indoor`);
+})
+
+// gap-application-[intendedProductUser]-indoor
+
+router.post('/gap-application-*-indoor', function (req, res) {
+  let intendedProductUser = req.session.data.intendedProductUser;
+  res.redirect(`gap-application-${intendedProductUser.toLowerCase()}-outdoor`);
+})
+
+// gap-application-[intendedProductUser]-outdoor
+
+router.post('/gap-application-*-outdoor', function (req, res) {
+  let intendedProductUser = req.session.data.intendedProductUser;
+  res.redirect('gap-other-product');
+})
+
+// gap-application-method
+
+router.post('/gap-application-method', function (req, res) {
+  let gapApplicationMethod = req.session.data.gapApplicationMethod;
+  res.redirect('gap-other-product');
+
+})
+
+// gap-other-product
+
+router.post('/gap-other-product', function (req, res) {
+  let gapOtherProduct = req.session.data.gapOtherProduct;
+  res.redirect('back-to-back-is-change');
+
+})
+
+// gap-seed-treatment
+
+router.post('/gap-seed-treatment', function (req, res) {
+  let gapSeedTreatment = req.session.data.gapSeedTreatment;
+  res.redirect('gap-seed-treatment-application');
+
+})
+
+// gap-seed-treatment-application
+
+router.post('/gap-seed-treatment-application', function (req, res) {
+  let gapSeedApplication = req.session.data.gapSeedApplication;
+  res.redirect('gap-seed-treatment-growth');
+
+})
+
+// gap-seed-treatment-growth
+
+router.post('/gap-seed-treatment-growth', function (req, res) {
+  let gapSeedGrowth = req.session.data.gapSeedGrowth;
+  res.redirect('packaging-number-of');
+
+})
+
+
+
+
+
+
+
+// back-to-back-is-change
+
+router.post('/back-to-back-is-change', function (req, res) {
+  let isBackToBackChange = req.session.data.isBackToBackChange;
+  if (isBackToBackChange == "Yes") {
+    res.redirect('back-to-back-info');
+  } else {
+    res.redirect('eamu-auth-current');
+  }
+
+})
+
+// back-to-back-info
+
+router.post('/back-to-back-info', function (req, res) {
+  let isBackToBackChange = req.session.data.isBackToBackChange;
+  res.redirect('eamu-auth-current');
+
+})
+
+// eamu-auth-current
+
+router.post('/eamu-auth-current', function (req, res) {  
+  let eamuAuthCurrent = req.session.data.eamuAuthCurrent;
+  if (eamuAuthCurrent == 'Yes') {
+    res.redirect('eamu-auth-current-details-other');
+  } else {
+    res.redirect('documents-reference-product-risk-areas');
+  }
+})
+
+// eamu-auth-current-details-other
+
+router.post('/eamu-auth-current-details-other', function (req, res) {  
+  let eamuAuthCurrentDetails = req.session.data.eamuAuthCurrentDetails;
+  res.redirect('documents-reference-product-risk-areas');
+})
+
+
+
+
+
+// ----------------- MANUFACTURING LOCATION ----------------- //
+
+// manufacturing-address-postcode
+
+router.post('/manufacturing-address-postcode', function (req, res) {
+  
+  let manufacturingPostcode = req.session.data.manufacturingPostcode;
+  res.redirect('manufacturing-address-list');
+
+})
+
+// manufacturing-address-list
+
+router.post('/manufacturing-address-list', function (req, res) {
+  
+  let manufacturingAddressList = req.session.data.manufacturingAddressList;
+  res.redirect('manufacturing-address-confirm');
+
+})
+
+// manufacturing-address-confirm
+
+router.post('/manufacturing-address-confirm', function (req, res) {
+  
+  let manufacturingAddressConfirm = req.session.data.manufacturingAddressConfirm;
+  res.redirect('manufacturing-site-add-another');
+
+})
+
+// manufacturing-site-add-another
+
+router.post('/manufacturing-site-add-another', function (req, res) {  
+  let manufacturingAddressAddAnother = req.session.data.manufacturingAddressAddAnother;
+  if (manufacturingAddressAddAnother == "Yes") {
+    res.redirect('manufacturing-address-postcode');
+  } else {
+    res.redirect('manufacturing-check-answers');
+  }
+})
+
+// manufacturing-address-remove
+
+router.post('/manufacturing-address-remove', function (req, res) {
+  res.redirect('manufacturing-site-add-another');
+})
+
+// manufacturing-check-answers
+
+router.post('/manufacturing-check-answers', function (req, res) {  
+  let manufacturingCheckAnswers = req.session.data.manufacturingCheckAnswers;
+  res.redirect('documents-reference-product-risk-areas');
+
+})
+
+
+// ----------------- SPECIALIST ASSESSMENT AREAS ----------------- //
+
+// documents-reference-product-risk-areas
+
+router.post('/documents-reference-product-risk-areas', function (req, res) {  
+  let documentsReferenceProductRiskAreas = req.session.data.documentsReferenceProductRiskAreas;
+  let productProposedUse = req.session.data.productProposedUse;
+  // if (productProposedUse == "Data") {
+  //   res.redirect('documents-reference-product-risk-areas-upload-info');
+  // } else {
+  //   res.redirect('documents-reference-product');
+  // }  
+
+  res.redirect('formula-active-substance-data-ownership-details');
+  
+})
+
+// documents-reference-product-risk-areas-upload-info
+router.post('/documents-reference-product-risk-areas-upload-info', function (req, res) {  
+  let documentsReferenceProductRiskAreasInfo = req.session.data.documentsReferenceProductRiskAreas;
+  if (documentsReferenceProductRiskAreasInfo == "Upload a file") {
+    res.redirect('documents-reference-product-risk-areas-upload');
+  } else {
+    res.redirect('documents-reference-product');
+  }  
+
+})
+
+// documents-reference-product-risk-areas-upload
+
+router.post('/documents-reference-product-risk-areas-upload', function (req, res) {  
+  let documentsReferenceProductRiskAreasUpload = req.session.data.documentsReferenceProductRiskAreas;
+    res.redirect('documents-reference-product');
+})
+
+
+// ----------------- DOCUMENTS ----------------- //
+
+// documents-reference-product
+
+router.post('/documents-reference-product', function (req, res) {  
+  let documentsReferenceProduct = req.session.data.documentsReferenceProduct;
+
+  if (documentsReferenceProduct == "Yes") {
+    res.redirect('documents-reference-product-details');
+  } else {
+    res.redirect('documents-upload-admin');
+  }  
+})
+
+// documents-reference-product-details
+
+router.post('/documents-reference-product-details', function (req, res) {  
+  let documentsReferenceProductDetails = req.session.data.documentsReferenceProductDetails;
+  let documentsReferenceProductName = req.session.data.documentsReferenceProductName;
+  let documentsReferenceProductMapp = req.session.data.documentsReferenceProductMapp;
+  let documentsReferenceProductAuthHolder = req.session.data.documentsReferenceProductAuthHolder;
+  let documentsReferenceProductMarketingCo = req.session.data.documentsReferenceProductMarketingCo;
+  res.redirect('documents-upload-admin');
+
+})
+
+
+
+// documents-reference-product-risk-areas-34
+
+router.post('/documents-reference-product-risk-areas-34', function (req, res) {  
+  let documentsReferenceProductRiskAreas34 = req.session.data.documentsReferenceProductRiskAreas34;
+  res.redirect('documents-upload-admin');
+
+})
+
+
+
+// documents-upload-admin
+
+router.post('/documents-upload-admin', function (req, res) {  
+  let documentsAdmin = req.session.data.documentsAdmin;
+  let documentsAdminSelect = req.session.data.documentsAdminSelect;
+  res.redirect('documents-upload-draft-reg-report');
+
+})
+
+// documents-upload-draft-reg-report
+
+router.post('/documents-upload-draft-reg-report', function (req, res) {  
+  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
+  let documentsDraftRegReportSelect = req.session.data.documentsDraftRegReportSelect;
+  res.redirect('documents-upload-supporting');
+
+})
+
+// documents-upload-draft-reg-report microbials
+
+router.post('/documents-upload-draft-reg-report-microbials', function (req, res) {  
+  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
+  let documentsDraftRegReportSelectMicrobes = req.session.data.documentsDraftRegReportSelectMicrobes;
+  res.redirect('documents-upload-supporting');
+
+})
+
+// documents-upload-supporting
+
+router.post('/documents-upload-supporting', function (req, res) {  
+  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
+  let documentsDraftRegReportSelect = req.session.data.documentsDraftRegReportSelect;
+  res.redirect('documents-upload-relevant-correspondence');
+
+})
+
+// documents-upload-relevant-correspondence
+
+router.post('/documents-upload-relevant-correspondence', function (req, res) {  
+  let documentsRelevantCorrespondence = req.session.data.documentsRelevantCorrespondence;
+  res.redirect('documents-upload-safety-data-sheet');
+
+})
+
+// documents-upload-safety-data-sheet
+
+router.post('/documents-upload-safety-data-sheet', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-upload-comparative-assessment-report');
+
+})
+
+// documents-upload-comparative-assessment-report
+
+router.post('/documents-upload-comparative-assessment-report', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-upload-data-matching');
+
+})
+
+// documents-upload-data-matching
+router.post('/documents-upload-data-matching', function (req, res) {  
+  let documentsDataMatching = req.session.data.documentsDataMatching;
+  res.redirect('documents-upload-letters-of-access');
+
+})
+
+// documents-upload-letters-of-access
+
+router.post('/documents-upload-letters-of-access', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-check-answers');
+
+})
+
+
+
+// documents-upload-proof-of-authorisation
+/* removed as earlier in the flow
+router.post('/documents-upload-proof-of-authorisation', function (req, res) {  
+  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
+  res.redirect('documents-check-answers');
+
+})
+*/
+
+// documents-check-answers
+
+router.post('/documents-check-answers', function (req, res) {  
+  let documentsCheckAnswers = req.session.data.documentsCheckAnswers;
+  res.redirect('declaration');
+
+})
+
+
+// ----------------- DECLARATIONS ----------------- //
+
+// declaration
+
+router.post('/declaration', function (req, res) {  
+  let declaration = req.session.data.declaration;
+  res.redirect('invoice');
+
+})
+
+// ----------------- PAYMENTS ----------------- //
+
+// invoice
+
+router.post('/invoice', function (req, res) {  
+  let invoice = req.session.data.invoice;
+  res.redirect('confirmation');
+
+})
+
+// ----------------- CONFIRMATION ----------------- //
+
+// confirmation
+
+router.post('/confirmation', function (req, res) {  
+  let confirmation = req.session.data.confirmation;
+  res.redirect('confirmation');
+
+})
+
+
+
+
+
+
+
+
+
+
+// ----------------- MRL ----------------- //
+
+// mrl-needed
+
+router.post('/mrl-needed', function (req, res) {
+  
+  let productMrlNeeded = req.session.data.productMrlNeeded;
+  if (productMrlNeeded == "No") {
+    res.redirect('product-check-answers');
+  } else {
+    res.redirect('mrl-commodity-code-name');
+  }
+
+})
+
+// mrl-commodity-code-name
+
+router.post('/mrl-commodity-code-name', function (req, res) {
+  
+  let productCommodityCodeName = req.session.data.productCommodityCodeName;
+  res.redirect('mrl-change');
+
+})
+
+// mrl-change
+
+router.post('/mrl-change', function (req, res) {
+  
+  let productMrlChange = req.session.data.productMrlChange;
+  let productMrlCurrent = req.session.data.productMrlCurrent;
+  let productMrlProposed = req.session.data.productMrlProposed;
+  res.redirect('product-check-answers');
+
+})
+
+// product-mrl-currently-in-force - NOT USED
+
+router.post('/product-mrl-currently-in-force', function (req, res) {
+  
+  let productMrlInForce = req.session.data.productMrlInForce;
+  res.redirect('product-mrl-currently-in-force-value');
+
+})
+
+// product-mrl-currently-in-force-value NOT USED
+
+router.post('/product-mrl-currently-in-force-value', function (req, res) {
+  
+  let productMrlInForceValue = req.session.data.productMrlInForceValue;
+  res.redirect('product-mrl-currently-in-force-add-another');
+
+})
+
+// product-mrl-currently-in-force-add-another - NOT USED
+
+router.post('/product-mrl-currently-in-force-add-another', function (req, res) {
+  
+  let productMrlInForceAddAnother = req.session.data.productMrlInForceAddAnother;
+  res.redirect('product-check-answers');
+
+})
+
+// 
+
+
+
+// ----------------- ANY CHANGES ----------------- //
+
+// placeholder-anything-changed
+
+router.post('/placeholder-anything-changed', function (req, res) {  
+  let placeholderPage = req.session.data.placeholderPage;
+  res.redirect('auth-holder-company');
+
+})
+
+// ----------------- PLACEHOLDER PAGE ----------------- //
+
+router.post('/placeholder-page', function (req, res) {  
+  let placeholderPage = req.session.data.placeholderPage;
+  res.redirect('placeholder-page');
+
+})
+
+
+// ----------------- XXXXXXXXXXXXXXX  NOT USED   XXXXXXXXXXXXXX ----------------- //
 
 // ----------------- AUTHORISED HOLDER ----------------- //
 
@@ -441,6 +1142,7 @@ router.post('/product-application-reason', function (req, res) {
   res.redirect('product-use');
 
 })
+
 
 
 
@@ -650,7 +1352,7 @@ router.post('/formula-active-substance-data-ownership-details', function (req, r
 router.post('/formula-product-data-ownership', function (req, res) {
   let formulaProductOwnership = req.session.data.formulaProductOwnership
   if (formulaProductOwnership == 'Yes') {
-    res.redirect('active-substance-source-is-csv-upload');
+    res.redirect('packaging-upload-label');
   } else {
     res.redirect('formula-product-data-ownership-details');
   }
@@ -658,8 +1360,23 @@ router.post('/formula-product-data-ownership', function (req, res) {
 
 // formula-product-data-ownership-details
 router.post('/formula-product-data-ownership-details', function (req, res) {
-  res.redirect('active-substance-source-is-csv-upload');
+  res.redirect('packaging-upload-label');
 })
+
+
+
+// ----------------- PACKAGING AND LABELS ----------------- //
+
+// packaging-upload-label
+
+router.post('/packaging-upload-label', function (req, res) {
+  let packagingXDetails = req.session.data.packagingXDetails;
+  res.redirect('documents-upload-admin');
+
+})
+
+
+
 
 // ----------------- ACTIVE SUBSTANCE SOURCE DATA ----------------- //
 
@@ -935,646 +1652,6 @@ router.post('/formula-csv-check-answers', function (req, res) {
 
 
 // ----------------- FORMULATION COMPOSITION  END----------------- //
-
-
-// ----------------- PRODUCT USE ----------------- //
-
-
-// product-use
-
-router.post('/product-use', function (req, res) {
-  
-  let productUser = req.session.data.productUser;
-  res.redirect('product-proposed-use');
-
-})
-
-// product-proposed-use
-
-router.post('/product-proposed-use', function (req, res) {
-  let intendedProductUser = req.session.data.intendedProductUser;
-  if (intendedProductUser == "Professional") {
-    res.redirect('product-use-seed-treatment');
-  } else {
-    res.redirect('gap-is-csv-upload');
-  }
-
-})
-
-// product-use-seed-treatment
-
-router.post('/product-use-seed-treatment', function (req, res) {
-  
-  let isProductSeedTreatment = req.session.data.isProductSeedTreatment;
-  // if (formulaSubstanceMixture == "Yes") {
-  //   res.redirect('formula-type-add-component');
-  // } else {
-  //   res.redirect('formula-type-add-component');
-  // }
-  res.redirect('gap-is-csv-upload');
-
-})
-
-
-
-// gap-is-csv-upload
-
-router.post('/gap-is-csv-upload', function (req, res) {
-  let isProductSeedTreatment = req.session.data.isProductSeedTreatment;
-  let isGapCsvUpload = req.session.data.isGapCsvUpload;
-  let intendedProductUser = req.session.data.intendedProductUser;
-  //if (intendedProductUser == "Professional") {
-
-  if (intendedProductUser == "Professional") {
-    if (isGapCsvUpload == "Yes") {
-      res.redirect('gap-csv-1');
-    } else if (isGapCsvUpload == "No" && isProductSeedTreatment == "Yes"){
-      res.redirect('gap-seed-treatment');
-    } else {
-      res.redirect('gap-crop-product');
-    }
-  } else {
-    res.redirect('gap-crop-product');
-  }
-
-})
-
-
-
-// gap-csv-1
-
-router.post('/gap-csv-1', function (req, res) {
-  let gapCsv = req.session.data.gapCsv;
-  res.redirect('gap-check-answers');
-
-})
-
-
-// gap-crop-product
-
-router.post('/gap-crop-product', function (req, res) {
-  let gapCropLocation = req.session.data.gapCropLocation;
-  if (gapCropLocation == "Protected" || gapCropLocation == "PPFE") {
-    res.redirect('gap-growing-media');
-  } else {
-    res.redirect('gap-dosage');
-  }
-
-})
-
-// gap-growing-media
-
-router.post('/gap-growing-media', function (req, res) {
-  let gapGrowingMedia = req.session.data.gapGrowingMedia;
-  res.redirect('gap-dosage');
-
-})
-
-// gap-dosage
-
-router.post('/gap-dosage', function (req, res) {
-  let gapDosage = req.session.data.gapDosage;
-  res.redirect('gap-timings');
-
-})
-
-// gap-timings
-
-router.post('/gap-timings', function (req, res) {
-  let gapTimings = req.session.data.gapTimings;
-  let intendedProductUser = req.session.data.intendedProductUser;
-  res.redirect(`gap-application-${intendedProductUser.toLowerCase()}-protected`);
-})
-
-// gap-application-[intendedProductUser]-protected
-
-router.post('/gap-application-*-protected', function (req, res) {
-  let intendedProductUser = req.session.data.intendedProductUser;
-  res.redirect(`gap-application-${intendedProductUser.toLowerCase()}-indoor`);
-})
-
-// gap-application-[intendedProductUser]-indoor
-
-router.post('/gap-application-*-indoor', function (req, res) {
-  let intendedProductUser = req.session.data.intendedProductUser;
-  res.redirect(`gap-application-${intendedProductUser.toLowerCase()}-outdoor`);
-})
-
-// gap-application-[intendedProductUser]-outdoor
-
-router.post('/gap-application-*-outdoor', function (req, res) {
-  let intendedProductUser = req.session.data.intendedProductUser;
-  res.redirect('gap-add-another');
-})
-
-// gap-application-method
-
-router.post('/gap-application-method', function (req, res) {
-  let gapApplicationMethod = req.session.data.gapApplicationMethod;
-  res.redirect('gap-add-another');
-
-})
-
-// gap-add-another
-
-router.post('/gap-add-another', function (req, res) {
-  let gapAddAnother = req.session.data.gapAddAnother;
-  res.redirect('gap-environmental-phrases');
-
-})
-
-// gap-remove
-
-router.post('/gap-remove', function (req, res) {
-  let gapAddAnother = req.session.data.gapAddAnother;
-  res.redirect('gap-add-another');
-
-})
-
-// gap-environmental-phrases
-
-router.post('/gap-environmental-phrases', function (req, res) {
-  let environmentalPhrases = req.session.data.environmentalPhrases;
-  let environmentalPhrasesDetails = req.session.data.environmentalPhrasesDetails;
-  res.redirect('gap-other-specific-restrictions');
-
-})
-
-// gap-other-specific-restrictions
-
-router.post('/gap-other-specific-restrictions', function (req, res) {
-  let otherSpecificRestrictions = req.session.data.otherSpecificRestrictions;
-  let individualUsesDetails = req.session.data.individualUsesDetails;
-  res.redirect('gap-personal-protective-equipment');
-
-})
-
-// gap-personal-protective-equipment 
-
-router.post('/gap-personal-protective-equipment', function (req, res) {
-  let personalProtectiveEquipment = req.session.data.personalProtectiveEquipment;
-  let personalProtectiveEquipmentDetails = req.session.data.personalProtectiveEquipmentDetails;
-  res.redirect('gap-clp');
-
-})
-
-// gap-clp
-router.post('/gap-clp', function (req, res) {
-  let gapClp = req.session.data.gapClp;
-  let gapClpApplyAll = req.session.data.gapClpApplyAll;
-  res.redirect('gap-other-product');
-
-})
-
-
-
-// gap-other-product
-
-router.post('/gap-other-product', function (req, res) {
-  let gapOtherProduct = req.session.data.gapOtherProduct;
-  res.redirect('gap-check-answers');
-
-})
-
-// gap-seed-treatment
-
-router.post('/gap-seed-treatment', function (req, res) {
-  let gapSeedTreatment = req.session.data.gapSeedTreatment;
-  res.redirect('gap-seed-treatment-application');
-
-})
-
-// gap-seed-treatment-application
-
-router.post('/gap-seed-treatment-application', function (req, res) {
-  let gapSeedApplication = req.session.data.gapSeedApplication;
-  res.redirect('gap-seed-treatment-growth');
-
-})
-
-// gap-seed-treatment-growth
-
-router.post('/gap-seed-treatment-growth', function (req, res) {
-  let gapSeedGrowth = req.session.data.gapSeedGrowth;
-  res.redirect('gap-environmental-phrases');
-
-})
-
-// gap-csv-check-answers
-
-router.post('/gap-csv-check-answers', function (req, res) {
-  let gapCsvCheckAnswers = req.session.data.gapCsvCheckAnswers;
-  res.redirect('packaging-number-of');
-
-})
-
-// gap-check-answers
-
-router.post('/gap-check-answers', function (req, res) {
-  let gapCheckAnswers = req.session.data.gapCheckAnswers;
-  res.redirect('packaging-number-of');
-
-})
-
-
-
-// ----------------- PACKAGING ----------------- //
-
-// packaging-number-of
-
-router.post('/packaging-number-of', function (req, res) {
-  let packagingNumberof = req.session.data.packagingNumberof;
-  res.redirect('packaging-x-details');
-
-})
-
-// packaging-x-details
-
-router.post('/packaging-x-details', function (req, res) {
-  let packagingXDetails = req.session.data.packagingXDetails;
-  res.redirect('packaging-add-another');
-
-})
-
-// packaging-add-another
-
-router.post('/packaging-add-another', function (req, res) {
-  let addAnotherContainer = req.session.data.addAnotherContainer;
-
-  if (addAnotherContainer == "Yes") {
-    res.redirect('packaging-x-details');
-  } else {
-    res.redirect('packaging-upload-label');
-  }
-})
-
-// packaging-remove
-
-router.post('/packaging-remove', function (req, res) {
-  let packagingXDetails = req.session.data.packagingXDetails;
-  res.redirect('packaging-add-another');
-
-})
-
-// ----------------- PACKAGING AND LABELS ----------------- //
-
-// packaging-upload-label
-
-router.post('/packaging-upload-label', function (req, res) {
-  let packagingXDetails = req.session.data.packagingXDetails;
-  res.redirect('packaging-check-answers');
-
-})
-
-// packaging-check-answers
-
-router.post('/packaging-check-answers', function (req, res) {
-  let packagingCheckAnswers = req.session.data.packagingCheckAnswers;
-  res.redirect('manufacturing-address-postcode');
-
-})
-
-
-
-// ----------------- MANUFACTURING LOCATION ----------------- //
-
-// manufacturing-address-postcode
-
-router.post('/manufacturing-address-postcode', function (req, res) {
-  
-  let manufacturingPostcode = req.session.data.manufacturingPostcode;
-  res.redirect('manufacturing-address-list');
-
-})
-
-// manufacturing-address-list
-
-router.post('/manufacturing-address-list', function (req, res) {
-  
-  let manufacturingAddressList = req.session.data.manufacturingAddressList;
-  res.redirect('manufacturing-address-confirm');
-
-})
-
-// manufacturing-address-confirm
-
-router.post('/manufacturing-address-confirm', function (req, res) {
-  
-  let manufacturingAddressConfirm = req.session.data.manufacturingAddressConfirm;
-  res.redirect('manufacturing-site-add-another');
-
-})
-
-// manufacturing-site-add-another
-
-router.post('/manufacturing-site-add-another', function (req, res) {  
-  let manufacturingAddressAddAnother = req.session.data.manufacturingAddressAddAnother;
-  if (manufacturingAddressAddAnother == "Yes") {
-    res.redirect('manufacturing-address-postcode');
-  } else {
-    res.redirect('manufacturing-check-answers');
-  }
-})
-
-// manufacturing-address-remove
-
-router.post('/manufacturing-address-remove', function (req, res) {
-  res.redirect('manufacturing-site-add-another');
-})
-
-// manufacturing-check-answers
-
-router.post('/manufacturing-check-answers', function (req, res) {  
-  let manufacturingCheckAnswers = req.session.data.manufacturingCheckAnswers;
-  res.redirect('documents-reference-product-risk-areas');
-
-})
-
-
-// ----------------- SPECIALIST ASSESSMENT AREAS ----------------- //
-
-// documents-reference-product-risk-areas
-
-router.post('/documents-reference-product-risk-areas', function (req, res) {  
-  let documentsReferenceProductRiskAreas = req.session.data.documentsReferenceProductRiskAreas;
-  let productProposedUse = req.session.data.productProposedUse;
-  if (productProposedUse == "Data") {
-    res.redirect('documents-reference-product-risk-areas-upload-info');
-  } else {
-    res.redirect('documents-reference-product');
-  }  
-})
-
-// documents-reference-product-risk-areas-upload-info
-router.post('/documents-reference-product-risk-areas-upload-info', function (req, res) {  
-  let documentsReferenceProductRiskAreasInfo = req.session.data.documentsReferenceProductRiskAreas;
-  if (documentsReferenceProductRiskAreasInfo == "Upload a file") {
-    res.redirect('documents-reference-product-risk-areas-upload');
-  } else {
-    res.redirect('documents-reference-product');
-  }  
-
-})
-
-// documents-reference-product-risk-areas-upload
-
-router.post('/documents-reference-product-risk-areas-upload', function (req, res) {  
-  let documentsReferenceProductRiskAreasUpload = req.session.data.documentsReferenceProductRiskAreas;
-    res.redirect('documents-reference-product');
-})
-
-
-// ----------------- DOCUMENTS ----------------- //
-
-// documents-reference-product
-
-router.post('/documents-reference-product', function (req, res) {  
-  let documentsReferenceProduct = req.session.data.documentsReferenceProduct;
-
-  if (documentsReferenceProduct == "Yes") {
-    res.redirect('documents-reference-product-details');
-  } else {
-    res.redirect('documents-upload-admin');
-  }  
-})
-
-// documents-reference-product-details
-
-router.post('/documents-reference-product-details', function (req, res) {  
-  let documentsReferenceProductDetails = req.session.data.documentsReferenceProductDetails;
-  let documentsReferenceProductName = req.session.data.documentsReferenceProductName;
-  let documentsReferenceProductMapp = req.session.data.documentsReferenceProductMapp;
-  let documentsReferenceProductAuthHolder = req.session.data.documentsReferenceProductAuthHolder;
-  let documentsReferenceProductMarketingCo = req.session.data.documentsReferenceProductMarketingCo;
-  res.redirect('documents-upload-admin');
-
-})
-
-
-
-// documents-reference-product-risk-areas-34
-
-router.post('/documents-reference-product-risk-areas-34', function (req, res) {  
-  let documentsReferenceProductRiskAreas34 = req.session.data.documentsReferenceProductRiskAreas34;
-  res.redirect('documents-upload-admin');
-
-})
-
-
-
-// documents-upload-admin
-
-router.post('/documents-upload-admin', function (req, res) {  
-  let documentsAdmin = req.session.data.documentsAdmin;
-  let documentsAdminSelect = req.session.data.documentsAdminSelect;
-  res.redirect('documents-upload-draft-reg-report');
-
-})
-
-// documents-upload-draft-reg-report
-
-router.post('/documents-upload-draft-reg-report', function (req, res) {  
-  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
-  let documentsDraftRegReportSelect = req.session.data.documentsDraftRegReportSelect;
-  res.redirect('documents-upload-supporting');
-
-})
-
-// documents-upload-draft-reg-report microbials
-
-router.post('/documents-upload-draft-reg-report-microbials', function (req, res) {  
-  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
-  let documentsDraftRegReportSelectMicrobes = req.session.data.documentsDraftRegReportSelectMicrobes;
-  res.redirect('documents-upload-supporting');
-
-})
-
-// documents-upload-supporting
-
-router.post('/documents-upload-supporting', function (req, res) {  
-  let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
-  let documentsDraftRegReportSelect = req.session.data.documentsDraftRegReportSelect;
-  res.redirect('documents-upload-relevant-correspondence');
-
-})
-
-// documents-upload-relevant-correspondence
-
-router.post('/documents-upload-relevant-correspondence', function (req, res) {  
-  let documentsRelevantCorrespondence = req.session.data.documentsRelevantCorrespondence;
-  res.redirect('documents-upload-safety-data-sheet');
-
-})
-
-// documents-upload-safety-data-sheet
-
-router.post('/documents-upload-safety-data-sheet', function (req, res) {  
-  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
-  res.redirect('documents-upload-comparative-assessment-report');
-
-})
-
-// documents-upload-comparative-assessment-report
-
-router.post('/documents-upload-comparative-assessment-report', function (req, res) {  
-  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
-  res.redirect('documents-upload-letters-of-access');
-
-})
-
-// documents-upload-letters-of-access
-
-router.post('/documents-upload-letters-of-access', function (req, res) {  
-  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
-  res.redirect('documents-check-answers');
-
-})
-
-
-
-// documents-upload-proof-of-authorisation
-/* removed as earlier in the flow
-router.post('/documents-upload-proof-of-authorisation', function (req, res) {  
-  let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
-  res.redirect('documents-check-answers');
-
-})
-*/
-
-// documents-check-answers
-
-router.post('/documents-check-answers', function (req, res) {  
-  let documentsCheckAnswers = req.session.data.documentsCheckAnswers;
-  res.redirect('declaration');
-
-})
-
-
-// ----------------- DECLARATIONS ----------------- //
-
-// declaration
-
-router.post('/declaration', function (req, res) {  
-  let declaration = req.session.data.declaration;
-  res.redirect('invoice');
-
-})
-
-// ----------------- PAYMENTS ----------------- //
-
-// invoice
-
-router.post('/invoice', function (req, res) {  
-  let invoice = req.session.data.invoice;
-  res.redirect('confirmation');
-
-})
-
-// ----------------- CONFIRMATION ----------------- //
-
-// confirmation
-
-router.post('/confirmation', function (req, res) {  
-  let confirmation = req.session.data.confirmation;
-  res.redirect('confirmation');
-
-})
-
-
-
-
-
-
-
-
-
-
-// ----------------- MRL ----------------- //
-
-// mrl-needed
-
-router.post('/mrl-needed', function (req, res) {
-  
-  let productMrlNeeded = req.session.data.productMrlNeeded;
-  if (productMrlNeeded == "No") {
-    res.redirect('product-check-answers');
-  } else {
-    res.redirect('mrl-commodity-code-name');
-  }
-
-})
-
-// mrl-commodity-code-name
-
-router.post('/mrl-commodity-code-name', function (req, res) {
-  
-  let productCommodityCodeName = req.session.data.productCommodityCodeName;
-  res.redirect('mrl-change');
-
-})
-
-// mrl-change
-
-router.post('/mrl-change', function (req, res) {
-  
-  let productMrlChange = req.session.data.productMrlChange;
-  let productMrlCurrent = req.session.data.productMrlCurrent;
-  let productMrlProposed = req.session.data.productMrlProposed;
-  res.redirect('product-check-answers');
-
-})
-
-// product-mrl-currently-in-force - NOT USED
-
-router.post('/product-mrl-currently-in-force', function (req, res) {
-  
-  let productMrlInForce = req.session.data.productMrlInForce;
-  res.redirect('product-mrl-currently-in-force-value');
-
-})
-
-// product-mrl-currently-in-force-value NOT USED
-
-router.post('/product-mrl-currently-in-force-value', function (req, res) {
-  
-  let productMrlInForceValue = req.session.data.productMrlInForceValue;
-  res.redirect('product-mrl-currently-in-force-add-another');
-
-})
-
-// product-mrl-currently-in-force-add-another - NOT USED
-
-router.post('/product-mrl-currently-in-force-add-another', function (req, res) {
-  
-  let productMrlInForceAddAnother = req.session.data.productMrlInForceAddAnother;
-  res.redirect('product-check-answers');
-
-})
-
-// 
-
-
-
-// ----------------- ANY CHANGES ----------------- //
-
-// placeholder-anything-changed
-
-router.post('/placeholder-anything-changed', function (req, res) {  
-  let placeholderPage = req.session.data.placeholderPage;
-  res.redirect('auth-holder-company');
-
-})
-
-// ----------------- PLACEHOLDER PAGE ----------------- //
-
-router.post('/placeholder-page', function (req, res) {  
-  let placeholderPage = req.session.data.placeholderPage;
-  res.redirect('placeholder-page');
-
-})
-
-
-
 
 // ----------------- XXXXXXXXXXXXXXXXXXXXXXXXXXXXX ----------------- //
 

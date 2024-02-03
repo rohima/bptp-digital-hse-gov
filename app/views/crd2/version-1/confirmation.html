@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Application submitted – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+      titleText: "Your application is complete ",
+      html: "Your job number is 
+       <br><strong>[XXXXXX]</strong>"
+    }) }}
+
+    <p>Keep a note of your job number – you will need it if you need to contact us about your application. </p>
+      <h2 class="govuk-heading-m">What happens next </h2>
+
+      <p>We have sent you a confirmation email.  </p>
+
+      <p>Your application will be processed and assessed by the Health and Safety Executive’s (HSE) Chemicals Regulation Division (CRD). We will contact you if we need any more information about your application.  </p>
+
+      <p>We will contact you with a target decision date when we have processed your application.  </p>
+
+      {# <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <p>if you need to provide any more information</p>
+        </li>
+        <li>
+          <p>when our assessment of your application will begin</p>
+        </li>
+      </ul> #}
+
+      <h2 class="govuk-heading-m">Invoice information </h2>
+
+      <p>We will send an initial invoice to the contact you provided in your application when we have processed your application. We may send further invoices if any additional charges are required. </p>
+
+      <h2 class="govuk-heading-m">Information to be provided by a third party </h2>
+      <p>You have told us certain information relating to your application will be provided by a third party.  </p>
+      
+      <p>This information must be sent to PPPapplications@hse.gov.uk as soon as possible, quoting the job number for this application. </p>
+
+      <p>Any outstanding information may cause a delay in issuing an authorisation. </p>
+
+      <h2 class="govuk-heading-m">If you need to make any changes </h2>
+      <p>If you need to make any changes to your application, you must contact CRD at PPPenquiries@hse.gov.uk. </p>
+
+
+       <p> <a href="#">What did you think of this service?</a> (takes 30 seconds)</p>
+
+    </div>
+  </div>
+{% endblock %}

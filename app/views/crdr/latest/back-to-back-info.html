@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Administrative back-to-back product details   – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      {# <span class="govuk-caption-l">Application details</span> #}
+      <h1 class="govuk-heading-l">Give details of each back-to-back authorisation you want to maintain after renewal </h1>
+
+      <p>For each product, give details of: </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>product name</li>
+        <li>MAPP number </li>
+        <li>current notice of authorisation number </li>
+        <li>authorisation holder, if different from that of the product you are renewing </li>
+        <li>marketing company, if different from that of the product you are renewing </li>
+        
+      </ul>
+      <p>If the authorisation holder differs from that of the product you are renewing and you are providing a letter of access, it must encompass all authorisation holders. </p>
+
+
+{{ govukInsetText({
+  text: "Each product listed will incur an additional sift and administrative fee. You do not need to submit separate applications. "
+}) }}
+     
+
+      {{ govukTextarea({
+        name: "moreDetail",
+        id: "more-detail",
+        label: {
+          text: "",
+          classes: "govuk-label--",
+          isPageHeading: false
+        },
+        hint: {
+          text: ""
+        }
+      }) }}
+
+
+    
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

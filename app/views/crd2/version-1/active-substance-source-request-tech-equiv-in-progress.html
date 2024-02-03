@@ -1,0 +1,83 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Are you applying for a technical equivalence assessment?  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      <span class="govuk-caption-l">Data ownership: Active substance source data </span>
+      <h1 class="govuk-heading-l">Provide reference to the ongoing application - eg. COP number, product name, MAPP number, Job number </p>
+
+<p>[Active substance name]</p>
+
+<p>All sources must have been assessed for technical equivalence in order for your application for authorisation to proceed.  </p>
+
+{# <div class="govuk-inset-text">
+  [Active substance name: 
+  <strong>Azoxystrobin
+  CAS: 131860-33-8</strong>]
+</div> #}
+
+
+{% set emailHtml %}
+{{ govukInput({
+  id: "formulaActiveSubstanceOwnershipText",
+  name: "formulaActiveSubstanceOwnershipText",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter details "
+  },
+  hint: { text: "Give details of the application, for example, job number, product name or MAPP number "}
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  id: "formulaActiveSubstanceOwnership",
+  name: "formulaActiveSubstanceOwnership",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes "
+      
+    },   
+    {
+      value: "No",
+      text: "No – another application is in progress",
+      conditional: { html: emailHtml }
+    }
+
+  ]
+}) }}
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
