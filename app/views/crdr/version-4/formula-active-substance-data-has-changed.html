@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Has access to the active substance source data changed from what was provided in any previous applications?  – Manage building control for a higher-risk building – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Has access to the active substance source data changed from what was provided in any previous applications? </h1>
+      <form class="form" method="post">
+
+        {{ govukRadios({
+        id: "authHolderSame",
+        name: "authHolderSame",
+        fieldset: {
+          legend: {
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            hint: {
+              text: "You will be asked to provide letters of access with this application "
+            }
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

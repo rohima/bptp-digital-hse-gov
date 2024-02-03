@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How will you provide your technical equivalence reports and data dossiers? – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">How will you provide your technical equivalence reports and data dossiers?</p>
+
+          {{ govukRadios({
+            id: "requestTechEquivUploadInfo",
+            name: "requestTechEquivUploadInfo",
+            fieldset: {
+              legend: {
+                text: "",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Upload a file",
+                text: "Upload a file",
+                hint: { text: ""},
+                checked: false
+              },  
+              {
+                value: "Third party",
+                text: "To be provided separately by a third party  "
+                
+              }
+    
+            ]
+            }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

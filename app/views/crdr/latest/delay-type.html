@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Are you the authorisation holder?  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">What type of delay was agreed? </h1>
+
+        {% set textHtml %}
+        {{ govukInput({
+            id: "applicantType",
+            name: "applicantType",
+            type: "tel",
+            autocomplete: "tel",
+            classes: "govuk-!-width-one-third",
+            hint:  {
+              text: "For example, ‘Authorised agent of authorisation holder’"
+            },
+            label: {
+              text: "Enter your role "
+            }
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          id: "applicationOrganisationType",
+          name: "applicationOrganisationType",
+          fieldset: {
+            hint:  {text: "For example, ‘Authorised agent of authorisation holder’"},
+            legend: {
+              text: "",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: ""
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Category 4 delay ",
+              checked: false,
+              conditional: {
+                html: emailHtml
+              }
+            },   
+            {
+              value: "No",
+              text: "Mixed active substance delay  "
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
