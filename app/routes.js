@@ -19,11 +19,10 @@ router.use('/crd1-active', require('./views/crd1-active/routes'));
 router.use('/crd1-administrative', require('./views/crd1-administrative/routes'));
 
 router.use('/crd1-claim-label', require('./views/crd1-claim-label/routes'));
-
 router.use('/crd1-data', require('./views/crd1-data/routes'));
 router.use('/crd1-formula', require('./views/crd1-formula/routes'));
 router.use('/crd1-label', require('./views/crd1-label/routes'));
-router.use('/crd1-mrl', require('./views/crd1-mrl/routes'));
+
 router.use('/crd1-packaging', require('./views/crd1-packaging/routes'));
 router.use('/crd1-use', require('./views/crd1-use/routes'));
 
@@ -34,5 +33,6 @@ router.use('/crd8', require('./views/crd8/routes'));
 router.use('/crd9', require('./views/crd9/routes'));
 router.use('/crdr', require('./views/crdr/routes'));
 router.use('/crdw', require('./views/crdw/routes'));
+router.use('/crdmrl', require('./views/crdmrl/routes'));
 
 // Add your routes here

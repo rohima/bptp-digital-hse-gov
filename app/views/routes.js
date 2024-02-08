@@ -42,6 +42,8 @@ router.post('/what-to-do', function (req, res) {
     res.redirect('crd8/latest/applicant-type');
   } else if (applicationJourney == "CRD3") {
     res.redirect('crd3/latest/applicant-type');
+  } else if (applicationJourney == "CRDMRL") {
+    res.redirect('crdmrl/latest/application-name-contact');
   } else {
     res.redirect('crd1/latest/applicant-type');
   }

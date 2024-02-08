@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Upload your proof of residue definitions in force   – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Upload your proof of residue definitions in force </h1>
+      <p>This should include information on whether the residue has been categorised as fat soluble.  </p>
+      <form class="form" method="post">
+
+        <div id="file-upload-1-hint" class="govuk-hint">
+          You can upload more than one file. Each file must be a maximum of 4GB.  
+        </div>
+
+        {{ govukFileUpload({
+          id: "authHolderAuthorisation",
+          name: "authHolderAuthorisation",
+          label: {
+            text: "Upload file"
+          }
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

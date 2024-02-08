@@ -1,0 +1,126 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Manage pesticide product authorisations  – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Section",
+        href: "#"
+      },
+      {
+        text: "Subsection"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {# {{ serviceName }} #}
+        Manage pesticide product authorisations 
+      </h1>
+
+      <p>If you are planning to market a plant protection product (pesticides) in Great Britain and/or Northern Ireland, you can use this service to apply for authorisation for a new product.  </p>
+
+      <p>The Health and Safety Executive’s (HSE) Chemicals Regulation Division (CRD) will evaluate applications submitted on this service.  </p>
+
+      {# <p>If you are planning to market a plant protection product (pesticides) in Great Britain and/or Northern Ireland, you can use this service to: </p> 
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>apply for authorisation for a new product </li>
+        <li>apply to renew an existing product </li>
+        <li>make a change to an existing product </li>
+        <li>apply for an extension of authorisation for minor use (EAMU) </li>
+       
+        <li>apply for standalone technical equivalence of an active substance source (Great Britain only) </li>
+        <li>apply for an emergency authorisation </li>
+        <li>apply to change Maximum Residue Levels (MRLs)  </li>
+      </ul> #}
+
+
+      {{ govukButton({
+        text: "Start now",
+        href: "application-reference",
+        isStartButton: true
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Before you start
+      </h2>
+
+      <p>You will be asked to upload supporting documentation within this application.  </p>
+
+      <p>You will need to upload your formulation composition, active substance source details and proposed use information (GAP table) as .csv files, using [CRD templates].  </p>
+
+      {# <p>
+        For most applications you will need to upload full details of the technical specification and formulation recipe.  <a href="https://www.hse.gov.uk/pesticides/pesticides-registration/applicant-guide/the-applicant-guide-technic.htm">Find out more about technical specifications and formulation recipes on the HSE website (link opens in a new tab) </a>.
+      </p> #}
+
+      {# <h2 class="govuk-heading-m">
+        Cost
+      </h2>
+
+      <p>Content TBC</p>  #}
+
+      {# <ul class="govuk-list govuk-list--bullet">
+        <li>update or renew an existing authorisation  - instead, go to the <a href="#">Applications section</a> of the service
+          </li>
+        <li>submit any other type of application - find out about <a href="#">other application types (link opens in a new tab)</a></li>
+      
+      </ul> #}
+      <h2 class="govuk-heading-m">Fees and invoicing </h2>
+      <p>You will be asked for invoicing details as part of your application. We will send an initial invoice for the appropriate fee when we have validated your application. We may send further invoices if any additional fees are required during evaluation of the application. </p>
+
+      <p><a href="https://www.hse.gov.uk/pesticides/pesticides-registration/streams-and-fees.htm">Find out about fees for each application type on the HSE website</a></p>
+
+      <h2 class="govuk-heading-m">If you need help using this service </h2>
+      <p><a href="https://www.hse.gov.uk/pesticides/contact.htm">Contact us</a> if you need help using this service.</p>
+
+      
+      
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="https://www.hse.gov.uk/pesticides/pesticides-registration/applicant-guide/index.htm">Pesticide product registration: detailed guidance on the HSE website</a>
+            </li>
+            {# <li>
+              <a href="#">
+                Find technical guidance
+              </a>
+            </li> #}
+            
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Are all active substances considered low risk? – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">Are all active substances considered low risk?</p>
+
+        <p>A plant protection product is generally considered low risk if it does not have any harmful effects on:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>human health</li>
+          <li>animal health</li>
+          <li>groundwater</li>
+          <li>the environment</li>
+        </ul>
+
+        <p>
+          <a href="https://www.hse.gov.uk/pesticides/pesticides-registration/active-substances/low-risk.html">Find out more about low-risk active substances on the HSE website</a> (opens in a new tab).</p>
+
+        {{ govukRadios({
+        id: "formulaRisk",
+        name: "formulaRisk",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: false
+          },   
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
