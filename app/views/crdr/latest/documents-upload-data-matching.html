@@ -18,7 +18,7 @@ Upload your data matching table  –{{serviceName}} – GOV.UK
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Upload your data matching table  </h1>
+      <h1 class="govuk-heading-l">Upload your data matching evidence and data dossier  </h1>
       <form class="form" method="post">
 
         {# {{ govukCheckboxes({
@@ -73,6 +73,33 @@ Upload your data matching table  –{{serviceName}} – GOV.UK
         </p>
 
         <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key"></dl>
+
+
+        {{ govukRadios({
+          name: "dataMatchingDocThirdParty",
+          id: "dataMatchingDocThirdParty",
+          fieldset: {
+            legend: {
+              text: "Will a third party provide any or all of this information?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: ""
+          },
+          items: [
+            {
+              value: "Third party",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
 
         {{ govukButton({
         text: "Save and continue"

@@ -27,6 +27,7 @@ What type of delay are you requesting?    – {{serviceName}} – GOV.UK
         {% endset -%}
 
         <h1 class="govuk-heading-l">What type of delay are you requesting?  </h1>
+        <p>Select all that apply. </p>
 
         {% set textHtml %}
         <div class="govuk-form-group">
@@ -67,7 +68,7 @@ What type of delay are you requesting?    – {{serviceName}} – GOV.UK
         </div>
         {% endset -%}
 
-        {{ govukRadios({
+        {{ govukCheckboxes({
           id: "requestDelayType",
           name: "requestDelayType",
           fieldset: {
@@ -93,7 +94,7 @@ What type of delay are you requesting?    – {{serviceName}} – GOV.UK
             {
               value: "Mixed active delay",
               text: "Mixed active delay",
-              hint: {text:"Where other active substances in the formula expire within the next 12 months "}
+              hint: {text:"Where other active substances in the formulation expire within the next 12 months "}
              
             }
             

@@ -63,12 +63,216 @@ Which risk assessment areas are you using the reference product for? – {{servi
         <p>Select all that apply. </p>
 
       
-        {% set emailHtmlChemistry %}
+        {% set emailHtmlOperator %}
         {{ govukInput({
           id: "productRiskAreaChemistryCaseRef",
           name: "productRiskAreaChemistryCaseRef",
           type: "email",
           autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "Enter reference information "
+          },
+          hint: {
+            text: "For example, product name, MAPP number, authorisation holder, marketing company "
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukCheckboxes({
+          name: "productRiskAreaChemistry",
+          id: "productRiskAreaChemistry",
+          fieldset: {
+            legend: {
+              text: "Operator exposure",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+
+            
+            {
+              value: "Case",
+              text: "Case",
+              conditional: {
+                html: emailHtmlOperator
+              }
+            },
+            {
+              value: "Data and/or modelling",
+              text: "Data and/or modelling"
+            },
+            {
+              value: "Data protection expired",
+              text: "Data protection expired"
+            }
+
+          ]
+        }) }}
+
+
+        {% set emailHtmlResidue %}
+{{ govukInput({
+  id: "productRiskAreaResidueRef",
+  name: "productRiskAreaResidueRef",
+  type: "email",
+  autocomplete: "email",
+  spellcheck: false,
+  classes: "govuk-!-width-two-thirds",
+  label: {
+    text: "Enter reference information "
+  },
+  hint: {
+    text: "For example, product name, MAPP number, authorisation holder, marketing company "
+  }
+}) }}
+{% endset -%}
+        {{ govukCheckboxes({
+  name: "productRiskAreaResidue",
+  id: "productRiskAreaResidue",
+  fieldset: {
+    legend: {
+      text: "Residues/consumer exposure",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+    
+    {
+      value: "Case",
+      text: "Case",
+      conditional: {
+        html: emailHtmlResidue
+      }
+    },
+    {
+      value: "Data and/or modelling ",
+      text: "Data and/or modelling "
+    },
+    
+    {
+      value: "Data protection expired",
+      text: "Data protection expired"
+    }
+    
+  ]
+}) }}
+
+{% set emailHtmlEnvironment %}
+{{ govukInput({
+  id: "productRiskAreaEnvironmentRef",
+  name: "productRiskAreaEnvironmentRef",
+  type: "email",
+  autocomplete: "email",
+  spellcheck: false,
+  classes: "govuk-!-width-two-thirds",
+  label: {
+    text: "Enter reference information "
+  },
+  hint: {
+    text: "For example, product name, MAPP number, authorisation holder, marketing company "
+  }
+}) }}
+{% endset -%}
+        {{ govukCheckboxes({
+  name: "productRiskAreaEnvironment",
+  id: "productRiskAreaEnvironment",
+  fieldset: {
+    legend: {
+      text: "Environtmental fate and behaviour",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+
+  {
+    value: "Case",
+    text: "Case",
+    conditional: {
+      html: emailHtmlEnvironment
+    }
+  },
+    {
+      value: "Data and/or modelling ",
+      text: "Data and/or modelling "
+    },
+    
+    {
+      value: "Data protection expired",
+      text: "Data protection expired"
+    }
+    
+  ]
+}) }}
+
+{% set emailHtmlEcotoxicology %}
+{{ govukInput({
+  id: "productRiskAreaEcotoxicologyRef",
+  name: "productRiskAreaEcotoxicologyRef",
+  type: "email",
+  autocomplete: "email",
+  spellcheck: false,
+  classes: "govuk-!-width-two-thirds",
+  label: {
+    text: "Enter reference information "
+  },
+  hint: {
+    text: "For example, product name, MAPP number, authorisation holder, marketing company "
+  }
+}) }}
+{% endset -%}
+        {{ govukCheckboxes({
+  name: "productRiskAreaEcotoxicology",
+  id: "productRiskAreaEcotoxicology",
+  fieldset: {
+    legend: {
+      text: "Ecotoxicology",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+    
+    {
+      value: "Case",
+      text: "Case",
+      conditional: {
+        html: emailHtmlEcotoxicology
+      }
+    },
+    {
+      value: "Data and/or modelling ",
+      text: "Data and/or modelling "
+    },
+    {
+      value: "Data protection expired",
+      text: "Data protection expired"
+    }
+    
+  ]
+}) }}
+
+
+
+
+
+        {# {% set emailHtmlChemistry %}
+        {{ govukInput({
+          id: "productRiskAreaChemistryCaseRef",
+          name: "productRiskAreaChemistryCaseRef",
+          type: "email", #}
+          {# autocomplete: "email",
           spellcheck: false,
           classes: "govuk-!-width-two-thirds",
           label: {
@@ -91,10 +295,7 @@ Which risk assessment areas are you using the reference product for? – {{servi
           },
           items: [
 
-            {
-              value: "Data",
-              text: "Data"
-            },
+            
             {
               value: "Case",
               text: "Case",
@@ -103,15 +304,16 @@ Which risk assessment areas are you using the reference product for? – {{servi
               }
             },
             {
+              value: "Data and/or modelling",
+              text: "Data and/or modelling"
+            },
+            {
               value: "Data protection expired",
               text: "Data protection expired"
             }
 
           ]
         }) }}
-
-
-
 
         {% set emailHtmlMammalian %}
         {{ govukInput({
@@ -144,16 +346,17 @@ Which risk assessment areas are you using the reference product for? – {{servi
   },
   items: [
    
-    {
-      value: "Data",
-      text: "Data"
-    },
+    
     {
       value: "Case",
       text: "Case",
       conditional: {
         html: emailHtmlMammalian
       }
+    },
+    {
+      value: "Data and/or modelling",
+      text: "Data and/or modelling"
     },
     {
       value: "Data protection expired",
@@ -193,13 +396,14 @@ Which risk assessment areas are you using the reference product for? – {{servi
   },
   items: [
    
-    {
-      value: "Data",
-      text: "Data"
-    },
+    
     {
       value: "Modelling",
       text: "Modelling"
+    },
+    {
+      value: "Data and/or modelling",
+      text: "Data and/or modelling"
     },
     {
       value: "Case",
@@ -214,164 +418,14 @@ Which risk assessment areas are you using the reference product for? – {{servi
     }
     
   ]
-}) }}
-
-{% set emailHtmlResidue %}
-{{ govukInput({
-  id: "productRiskAreaResidueRef",
-  name: "productRiskAreaResidueRef",
-  type: "email",
-  autocomplete: "email",
-  spellcheck: false,
-  classes: "govuk-!-width-two-thirds",
-  label: {
-    text: "Enter reference information "
-  },
-  hint: {
-    text: "For example, product name, MAPP number, authorisation holder, marketing company "
-  }
-}) }}
-{% endset -%}
-        {{ govukCheckboxes({
-  name: "productRiskAreaResidue",
-  id: "productRiskAreaResidue",
-  fieldset: {
-    legend: {
-      text: "Residues/consumer exposure",
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-   
-    {
-      value: "Data",
-      text: "Data"
-    },
-    {
-      value: "Modelling",
-      text: "Modelling"
-    },
-    {
-      value: "Case",
-      text: "Case",
-      conditional: {
-        html: emailHtmlResidue
-      }
-    },
-    {
-      value: "Data protection expired",
-      text: "Data protection expired"
-    }
-    
-  ]
-}) }}
-
-{% set emailHtmlEnvironment %}
-{{ govukInput({
-  id: "productRiskAreaEnvironmentRef",
-  name: "productRiskAreaEnvironmentRef",
-  type: "email",
-  autocomplete: "email",
-  spellcheck: false,
-  classes: "govuk-!-width-two-thirds",
-  label: {
-    text: "Enter reference information "
-  },
-  hint: {
-    text: "For example, product name, MAPP number, authorisation holder, marketing company "
-  }
-}) }}
-{% endset -%}
-        {{ govukCheckboxes({
-  name: "productRiskAreaEnvironment",
-  id: "productRiskAreaEnvironment",
-  fieldset: {
-    legend: {
-      text: "Environtmental fate and behaviour",
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-   
-    {
-      value: "Data",
-      text: "Data"
-    },
-    {
-      value: "Modelling",
-      text: "Modelling"
-    },
-    {
-      value: "Case",
-      text: "Case",
-      conditional: {
-        html: emailHtmlEnvironment
-      }
-    },
-    {
-      value: "Data protection expired",
-      text: "Data protection expired"
-    }
-    
-  ]
-}) }}
+}) }} #}
 
 
 
-{% set emailHtmlEcotoxicology %}
-{{ govukInput({
-  id: "productRiskAreaEcotoxicologyRef",
-  name: "productRiskAreaEcotoxicologyRef",
-  type: "email",
-  autocomplete: "email",
-  spellcheck: false,
-  classes: "govuk-!-width-two-thirds",
-  label: {
-    text: "Enter reference information "
-  },
-  hint: {
-    text: "For example, product name, MAPP number, authorisation holder, marketing company "
-  }
-}) }}
-{% endset -%}
-        {{ govukCheckboxes({
-  name: "productRiskAreaEcotoxicology",
-  id: "productRiskAreaEcotoxicology",
-  fieldset: {
-    legend: {
-      text: "Ecotoxicology",
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  hint: {
-    text: ""
-  },
-  items: [
-   
-    {
-      value: "Data",
-      text: "Data"
-    },
-    {
-      value: "Case",
-      text: "Case",
-      conditional: {
-        html: emailHtmlEcotoxicology
-      }
-    },
-    {
-      value: "Data protection expired",
-      text: "Data protection expired"
-    }
-    
-  ]
-}) }}
+
+
+
+{# 
 
 {% set emailHtmlEfficacy %}
 {{ govukInput({
@@ -420,7 +474,7 @@ Which risk assessment areas are you using the reference product for? – {{servi
     }
     
   ]
-}) }}
+}) }} #}
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
       </form>

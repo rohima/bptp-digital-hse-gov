@@ -18,9 +18,9 @@ Has there been a change to the formulation composition since the product was aut
       <form class="form" method="post">
 
       {# <span class="govuk-caption-l">Application details</span> #}
-      <h1 class="govuk-heading-l">Do you need to make changes to the currently authorised product formulation that are not non-significant formulation changes?  </h1>
+      <h1 class="govuk-heading-l">Is there a change to the currently authorised product formulation, other than a non-significant formulation change? </h1>
 
-      <p>The only non-significant changes permitted at renewal are: </p>
+      <p>The only changes permitted at renewal are the following non-significant formulation changes: </p>
 
       <ul class="govuk-list govuk-list--bullet">
         <li>alternative sources of co-formulant </li>
@@ -64,7 +64,8 @@ Has there been a change to the formulation composition since the product was aut
     },   
     {
       value: "No",
-      text: "No"
+      text: "No",
+      hint: {text: "This will be checked during the product assessment "}
       
     }
   ]

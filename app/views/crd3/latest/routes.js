@@ -222,7 +222,7 @@ router.post('/auth-holder-company-registration', function (req, res) {
   if (applicationOrganisationType == "Yes") {
     res.redirect('auth-holder-check-answers');
   } else {
-    res.redirect('documents-upload-proof-of-authorisation');
+    res.redirect('auth-holder-check-answers');
   }
 })
 
@@ -239,7 +239,7 @@ router.post('/documents-upload-proof-of-authorisation', function (req, res) {
 router.post('/auth-holder-check-answers', function (req, res) {
   
   let authHolderCheckAnswers = req.session.data.authHolderCheckAnswers;
-  res.redirect('marketing-co-same');
+  res.redirect('application-who-is-applying');
 
 })
 
@@ -317,7 +317,7 @@ router.post('/placeholder-application-type', function (req, res) {
 router.post('/application-market-area', function (req, res) {
   
   let marketArea = req.session.data.marketArea;
-  res.redirect('product-name');
+  res.redirect('application-urgent-status');
 
 })
 
@@ -1094,7 +1094,7 @@ router.post('/gap-csv-check-answers', function (req, res) {
 
 router.post('/gap-check-answers', function (req, res) {
   let gapCheckAnswers = req.session.data.gapCheckAnswers;
-  res.redirect('placeholder-supporting-info');
+  res.redirect('documents-reference-product-risk-areas');
 
 })
 
@@ -1225,6 +1225,15 @@ router.post('/manufacturing-check-answers', function (req, res) {
 })
 
 
+
+// ----------------- SUPPORTING INFO ----------------- //
+
+
+
+
+
+
+
 // ----------------- SPECIALIST ASSESSMENT AREAS ----------------- //
 
 // documents-reference-product-risk-areas
@@ -1233,9 +1242,9 @@ router.post('/documents-reference-product-risk-areas', function (req, res) {
   let documentsReferenceProductRiskAreas = req.session.data.documentsReferenceProductRiskAreas;
   let productProposedUse = req.session.data.productProposedUse;
   if (productProposedUse == "Data") {
-    res.redirect('documents-reference-product-risk-areas-upload-info');
+    res.redirect('documents-upload-admin');
   } else {
-    res.redirect('documents-reference-product');
+    res.redirect('documents-upload-admin');
   }  
 })
 
@@ -1344,7 +1353,14 @@ router.post('/documents-upload-relevant-correspondence', function (req, res) {
 
 router.post('/documents-upload-safety-data-sheet', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
-  res.redirect('documents-upload-comparative-assessment-report');
+  res.redirect('documents-upload-supporting-info');
+})
+
+// documents-upload-supporting-info
+
+router.post('/documents-upload-supporting-info', function (req, res) {  
+  let documentsUploadSupportingInfo = req.session.data.documentsUploadSupportingInfo;
+    res.redirect('documents-upload-comparative-assessment-report');
 })
 
 // documents-upload-comparative-assessment-report
