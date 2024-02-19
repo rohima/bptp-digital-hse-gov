@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Upload your draft evaluation report  –{{serviceName}} – GOV.UK
+Upload supporting data dossier –{{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,21 +18,19 @@ Upload your draft evaluation report  –{{serviceName}} – GOV.UK
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Upload your draft evaluation report  </h1>
-      <p>You can <a href="https://www.hse.gov.uk/pesticides/pesticides-registration/applicant-guide/what-to-include-in-an-application.htm">download an evaluation report template from the HSE website</a> (opens in a new tab). </p>
+      <h1 class="govuk-heading-l">Upload your supporting data dossier</h1>
+      <p>Your supporting data should include any relevant data studies, risk assessments and modelling.</p>
       <form class="form" method="post">
 
-        
-
         <div id="file-upload-1-hint" class="govuk-hint">
-          Upload this as an editable Word file. You can upload more than one file. Each file must be a maximum of 4GB.  
-      </div>
+        You can upload more than one file. Each file must be a maximum of 4GB. 
+        </div>
 
         <p id="upload-update" class="govuk-body govuk-!-display-none" aria-live="assertive" aria-relevant="all">1 of 2 files uploaded</p>
 
         <button id="upload-more" style="display:none" class="govuk-button govuk-button--secondary" data-module="govuk-button">
         Add more files
-      </button>
+        </button>
 
         <div id="upload-wrapper" class="govuk-form-group">
           <label class="govuk-label" for="upload-button">
@@ -47,10 +45,9 @@ Upload your draft evaluation report  –{{serviceName}} – GOV.UK
 
         <dl id="file-row-container" class="govuk-summary-list govuk-summary-list--long-key"></dl>
 
-
         {{ govukRadios({
-          name: "documentsDraftEvaluationThirdParty",
-          id: "documentsDraftEvaluationThirdParty",
+          name: "supportingDocThirdParty",
+          id: "supportingDocThirdParty",
           fieldset: {
             legend: {
               text: "Will a third party provide any or all of this information?",
@@ -74,7 +71,6 @@ Upload your draft evaluation report  –{{serviceName}} – GOV.UK
         }) }}
 
 
-
         {{ govukButton({
         text: "Save and continue"
         }) }}
@@ -85,6 +81,7 @@ Upload your draft evaluation report  –{{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block pageScripts %}
+
   <script>
     document
       .getElementById("upload-button")
@@ -133,6 +130,8 @@ Upload your draft evaluation report  –{{serviceName}} – GOV.UK
       // uploadUpdate.textContent = `${filesUploaded} of ${filesUploading + filesUploaded} files uploaded`;
       // uploadUpdate.classList.remove("govuk-!-display-none");
 
+      // old code ends
+
       // new code start
       uploadUpdate.textContent = `${filesUploaded} of ${filesUploading + filesUploaded} files uploaded`;
       if (filesUploaded > 0 || filesUploading > 0) {
@@ -141,6 +140,7 @@ Upload your draft evaluation report  –{{serviceName}} – GOV.UK
           .remove("govuk-!-display-none");
       }
       // new code finish
+
     }
 
     function fileUpload() {
@@ -219,7 +219,9 @@ Upload your draft evaluation report  –{{serviceName}} – GOV.UK
         uploadUpdate
           .classList
           .remove("govuk-!-display-none");
+
       }
+
     }
   </script>
 {% endblock %}

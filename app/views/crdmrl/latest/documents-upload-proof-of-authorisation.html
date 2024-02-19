@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Upload your proof of residue definitions in force   – {{serviceName}} – GOV.UK
+Upload proof of authorisation  – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -11,17 +11,30 @@ Upload your proof of residue definitions in force   – {{serviceName}} – GOV.
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Upload your proof of residue definitions in force </h1>
-      <p>This should include information on whether the residue has been categorised as fat soluble.  </p>
+      <h1 class="govuk-heading-l">Upload your proof of authorisation </h1>
+      <p>This includes labels, authorisation documents, and relevant legislation for the exporting country.  </p>
+
+ 
+
+      <p> You may provide links to the national websites where this information is available. Provide English translations if necessary. </p>
       <form class="form" method="post">
+
+        {{ govukFileUpload({
+          id: "authHolderAuthorisation",
+          name: "authHolderAuthorisation",
+          label: {
+            text: "Upload file"
+          }
+        }) }}
+
 
         <h2 class="govuk-heading-m">If this information is not available at time of application </h2>
 
         <p>HSE can start the assessment without this evidence. However, HSE cannot implement the MRL if the evidence is not provided by the assessment completion deadline, and you will need to make a new application with the evidence. In this case, HSE will check the evaluation report to ensure the assessment remains valid and charge a sift fee and an administrative fee. </p>
 
         {{ govukCheckboxes({
-          name: "documentsResidueThirdPartyLater",
-          id: "documentsResidueThirdPartyLater",
+          name: "documentsDraftEvaluationThirdParty",
+          id: "documentsDraftEvaluationThirdParty",
           fieldset: {
             legend: {
               text: "",
@@ -41,8 +54,8 @@ Upload your proof of residue definitions in force   – {{serviceName}} – GOV.
         }) }}
 
         {{ govukRadios({
-          name: "documentsResidueThirdParty",
-          id: "documentsResidueThirdParty",
+          name: "documentsDraftEvaluationThirdParty",
+          id: "documentsDraftEvaluationThirdParty",
           fieldset: {
             legend: {
               text: "Will a third party provide any or all of this information?",
@@ -63,18 +76,6 @@ Upload your proof of residue definitions in force   – {{serviceName}} – GOV.
               text: "No"
             }
           ]
-        }) }}
-
-        <div id="file-upload-1-hint" class="govuk-hint">
-          You can upload more than one file. Each file must be a maximum of 4GB.  
-        </div>
-
-        {{ govukFileUpload({
-          id: "authHolderAuthorisation",
-          name: "authHolderAuthorisation",
-          label: {
-            text: "Upload file"
-          }
         }) }}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>

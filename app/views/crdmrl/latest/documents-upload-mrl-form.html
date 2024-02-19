@@ -12,12 +12,12 @@ Upload your MRL application form   – {{serviceName}} – GOV.UK
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">Upload your MRL application form </h1>
-      {# <p>If the authorisation holder has given permission for you to act for them, upload evidence (for example, an email or letter) showing you have authority to work on their behalf.</p> #}
+      <p>You can <a href="https://www.hse.gov.uk/pesticides/mrls/new-mrls.htm">download an MRL application form from the HSE website </a> (opens in a new tab).  </p>
       <form class="form" method="post">
 
         {{ govukFileUpload({
-          id: "authHolderAuthorisation",
-          name: "authHolderAuthorisation",
+          id: "documentsMrlForm",
+          name: "documentsMrlForm",
           label: {
             text: "Upload file"
           }

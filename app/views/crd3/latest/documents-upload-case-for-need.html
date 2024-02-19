@@ -24,12 +24,16 @@ Upload case for need – Manage pesticide product authorisations – GOV.UK
       <ul class="govuk-list govuk-list--bullet">
         <li>the nature and scale of the problem</li>
         <li>why alternative methods cannot be used</li>
+        <li>details estimating the severity of the problem if the extension of authorisation is not issued urgently – including crop losses, damage, costs and the significance of these losses </li>
+
+          <li>the impact if the authorisation is not issued by the date required </li>
       </ul>
       {% if data['applicationUrgentStatus'] == "Yes" %}
         <p>As you are requesting urgent status, your case for need should also include:</p>
         <ul class="govuk-list govuk-list--bullet">
           <li>details estimating the severity of the problem if the extension of authorisation is not issued urgently – including crop losses, damage, costs and the significance of these losses</li>
           <li>the impact if the authorisation is not issued by the date required</li>
+          
         </ul>
       {% endif %}
 
