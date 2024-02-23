@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Has there been a change to the formulation composition since the product was authorised?   – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      {# <span class="govuk-caption-l">Application details</span> #}
+      <h1 class="govuk-heading-l">Do you propose to make a change to the formulation composition?  </h1>
+
+      {# <p>If the withdrawal is due to adverse data, the authorisation holder must immediately submit any new data or information on the potentially dangerous effects of an active substance or product to the Chemicals Regulation Division (CRD).  </p> #}
+
+     
+
+
+ {{ govukRadios({
+  id: "isFormulationChange",
+  name: "isFormulationChange",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      hint: {text: "You must also submit an application for an amendment, detailing the new formulation"},
+      checked: false
+      
+    },   
+    {
+      value: "No",
+      text: "No"
+      
+    }
+  ]
+}) }}
+
+    
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

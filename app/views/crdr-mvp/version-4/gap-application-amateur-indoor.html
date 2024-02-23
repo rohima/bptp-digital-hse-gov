@@ -1,0 +1,110 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Product application methods  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">Product application methods [for indoor crops]</h1>
+        <p class="govuk-hint">Select all that apply.</p>
+
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "gapApplicationAmateurIndoorOther",
+          name: "gapApplicationAmateurIndoorOther",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Provide details"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukCheckboxes({
+        name: "gapApplicationAmateurIndoor",
+        id: "gapApplicationAmateurIndoor",
+        fieldset: {
+          legend: {
+            text: "",
+            classes: "govuk-fieldset__legendX--l"
+          }
+        },
+        items: [
+          {
+            value: "Concentrate – Hand-held sprayer",
+            text: "Concentrate – Hand-held sprayer",
+            hint: {text: ""}
+          },
+          {
+            value: "Concentrate – Watering can",
+            text: "Concentrate – Watering can",
+            hint: {text:""}
+          },
+          {
+            value: "Granule – push-along spreader",
+            text: "Granule – push-along spreader",
+            hint: {text:""}
+          },{
+            value: "Granule – hand-operated spreader",
+            text: "Granule – hand-operated spreader",
+            hint: {text:""}
+          },{
+            value: "Granule – manual application",
+            text: "Granule – manual application",
+            hint: {text:""}
+          },{
+            value: "Hand-held weed wiper",
+            text: "Hand-held weed wiper",
+            hint: {text:""}
+          },{
+            value: "Powder/dust – puffer pack",
+            text: "Powder/dust – puffer pack",
+            hint: {text:""}
+          },{
+            value: "RTU aerosol space treatment",
+            text: "RTU aerosol space treatment",
+            hint: {text:""}
+          },{
+            value: "RTU aerosol surface treatment",
+            text: "RTU aerosol surface treatment",
+            hint: {text:""}
+          },{
+            value: "RTU liquid trigger spray",
+            text: "RTU liquid trigger spray",
+            hint: {text:""}
+          },{
+            value: "Stem injection",
+            text: "Stem injection",
+            hint: {text:""}
+          },{
+            value: "Stump treatment",
+            text: "Stump treatment",
+            hint: {text:""}
+          },
+          {
+            value: "Other",
+            text: "Other",
+            hint: {text:""},
+            conditional: {
+              html: emailHtml
+            }
+          }
+        ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

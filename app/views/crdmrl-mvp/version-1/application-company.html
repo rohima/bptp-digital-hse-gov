@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What is the name of the new authorisation holder’s organisation?  – Manage building control for a higher-risk building – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">What is the name of your organisation? </h1>
+      <p>Type part of the organisation name and select it from the list. If the full name does not show, enter it manually.</p>
+      <form class="form" method="post">
+
+        {% call govukFieldset({
+          legend: {
+            text: "",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+        {{ govukInput({
+            label: {
+              text: 'Organisation name'
+            },
+            hint: {
+            text: " "
+          },
+            id: "applicationCompanyName",
+            name: "applicationCompanyName",
+            autocomplete: "address-line1",
+            classes: "govuk-input--width-20"
+          }) }}
+        {% endcall %}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

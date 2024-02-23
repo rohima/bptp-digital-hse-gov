@@ -1,0 +1,137 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What is the active substance in your formulation? – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">What is the active substance in your formulation?</h1>
+
+      <p>Type part of the substance name, CAS or EC number and select it from the list. If the full name does not show, enter it manually. You will have the option to add another active substance later if you need to.</p>
+
+      <form class="form" method="post">
+
+        {% call govukFieldset({
+        legend: {
+          text: "",
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+        }) %}
+        {{ govukInput({
+          label: {
+            text: 'Active substance name'
+          },
+          id: "formulaActiveSubstanceName",
+          name: "formulaActiveSubstanceName",
+          autocomplete: "address-line1"
+        }) }}
+        {% endcall %}
+
+        <h1 class="govuk-heading-s">What is the nature of the source for this active substance?</p>
+
+        {% set textHtml %}
+        {{ govukInput({
+          id: "formulaActiveSubstanceSourceText",
+          name: "formulaActiveSubstanceSourceText",
+          type: "tel",
+          autocomplete: "tel",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Give details"
+          }
+        }) }}
+        {% endset -%}
+
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "formulaActiveSubstanceSourceText",
+          name: "formulaActiveSubstanceSourceText",
+          type: "tel",
+          autocomplete: "tel",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Reference evaluation report"
+          },
+          hint: { text: "This could be any or all of the following: COP number, Wisdom reference, HSE reference, product name, product identifier code"}
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+        id: "formulaActiveSubstanceSource",
+        name: "formulaActiveSubstanceSource",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "New source already evaluated in Great Britain",
+            text: "New source already evaluated in Great Britain",
+            checked: false,
+            conditional: {
+              html: emailHtml
+            }
+          },   
+          {
+            value: "New source needing a technical equivalence assessment in Great Britain",
+            text: "New source needing a technical equivalence assessment in Great Britain"
+          }
+
+        ]
+        }) }}
+
+        <h1 class="govuk-heading-s">Is all the data for this active substance owned by the authorisation holder?</p>
+
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "formulaActiveSubstanceOwnershipText",
+          name: "formulaActiveSubstanceOwnershipText",
+          type: "tel",
+          autocomplete: "tel",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Reference evaluation report"
+          },
+          hint: { text: "This could be any or all of the following: COP number, Wisdom reference, HSE reference, product name, product identifier code"}
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+        id: "formulaActiveSubstanceOwnership",
+        name: "formulaActiveSubstanceOwnership",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },   
+          {
+            value: "No",
+            text: "No",
+            checked: false
+          }
+        ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

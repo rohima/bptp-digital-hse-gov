@@ -1,0 +1,124 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Select registered address for {{ data['authCompanyName'] or "[source owner company name]" }} – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Select registered address for {{ data['authCompanyName'] or "[source owner company name]" }}</h1>
+
+      <form class="form" method="post">
+
+        <p>13 addresses found for <strong>SE1 1SS</strong>
+        </p>
+
+        {{ govukRadios({
+            id: "authCompanyAddressList",
+            name: "authCompanyAddressList",
+            fieldset: {
+              legend: {
+                text: "",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+            {
+              value: "1 Wellborough Street, London, W11 7PP",
+              text: "1 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "2 Wellborough Street, London, W11 7PP",
+              text: "2 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "3 Wellborough Street, London, W11 7PP",
+              text: "3 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "4 Wellborough Street, London, W11 7PP",
+              text: "4 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "5 Wellborough Street, London, W11 7PP",
+              text: "5 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "6 Wellborough Street, London, W11 7PP",
+              text: "6 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "7 Wellborough Street, London, W11 7PP",
+              text: "7 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "8 Wellborough Street, London, W11 7PP",
+              text: "8 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "9 Wellborough Street, London, W11 7PP",
+              text: "9 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "10 Wellborough Street, London, W11 7PP",
+              text: "10 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "11 Wellborough Street, London, W11 7PP",
+              text: "11 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "12 Wellborough Street, London, W11 7PP",
+              text: "12 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "13 Wellborough Street, London, W11 7PP",
+              text: "13 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "14 Wellborough Street, London, W11 7PP",
+              text: "14 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "15 Wellborough Street, London, W11 7PP",
+              text: "15 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "16 Wellborough Street, London, W11 7PP",
+              text: "16 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "17 Wellborough Street, London, W11 7PP",
+              text: "17 Wellborough Street, London, W11 7PP"
+            },
+            {
+              value: "18 Wellborough Street, London, W11 7PP",
+              text: "18 Wellborough Street, London, W11 7PP"
+            }
+            ]
+          }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+        <p>
+          <a href="#">Search again</a>
+        </p>
+
+        <p>
+          <a href="enter-manual-address">Enter address manually</a>
+        </p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -23,7 +23,7 @@ Changes to product details – Manage pesticide product authorisations – GOV.U
       </div>
 
       <form class="form" method="post">
-        {{ govukRadios({
+        {# {{ govukRadios({
           id: "applicationDiffProduct",
           name: "applicationDiffProduct",
           fieldset: {
@@ -43,7 +43,7 @@ Changes to product details – Manage pesticide product authorisations – GOV.U
               text: "No"
             }
           ]
-        }) }}
+        }) }} #}
 
         {{ govukRadios({
           id: "applicationDiffAuthHolder",
@@ -103,9 +103,7 @@ Changes to product details – Manage pesticide product authorisations – GOV.U
             {
               value: "Yes",
               text: "Yes",
-              conditional: {
-                html: "<p>You can only change pack sizes within the existing range. To make any other packaging changes, start an application for a new product authorisation requiring full technical assessment</p>"
-              }
+              hint: {text: "You can only change pack sizes within the existing range. To make any other packaging changes, start an application for a new product authorisation requiring full technical assessment "}
             },   
             {
               value: "No",
@@ -113,6 +111,13 @@ Changes to product details – Manage pesticide product authorisations – GOV.U
             }
           ]
         }) }}
+
+
+
+        {# conditional: {
+                html: "<p>You can only change pack sizes within the existing range. To make any other packaging changes, start an application for a new product authorisation requiring full technical assessment</p>"
+              } #}
+
 
 
 

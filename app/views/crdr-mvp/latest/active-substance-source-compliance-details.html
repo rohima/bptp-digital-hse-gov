@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How will you demonstrate sources that comply?   – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">How will you demonstrate that sources comply with the conditions and restrictions specified in the active substance renewal?  </h1>
+        
+
+        <div class="govuk-inset-text">
+          Provide the necessary details to support your answer in your application overview. 
+        </div>
+
+        {% set emailHtml %}
+        {{ govukWarningText({
+          id: "gapProductUseComplianceCat4",
+          name: "gapProductUseComplianceCat4",
+          
+          text: "If HSE cannot verify compliance, we may amend or withdraw the current product authorisation before the full renewal assessment is completed. Reinstatement of non-compliant uses will likely only be possible following amendments to the active substance approval. "
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+        id: "activeSourceComplianceDetails",
+        name: "activeSourceComplianceDetails",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "I am referencing a different source than is currently authorised in this product. I confirm that this specification complies with the conditions and restrictions specified in the active substance renewal "
+          },   
+          {
+            value: "No",
+            text: "I am submitting a separate application for a new sources, to be evaluated alongside this renewal application"
+          }
+        ]
+        }) }}
+
+       
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

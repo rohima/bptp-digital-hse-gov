@@ -1,0 +1,230 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Which risk assessment areas are you using the reference product for? – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Specify the assessment areas needed for this application </h1>
+      <form class="form" method="post">
+        <p>Select all that apply.</p>
+
+        {{ govukCheckboxes({
+          name: "productProposedUse",
+          id: "productProposedUse",
+          fieldset: {
+            legend: {
+              text: "Chemistry or analytical methods ",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+
+          {
+            value: "Case",
+            text: "Case"
+          },
+          {
+              value: "Data",
+              text: "Data"
+            }
+
+          ]
+        }) }}
+
+        {{ govukCheckboxes({
+  name: "productProposedUse",
+  id: "productProposedUse",
+  fieldset: {
+    legend: {
+      text: "Toxicology",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+  {
+    value: "Case",
+    text: "Case"
+  },
+  {
+      value: "Data",
+      text: "Data"
+    }
+    
+  ]
+}) }}
+
+        {# {{ govukCheckboxes({
+  name: "productProposedUse",
+  id: "productProposedUse",
+  fieldset: {
+    legend: {
+      text: "Non-dietary human exposure",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+    {
+      value: "Data",
+      text: "Data"
+    },
+    {
+      value: "Modelling",
+      text: "Modelling"
+    },
+    {
+      value: "Case",
+      text: "Case"
+    },
+    {
+      value: "Data protection expired",
+      text: "Data protection expired"
+    }
+    
+  ]
+}) }} #}
+
+        {{ govukCheckboxes({
+  name: "productProposedUse",
+  id: "productProposedUse",
+  fieldset: {
+    legend: {
+      text: "Residues/consumer exposure",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+    {
+      value: "Case",
+      text: "Case"
+    },
+    {
+      value: "Data and/or modelling ",
+      text: "Data and/or modelling "
+    },
+    
+    {
+      value: "Data protection expired",
+      text: "Data protection expired"
+    }
+    
+  ]
+}) }}
+
+        {# {{ govukCheckboxes({
+  name: "productProposedUse",
+  id: "productProposedUse",
+  fieldset: {
+    legend: {
+      text: "Environtmental fate and behaviour",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+    {
+      value: "Data",
+      text: "Data"
+    },
+    {
+      value: "Modelling",
+      text: "Modelling"
+    },
+    {
+      value: "Case",
+      text: "Case"
+    },
+    {
+      value: "Data protection expired",
+      text: "Data protection expired"
+    }
+    
+  ]
+}) }}
+
+        {{ govukCheckboxes({
+  name: "productProposedUse",
+  id: "productProposedUse",
+  fieldset: {
+    legend: {
+      text: "Ecotoxicology",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+    {
+      value: "Data",
+      text: "Data"
+    },
+    {
+      value: "Case",
+      text: "Case"
+    },
+    {
+      value: "Data protection expired",
+      text: "Data protection expired"
+    }
+    
+  ]
+}) }}
+
+        {{ govukCheckboxes({
+  name: "productProposedUse",
+  id: "productProposedUse",
+  fieldset: {
+    legend: {
+      text: "Efficacy",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+    {
+      value: "Data",
+      text: "Data"
+    },
+    {
+      value: "Case",
+      text: "Case"
+    },
+    {
+      value: "Data protection expired",
+      text: "Data protection expired"
+    }
+    
+  ]
+}) }} #}
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,286 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers usage – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <form method="post">
+
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+
+        <!-- PRODUCT AND ALTERATION - START -->
+        <h2 class="govuk-heading-m">Maximum residue levels (MRLs) </h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Application type 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['applicationMrlType'] or '[application type]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="application-type">
+              Change
+              <span class="govuk-visually-hidden">change Application type </span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Import tolerances
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['isImportTolerance'] or '[import tolerance]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="import-tolerances-is-set">
+              Change
+              <span class="govuk-visually-hidden">Claim alteration</span>
+              </a>
+            </dd>
+          </div>
+       
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Active substance
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['applicationActiveSubstance'] or '[Active substance]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="application-active-substance">
+              Change
+              <span class="govuk-visually-hidden">Active substance</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Assessment areas 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsReferenceProductRiskAreas'] or '[Assessment areas]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-reference-product-risk-areas">
+              Change
+              <span class="govuk-visually-hidden">Assessment areas </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              MRL application form 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsMrlForm'] or '[MRL application form]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-mrl-form">
+              Change
+              <span class="govuk-visually-hidden">MRL application form</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Application overview
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsAdmin'] or '[Application overview]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-admin">
+              Change
+              <span class="govuk-visually-hidden">Application overview</span>
+              </a>
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Draft evaluation report 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsDraftEvaluation'] or '[Draft evaluation report ]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-draft-evaluation">
+              Change
+              <span class="govuk-visually-hidden">Draft evaluation report </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Proof of authorisation 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['authHolderAuthorisation'] or '[Proof of authorisation ]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-proof-of-authorisation">
+              Change
+              <span class="govuk-visually-hidden">Proof of authorisation  </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Proof of MRLs in force 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsProofMrl'] or '[Proof of MRLs in force ]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-proof-mrl">
+              Change
+              <span class="govuk-visually-hidden">Proof of MRLs in force  </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Proof of residue definitions in force 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsProofResidue'] or '[Proof of residue definitions in force ]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-proof-residue">
+              Change
+              <span class="govuk-visually-hidden">Proof of residue definitions in force  </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              CRD correspondence 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsRelevantCorrespondence'] or '[CRD correspondence]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-relevant-correspondence">
+              Change
+              <span class="govuk-visually-hidden">CRD correspondence </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Letters of access  
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsLetterOfAccess'] or '[Letters of access]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-letters-of-access">
+              Change
+              <span class="govuk-visually-hidden">Letters of access  </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Data 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsData'] or '[Data]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-letters-of-access">
+              Change
+              <span class="govuk-visually-hidden">Data </span>
+              </a>
+            </dd>
+          </div>
+          
+        </dl>
+
+
+
+
+        
+        {# {% if data['isGapCsvUpload'] == "No" and data['isProductSeedTreatment'] == "No" %}
+        <h2 class="govuk-heading-m">Crop and product use</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Crop used
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['cropUsed'] or '[crop used]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-crop-product">
+              Change
+              <span class="govuk-visually-hidden">Crop used</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Crop qualifier
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['cropQualifier'] or '[crop qualifier]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-crop-product">
+              Change
+              <span class="govuk-visually-hidden">Crop qualifier</span>
+              </a>
+            </dd>
+          </div>
+
+         
+        </dl>
+        
+      {% endif %} #}
+
+  
+
+       
+
+
+
+        
+
+
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+        <p>
+          <a href="#">View application progress</a>
+        </p>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+
+
+

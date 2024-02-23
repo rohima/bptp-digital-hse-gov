@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What is the function of [Co-formulate name/code]? – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {# <span class="govuk-caption-l">Application</span> #}
+<h1 class="govuk-heading-l">What is the function of [Co-formulate name/code]?
+   {# {{ data['applicationCompanyName'] or "[Applicant organisation name]" }} #}
+  </h1>
+
+      <form class="form" method="post">
+
+        
+        
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+      {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+      {% call govukFieldset({
+        legend: {
+          text: "",
+          
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+      }) %}
+        {{ govukInput({
+          label: {
+            text: 'Function of co-formulant'
+          },
+          hint: {
+          text: ""
+        },
+          id: "formulaOtherSubstanceType",
+          name: "formulaOtherSubstanceType",
+          autocomplete: "address-line1"
+        }) }}
+  
+
+    
+{% endcall %}
+       
+
+    
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  
+
+{% endblock %}

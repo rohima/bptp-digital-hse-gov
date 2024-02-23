@@ -1,0 +1,135 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What is the proposed field of use?  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {# <span class="govuk-caption-l">Documents</span> #}
+      <h1 class="govuk-heading-l">What is the proposed field of use? </h1>
+
+      
+
+      <form class="form" method="post">
+
+    <p>Choose the documents you uploaded as part of your initial building control application.  </p>
+
+<p>Select all that apply. We’ll ask you to upload the documents later. </p>
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% set emailHtml %}
+{{ govukInput({
+  id: "productProposedUse",
+  name: "productProposedUse",
+  type: "email",
+  autocomplete: "email",
+  spellcheck: false,
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Specify field of use"
+  }
+}) }}
+{% endset -%}
+
+{{ govukCheckboxes({
+  name: "productProposedUse",
+  id: "productProposedUse",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+   
+    {
+      value: "Algae killer",
+      text: "Algae killer"
+    },
+    {
+      value: "Animal repellent",
+      text: "Animal repellent"
+    },
+    {
+      value: "Bird repellent",
+      text: "Bird repellent"
+    },
+    {
+      value: "Fungicide",
+      text: "Fungicide"
+    },
+    {
+      value: "Herbicide",
+      text: "Herbicide"
+    },
+    {
+      value: "Hormone rooting medium",
+      text: "Hormone rooting medium"
+      
+    },
+    {
+      value: "Hormone rooting powder",
+      text: "Hormone rooting powder"
+    },
+    {
+      value: "Insecticide",
+      text: "Insecticide"
+    },
+    {
+      value: "Lawn treatment",
+      text: "Lawn treatment"
+    },
+    {
+      value: "Mite killer",
+      text: "Mite killer"
+    },
+    {
+      value: "Mosskiller",
+      text: "Mosskiller"
+    },
+    {
+      value: "Plant growth regulator",
+      text: "Plant growth regulator"
+    },
+    {
+      value: "Slug killer",
+      text: "Slug killer"
+    },
+    {
+      value: "Slug and snail killer",
+      text: "Slug and snail killer"
+    },
+    {
+      value: "Slug and snail repelent",
+      text: "Slug and snail repelent"
+    }
+    
+  ]
+}) }}
+
+    
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What is the state of the co-formulant? – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      {# <span class="govuk-caption-l">Application details</span> #}
+      <h1 class="govuk-heading-l">What is the state of the co-formulant?</p>
+
+{# <p>Explain the nature of the active substance sources. If you told us about additional active substances, they will appear on the following pages.</p> #}
+
+
+
+
+
+{{ govukRadios({
+  id: "formulaOtherSubstanceContentMeasure",
+  name: "formulaOtherSubstanceContentMeasure",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "Solid",
+      text: "Solid",
+      checked: false
+    },   
+    {
+      value: "Liquid",
+      text: "Liquid"
+    }
+
+  ]
+}) }}
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
