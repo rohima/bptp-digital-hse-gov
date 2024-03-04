@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+
+[Back] 
+
+Are you making a change to multiple products?   – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {# <span class="govuk-caption-l">Building details</span> #}
+      <h1 class="govuk-fieldset__legend--l">Are you making a change to multiple products?</h1>
+      <p>You can only make changes to product information for multiple products. This includes changes to the authorisation holder, marketing company and pack size (within existing range). </p>
+
+      <form class="form" method="post">
+        
+
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "contact-by-email",
+          name: "contactByEmail",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Enter details "
+          }
+        }) }}
+        {% endset -%}
+
+
+        {{ govukRadios({
+          name: "singleOrMultiple",
+          id: "singleOrMultiple",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            },
+            text: "You can only make changes to product information for multiple products. This includes changes to the authorisation holder, marketing company and pack size (within existing range). "
+          },
+          error: {
+            text: "Select an option"
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              hint: {text: ""}
+            },
+            {
+              value: "No",
+              text: "No",
+              hint: {text:""}
+            }
+
+          ]
+        }) }} 
+
+        {# {
+          value: "CRX",
+          text: "A change to an existing plant protection product authorisation (administrative) "
+        }, #}
+
+        {# {
+          value: "CRDR",
+          text: "Renewal of a product authorisation ",
+          hint: {text: "Following renewed approval of an active substance ’ "}
+        }, #}
+        
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

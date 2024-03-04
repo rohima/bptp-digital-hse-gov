@@ -101,7 +101,30 @@ EAMU details – {{serviceName}} – GOV.UK
           ]
         }) }}
 
+        <h2 class="govuk-heading-m">Do you need to add another EAMU? </h2>
 
+        {{ govukRadios({
+          id: "eamuAuthCurrentDetailsDataAccessAddition",
+          name: "eamuAuthCurrentDetailsDataAccessAddition",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: { text: ""},
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },   
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
 
         
 

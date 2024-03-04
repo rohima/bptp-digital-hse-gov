@@ -1225,16 +1225,16 @@ router.post('/documents-reference-product-risk-areas', function (req, res) {
   } else {
     res.redirect('documents-reference-product');
   } */
-  res.redirect('placeholder-emergency-situation');
+  res.redirect('emergency-date');
 
 })
 
 
 // ----------------- EMERGENCY SITUATION ----------------- //
 
-// placeholder-emergency-situation
+// emergency-date
 
-router.post('/placeholder-emergency-situation', function (req, res) {  
+router.post('/emergency-date', function (req, res) {  
   let manufacturingCheckAnswers = req.session.data.manufacturingCheckAnswers;
   res.redirect('documents-reference-product');
 

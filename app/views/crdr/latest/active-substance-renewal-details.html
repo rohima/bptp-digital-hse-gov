@@ -62,7 +62,7 @@ Active substances  – {{serviceName}} – GOV.UK
  
 
 
-<h2 class="govuk-heading-m">Enter details of other active substances present in the formulation </h2>
+<h2 class="govuk-heading-m">Enter details of another active substances present in the formulation  </h2>
 
 {{ govukInput({
   label: {
@@ -93,6 +93,32 @@ Active substances  – {{serviceName}} – GOV.UK
     text: "For example, 27 3 2007"
   }
 }) }}
+
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "whereDoYouLive",
+  fieldset: {
+    legend: {
+      text: "Is there another active substance present in the formulation? ",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes"
+    },
+    {
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+
+
 
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>

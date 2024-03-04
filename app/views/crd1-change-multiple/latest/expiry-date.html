@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter the proposed new expiry date  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+        {# <span class="govuk-caption-l">Data ownership: Product data</span> #}
+        <h1 class="govuk-heading-l">Enter the proposed new expiry date </h1>
+        <p>Provide the justification for the change in your application overview.</p>
+       
+
+        
+
+      {{ govukDateInput({
+        id: "expiryDate",
+        namePrefix: "expiryDate",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--"
+          }
+        },
+        hint: {
+          text: "For example, 27 3 2007"
+        }
+      }) }}
+            
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

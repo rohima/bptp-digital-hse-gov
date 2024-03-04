@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Upload your proposed product label  –{{serviceName}} – GOV.UK
+Upload your proposed product label –{{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,22 +18,22 @@ Upload your proposed product label  –{{serviceName}} – GOV.UK
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <span class="govuk-caption-l">Packaging and labels</span>
+      {# <span class="govuk-caption-l">Upload your proposed product label</span> #}
 
       <h1 class="govuk-heading-l">
-        Upload your labelling documents 
+        Upload your proposed product label
       </h1>
 
-     
-        <form class="form" method="post">
+      <p>You can find <a href="https://www.hse.gov.uk/pesticides/pesticides-registration/data-requirements-handbook/operator-exposure/index.htm">detailed guidance on labelling requirements on the HSE website</a> (opens in a new tab). </p>
 
-        
+    
+        <form class="form" method="post">
           
-         <p class="govuk-body">Upload your:  </p>
+         {# <p class="govuk-body">Upload your:  </p>
          <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
           <li>proposed product label </li>
           <li>compatibility assurance statement, if your label recommends the product is mixed with other products  </li>
-         </ul>
+         </ul> #}
 
            
           
@@ -44,7 +44,7 @@ Upload your proposed product label  –{{serviceName}} – GOV.UK
           }
         </style>
         
-        <details class="govuk-details">
+        {# <details class="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
               Help with labelling
@@ -53,7 +53,7 @@ Upload your proposed product label  –{{serviceName}} – GOV.UK
           <div class="govuk-details__text">
             You can find <a href="https://www.hse.gov.uk/pesticides/pesticides-registration/data-requirements-handbook/operator-exposure/index.htm">detailed guidance on labelling requirements on the HSE website</a> (opens in a new tab). 
           </div>
-        </details> 
+        </details>  #}
   
 
        

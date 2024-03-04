@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Contact for technical information  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Contact for technical information </h1>
+      <form class="form" method="post">
+
+        {% call govukFieldset({
+        legend: {
+          text: "",
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+        }) %}
+
+        <p>We will use this information if we have any questions about technical information. </p>
+
+        {{ govukInput({
+        name: "additionalName",
+        id: "additionalName",
+        classes: "govuk-input--width-20",
+        label: {
+          text: "Full name",
+          classes: "",
+          isPageHeading: true
+        },
+        hint: {
+          text: ""
+        }
+        }) }}
+
+        {{ govukInput({
+          name: "additionalTelephone",
+          id: "additionalTelephone",
+          classes: "govuk-input--width-20",
+          label: {
+            text: "Telephone number",
+            classes: "",
+            isPageHeading: true
+          },
+          hint: {
+            text: "For international numbers include the country code."
+          }
+          }) }}
+
+          {{ govukInput({
+            name: "additionalEmail",
+            id: "additionalEmail",
+            classes: "govuk-input--width-20",
+            label: {
+              text: "Email address",
+              classes: "",
+              isPageHeading: true
+            },
+            hint: {
+              text: ""
+            }
+            }) }}
+
+        {% endcall %}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

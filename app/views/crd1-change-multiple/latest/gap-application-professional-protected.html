@@ -1,0 +1,201 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Product application methods  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+
+        <h1 class="govuk-heading-l">Product application methods [for protected crops]</h1>
+
+        <p class="govuk-hint">Select all that apply.</p>
+
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "gapApplicationProProtectedOther",
+          name: "gapApplicationProProtectedOther",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Provide details  "
+          }, 
+          hint: {text:""}
+        }) }}
+        {% endset -%}
+
+        {{ govukCheckboxes({
+        name: "gapApplicationProProtected",
+        id: "gapApplicationProProtected",
+        fieldset: {
+          legend: {
+            text: "",
+            classes: "govuk-fieldset__legendX--l"
+          }
+        },
+        items: [
+          {
+            value: "Aerial - UVAS",
+            text: "Aerial - UVAS",
+            hint: {text: ""}
+          },
+          {
+            value: "Aerial – helicopter/aeroplane ",
+            text: "Aerial – helicopter/aeroplane ",
+            hint: {text: ""}
+          },
+          {
+            value: "Application via conveyor, roller table or other similar equipment",
+            text: "Application via conveyor, roller table or other similar equipment",
+            hint: {text:""}
+          },
+          {
+            value: "Broadcast sprayer with air assistance",
+            text: "Broadcast sprayer with air assistance",
+            hint: {text:""}
+          },
+          {
+            value: "Dipping",
+            text: "Dipping",
+            hint: {text:""}
+          },
+          {
+            value: "Drip irrigation",
+            text: "Drip irrigation",
+            hint: {text:""}
+          },
+          {
+            value: "Fogging – hand-held",
+            text: "Fogging – hand-held",
+            hint: {text:""}
+          },
+          {
+            value: "Fogging – remotely operated",
+            text: "Fogging – remotely operated",
+            hint: {text:""}
+          },
+          {
+            value: "Gas generating product – post harvest treatment ",
+            text: "Gas generating product – post harvest treatment ",
+            hint: {text:""}
+          },
+          {
+            value: "Gas generating product – rodent/mole/rabbit control ",
+            text: "Gas generating product – rodent/mole/rabbit control ",
+            hint: {text:""}
+          },
+          {
+            value: "Granule applicator – hand-held",
+            text: "Granule applicator – hand-held",
+            hint: {text: ""}
+          },
+          {
+            value: "Granule applicator – vehicle mounted or trailed",
+            text: "Granule applicator – vehicle mounted or trailed",
+            hint: {text: ""}
+          },
+          {
+            value: "Hand-held weed wiper ",
+            text: "Hand-held weed wiper ",
+            hint: {text: ""}
+          },
+          {
+            value: "Hand-held application – hydraulic nozzle",
+            text: "Hand-held application – hydraulic nozzle",
+            hint: {text:""}
+          },
+          {
+            value: "Hand-held application – rotary atomiser",
+            text: "Hand-held application – rotary atomiser",
+            hint: {text:""}
+          },
+          {
+            value: "Horizontal boom sprayer",
+            text: "Horizontal boom sprayer",
+            hint: {text: ""}
+          },
+          {
+            value: "Misting / low volume misting (LVM) – hand-held",
+            text: "Misting / low volume misting (LVM) – hand-held",
+            hint: {text:""}
+          },
+          {
+            value: "Misting / low volume misting (LVM) – remotely operated",
+            text: "Misting / low volume misting (LVM) – remotely operated",
+            hint: {text:""}
+          },
+          {
+            value: "Pedestrian trolley sprayer with a horizontal boom",
+            text: "Pedestrian trolley sprayer with a horizontal boom",
+            hint: {text:""}
+          },
+          {
+            value: "Pedestrian trolley sprayer with a variable geometry/vertical boom",
+            text: "Pedestrian trolley sprayer with a variable geometry/vertical boom",
+            hint: {text:""}
+          },
+          {
+            value: "Seed treatment",
+            text: "Seed treatment",
+            hint: {text:""}
+          },
+          {
+            value: "Soil drench",
+            text: "Soil drench",
+            hint: {text:""}
+          },
+          {
+            value: "Soil fumigant",
+            text: "Soil fumigant",
+            hint: {text:""}
+          },
+          {
+            value: "Spray train",
+            text: "Spray train",
+            hint: {text:""}
+          },
+          {
+            value: "Stem injection",
+            text: "Stem injection",
+            hint: {text:""}
+          },
+          {
+            value: "Stump treatment",
+            text: "Stump treatment",
+            hint: {text:""}
+          },
+          {
+            value: "Variable geometry / vertical boom sprayer",
+            text: "Variable geometry / vertical boom sprayer",
+            hint: {text:""}
+          },
+          {
+            value: "Vehicle-mounted weed wiper",
+            text: "Vehicle-mounted weed wiper",
+            hint: {text:""}
+          },
+          {
+            value: "Other",
+            text: "Other",
+            hint: {text:""},
+            conditional: {
+              html: emailHtml
+            }
+          }
+        ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

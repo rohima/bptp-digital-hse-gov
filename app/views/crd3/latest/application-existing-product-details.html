@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-What type of application are you making? – Manage pesticide product authorisations – GOV.UK
+Enter details of the product the EAMU will be based on  – Manage pesticide product authorisations – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,7 +13,7 @@ What type of application are you making? – Manage pesticide product authorisat
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form class="form" method="post">
-        <h1 class="govuk-heading-l">Enter details of the identical product </h1>
+        <h1 class="govuk-heading-l">Enter details of the product the EAMU will be based on </h1>
         <h2 class="govuk-heading-m">Product name</h2>
 
         {{ govukInput({
@@ -25,7 +25,7 @@ What type of application are you making? – Manage pesticide product authorisat
           classes: "govuk-input--width-20"
         }) }}
 
-        <h2 class="govuk-heading-m">NANUM</h2>
+        {# <h2 class="govuk-heading-m">NANUM</h2>
 
         {{ govukInput({
           label: {
@@ -34,9 +34,9 @@ What type of application are you making? – Manage pesticide product authorisat
           id: "event-name",
           name: "eventName",
           classes: "govuk-input--width-10"
-        }) }}
+        }) }} #}
 
-        <h2 class="govuk-heading-m">Extension of authorisation number</h2>
+        {# <h2 class="govuk-heading-m">Extension of authorisation number</h2>
 
         {{ govukInput({
           label: {
@@ -45,9 +45,9 @@ What type of application are you making? – Manage pesticide product authorisat
           id: "Enter number ",
           name: "eventName",
           classes: "govuk-input--width-20"
-        }) }}
+        }) }} #}
 
-        <h2 class="govuk-heading-m">Job number</h2>
+        <h2 class="govuk-heading-m">MAPP number</h2>
 
         {{ govukInput({
           label: {

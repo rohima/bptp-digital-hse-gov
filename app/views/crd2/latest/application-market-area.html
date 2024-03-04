@@ -26,7 +26,7 @@ What is the market area for your product?  – {{serviceName}} – GOV.UK
         }) }}
         {% endset -%}
 
-        <h1 class="govuk-heading-l">Where do you want the authorisation for this product to apply? </h1>
+        <h1 class="govuk-heading-l">Where do you want the authorisation for the new product to apply? </h1>
 
         {% set textHtml %}
         {{ govukInput({
@@ -41,7 +41,7 @@ What is the market area for your product?  – {{serviceName}} – GOV.UK
         }) }}
         {% endset -%}
 
-        {{ govukRadios({
+        {# {{ govukRadios({
           id: "marketArea",
           name: "marketArea",
           fieldset: {
@@ -71,6 +71,42 @@ What is the market area for your product?  – {{serviceName}} – GOV.UK
               value: "Great Britain and Northern Ireland",
               text: "Great Britain and Northern Ireland",
               hint: {text:"All active substance sources must have a technical equivalence assessment from Great Britain (you can apply for this as part of this application) and a technical equivalence assessment from an EU member state"}
+             
+            }
+            
+          ]
+        }) }} #}
+
+        {{ govukRadios({
+          id: "marketArea",
+          name: "marketArea",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: ""
+          },
+          items: [
+            {
+              value: "Great Britain",
+              text: "Great Britain (England, Scotland and Wales)",
+              hint: {text:""}
+              
+            },   
+            {
+              value: "Northern Ireland",
+              text: "Northern Ireland",
+              hint: {text:" "}
+             
+            },   
+            {
+              value: "Great Britain and Northern Ireland",
+              text: "Great Britain and Northern Ireland",
+              hint: {text:""}
              
             }
             

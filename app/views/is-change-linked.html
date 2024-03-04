@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+
+[Back] 
+
+Is your change linked to an ongoing application for a parent product? – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {# <span class="govuk-caption-l">Building details</span> #}
+      <h1 class="govuk-fieldset__legend--l">Is your change linked to an ongoing application for a parent product? </h1>
+      
+
+      <form class="form" method="post">
+        
+
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "contact-by-email",
+          name: "contactByEmail",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Enter the application number or product MAPP number"
+          }
+        }) }}
+        {% endset -%}
+
+
+        {{ govukRadios({
+          name: "singleOrMultiple",
+          id: "singleOrMultiple",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            },
+            text: " "
+          },
+          error: {
+            text: "Select an option"
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              hint: {text: ""},
+              conditional: {html: emailHtml}
+            },
+            {
+              value: "No",
+              text: "No",
+              hint: {text:""}
+            }
+
+          ]
+        }) }} 
+
+        {# {
+          value: "CRX",
+          text: "A change to an existing plant protection product authorisation (administrative) "
+        }, #}
+
+        {# {
+          value: "CRDR",
+          text: "Renewal of a product authorisation ",
+          hint: {text: "Following renewed approval of an active substance ’ "}
+        }, #}
+        
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

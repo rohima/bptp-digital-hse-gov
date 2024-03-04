@@ -12,6 +12,23 @@ What change are you applying for? â€“ Manage pesticide product authorisations â€
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form class="form" method="post">
+
+        {% set emailHtmlOther %}
+        {{ govukInput({
+          id: "applicationChangesOther",
+          name: "applicationChangesOther",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "Describe the change you are applying for"
+          },
+          hint: {
+            text: " "
+          }
+        }) }}
+        {% endset -%}
         
         {{ govukRadios({
           id: "applicationChanges",
@@ -22,6 +39,9 @@ What change are you applying for? â€“ Manage pesticide product authorisations â€
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
+          },
+          hint: {
+            text: "Include the information about your change in your application overview.  "
           },
           items: [
             {
@@ -42,7 +62,8 @@ What change are you applying for? â€“ Manage pesticide product authorisations â€
             },
             {
               value: "Other",
-              text: "Other"
+              text: "Other",
+              conditional: { html: emailHtmlOther}
             }
           ]
         }) }}

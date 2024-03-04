@@ -1,0 +1,95 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+
+[Back] 
+
+What are you applying for?  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {# <span class="govuk-caption-l">Building details</span> #}
+      
+
+      <form class="form" method="post">
+        
+
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "contact-by-email",
+          name: "contactByEmail",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Enter details "
+          }
+        }) }}
+        {% endset -%}
+
+
+        {{ govukRadios({
+          name: "applicationWhatAuthorisationExisting",
+          id: "applicationWhatAuthorisationExisting",
+          fieldset: {
+            legend: {
+              text: "What are you applying for? ",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          error: {
+            text: "Select an option"
+          },
+          items: [
+            {
+              value: "CRD3",
+              text: "An extension of authorisation for minor use (EAMU)  ",
+              hint: {text: ""}
+            },
+            {
+              value: "CRDR",
+              text: "Renewal of a product authorisation",
+              hint: {text:"A submission within 3 months of the date of application of the renewal of an active substance, or an updated submission following a previously agreed delay  "}
+            },
+            {
+              value: "CRDW",
+              text: "Commercial withdrawal of an authorised use  "
+            },
+            {
+              value: "Change details",
+              text: "Changes to other details of a product or authorisation ",
+              hint: {text: ""}
+            }
+
+          ]
+        }) }} 
+
+        {# {
+          value: "CRX",
+          text: "A change to an existing plant protection product authorisation (administrative) "
+        }, #}
+
+        {# {
+          value: "CRDR",
+          text: "Renewal of a product authorisation ",
+          hint: {text: "Following renewed approval of an active substance ’ "}
+        }, #}
+        
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

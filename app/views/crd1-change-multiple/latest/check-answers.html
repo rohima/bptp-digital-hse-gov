@@ -1,0 +1,838 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers usage – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <form method="post">
+
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+
+        <!-- PRODUCT AND ALTERATION - START -->
+        <h2 class="govuk-heading-m">Product</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            change control submissions
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['productName'] or '[product name]'}}
+              {{ data['productCode'] or '[code]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="product-name">
+              Change
+              <span class="govuk-visually-hidden">change control submissions</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Claim alteration
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['claimAlt'] or '[altered claim]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="product-name">
+              Change
+              <span class="govuk-visually-hidden">Claim alteration</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        <!-- PRODUCT AND ALTERATION - START -->
+
+
+        <!-- GAP - START -->
+        
+        <h2 class="govuk-heading-m">Proposed use</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Product name and code
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['productName'] or '[product name]'}}
+              {{ data['productCode'] or '[code]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="product-name">
+              Change
+              <span class="govuk-visually-hidden">Product name and code</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+           Who will use the product
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['intendedProductUser '] or '[product user]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="product-use">
+              Change
+              <span class="govuk-visually-hidden"> Who will use the product</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Proposed field of use
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['productProposedUse'] or '[field of use]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="product-proposed-use">
+              Change
+              <span class="govuk-visually-hidden"> Proposed field of use</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Seed treatment
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['isProductSeedTreatment'] or '[Seed treatment]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="product-use-seed-treatment">
+              Change
+              <span class="govuk-visually-hidden"> Seed treatmentSeed treatment</span>
+              </a>
+            </dd>
+          </div>
+
+          {% if data['isGapCsvUpload'] == "Yes" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+              Proposed use upload
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['xxx'] or '[Proposed use document]'}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="gap-csv-1">
+                Change
+                <span class="govuk-visually-hidden"> Proposed use upload</span>
+                </a>
+              </dd>
+            </div>
+          {% endif %}
+        </dl>
+
+        
+        {% if data['isGapCsvUpload'] == "No" and data['isProductSeedTreatment'] == "No" %}
+        <h2 class="govuk-heading-m">Crop and product use</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Crop used
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['cropUsed'] or '[crop used]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-crop-product">
+              Change
+              <span class="govuk-visually-hidden">Crop used</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Crop qualifier
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['cropQualifier'] or '[crop qualifier]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-crop-product">
+              Change
+              <span class="govuk-visually-hidden">Crop qualifier</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Type of pest, disease or week control
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['cropControl'] or '[crop control]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-crop-product">
+              Change
+              <span class="govuk-visually-hidden">Crop qualifier</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Crop location
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapCropLocation'] or '[crop location]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-crop-product">
+              Change
+              <span class="govuk-visually-hidden">Crop location</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Height of application
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapCropApplicationHeight'] or '1.2'}}{{ data['gapCropApplicationUnit'] or 'm' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-crop-product">
+              Change
+              <span class="govuk-visually-hidden">Height of application</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Number of crops per year
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapCropNumberPerYear'] or '[crop number per year]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-crop-product">
+              Change
+              <span class="govuk-visually-hidden">Number of crops per year</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Product dosage</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Maximum individual dose of active substance
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapDosageMaxActiveSubstance'] or '50'}}
+              {{ data['gapDosageMaxActiveSubstanceUnit'] or 'kilograms per hectare (kg/ha)'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+              Change
+              <span class="govuk-visually-hidden">Individual dose of active substance</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Maximum individual dose of product
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapDosageMaxProduct'] or '10'}}
+              {{ data['gapDosageMaxProduct'] or 'kilograms per hectare (kg/ha)'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+              Change
+              <span class="govuk-visually-hidden">Maximum individual dose of product</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Maximum total dose of active substance
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapDosageMaxTotalActiveSubstance'] or '500'}}
+              {{ data['gapDosageMaxTotalActiveSubstanceUnit'] or 'kilograms per hectare (kg/ha)'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+              Change
+              <span class="govuk-visually-hidden">Maximum total dose of active substance</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Maximum total dose of product
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapDosageMaxTotalProduct'] or '100'}}
+              {{ data['gapDosageMaxTotalProductUnit'] or 'kilograms per hectare (kg/ha)'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+              Change
+              <span class="govuk-visually-hidden">Maximum total dose of product</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Minimum water volume
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['proposedUseWaterMin'] or '25'}} litres per hectare (l/ha)
+          </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+              Change
+              <span class="govuk-visually-hidden">Minimum water volume</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Maximum water volume
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['proposedUseWaterMax'] or '75'}} litres per hectare (l/ha)
+          </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+              Change
+              <span class="govuk-visually-hidden">Maximum water volume</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Minimum in-use concentration
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['proposedUseConcentrationMin'] or '10'}}
+              {{ data['proposedUseConcentrationMinUnit'] or 'litres per hectare (l/ha)' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+              Change
+              <span class="govuk-visually-hidden">Minimum in-use concentration</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Product application timings</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Maximum individual dose of active substance
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapDosageMaxActiveSubstance'] or '50'}}
+              {{ data['gapDosageMaxActiveSubstanceUnit'] or 'kilograms per hectare (kg/ha)'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-dosage">
+              Change
+              <span class="govuk-visually-hidden">Individual dose of active substance</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        {% endif %}
+
+        {% if data['isGapCsvUpload'] == "No" and data['isProductSeedTreatment'] == "Yes" %}
+        <h2 class="govuk-heading-m">Seed treatment details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Crop used
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapCropUsed'] or '[crop used]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-seed-treatment">
+              Change
+              <span class="govuk-visually-hidden">Crop used</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Seed pelleted
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapSeedPelleted'] or '[pelleted]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-seed-treatment">
+              Change
+              <span class="govuk-visually-hidden">Seed pelleted</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Seed weight
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapSeedWeight'] or '[seed weight]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-seed-treatment">
+              Change
+              <span class="govuk-visually-hidden">Seed weight</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Thousand seed weight
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapSeedWeightThousand'] or '[thousand seed weight]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-seed-treatment">
+              Change
+              <span class="govuk-visually-hidden">Thousand seed weight</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Seed treatment application</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Application method
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapSeedTreatmentDesc'] or '[application method]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-seed-treatment-application">
+              Change
+              <span class="govuk-visually-hidden">Application method</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Product per hectare
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapSeedTreatmentProductPerHectare'] or '[product per hectare]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-seed-treatment-application">
+              Change
+              <span class="govuk-visually-hidden">Product per hectare</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Product per 100,000 seeds
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapSeedTreatmentProductPer100000'] or '[product per 100,000 seeds]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-seed-treatment-application">
+              Change
+              <span class="govuk-visually-hidden">Product per 100,000 seeds</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Application rate to seeds
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapSeedTreatmentRateToSeeds'] or '[rate to seeds]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-seed-treatment-application">
+              Change
+              <span class="govuk-visually-hidden">Application rate to seeds</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Concentration on seeds
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapSeedTreatmentConcentrationOnSeeds'] or '[rate to seeds]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-seed-treatment-application">
+              Change
+              <span class="govuk-visually-hidden">Concentration on seeds</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Seed sowing and growth</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Seeds per hectare
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapSeedTreatmentSowingDensity'] or '[Seeds per hectare]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-seed-treatment-growth">
+              Change
+              <span class="govuk-visually-hidden">Seeds per hectare</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Depth of seed sowing
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapSeedTreatmentSowingDepth'] or '[seed sowing depth]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-seed-treatment-growth">
+              Change
+              <span class="govuk-visually-hidden">Depth of seed sowing</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Number of crops on the same land within a given year
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapSeedTreatmentSowingNumCrops'] or '[num of crops per year]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-seed-treatment-growth">
+              Change
+              <span class="govuk-visually-hidden">Number of crops on the same land within a given year</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Additional information
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapSeedTreatmentSowingMoreInfo'] or '[additional info]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-seed-treatment-growth">
+              Change
+              <span class="govuk-visually-hidden">Additional information</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Seed precision-drilled
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapSeedTreatmentSowingDrilled'] or '[precision drilled]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-seed-treatment-growth">
+              Change
+              <span class="govuk-visually-hidden">Seed precision-drilled</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Sown under protection
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapSeedTreatmentSowingUnderProtection'] or '[Sown under protection]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-seed-treatment-growth">
+              Change
+              <span class="govuk-visually-hidden">Sown under protection</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Protection removed or the seedlings transported outside
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['gapSeedTreatmentSowingStageRemoved'] or '[Growth stage]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-seed-treatment-growth">
+              Change
+              <span class="govuk-visually-hidden">Sown under protection</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+      {% endif %}
+
+        <!-- GAP - END -->
+
+        <!-- PACKAGING AND LABELS - START -->
+
+
+        <h2 class="govuk-heading-m">Packaging and labels</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Number of containers
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['numContainers'] or '1'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="packaging-number-of">
+              Change
+              <span class="govuk-visually-hidden">Number of containers</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Product label upload
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['xxxx'] or '[label upload file]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="packaging-upload-label">
+              Change
+              <span class="govuk-visually-hidden">Product label upload</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Container [x]</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Volume range for container
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['containerVolumeFrom'] or "[volume from]" }} to {{ data['containerVolumeTo'] or '[volume to]' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="packaging-x-details">
+              Change
+              <span class="govuk-visually-hidden">Volume range for container type</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Material closest to the product
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['productPackagingMaterial'] or '[material]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="packaging-x-details">
+              Change
+              <span class="govuk-visually-hidden">Material closest to the product</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Product container type
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['productContainerType'] or '[product container type]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="packaging-x-details">
+              Change
+              <span class="govuk-visually-hidden">Product container type</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Other pack material
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['productPackagingMaterialOther'] or '[other pack material]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="packaging-x-details">
+              Change
+              <span class="govuk-visually-hidden">Other pack material</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+
+        <!-- PACKAGING AND LABELS - END -->
+
+
+        <!-- SUMMARY OF CHANGE - START -->
+        <h2 class="govuk-heading-m">Summary of change</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Summary of label change
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['labelChangeSummary'] or '[summary of change]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="product-name">
+              Change
+              <span class="govuk-visually-hidden">Summary of label change</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Supporting information
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['supportingInfo'] or '[supporting information upload]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="product-name">
+              Change
+              <span class="govuk-visually-hidden">Supporting information</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        <!-- SUMMARY OF CHANGE - END -->
+
+
+
+        <!-- SPECIALIST ASSESSMENT - START -->
+        <h2 class="govuk-heading-m">Specialist assessment risk</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Risk assessment areas
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['refProductProposedUse'] or '[risk assessment areas]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-reference-product-risk-areas">
+              Change
+              <span class="govuk-visually-hidden">Marketing company</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        <!-- SPECIALIST ASSESSMENT - END -->
+
+
+        <!-- AFFIRMATION - START -->
+        <h2 class="govuk-heading-m">Affirmation</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Affirmation of change
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['changeAffirmation'] or '[nothing changed]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="product-name">
+              Change
+              <span class="govuk-visually-hidden">Affirmation of change</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Confirm EAMUs affected
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['EAMUsAffected'] or '[EAMUs not affected]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="product-name">
+              Change
+              <span class="govuk-visually-hidden">Confirm EAMUs affected</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        <!-- AFFIRMATION - END -->
+
+
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+        <p>
+          <a href="#">View application progress</a>
+        </p>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+
+
+

@@ -306,7 +306,7 @@ router.post('/marketing-co-check-answers', function (req, res) {
 
 // placeholder-application-type
 router.post('/placeholder-application-type', function (req, res) {
-    res.redirect('application-market-area');
+    res.redirect('application-urgent-status');
 })
 
 
@@ -317,7 +317,7 @@ router.post('/placeholder-application-type', function (req, res) {
 router.post('/application-market-area', function (req, res) {
   
   let marketArea = req.session.data.marketArea;
-  res.redirect('application-urgent-status');
+  res.redirect('application-type');
 
 })
 
@@ -1310,11 +1310,11 @@ router.post('/documents-reference-product-risk-areas-34', function (req, res) {
 router.post('/documents-upload-admin', function (req, res) {  
   let documentsAdmin = req.session.data.documentsAdmin;
   let documentsAdminSelect = req.session.data.documentsAdminSelect;
-  res.redirect('documents-upload-draft-reg-report');
+  res.redirect('documents-upload-supporting');
 
 })
 
-// documents-upload-draft-reg-report
+// documents-upload-draft-reg-report - NOT USED
 
 router.post('/documents-upload-draft-reg-report', function (req, res) {  
   let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
@@ -1323,7 +1323,7 @@ router.post('/documents-upload-draft-reg-report', function (req, res) {
 
 })
 
-// documents-upload-draft-reg-report microbials
+// documents-upload-draft-reg-report microbials - NOT USED
 
 router.post('/documents-upload-draft-reg-report-microbials', function (req, res) {  
   let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
@@ -1345,11 +1345,11 @@ router.post('/documents-upload-supporting', function (req, res) {
 
 router.post('/documents-upload-relevant-correspondence', function (req, res) {  
   let documentsRelevantCorrespondence = req.session.data.documentsRelevantCorrespondence;
-  res.redirect('documents-upload-safety-data-sheet');
+  res.redirect('documents-upload-supporting-info');
 
 })
 
-// documents-upload-safety-data-sheet
+// documents-upload-safety-data-sheet - NOT USED
 
 router.post('/documents-upload-safety-data-sheet', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
@@ -1360,10 +1360,10 @@ router.post('/documents-upload-safety-data-sheet', function (req, res) {
 
 router.post('/documents-upload-supporting-info', function (req, res) {  
   let documentsUploadSupportingInfo = req.session.data.documentsUploadSupportingInfo;
-    res.redirect('documents-upload-comparative-assessment-report');
+    res.redirect('documents-upload-case-for-need');
 })
 
-// documents-upload-comparative-assessment-report
+// documents-upload-comparative-assessment-report - NOT USED
 
 router.post('/documents-upload-comparative-assessment-report', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
@@ -1529,7 +1529,7 @@ router.post('/find-results', function (req, res) {
 
 router.post('/find-confirm', function (req, res) {  
   let findConfirm = req.session.data.findConfirm;
-  res.redirect('application-type');
+  res.redirect('application-market-area');
 
 })
 
@@ -1554,14 +1554,21 @@ router.post('/application-type', function (req, res) {
             if (applicationType.indexOf("Change to an existing extension of authorisation for minor use (EAMU)") > -1) {
               res.redirect('application-changes')
             } else {
-              res.redirect('application-market-area');
+              res.redirect('application-urgent-status');
             }
           }
         }
     }
   } else {
-    res.redirect('application-market-area');
+    res.redirect('application-urgent-status');
   }
+})
+
+// plant-health-order
+
+router.post('/plant-health-order', function (req, res) {  
+  let plantHealthOrder = req.session.data.plantHealthOrder;
+  res.redirect('plant-health-order');
 })
 
 
@@ -1580,12 +1587,12 @@ router.post('/application-existing-product-details', function (req, res) {
         if (applicationType.indexOf("Change to an existing extension of authorisation for minor use (EAMU)") > -1) {
           res.redirect('application-changes')
         } else {
-          res.redirect('application-market-area');
+          res.redirect('application-urgent-status');
         }
       }
     }
   } else {
-    res.redirect('application-market-area');
+    res.redirect('application-urgent-status');
   }
 })
 
@@ -1601,11 +1608,11 @@ router.post('/application-reason-for-reinstatement', function (req, res) {
       if (applicationType.indexOf("Change to an existing extension of authorisation for minor use (EAMU)") > -1) {
         res.redirect('application-changes')
       } else {
-        res.redirect('application-market-area');
+        res.redirect('application-urgent-status');
       }
     }
   } else {
-    res.redirect('application-market-area');
+    res.redirect('application-urgent-status');
   }
 })
 
@@ -1618,10 +1625,10 @@ router.post('/application-finalisation-of-extension', function (req, res) {
     if (applicationType.indexOf("Change to an existing extension of authorisation for minor use (EAMU)") > -1) {
       res.redirect('application-changes')
     } else {
-      res.redirect('application-market-area');
+      res.redirect('application-urgent-status');
     }
   } else {
-    res.redirect('application-market-area');
+    res.redirect('application-urgent-status');
   }
 })
 
@@ -1629,7 +1636,7 @@ router.post('/application-finalisation-of-extension', function (req, res) {
 
 router.post('/application-changes', function (req, res) {  
   let applicationChanges = req.session.data.applicationChanges;
-  res.redirect('application-market-area');
+  res.redirect('application-urgent-status');
 })
 
 
