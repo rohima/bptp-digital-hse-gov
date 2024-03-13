@@ -1,0 +1,93 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Has there been a change to the formulation composition since the product was authorised?   – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      {# <span class="govuk-caption-l">Application details</span> #}
+      <h1 class="govuk-heading-l">Is the supported formulation identical to that currently authorised? </h1>
+
+      <p>This will be checked during the product assessment.  
+
+      </p>
+      <p>The only changes permitted at renewal are the following non-significant formulation changes: </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>alternative sources of co-formulant </li>
+        <li>cation exchange in an anionic surfactant or dispersant </li>
+        <li>addition of a previously agreed marker substance</li>
+      </ul>
+
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Help with non-significant formulation changes
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          You can find out more about the <a href="https://www.hse.gov.uk/pesticides/pesticides-registration/applicant-guide/notification-process.htm">permitted non-significant formulation changes on the HSE website (opens in a new tab)</a>
+        </div>
+      </details>
+
+
+ {{ govukRadios({
+  id: "isFormulationChange",
+  name: "isFormulationChange",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      hint: {text: "Any other changes to the formulation must be submitted as a separate formulation change application alongside this application. Give details of this in your application overview "},
+      checked: false
+      
+    },   
+    {
+      value: "No – non-significant changes only",
+      text: "No – non-significant changes only",
+      hint: {text: "This will be checked during the product assessment "}
+      
+    }
+    ,   
+    {
+      value: "No – other changes ",
+      text: "No – other changes ",
+      hint: {text: "Any other changes to the formulation must be submitted as a separate formulation change application alongside this application. Give details of this in your application overview "}
+      
+    }
+  ]
+}) }}
+
+    
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

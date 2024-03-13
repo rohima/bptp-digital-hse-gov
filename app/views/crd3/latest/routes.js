@@ -1543,7 +1543,7 @@ router.post('/application-type', function (req, res) {
 
   if (applicationType != undefined) {
     if (applicationType.indexOf("New extension of authorisation identical to an existing extension of authorisation for an identical product") > -1) {
-        res.redirect('application-existing-product-details')
+        res.redirect('find-search-identical')
     } else {
         if (applicationType.indexOf("Reinstatement of a previously authorised extension of authorisation for minor use (EAMU)") > -1) {
           res.redirect('application-reason-for-reinstatement')
@@ -1572,9 +1572,9 @@ router.post('/plant-health-order', function (req, res) {
 })
 
 
-// application-existing-product-details
+// find-search-identical
 
-router.post('/application-existing-product-details', function (req, res) {  
+router.post('/find-search-identical', function (req, res) {  
   let applicationType = req.session.data.applicationType;
 
   if (applicationType != undefined) {

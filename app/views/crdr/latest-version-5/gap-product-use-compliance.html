@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Product use compliance    – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+        <h1 class="govuk-heading-l">Do all aspects of the current product use comply with the conditions and restrictions specified in the active substance renewal? </h1>
+        <p>This is separate to product use (GAP) changes required as a result of new endpoints, guidance or data requirements. You will be asked about these changes later. </p>
+
+        <div class="govuk-inset-text">
+          Provide details of how the product does or does not comply in your application overview. 
+        </div>
+
+        {% set emailHtml %}
+        {{ govukWarningText({
+          id: "gapProductUseComplianceCat4",
+          name: "gapProductUseComplianceCat4",
+          
+          text: "If HSE cannot verify compliance, we may amend or withdraw the current product authorisation before the full renewal assessment is completed. Reinstatement of non-compliant uses will likely only be possible following amendments to the active substance approval. "
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+        id: "gapProductUseCompliance",
+        name: "gapProductUseCompliance",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },   
+          {
+            value: "No",
+            text: "No",
+            conditional: {
+              html: emailHtml
+            }
+          }
+        ]
+        }) }}
+
+       
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

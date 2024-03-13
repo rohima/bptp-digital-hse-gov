@@ -9,74 +9,21 @@ EU Member State reference product details – {{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block content %}
+
+
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
       <form class="form" method="post">
-        <span class="govuk-caption-l">Data ownership: Active substance source data </span>
-        <h1 class="govuk-heading-l">EU member state details </h1>
 
-        <p>Active substance: [Active substance name] </p>
-
-        {{ govukInput({
-        label: {
-          text: "Member State"
-        },
-        classes: "govuk-!-width-two-thirds",
-        hint: {
-          text: ""
-        },
-        id: "memberState",
-        name: "memberState"
-      }) }}
-
-        {{ govukInput({
-        label: {
-          text: "Product name (or Code)"
-        },
-        classes: "govuk-!-width-two-thirds",
-        id: "productCode",
-        name: "productCode"
-      }) }}
-
-        {{ govukInput({
-        label: {
-          text: "Authorisation holder"
-        },
-        classes: "govuk-!-width-two-thirds",
-        hint: {
-          text: ""
-        },
-        id: "authHolder",
-        name: "authHolder"
-      }) }}
-
-        {{ govukInput({
-        label: {
-          text: "Marketing company"
-        },
-        classes: "govuk-!-width-two-thirds",
-        id: "marketingCompany",
-        name: "marketingCompany"
-      }) }}
-
-{{ govukInput({
-  label: {
-    text: "Authorisation number"
-  },
-  classes: "govuk-input--width-10",
-  hint: {
-    text: ""
-  },
-  id: "authNumber",
-  name: "authNumber"
-}) }}
-
-{# <h2 class="govuk-heading-m">EU Member State finalised technical equivalence report</h2> #}
+      {# <span class="govuk-caption-l">Application details</span> #}
+      <h1 class="govuk-heading-l">EU Member State reference product details</h1>
 
       {# <p> Enter the product name. You can also add your own internal code number. This is what we will call your application within this service.</p> #}
 
 
- {# {% from "govuk/components/input/macro.njk" import govukInput %}
+ {% from "govuk/components/input/macro.njk" import govukInput %}
 {{ govukInput({
   label: {
     text: "Member State"
@@ -85,26 +32,64 @@ EU Member State reference product details – {{serviceName}} – GOV.UK
   hint: {
     text: ""
   },
-  id: "memberStateTech",
-  name: "memberStateTech"
-}) }} #}
-
-{{ govukDateInput({
-  id: "dateTechnicalReport",
-  namePrefix: "dateTechnicalReport",
-  fieldset: {
-    legend: {
-      text: "Date of finalised EU Member State finalised technical equivalence report"
-    }
-  },
-  hint: {
-    text: "For example, 27 3 2023"
-  }
+  id: "productName",
+  name: "productName"
 }) }}
+
+{{ govukInput({
+  label: {
+    text: "Product name (or Code)"
+  },
+  classes: "govuk-input--width-20",
+  hint: {
+    text: ""
+  },
+  id: "productCode",
+  name: "productCode"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Authorisation holder"
+  },
+  classes: "govuk-input--width-20",
+  hint: {
+    text: ""
+  },
+  id: "productCode",
+  name: "productCode"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Marketing company"
+  },
+  classes: "govuk-input--width-20",
+  hint: {
+    text: ""
+  },
+  id: "productCode",
+  name: "productCode"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Authorisation number"
+  },
+  classes: "govuk-input--width-20",
+  hint: {
+    text: ""
+  },
+  id: "productCode",
+  name: "productCode"
+}) }}
+
+    
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>
+
     </div>
   </div>
 

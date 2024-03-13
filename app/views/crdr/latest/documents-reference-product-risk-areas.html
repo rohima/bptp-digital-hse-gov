@@ -85,23 +85,24 @@ Which risk assessment areas are you using the reference product for? – {{servi
           id: "productRiskAreaChemistry",
           fieldset: {
             legend: {
-              text: "Chemistry",
+              text: "Chemistry/analytical methods",
               classes: "govuk-fieldset__legend--m"
             }
           },
           items: [
 
-            {
+          {
+            value: "Case",
+            text: "Case",
+            conditional: {
+              html: emailHtmlChemistry
+            }
+          },
+          {
               value: "Data",
               text: "Data"
             },
-            {
-              value: "Case",
-              text: "Case",
-              conditional: {
-                html: emailHtmlChemistry
-              }
-            },
+            
             {
               value: "Data protection expired",
               text: "Data protection expired"
@@ -144,17 +145,18 @@ Which risk assessment areas are you using the reference product for? – {{servi
   },
   items: [
    
-    {
+  {
+    value: "Case",
+    text: "Case",
+    conditional: {
+      html: emailHtmlMammalian
+    }
+  },
+  {
       value: "Data",
       text: "Data"
     },
-    {
-      value: "Case",
-      text: "Case",
-      conditional: {
-        html: emailHtmlMammalian
-      }
-    },
+    
     {
       value: "Data protection expired",
       text: "Data protection expired"
@@ -193,7 +195,13 @@ Which risk assessment areas are you using the reference product for? – {{servi
   },
   items: [
    
-    {
+  {
+    value: "Case",
+    text: "Case",
+    conditional: {
+      html: emailHtmlNondiet
+    }
+  },{
       value: "Data",
       text: "Data"
     },
@@ -201,13 +209,7 @@ Which risk assessment areas are you using the reference product for? – {{servi
       value: "Modelling",
       text: "Modelling"
     },
-    {
-      value: "Case",
-      text: "Case",
-      conditional: {
-        html: emailHtmlNondiet
-      }
-    },
+    
     {
       value: "Data protection expired",
       text: "Data protection expired"
@@ -246,21 +248,18 @@ Which risk assessment areas are you using the reference product for? – {{servi
   },
   items: [
    
-    {
+  {
+    value: "Case",
+    text: "Case",
+    conditional: {
+      html: emailHtmlResidue
+    }
+  },
+  {
       value: "Data",
       text: "Data"
     },
-    {
-      value: "Modelling",
-      text: "Modelling"
-    },
-    {
-      value: "Case",
-      text: "Case",
-      conditional: {
-        html: emailHtmlResidue
-      }
-    },
+   
     {
       value: "Data protection expired",
       text: "Data protection expired"
@@ -299,7 +298,14 @@ Which risk assessment areas are you using the reference product for? – {{servi
   },
   items: [
    
-    {
+  {
+    value: "Case",
+    text: "Case",
+    conditional: {
+      html: emailHtmlEnvironment
+    }
+  },
+  {
       value: "Data",
       text: "Data"
     },
@@ -307,13 +313,7 @@ Which risk assessment areas are you using the reference product for? – {{servi
       value: "Modelling",
       text: "Modelling"
     },
-    {
-      value: "Case",
-      text: "Case",
-      conditional: {
-        html: emailHtmlEnvironment
-      }
-    },
+    
     {
       value: "Data protection expired",
       text: "Data protection expired"
@@ -354,17 +354,22 @@ Which risk assessment areas are you using the reference product for? – {{servi
   },
   items: [
    
-    {
+  {
+    value: "Case",
+    text: "Case",
+    conditional: {
+      html: emailHtmlEcotoxicology
+    }
+  },
+  {
       value: "Data",
       text: "Data"
     },
     {
-      value: "Case",
-      text: "Case",
-      conditional: {
-        html: emailHtmlEcotoxicology
-      }
+      value: "Modelling ",
+      text: "Modelling "
     },
+    
     {
       value: "Data protection expired",
       text: "Data protection expired"
@@ -403,17 +408,18 @@ Which risk assessment areas are you using the reference product for? – {{servi
   },
   items: [
    
-    {
+  {
+    value: "Case",
+    text: "Case",
+    conditional: {
+      html: emailHtmlEfficacy
+    }
+  },
+  {
       value: "Data",
       text: "Data"
     },
-    {
-      value: "Case",
-      text: "Case",
-      conditional: {
-        html: emailHtmlEfficacy
-      }
-    },
+    
     {
       value: "Data protection expired",
       text: "Data protection expired"

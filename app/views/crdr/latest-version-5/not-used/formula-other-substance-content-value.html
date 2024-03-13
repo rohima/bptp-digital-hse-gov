@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What are the content values? – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      {# <span class="govuk-caption-l">Application details</span> #}
+      <h1 class="govuk-heading-l">What are the content values?</h1>
+
+
+ {% from "govuk/components/input/macro.njk" import govukInput %}
+ {{ govukInput({
+  label: {
+    text: "Density concentration content value"
+  },
+  suffix: {
+    text: "(g/kg)"
+  },
+  classes: "govuk-input--width-5",
+  id: "formulaOtherSubstanceContentValue",
+  name: "formulaOtherSubstanceContentValue"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Weight concentration content value"
+  },
+  suffix: {
+    text: "(% w/w)"
+  },
+  classes: "govuk-input--width-5",
+  id: "formulaOtherSubstanceWeightValue",
+  name: "formulaOtherSubstanceWeightValue"
+}) }}    
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

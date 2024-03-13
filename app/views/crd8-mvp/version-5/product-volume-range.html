@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Product packaging volume – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post">
+
+      {# <span class="govuk-caption-l">Application details</span> #}
+      <h1 class="govuk-heading-l">What is the volume range of the product?</h1>
+
+
+ {% from "govuk/components/input/macro.njk" import govukInput %}
+ {{ govukInput({
+  label: {
+    text: "from"
+  },
+  suffix: {
+    text: "kg"
+  },
+  classes: "govuk-input--width-4",
+  id: "width-4",
+  name: "width4"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "to"
+  },
+  suffix: {
+    text: "kg"
+  },
+  classes: "govuk-input--width-4",
+  id: "width-4",
+  name: "width4"
+}) }}
+
+    
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

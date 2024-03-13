@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Find a product – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">[Application name]</span>
+      {# <h1 class="govuk-heading-l">Find an existing plant protection product </h1> #}
+      {# <p>Search for a product or authorisation </p> #}
+      <form class="form" method="post">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="draftSearch">
+            Search for a reference product 
+          </label>
+          </h1>
+          <p>Enter the details of the identical product the extension of authorisation for minor use will be based on. </p>
+          <div id="search-hint" class="govuk-hint moj-search__hint ">
+            Enter a product name or MAPP number 
+          </div>
+          <input class="govuk-input" style="width:100%" id="draftSearch" name="draftSearch" type="text">
+          {# <button class="govuk-button" data-module="govuk-button">Search</button> #}
+        </div>
+
+        {# {{ govukTable({
+          head: [
+            {
+              text: "Name"
+            },
+            {
+              text: "Type"
+            },
+            {
+              text: "Action"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "[Name]"
+              },
+              {
+                text: "[Major change or notifiable change]"
+              },
+              
+              {
+                html: "<a href='task-list'>Continue<a/>"
+              }
+            ],
+            [
+              {
+                text: "[Name]"
+              },
+              {
+                text: "[Major change or notifiable change]"
+              },
+              
+              {
+                html: "<a href='task-list'>Continue<a/>"
+              }
+            ],
+            [
+              {
+                text: "[Name]"
+              },
+              {
+                text: "[Major change or notifiable change]"
+              },
+              
+              {
+                html: "<a href='task-list'>Continue<a/>"
+              }
+            ]
+          ]
+        }) }} #}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+
+      </form>
+
+    </div>
+  </div>
+
+
+
+{% endblock %}

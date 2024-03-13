@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Do you need to add another active substance source?  – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     
+      
+
+      <form class="form" method="post">
+        
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {# <span class="govuk-caption-l">Application</span> #}
+
+      <h1 class="govuk-heading-l">
+        Do you need to add another active substance source? 
+      </h1>
+
+
+      
+
+{% set textHtml %}
+{{ govukInput({
+  id: "applicationOngoingDetails",
+  name: "applicationOngoingDetails",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter reference"
+  },
+  hint: { text: "For example, application number, product name or MAPP number "}
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  id: "applicationOngoing",
+  name: "applicationOngoing",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      checked: false,
+      conditional: {
+        html: emailHtml
+      },
+      hint: {text: "You will be sent charged for each source you add. "}
+    },   
+    {
+      value: "No",
+      text: "No",
+      conditional: {
+        html: emailHtml
+      }
+    }
+  ]
+}) }}
+
+    
+        
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
