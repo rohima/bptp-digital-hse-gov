@@ -1,0 +1,215 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers usage – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <form method="post">
+
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+
+        <!-- DATA OWNERSHIP - START -->
+
+        <h2 class="govuk-heading-m">Renewal of a product authorisation </h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Application form 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['fileName'] or '[file name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="type-of-assessment">
+                Change
+                <span class="govuk-visually-hidden">Application form </span>
+              </a>
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Is the product a microbial? 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['fileName'] or '[value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="type-of-assessment">
+                Change
+                <span class="govuk-visually-hidden">Application overview</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Labelling documents 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['fileName'] or '[file name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="type-of-assessment">
+                Change
+                <span class="govuk-visually-hidden">Application overview</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Application overview 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['fileName'] or '[file name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="type-of-assessment">
+                Change
+                <span class="govuk-visually-hidden">Application overview</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Draft registration report (dRR) 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['fileName'] or '[file name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="type-of-assessment">
+                Change
+                <span class="govuk-visually-hidden">Application overview</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Data matching evidence and data dossier 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['fileName'] or '[file name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="type-of-assessment">
+                Change
+                <span class="govuk-visually-hidden">Application overview</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Supporting product data dossier 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['fileName'] or '[file name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="type-of-assessment">
+                Change
+                <span class="govuk-visually-hidden">Application overview</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              CRD correspondence 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['fileName'] or '[file name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="type-of-assessment">
+                Change
+                <span class="govuk-visually-hidden">Application overview</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Safety data sheets (SDS) 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['fileName'] or '[file name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="type-of-assessment">
+                Change
+                <span class="govuk-visually-hidden">Application overview</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Comparative assessment report 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['fileName'] or '[file name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="type-of-assessment">
+                Change
+                <span class="govuk-visually-hidden">Application overview</span>
+              </a>
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Letters of access 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['fileName'] or '[file name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="type-of-assessment">
+                Change
+                <span class="govuk-visually-hidden">Application overview</span>
+              </a>
+            </dd>
+          </div>
+
+
+
+        </dl>
+
+          
+        
+
+
+    
+
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+        <p>
+          <a href="#">View application progress</a>
+        </p>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+
+
+

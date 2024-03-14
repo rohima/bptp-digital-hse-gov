@@ -17,233 +17,41 @@
 
         <!-- DATA OWNERSHIP - START -->
 
-        <h2 class="govuk-heading-m">Application type</h2>
+        <h2 class="govuk-heading-m">Apply for technical equivalence of a new active substance source </h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-             Type of application
+              Application form 
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['assessmentType'] or '[assessment type]'}}
+              {{ data['fileName'] or '[file name]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="type-of-assessment">
                 Change
-                <span class="govuk-visually-hidden">Type of application</span>
+                <span class="govuk-visually-hidden">Application form </span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Application overview 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['fileName'] or '[file name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="type-of-assessment">
+                Change
+                <span class="govuk-visually-hidden">Application overview</span>
               </a>
             </dd>
           </div>
         </dl>
 
           
-        <h2 class="govuk-heading-m">Data</h2>
-
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-             Technical equivalence report
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['xxxx'] or '[tech equiv report]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="active-substance-source-request-tech-equiv-upload">
-                Change
-                <span class="govuk-visually-hidden">Technical equivalence report</span>
-              </a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-             Uploaded data
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['xxx'] or '[chemisty data]'}}
-              {{ data['xxx'] or '[toxicology data]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="document-data">
-                Change
-                <span class="govuk-visually-hidden">Uploaded data</span>
-              </a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-             Production scale of the 5-batch data
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['productionScale'] or '[production scale]'}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="active-substance-source-request-tech-equiv-production-scale">
-                Change
-                <span class="govuk-visually-hidden">Name of data owner</span>
-              </a>
-            </dd>
-          </div>
-        </dl>
-
-        <h2 class="govuk-heading-m">Manufacturing address</h2>
-
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-               Manufacturing site address
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['formulaManufacturingAddressList'] or '[Manufacturing address]'}}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a href="formula-active-substance-source-data-ownership-details">
-                  Change
-                  <span class="govuk-visually-hidden">Manufacturing site address</span>
-                </a>
-              </dd>
-            </div>
-        </dl>
-      
-
-
-        <h2 class="govuk-heading-m">Active substance technical specification</h2>
-
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            Active substance name
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['formulaActiveSubstanceName'] or "[active substance name]" }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="active-substance-details">
-              Change
-              <span class="govuk-visually-hidden">Volume range for container type</span>
-              </a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            CAS number
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['formulaActiveSubstanceCAS'] or "[CAS number]" }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="active-substance-details">
-              Change
-              <span class="govuk-visually-hidden">CAS number</span>
-              </a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            Minimum content
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['formulaActiveSubstanceMinContent'] or "[min content]" }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="active-substance-details">
-              Change
-              <span class="govuk-visually-hidden">Minimum content</span>
-              </a>
-            </dd>
-          </div>
-        </dl>
-
-
-        <h2 class="govuk-heading-m">Impurity technical specification</h2>
-
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            CAS or IUPAC name
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['formulaActiveSubstanceImpurityName'] or "[CAS / IUPAC name]" }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="active-substance-impurity">
-              Change
-              <span class="govuk-visually-hidden">CAS or IUPAC name</span>
-              </a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            Chemical name
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['formulaActiveSubstanceImpurityChemicalName'] or "[chemical name]" }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="active-substance-impurity">
-              Change
-              <span class="govuk-visually-hidden">Chemical name</span>
-              </a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            CAS number
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['formulaActiveSubstanceImpurityCAS'] or "[CAS number]" }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="active-substance-impurity">
-              Change
-              <span class="govuk-visually-hidden">CAS number</span>
-              </a>
-            </dd>
-          </div>
-          
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            Maximum content
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['formulaActiveSubstanceImpurityMaxContent'] or "[max content]" }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="active-substance-impurity">
-              Change
-              <span class="govuk-visually-hidden">Maximum content</span>
-              </a>
-            </dd>
-          </div>
-        </dl>
-
-
-        <h2 class="govuk-heading-m">Documents</h2>
-
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-            Application overview
-          </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['xxxx'] or "[application overview doc]" }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="document-application-overview">
-              Change
-              <span class="govuk-visually-hidden">Application overview</span>
-              </a>
-            </dd>
-          </div>
-        </dl>
+        
 
 
     

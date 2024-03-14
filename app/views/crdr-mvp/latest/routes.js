@@ -365,7 +365,7 @@ router.post('/proposed-use-info', function (req, res) {
 
 router.post('/is-microbial', function (req, res) {  
   let isMicrobial = req.session.data.isMicrobial;
-  res.redirect('product-use');
+  res.redirect('packaging-upload-label');
 })
 
 
@@ -728,6 +728,48 @@ router.post('/documents-reference-product-risk-areas-upload', function (req, res
 
 // ----------------- DOCUMENTS ----------------- //
 
+// documents-upload-application
+
+router.post('/documents-upload-application', function (req, res) {  
+  let applicationCRD8 = req.session.data.applicationCRD8;
+  res.redirect('is-microbial');
+
+})
+
+// is-microbial
+
+router.post('/is-microbial', function (req, res) {  
+  let applicationCRD8 = req.session.data.applicationCRD8;
+  res.redirect('packaging-upload-label');
+
+})
+
+
+
+// packaging-upload-label
+
+router.post('/packaging-upload-label', function (req, res) {
+  let packagingXDetails = req.session.data.packagingXDetails;
+  res.redirect('document-application-overview');
+
+})
+
+
+// document-application-overview
+
+router.post('/document-application-overview', function (req, res) {  
+  let documentsReferenceProduct = req.session.data.documentsReferenceProduct;
+  let isMicrobial = req.session.data.isMicrobial;
+  if (isMicrobial == "Yes") {
+    res.redirect('documents-upload-draft-reg-report-microbials');
+  } else {
+    res.redirect('documents-upload-draft-reg-report');
+  }
+
+})
+
+
+
 // documents-reference-product
 
 router.post('/documents-reference-product', function (req, res) {  
@@ -782,7 +824,7 @@ router.post('/documents-upload-draft-reg-report', function (req, res) {
 
 })
 
-// documents-upload-draft-reg-report microbials
+// documents-upload-draft-reg-report-microbials
 
 router.post('/documents-upload-draft-reg-report-microbials', function (req, res) {  
   let documentsDraftRegReport = req.session.data.documentsDraftRegReport;
@@ -820,7 +862,7 @@ router.post('/documents-upload-safety-data-sheet', function (req, res) {
 
 router.post('/documents-upload-comparative-assessment-report', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
-  res.redirect('documents-upload-data-matching');
+  res.redirect('documents-upload-letters-of-access');
 
 })
 
@@ -835,7 +877,7 @@ router.post('/documents-upload-data-matching', function (req, res) {
 
 router.post('/documents-upload-letters-of-access', function (req, res) {  
   let documentsSafetyDataSheet = req.session.data.documentsSafetyDataSheet;
-  res.redirect('documents-check-answers');
+  res.redirect('check-answers');
 
 })
 
@@ -853,6 +895,14 @@ router.post('/documents-upload-proof-of-authorisation', function (req, res) {
 // documents-check-answers
 
 router.post('/documents-check-answers', function (req, res) {  
+  let documentsCheckAnswers = req.session.data.documentsCheckAnswers;
+  res.redirect('declaration');
+
+})
+
+// check-answers
+
+router.post('/check-answers', function (req, res) {  
   let documentsCheckAnswers = req.session.data.documentsCheckAnswers;
   res.redirect('declaration');
 

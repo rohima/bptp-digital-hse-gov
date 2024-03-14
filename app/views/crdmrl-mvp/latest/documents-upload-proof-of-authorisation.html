@@ -11,12 +11,17 @@ Upload proof of authorisation  – {{serviceName}} – GOV.UK
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Upload your proof of authorisation </h1>
-      <p>This includes labels, authorisation documents, and relevant legislation for the exporting country.  </p>
+      <h1 class="govuk-heading-l">Upload your proof of authorisation in the exporting country (optional) </h1>
 
- 
+      <div class="govuk-inset-text">
+        For import tolerances only 
+      </div>
 
-      <p> You may provide links to the national websites where this information is available. Provide English translations if necessary. </p>
+      <p>You must provide evidence of authorisation in the exporting country.   </p>
+      <p>This includes labels and authorisation documents.   </p>
+      <p>You may provide links to the national websites where this information is available. Provide English translations if necessary. </p>
+
+      
       <form class="form" method="post">
 
         {{ govukFileUpload({

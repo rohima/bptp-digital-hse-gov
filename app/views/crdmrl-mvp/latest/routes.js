@@ -140,7 +140,7 @@ router.post('/receive-verify-code', function (req, res) {
 router.post('/task-list', function (req, res) {
   
   let taskList = req.session.data.taskList;
-  res.redirect('task-list');
+  res.redirect('documents-upload-mrl-form');
 
 })
 
@@ -269,9 +269,19 @@ router.post('/documents-upload-proof-mrl', function (req, res) {
 
 router.post('/documents-upload-proof-residue', function (req, res) {  
   let documentsProofResidue = req.session.data.documentsProofResidue;
+  res.redirect('documents-upload-supporting');
+
+})
+
+
+// documents-upload-supporting
+
+router.post('/documents-upload-supporting', function (req, res) {  
+  let documentsRelevantCorrespondence = req.session.data.documentsRelevantCorrespondence;
   res.redirect('documents-upload-relevant-correspondence');
 
 })
+
 
 // documents-upload-relevant-correspondence
 

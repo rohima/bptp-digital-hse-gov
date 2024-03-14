@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-Upload your proof of MRLs in force  –{{serviceName}} – GOV.UK
+Which admin documents are you uploading? –{{serviceName}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -18,66 +18,38 @@ Upload your proof of MRLs in force  –{{serviceName}} – GOV.UK
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Upload your proof of MRLs in force (optional)</h1>
-
-      <div class="govuk-inset-text">
-        For import tolerances only 
-      </div>
-
-      <p>This includes the national legislation of the exporting country.  
-      </p>
- <p> You may provide links to the national websites where this information is available. Provide English translations if necessary. </p>
+      <h1 class="govuk-heading-l">Upload your application overview </h1>
       <form class="form" method="post">
 
-        <h2 class="govuk-heading-m">If this information is not available at time of application </h2>
-
-        <p>HSE can start the assessment without this evidence. However, HSE cannot implement the MRL if the evidence is not provided by the assessment completion deadline, and you will need to make a new application with the evidence. In this case, HSE will check the evaluation report to ensure the assessment remains valid and charge a sift fee and an administrative fee. </p>
-
-        {{ govukCheckboxes({
-          name: "documentsDraftEvaluationThirdParty",
-          id: "documentsDraftEvaluationThirdParty",
-          fieldset: {
-            legend: {
-              text: "",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          hint: {
+        {# {{ govukCheckboxes({
+        id: "documentsAdminSelect",
+        name: "documentsAdminSelect",
+        fieldset: {
+          legend: {
             text: ""
+          }
+        },
+        hint: {
+          text: "Select all that apply."
+        },
+        items: [
+          {
+            value: "an application overview",
+            text: "an application overview"
           },
-          items: [
-            {
-              value: "I will provide this information at a later date ",
-              text: "I will provide this information at a later date "
-            }
-          ]
-        }) }}
-
-        {{ govukRadios({
-          name: "documentsDraftEvaluationThirdParty",
-          id: "documentsDraftEvaluationThirdParty",
-          fieldset: {
-            legend: {
-              text: "Will a third party provide any or all of this information?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
+          {
+            value: "a copy of the proposed product label ",
+            text: "a copy of the proposed product label "
           },
-          hint: {
-            text: ""
+          {
+            divider: "or"
           },
-          items: [
-            {
-              value: "Third party",
-              text: "Yes"
-            },
-            {
-              value: "No",
-              text: "No"
-            }
-          ]
-        }) }}
+          {
+            value: "Third party",
+                text: "To be provided separately by a third party  "
+          }
+        ]
+        }) }} #}
 
         <div id="file-upload-1-hint" class="govuk-hint">
         You can upload more than one file. Each file must be a maximum of 4GB.  

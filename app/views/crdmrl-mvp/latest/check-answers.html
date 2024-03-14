@@ -16,14 +16,14 @@
         <h1 class="govuk-heading-xl">Check your answers</h1>
 
         <!-- PRODUCT AND ALTERATION - START -->
-        <h2 class="govuk-heading-m">Maximum residue levels (MRLs) </h2>
+        <h2 class="govuk-heading-m">Apply for a change to maximum residue levels (MRLs)  </h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Application type 
+              Application form 
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['applicationMrlType'] or '[application type]'}}
+              {{ data['applicationMrlType'] or '[File name]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="application-type">
@@ -32,7 +32,7 @@
               </a>
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
+          {# <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
             Import tolerances
           </dt>
@@ -45,14 +45,14 @@
               <span class="govuk-visually-hidden">Claim alteration</span>
               </a>
             </dd>
-          </div>
+          </div> #}
        
-          <div class="govuk-summary-list__row">
+          {# <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Active substance
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['applicationActiveSubstance'] or '[Active substance]'}}
+              {{ data['applicationActiveSubstance'] or '[File name]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="application-active-substance">
@@ -67,7 +67,7 @@
               Assessment areas 
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentsReferenceProductRiskAreas'] or '[Assessment areas]'}}
+              {{ data['documentsReferenceProductRiskAreas'] or '[File name]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-reference-product-risk-areas">
@@ -82,7 +82,7 @@
               MRL application form 
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentsMrlForm'] or '[MRL application form]'}}
+              {{ data['documentsMrlForm'] or '[File name]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-mrl-form">
@@ -90,14 +90,14 @@
               <span class="govuk-visually-hidden">MRL application form</span>
               </a>
             </dd>
-          </div>
+          </div> #}
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Application overview
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentsAdmin'] or '[Application overview]'}}
+              {{ data['documentsAdmin'] or '[File name]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-admin">
@@ -113,7 +113,7 @@
               Draft evaluation report 
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentsDraftEvaluation'] or '[Draft evaluation report ]'}}
+              {{ data['documentsDraftEvaluation'] or '[File name]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-draft-evaluation">
@@ -128,7 +128,7 @@
               Proof of authorisation 
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['authHolderAuthorisation'] or '[Proof of authorisation ]'}}
+              {{ data['authHolderAuthorisation'] or '[File name]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-proof-of-authorisation">
@@ -143,7 +143,7 @@
               Proof of MRLs in force 
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentsProofMrl'] or '[Proof of MRLs in force ]'}}
+              {{ data['documentsProofMrl'] or '[File name]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-proof-mrl">
@@ -158,7 +158,7 @@
               Proof of residue definitions in force 
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentsProofResidue'] or '[Proof of residue definitions in force ]'}}
+              {{ data['documentsProofResidue'] or '[File name]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-proof-residue">
@@ -170,10 +170,25 @@
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+              Supporting data dossier 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsRelevantCorrespondence'] or '[File name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-proof-residue">
+              Change
+              <span class="govuk-visually-hidden">CRD correspondence </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
               CRD correspondence 
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentsRelevantCorrespondence'] or '[CRD correspondence]'}}
+              {{ data['documentsRelevantCorrespondence'] or '[File name]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-relevant-correspondence">
@@ -188,7 +203,7 @@
               Letters of access  
           </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['documentsLetterOfAccess'] or '[Letters of access]'}}
+              {{ data['documentsLetterOfAccess'] or '[File name]'}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="documents-upload-letters-of-access">
@@ -198,7 +213,7 @@
             </dd>
           </div>
 
-          <div class="govuk-summary-list__row">
+          {# <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Data 
           </dt>
@@ -211,7 +226,7 @@
               <span class="govuk-visually-hidden">Data </span>
               </a>
             </dd>
-          </div>
+          </div> #}
           
         </dl>
 

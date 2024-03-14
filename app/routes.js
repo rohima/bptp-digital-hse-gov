@@ -32,8 +32,11 @@ router.use('/crd3', require('./views/crd3/routes'));
 router.use('/crd8', require('./views/crd8/routes'));
 router.use('/crd8-mvp', require('./views/crd8-mvp/routes'));
 router.use('/crd9', require('./views/crd9/routes'));
+router.use('/crd9-mvp', require('./views/crd9-mvp/routes'));
 router.use('/crdr', require('./views/crdr/routes'));
+router.use('/crdr-mvp', require('./views/crdr-mvp/routes'));
 router.use('/crdw', require('./views/crdw/routes'));
 router.use('/crdmrl', require('./views/crdmrl/routes'));
+router.use('/crdmrl-mvp', require('./views/crdmrl-mvp/routes'));
 
 // Add your routes here

@@ -7,23 +7,23 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <span class="govuk-caption-l">Apply for authorisation of a new plant protection product</span>
-      <h1 class="govuk-heading-l">{{ data['existingJobNumber'] or '[Job Number]' }} and [Product name/code (when applicable)]</h1> 
+      <span class="govuk-caption-l">Renewal of a product authorisation </span>
+      <h1 class="govuk-heading-l">Your application </h1> 
 
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 4 sections.</p>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed [X] of 4 sections. </p>
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Returning to this application</h2>
       <p class="">We will save the information you give to us on each page.</p>
-      <p class="govuk-body govuk-!-margin-bottom-7">Your job number and instructions on how to return later have been sent to <strong>{{ data['your-email'] or 'charlotte.tilbury@barracks.com' }}</strong>.</p>
+      <p class="govuk-body govuk-!-margin-bottom-7">Your job number and instructions on how to return later have been sent to <strong>{{ data['your-email'] or '[user’s email address]' }}</strong>.</p>
 
       <h2 class="app-task-list__section">
-        <span class="app-task-list__section-number">1.</span> Applicant information</h2>
+        <span class="app-task-list__section-number">1.</span> Application form </h2>
 
       <ul class="app-task-list__items">
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
-            <a href="find-search" aria-describedby="company-information-status">
-             Application information
+            <a href="documents-upload-application" aria-describedby="company-information-status">
+              Application form 
             </a>
           </span>
           <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started yet</strong>
@@ -31,88 +31,104 @@
       </ul>
 
       <h2 class="app-task-list__section">
-        <span class="app-task-list__section-number">2.</span> Product information</h2>
+        <span class="app-task-list__section-number">2.</span>Application information</h2>
 
       <ul class="app-task-list__items">
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
             <a href="#" aria-describedby="company-information-status"></a>
-          Authorised holder
+            Microbials 
           
           </span>
           <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
         </li>
 
-        <li class="app-task-list__item">
-          <span class="app-task-list__task-name">
-            <a href="#" aria-describedby="company-information-status"></a>
-            Marketing company
-          
-          </span>
-          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
-        </li>
-
-        <li class="app-task-list__item">
-          <span class="app-task-list__task-name">
-            <a href="#" aria-describedby="company-information-status"></a>
-            Product details
-          </a>
-          </span>
-          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
-        </li>
-
-        <li class="app-task-list__item">
-          <span class="app-task-list__task-name">
-            <a href="#" aria-describedby="company-information-status"></a>
-            Formulation composition
-          </a>
-          </span>
-          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
-        </li>
-
-        <li class="app-task-list__item">
-          <span class="app-task-list__task-name">
-            <a href="#" aria-describedby="company-information-status"></a>
-            Proposed and authorised uses
-          </a>
-          </span>
-          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
-        </li>
-
-        <li class="app-task-list__item">
-          <span class="app-task-list__task-name">
-            <a href="#" aria-describedby="company-information-status"></a>
-            Packaging
-          </a>
-          </span>
-          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
-        </li>
-
-        <li class="app-task-list__item">
-          <span class="app-task-list__task-name">
-            <a href="#" aria-describedby="company-information-status"></a>
-            Manufacturing site
-          </a>
-          </span>
-          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
-        </li>
       </ul>
 
       <h2 class="app-task-list__section">
         <span class="app-task-list__section-number">3.</span> Documents</h2>
 
       <ul class="app-task-list__items">
+        
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
             <a href="#" aria-describedby="company-information-status"></a>
-           Supporting document
+            Labelling documents
         </span>
           <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
         </li>
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="#" aria-describedby="company-information-status"></a>
+            Application overview 
+        </span>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
+        </li>
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="#" aria-describedby="company-information-status"></a>
+            Draft registration report (dRR) 
+        </span>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
+        </li>
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="#" aria-describedby="company-information-status"></a>
+            Data matching evidence and data dossier 
+        </span>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
+        </li>
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="#" aria-describedby="company-information-status"></a>
+            Supporting product data dossier 
+        </span>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
+        </li>
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="#" aria-describedby="company-information-status"></a>
+            CRD correspondence 
+        </span>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
+        </li>
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="#" aria-describedby="company-information-status"></a>
+            Safety data sheets (SDS) 
+        </span>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
+        </li>
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="#" aria-describedby="company-information-status"></a>
+            Comparative assessment report 
+        </span>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
+        </li>
+
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="#" aria-describedby="company-information-status"></a>
+            Letters of access 
+        </span>
+          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
+        </li>
+
+       
+
+
       </ul>
 
       <h2 class="app-task-list__section">
-        <span class="app-task-list__section-number">4.</span> Declaration, payment details and submit</h2>
+        <span class="app-task-list__section-number">4.</span> Declaration, invoice details and submit</h2>
       <ul class="app-task-list__items">
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
@@ -124,7 +140,7 @@
 
       <li class="app-task-list__item">
         <span class="app-task-list__task-name">
-           Payment details and submit your application
+           Invoice details and submit your application
           </a>
       </span>
       <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
