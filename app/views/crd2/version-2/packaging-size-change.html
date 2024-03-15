@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Describe the change to pack sizes – Manage pesticide product authorisations – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" method="post">
+
+        {{ govukTextarea({
+          name: "packagingSize",
+          id: "packagingSize",
+          label: {
+            text: "Describe the change to pack sizes",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "You can only change pack sizes within the existing range. If you need to make any other packaging changes, start an application for a new product authorisation requiring full technical assessment."
+          }
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

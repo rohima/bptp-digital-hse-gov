@@ -17,57 +17,18 @@ Where has this active substance source previously been considered to be technica
 
         <h1 class="govuk-heading-l">Where has this active substance source previously been considered to be technically equivalent?  </h1>
 
-        {% set textHtml %}
+       
         {{ govukInput({
           id: "applicantType",
           name: "applicantType",
           type: "tel",
           autocomplete: "tel",
-          classes: "govuk-!-width-one-third",
+          classes: "govuk-!-width-two-thirds",
           label: {
-            text: "Name of EU member state"
+            text: "Enter EU member state "
           }
         }) }}
-        {% endset -%}
-
-        {{ govukRadios({
-          id: "marketArea",
-          name: "marketArea",
-          fieldset: {
-            legend: {
-              text: "",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            text: ""
-          },
-          items: [
-            {
-              value: "Great Britain",
-              text: "Great Britain ",
-              hint: {text:""}
-              
-            },   
-            {
-              value: "EU member state",
-              text: "EU member state",
-              hint: {text:" "},
-              conditional: {
-                html: textHtml
-              }
-             
-            },   
-            {
-              value: "Neither",
-              text: "Neither",
-              hint: {text:"This application may not result in authorisation if the source has not previously been considered to be technically equivalent in Great Britain or an EU member state. "}
-             
-            }
-            
-          ]
-        }) }}
+       
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 

@@ -25,7 +25,7 @@ Do you have an ongoing or existing application that you would like this source t
       {# <span class="govuk-caption-l">Application</span> #}
 
       <h1 class="govuk-heading-l">
-        Do you have an ongoing or existing application that you would like this source to be included in? 
+        Do you have an ongoing application that you would like this source to be included in? 
       </h1>
 
 
@@ -39,9 +39,8 @@ Do you have an ongoing or existing application that you would like this source t
   autocomplete: "tel",
   classes: "govuk-!-width-one-third",
   label: {
-    text: "Enter reference"
-  },
-  hint: { text: "For example, application number, product name or MAPP number "}
+    text: "Enter application number"
+  }
 }) }}
 {% endset -%}
 
@@ -72,7 +71,8 @@ Do you have an ongoing or existing application that you would like this source t
       text: "No",
       conditional: {
         html: emailHtml
-      }
+      },
+      hint: {text: "If you want to include this new or changed source in a product authorisation, you must complete a separate application  "}
     }
   ]
 }) }}

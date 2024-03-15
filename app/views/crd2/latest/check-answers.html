@@ -1,0 +1,524 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers usage – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <form method="post">
+
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+
+        <!-- PRODUCT AND ALTERATION - START -->
+        <h2 class="govuk-heading-m">Authorisation of a new plant protection product identical to another product </h2>
+
+        <h3 class="govuk-heading-s">Find product</h3>
+
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Product name 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['applicationMrlType'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="find-search">
+              Change
+              <span class="govuk-visually-hidden">Product name </span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+
+        <h3 class="govuk-heading-s">Product details </h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Extent of authorisation 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['isImportTolerance'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="application-market-area">
+              Change
+              <span class="govuk-visually-hidden">Extent of authorisation </span>
+              </a>
+            </dd>
+          </div>
+          </dl>
+
+        
+        <h3 class="govuk-heading-s">Changes to product details </h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+       
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Will the authorisation holder be different? 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['applicationActiveSubstance'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="auth-holder-same">
+              Change
+              <span class="govuk-visually-hidden">Will the authorisation holder be different? </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Will the marketing company be different? 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsReferenceProductRiskAreas'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="marketing-co-same">
+              Change
+              <span class="govuk-visually-hidden">Will the marketing company be different? </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Will the product packaging be different? 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsMrlForm'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="packaging-add-another">
+              Change
+              <span class="govuk-visually-hidden">Will the product packaging be different? </span>
+              </a>
+            </dd>
+          </div>
+
+          </dl>
+
+          <h3 class="govuk-heading-s">New product name </h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Product name 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsAdmin'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="product-name">
+              Change
+              <span class="govuk-visually-hidden">Product name /span>
+              </a>
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Development code number 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsDraftEvaluation'] or '[Value ]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+              Change
+              <span class="govuk-visually-hidden">Development code number  </span>
+              </a>
+            </dd>
+          </div>
+
+          </dl>
+
+        <h3 class="govuk-heading-s">New authorisation holder  </h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Authorisation holder name
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['authHolderAuthorisation'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="marketing-address-confirm">
+              Change
+              <span class="govuk-visually-hidden">Authorisation holder name </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Registered address 
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsProofMrl'] or '[Value ]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-proof-mrl">
+              Change
+              <span class="govuk-visually-hidden">Registered address  </span>
+              </a>
+            </dd>
+          </div>
+          </dl>
+
+        <h3 class="govuk-heading-s">New marketing company  </h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Marketing company name 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsProofResidue'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="marketing-company">
+              Change
+              <span class="govuk-visually-hidden">Marketing company name </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Registered address 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsRelevantCorrespondence'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="marketing-address-confirm">
+              Change
+              <span class="govuk-visually-hidden">Registered address  </span>
+              </a>
+            </dd>
+          </div>
+          
+        </dl>
+
+        <h3 class="govuk-heading-s">New packaging   </h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              How many different types of packaging foes the product have? 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsProofResidue'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="packaging-number-of">
+              Change
+              <span class="govuk-visually-hidden">Marketing company name </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Capacity range for container type 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsRelevantCorrespondence'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="packaging-size-change">
+              Change
+              <span class="govuk-visually-hidden">Capacity range for container type </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Product container type 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsRelevantCorrespondence'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="packaging-x-details">
+              Change
+              <span class="govuk-visually-hidden">Product container type  </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Packaging material 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsRelevantCorrespondence'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="packaging-x-details">
+              Change
+              <span class="govuk-visually-hidden">Packaging material  </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Other pack material 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsRelevantCorrespondence'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="packaging-x-details">
+              Change
+              <span class="govuk-visually-hidden">Other pack material  </span>
+              </a>
+            </dd>
+          </div>
+          
+        </dl>
+
+        <h3 class="govuk-heading-s">Data ownership for [Active substance name]  </h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Describe data ownership 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['authHolderAuthorisation'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-product-data-ownership">
+              Change
+              <span class="govuk-visually-hidden">Describe data ownership  </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              How will you demonstrate access to the data? 
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsProofMrl'] or '[Value ]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-active-substance-source-data-ownership-details">
+              Change
+              <span class="govuk-visually-hidden">How will you demonstrate access to the data? </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Previous letter of access reference 
+            <dd class="govuk-summary-list__value">
+              {{ data['documentsProofMrl'] or '[Value ]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-active-substance-source-data-ownership-details[]">
+              Change
+              <span class="govuk-visually-hidden">Previous letter of access reference  </span>
+              </a>
+            </dd>
+          </div>
+
+          </dl>
+
+        <h3 class="govuk-heading-s">Product data  </h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Does the authorisation holder own all data for the product? 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['authHolderAuthorisation'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-product-data-ownership">
+              Change
+              <span class="govuk-visually-hidden">Does the authorisation holder own all data for the product?  </span>
+              </a>
+            </dd>
+          </div>
+
+          </dl>
+
+          <h3 class="govuk-heading-s">Active substance source data  </h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              How do you want to provide active substance source information? 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['authHolderAuthorisation'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-product-data-ownership">
+              Change
+              <span class="govuk-visually-hidden">How do you want to provide active substance source information? </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Active substance source information 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['authHolderAuthorisation'] or '[File name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="formula-active-substance-source-data-ownership-details">
+              Change
+              <span class="govuk-visually-hidden">Active substance source information  </span>
+              </a>
+            </dd>
+          </div>
+
+          </dl>
+
+          <h3 class="govuk-heading-s">Documents  </h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Application overview
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['authHolderAuthorisation'] or '[File name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-admin">
+              Change
+              <span class="govuk-visually-hidden">Application overview </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              CRD correspondence 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['authHolderAuthorisation'] or '[File name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-relevant-correspondence">
+              Change
+              <span class="govuk-visually-hidden">CRD correspondence  </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Letters of access 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['authHolderAuthorisation'] or '[File name]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="documents-upload-letters-of-access">
+              Change
+              <span class="govuk-visually-hidden">Letters of access  </span>
+              </a>
+            </dd>
+          </div>
+
+          </dl>
+
+
+        
+        {# {% if data['isGapCsvUpload'] == "No" and data['isProductSeedTreatment'] == "No" %}
+        <h2 class="govuk-heading-m">Crop and product use</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Crop used
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['cropUsed'] or '[crop used]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-crop-product">
+              Change
+              <span class="govuk-visually-hidden">Crop used</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Crop qualifier
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['cropQualifier'] or '[crop qualifier]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="gap-crop-product">
+              Change
+              <span class="govuk-visually-hidden">Crop qualifier</span>
+              </a>
+            </dd>
+          </div>
+
+         
+        </dl>
+        
+      {% endif %} #}
+
+  
+
+       
+
+
+
+        
+
+
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+        <p>
+          <a href="#">View application progress</a>
+        </p>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+
+
+

@@ -112,14 +112,20 @@ router.post('/task-list', function (req, res) {
 
 // ----------------- PRODUCT INFORMATION ----------------- //
 
-// application-market-area - NOT USED
+// application-market-area
 
 router.post('/application-market-area', function (req, res) {
   
   let marketArea = req.session.data.marketArea;
-  res.redirect('auth-holder-same');
+  if (marketArea == "Great Britain") {
+    res.redirect('application-ongoing-existing');
+  } else {
+    res.redirect('application-ongoing-existing-ni');
+  }
 
 })
+
+
 
 // auth-holder-same
 
@@ -219,13 +225,44 @@ router.post('/source-owner-check-answers', function (req, res) {
 
 
 
-
 // type-of-assessment
 
 router.post('/type-of-assessment', function (req, res) {
   
   let authHolderCheckAnswers = req.session.data.authHolderCheckAnswers;
+  res.redirect('application-market-area');
+
+})
+
+
+
+// application-ongoing-existing XXXX
+
+router.post('/application-ongoing-existing', function (req, res) {
+  
+  let authHolderCheckAnswers = req.session.data.authHolderCheckAnswers;
   res.redirect('active-substance-source-request-tech-equiv-upload');
+
+})
+
+
+
+// application-ongoing-existing-ni
+
+router.post('/application-ongoing-existing-ni', function (req, res) {
+  
+  let authHolderCheckAnswers = req.session.data.authHolderCheckAnswers;
+  res.redirect('application-market-area-previous');
+
+})
+
+
+// application-market-area-previous
+
+router.post('/application-market-area-previous', function (req, res) {
+  
+  let authHolderCheckAnswers = req.session.data.authHolderCheckAnswers;
+  res.redirect('active-substance-source-request-tech-equiv-production-scale');
 
 })
 
@@ -242,6 +279,7 @@ router.post('/active-substance-source-request-tech-equiv-upload', function (req,
 router.post('/document-data', function (req, res) {
   res.redirect('active-substance-source-request-tech-equiv-production-scale');
 })
+
 
 
 
@@ -701,6 +739,14 @@ router.post('/evaluation-mode', function (req, res) {
 // active-substance-source-request-tech-equiv-production-scale
 
 router.post('/active-substance-source-request-tech-equiv-production-scale', function (req, res) { 
+  let productionScale = req.session.data.productionScale;
+  res.redirect('active-substance-5-batch-owner');
+
+})
+
+// active-substance-5-batch-owner
+
+router.post('/active-substance-5-batch-owner', function (req, res) { 
   let productionScale = req.session.data.productionScale;
   res.redirect('manufacturing-address-postcode');
 

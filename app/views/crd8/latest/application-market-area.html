@@ -26,7 +26,9 @@ What is the market area for your product?  – {{serviceName}} – GOV.UK
         }) }}
         {% endset -%}
 
-        <h1 class="govuk-heading-l">Where do you want the authorisation for this product to apply? </h1>
+        <h1 class="govuk-heading-l">Where will this technical equivalence apply? </h1>
+        <p>Equivalence assessments for Great Britain and Northern Ireland are considered separate active substance sources.  </p>
+        <p>You will be able to add more sources later if you need to.  </p>
 
         {% set textHtml %}
         {{ govukInput({
@@ -65,12 +67,6 @@ What is the market area for your product?  – {{serviceName}} – GOV.UK
               value: "Northern Ireland",
               text: "Northern Ireland",
               hint: {text:" "}
-             
-            },   
-            {
-              value: "Great Britain and Northern Ireland",
-              text: "Great Britain and Northern Ireland",
-              hint: {text:""}
              
             }
             
