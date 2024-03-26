@@ -1,0 +1,363 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers usage – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <form method="post">
+
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+
+        <!-- DATA OWNERSHIP - START -->
+
+        <h2 class="govuk-heading-m">Extension of authorisation for minor use </h2>
+        <h3 class="govuk-heading-s">Applicant </h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Who is applying? 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['assessmentType'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="type-of-assessment">
+                Change
+                <span class="govuk-visually-hidden">Who is applying? </span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+          
+        <h3 class="govuk-heading-s">Find product </h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Product name 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['xxxx'] or '[Value]'}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="active-substance-source-request-tech-equiv-upload">
+                Change
+                <span class="govuk-visually-hidden">Product name</span>
+              </a>
+            </dd>
+          </div>
+
+          
+        </dl>
+
+        <h3 class="govuk-heading-s">Application details</h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Extent of authorisation
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['formulaManufacturingAddressList'] or '[Value]'}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="formula-active-substance-source-data-ownership-details">
+                  Change
+                  <span class="govuk-visually-hidden">Extent of authorisation</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Application type 
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['formulaManufacturingAddressList'] or '[Value]'}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="formula-active-substance-source-data-ownership-details">
+                  Change
+                  <span class="govuk-visually-hidden">EApplication type </span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Is this EAMU a plant health order? 
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['formulaManufacturingAddressList'] or '[Value]'}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="formula-active-substance-source-data-ownership-details">
+                  Change
+                  <span class="govuk-visually-hidden">Is this EAMU a plant health order? </span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Reference product 
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['formulaManufacturingAddressList'] or '[Value]'}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="formula-active-substance-source-data-ownership-details">
+                  Change
+                  <span class="govuk-visually-hidden">Reference product  </span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Reason for reinstatement
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['formulaManufacturingAddressList'] or '[Value]'}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="formula-active-substance-source-data-ownership-details">
+                  Change
+                  <span class="govuk-visually-hidden">Reason for reinstatement </span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Relevant changes 
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['formulaManufacturingAddressList'] or '[Value]'}}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="formula-active-substance-source-data-ownership-details">
+                  Change
+                  <span class="govuk-visually-hidden">Relevant changes  </span>
+                </a>
+              </dd>
+            </div>
+        </dl>
+      
+
+        
+        <h3 class="govuk-heading-s">Case for need and urgency</h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Are you requesting urgent status? 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaActiveSubstanceName'] or "[Value]" }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="active-substance-details">
+              Change
+              <span class="govuk-visually-hidden">Are you requesting urgent status? </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date EAMU is required for use 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaActiveSubstanceCAS'] or "[Value]" }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="active-substance-details">
+              Change
+              <span class="govuk-visually-hidden">Date EAMU is required for use </span>
+              </a>
+            </dd>
+          </div>
+
+          
+        </dl>
+
+
+        <h3 class="govuk-heading-m">Proposed use </h3>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Is the product a seed treatment? 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaActiveSubstanceImpurityName'] or "[Value]" }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="active-substance-impurity">
+              Change
+              <span class="govuk-visually-hidden">Is the product a seed treatment? </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Proposed use file 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['formulaActiveSubstanceImpurityChemicalName'] or "[File name]" }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="active-substance-impurity">
+              Change
+              <span class="govuk-visually-hidden">Proposed use file </span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+
+
+        <h2 class="govuk-heading-m">Specialist assessment </h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              How are you supporting this application in each specialist assessment area? 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['xxxx'] or "[Value]" }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="document-application-overview">
+              Change
+              <span class="govuk-visually-hidden">How are you supporting this application in each specialist assessment area? </span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Documents </h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Application overview
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['xxxx'] or "[File name]" }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="document-application-overview">
+              Change
+              <span class="govuk-visually-hidden">Application overview</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Supporting data dossier 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['xxxx'] or "[File name]" }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="document-application-overview">
+              Change
+              <span class="govuk-visually-hidden">Supporting data dossier </span>
+              </a>
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              CRD correspondence 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['xxxx'] or "[File name]" }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="document-application-overview">
+              Change
+              <span class="govuk-visually-hidden">CRD correspondence  </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Supporting information 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['xxxx'] or "[File name]" }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="document-application-overview">
+              Change
+              <span class="govuk-visually-hidden">Supporting information  </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Case for need 
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['xxxx'] or "[File name]" }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="document-application-overview">
+              Change
+              <span class="govuk-visually-hidden">Case for need   </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Letters of access
+          </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['xxxx'] or "[File name]" }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="document-application-overview">
+              Change
+              <span class="govuk-visually-hidden">Letters of access  </span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+
+
+    
+
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+        <p>
+          <a href="#">View application progress</a>
+        </p>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+
+
+

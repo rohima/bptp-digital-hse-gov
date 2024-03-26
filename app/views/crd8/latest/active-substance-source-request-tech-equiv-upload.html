@@ -12,13 +12,21 @@ Upload your technical equivalence report – {{serviceName}} – GOV.UK
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <span class="govuk-caption-l">Data ownership: technical equivalence</span>
-      <h1 class="govuk-heading-l">Upload your technical equivalence report</h1>
+
+      
+
+      {%- if marketArea == 'Northern Ireland' -%}
+        <h1 class="govuk-heading-l">Upload your draft technical equivalence report </h1>
+        {%- else -%}
+        <h1 class="govuk-heading-l">Upload the finalised member state equivalence report </h1>         
+        {%- endif -%}
+      
 
       <!--<p>Your supporting data should include any relevant data studies, risk assessments and modelling.  </p>-->
       {# <div class="govuk-inset-text">
       Active substance name: <strong>{{ data['formulaActiveSubstanceName'] or 'Azoxystrobin' }}
           {{ data['formulaTypeAddReference'] or 'CAS' }}: {{ data['formulaTypeAdd' + data['formulaTypeAddReference'] or 'CAS' + 'Reference'] or '131860-33-8' }}</strong>
-      </div> #}
+      </div> #} 
 
       <form class="form" method="post">
 

@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Do you want to upload your active substance source information? – {{serviceName}} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     
+      
+
+      <form class="form" method="post">
+        
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+      <span class="govuk-caption-l">Data ownership: Active substance source data </span>
+
+      <h1 class="govuk-heading-l">
+        Do you want to upload your active substance source information?  </h1>
+
+<p>You can use the <a href="">CRD active substance source template</a> (opens in a new tab) to enter this information and upload it.    </p>
+ 
+<p> If you do not want to upload a file, you can enter the information manually.  </p>
+      
+
+
+
+{{ govukRadios({
+  id: "isActiveSubstanceSourceUpload",
+  name: "isActiveSubstanceSourceUpload",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes – upload a file ",
+      hint: {text:"You must enter the information into the CRD active substance source template before you upload it  "},
+      checked: false
+    },   
+    {
+      value: "No",
+      text: "No – enter it manually "
+      
+    }
+  ]
+}) }}
+
+    
+        
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

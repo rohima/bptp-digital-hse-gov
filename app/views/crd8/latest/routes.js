@@ -270,6 +270,7 @@ router.post('/application-market-area-previous', function (req, res) {
 // active-substance-source-request-tech-equiv-upload
 
 router.post('/active-substance-source-request-tech-equiv-upload', function (req, res) {
+  let marketArea = req.session.data.marketArea;
     res.redirect('document-data');
 })
 
